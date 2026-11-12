@@ -7,7 +7,8 @@
 import * as THREE from 'three';
 import { azar, clamp01, lerp, sale } from '../planta-comun/ayudas.js';
 import { aro, caja, cil, crearAyudante, crearTubos, en, entre, estudio, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BLOQUE, CAVERNA, CORTINA, EQUIPOS, FIN_VERTEDOR, FLUIDOS, GALERIA, LINEAS, LOSA, MAQUINA, NIVEL, PARTES, PUNTAS_TORRE, TORRES, TUBO, VERTEDOR, Y, YABAJO, terreno, vertedorY, vertedorZ } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { BLOQUE, BORNES, CAVERNA, CORTINA, EQUIPOS, FIN_VERTEDOR, FLUIDOS, GALERIA, LINEAS, LOSA, MAQUINA, NIVEL, PARTES, POSTES_RGD, REDUCTORA, TORRES, TUBO, VERTEDOR, Y, YABAJO, terreno, vertedorY, vertedorZ } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -751,6 +752,17 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     unidadH(0, MAQUINA.z1);
     unidadH(1, MAQUINA.z2);
 
+    // --------- los cables de la unidad 1: salen de su caja de bornes, cruzan por una charola y suben pegados a la lumbrera (BORNES de modelo.js)
+    {
+        const g = unidad('generador', 0, 0, dentroC);
+        const [gx, gy, gz] = BORNES.generador;
+        const [cx, cy] = BORNES.charola;
+        g.add(en(caja(0.11, 0.16, 0.14, M.grafito), gx - 0.055, gy - 0.08, gz));
+        g.add(en(caja(CX1 - gx, 0.01, 0.07, M.acero), (gx + CX1) / 2, cy - 0.022, gz));
+        for (const y of [0.95, 1.2]) g.add(en(caja(CX1 - cx + 0.01, 0.014, 0.04, M.acero), (cx + CX1) / 2 - 0.005, y, gz));
+        for (const y of [1.5, 1.75]) g.add(en(caja(0.035, 0.014, 0.04, M.acero), cx + 0.0125, y, gz));
+    }
+
     // --------- la galería de oscilación y el desfogue
     let aguaGaleria;
     {
@@ -798,6 +810,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             for (let i = 0; i < 3; i++) boq.add(en(aro(0.03 - i * 0.003, 0.006, M.marfil), 0, 0.73 * esc + i * 0.07 * esc, k * esc));
         }
         g.add(mover(boq, [0, 1.15, 0]));
+        // la caja de cables, donde llegan los que suben de la caverna
+        g.add(mover(en(caja(0.2 * esc, 0.22 * esc, 0.08, M.grafito), 0, 0.15, 0.36 * esc + 0.04), [0, 1.15, 0]));
         brillo(g, 0, 0.36, 0.5, 0.6, FLUIDOS.ca.color, 'red', 0.14);
         return g;
     };
@@ -805,13 +819,29 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const u = unidad('subestacion');
         u.add(en(caja(2.4, 0.016, 1.46, M.grava ?? M.losa), 3.75, yp - 0.002, 1.85));
         transformador(raiz, 'subestacion', 'tanqueAlta', 3.2, 1.85, 1);
+        // el brocal de la lumbrera y la zanja de los cables, hasta el pie del transformador
+        const ly = BORNES.lumbrera[1];
+        const [zx, zy, zz] = BORNES.zanja;
+        const zt = BORNES.pieTrafo[2];
+        u.add(en(caja(0.28, 0.07, 0.2, M.concreto), CX1 - 0.16, ly - 0.03, 2.65));
+        u.add(en(caja(zx + 0.035 - (CX1 - 0.02), 0.032, 0.07, M.concreto), (zx + 0.035 + CX1 - 0.02) / 2, zy - 0.04, zz));
+        u.add(en(caja(0.07, 0.032, zz + 0.035 - (zt - 0.035), M.concreto), zx, zy - 0.04, (zz + 0.035 + zt - 0.035) / 2));
         // subestación blindada: una nave cerrada con sus ventanas
         const b = unidad('subestacion', 4.24, 1.82);
         b.position.y = yp;
         const cb = cub('blindadaC', ['subestacion'], { color: '#e7e6e0' });
         b.add(mover(caja(0.86, 0.5, 1.06, cb), [0, 1.3, 0]));
         b.add(mover(en(new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.04, 1.1), M.acero), 0, 0.52, 0), [0, 1.3, 0]));
-        for (let k = 0; k < 3; k++) b.add(en(cil(0.06, 0.34, M.acero, 0.06, 12), -0.2, 0.05, -0.32 + k * 0.32), en(caja(0.3, 0.06, 0.05, M.acero), 0.02, 0.18, -0.32 + k * 0.32));
+        for (const k of [-0.32, 0, 0.32]) b.add(en(cil(0.06, 0.34, M.acero, 0.06, 12), -0.2, 0.05, k), en(caja(0.3, 0.06, 0.05, M.acero), 0.02, 0.18, k));
+        // sus boquillas en el techo: entran las tres fases del transformador y salen las tres que van al pórtico
+        const boqG = new THREE.Group();
+        const boquilla = ([x, , z], k) => {
+            boqG.add(en(cil(0.022, 0.32, M.marfil, 0.012, 10), x - 4.24, 0.54, z - 1.82 + k));
+            for (let i = 0; i < 3; i++) boqG.add(en(aro(0.028 - i * 0.003, 0.006, M.marfil), x - 4.24, 0.6 + i * 0.07, z - 1.82 + k));
+        };
+        for (const k of [-0.22, 0, 0.22]) boquilla(BORNES.gisEntrada, k);
+        for (const k of [-0.14, 0, 0.14]) boquilla(BORNES.gisSalida, k);
+        b.add(mover(boqG, [0, 1.3, 0]));
         // pórtico de salida
         const p = unidad('subestacion', 4.77, 2.05);
         p.position.y = yp;
@@ -823,27 +853,30 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     {
         const u = unidad('red');
         const geoT = geoTorre(2.7);
+        // en la ladera, cada pata baja hasta el suelo y se apoya en su zapata
         TORRES.forEach(([x, z]) => {
             const y = terreno(x, z);
             const t = new THREE.Mesh(geoT, M.torre);
             t.position.set(x, y, z);
             u.add(t);
-            u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.012, 0.56), M.losa), x, y + 0.006, z));
+            for (const [sx, sz] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+                const [px, pz] = [x + sx * 0.36, z + sz * 0.36];
+                const suelo = terreno(px, pz);
+                if (suelo < y - 0.01) u.add(entre([px, suelo, pz], [px, y + 0.02, pz], 0.013, M.torre));
+                u.add(en(caja(0.11, 0.05, 0.11, M.concreto), px, Math.min(suelo, y) - 0.02, pz));
+            }
         });
-        const rnt = LINEAS.find(l => l.id === 'rnt');
-        for (const s of [-1, 1]) {
-            const pts = rnt.puntos.map(([x, y, z]) => new THREE.Vector3(x + s * 0.09, y - 0.02, z + s * 0.04));
-            u.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 150, 0.008, 5), M.torre));
-        }
-        const yr = terreno(7.5, -1.65);
-        const r = unidad('red', 7.5, -1.65);
+        // la subestación reductora: la RNT remata en su marco y baja a las boquillas de alta; la RGD sale de las de baja
+        const [rx, rz] = REDUCTORA;
+        const yr = terreno(rx, rz);
+        const r = unidad('red', rx, rz);
         r.position.y = yr;
         r.add(caja(0.66, 0.04, 0.6, M.losa));
         r.add(en(caja(0.32, 0.4, 0.38, M.grafito), 0, 0.04, 0));
-        for (const z of [-0.11, 0, 0.11]) r.add(en(cil(0.016, 0.2, M.marfil, 0.01, 8), 0.05, 0.44, z));
+        for (const k of [-0.11, 0, 0.11]) r.add(en(cil(0.016, 0.2, M.marfil, 0.01, 8), BORNES.reductoraAlta[0] - rx + k, 0.44, BORNES.reductoraAlta[2] - rz));
+        for (const k of [-0.08, 0, 0.08]) r.add(en(cil(0.014, 0.12, M.marfil, 0.009, 8), BORNES.reductoraBaja[0] - rx, 0.44, BORNES.reductoraBaja[2] - rz + k));
         for (const [a, b] of [[[-0.26, 0, -0.26], [-0.26, 1.28, -0.26]], [[-0.26, 0, 0.26], [-0.26, 1.28, 0.26]], [[0.26, 0, -0.26], [0.26, 1.28, -0.26]], [[0.26, 0, 0.26], [0.26, 1.28, 0.26]], [[-0.28, 1.28, 0.26], [0.28, 1.28, 0.26]], [[-0.28, 1.28, -0.26], [0.28, 1.28, -0.26]], [[0, 1.28, -0.26], [0, 1.28, 0.26]]]) r.add(entre(a, b, 0.014, M.acero));
-        r.add(entre([0, 1.28, 0], [0, 0.44, 0], 0.012, M.acero));
-        for (const [x, z, h] of [[6.5, -1.82, 1], [5.9, -1.85, 0.78]]) {
+        for (const [x, z, h] of POSTES_RGD) {
             const y = terreno(x, z);
             u.add(en(cil(0.018, h, M.madera, 0.014, 8), x, y, z));
             u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.26), M.madera), x, y + h - 0.02, z));
@@ -879,6 +912,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             if (x > CORTINA.xPieU - 0.05 && x < CORTINA.xPieD + 0.1 && z < 0.7) continue;
             if (x > -1.2 && x < 3.1 && Math.abs(z - vertedorZ(x)) < 0.56) continue;
             if (x > 2.45 && x < 5.2 && z > 0.95 && z < 2.7) continue;
+            if (TORRES.some(([tx, tz]) => Math.hypot(x - tx, z - tz) < 0.48)) continue;
             if (x > -5.5 && x < -4.5) continue;
             if (x > 6.8 && z < -0.9) continue;
             if (x > 4.6 && x < 7 && z < -1.3) continue;
@@ -898,6 +932,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     // ---------- lo que corre
     const parteDe = L => L.parte ?? null;
     const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe, movil });
+    // las líneas aéreas: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores (planta-comun/conductores.js)
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe, movil });
     kit.cerrarGotas(new THREE.SphereGeometry(1, 8, 6));
     // adentro de la caverna no cae la sombra del cerro
     dentroC.traverse(o => { if (o.isMesh) o.receiveShadow = false; });
@@ -963,6 +999,5 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         M.lampara.color.set('#d8d4c8').lerp(new THREE.Color('#ffe2ad'), n);
         M.ventana.color.set('#3f4a57').lerp(new THREE.Color('#ffc77a'), n);
     }
-    void PUNTAS_TORRE;
     return { raiz, posar, partes, anclas, giran, repintar: kit.repintar, equipos: EQUIPOS };
 }

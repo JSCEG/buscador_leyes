@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { AUX_FLASH, BLOQUE, DEF, ETA_GEN, M_TOTAL, PARTES, binario, calcular, enAnio, flash, pSepOptimo, pose, puntasSueltas, revisar, seco, treintaAnios } from '../conceptos-3d/geotermica/modelo.js';
+import { AEREAS, AUX_FLASH, BLOQUE, BORNES, DEF, ETA_GEN, LINEAS, M_TOTAL, PARTES, REMATE, binario, calcular, enAnio, flash, pSepOptimo, pose, puntasSueltas, revisar, seco, treintaAnios } from '../conceptos-3d/geotermica/modelo.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/geotermica/fuentes.js';
 
 describe('Central geotérmica', () => {
@@ -11,6 +12,35 @@ describe('Central geotérmica', () => {
 
     it('cada tubo toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
+    });
+
+    it('cada cable llega a un borne: cajas de terminales, boquillas, pórtico, crucetas y el marco de la reductora', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // del generador al transformador va un ducto de barras, no un cable que cuelga; el de la binaria va delgado por el piso
+        const gen = LINEAS.find(l => l.id === 'gen');
+        expect(gen.oculto).toBe(true);
+        expect(gen.cable).toBeFalsy();
+        expect(gen.puntos[0]).toBe(BORNES.generador);
+        expect(gen.puntos.at(-1)).toBe(BORNES.trafoBaja);
+        const bin = LINEAS.find(l => l.id === 'genBin');
+        expect(bin.cable).toBe(true);
+        expect(bin.r).toBeLessThanOrEqual(0.02);
+        for (const p of bin.puntos.slice(1, -1)) expect(p[1]).toBeLessThanOrEqual(0.06);
+        // las líneas aéreas son tres fases que cuelgan entre apoyos, sin tubo
+        expect(Object.keys(AEREAS)).toEqual(['trafoPortico', 'rnt', 'rgd']);
+        for (const [id, apoyos] of Object.entries(AEREAS)) {
+            const linea = LINEAS.find(l => l.id === id);
+            expect(linea.oculto).toBe(true);
+            expect(linea.apoyos).toBe(apoyos);
+            for (const a of apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.05);
+            for (const k of [-1, 0, 1]) {
+                const p = colgar(apoyos, k);
+                expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+            }
+        }
+        expect(AEREAS.trafoPortico[0].p).toBe(BORNES.trafoAlta);
+        expect(AEREAS.rnt[0].p).toBe(BORNES.portico);
+        expect(AEREAS.rnt.at(-1).p).toBe(BORNES.reductoraAlta);
     });
 
     it('el vapor flasheado cuadra: el vapor y el agua suman lo que sale de los pozos', () => {

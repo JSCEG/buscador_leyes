@@ -1,6 +1,7 @@
 // La física de las centrales térmicas, pura (sin three.js): la unidad de vapor con su combustible, cuánto tarda cada máquina en
 // arrancar, cuánto cuesta cada MWh y el sistema aislado de Baja California Sur. Una sola cuenta mueve los flujos, el tablero,
 // las gráficas y el diagrama. Las cifras y sus fuentes están en datos.js y fuentes.js.
+import { cablesSueltos as revisarCables } from '../planta-comun/lineas.js';
 import { BLOQUE, BORNES, EQUIPOS, LINEAS, PARTES, REMATE } from './lugar.js';
 import { AGUA, AZUFRE_A_SO2, BCS, COMBUSTIBLES, FACTOR_SEN, IEPS, MARGEN, PRECIOS, TECNO, UNIDADES } from './datos.js';
 
@@ -162,21 +163,8 @@ export function puntasSueltas() {
     }
     return sueltas.concat(cablesSueltos());
 }
-/** Los cables cuelgan de algo: cada punta cae en un borne y cada punto de en medio en un borne (poste, torre) o en el piso. */
-export function cablesSueltos() {
-    const cerca = p => Object.values(BORNES).some(b => Math.hypot(p[0] - b[0], p[1] - b[1], p[2] - b[2]) < 0.03);
-    const sueltos = [];
-    for (const L of LINEAS.filter(l => l.cable)) {
-        const puntos = L.apoyos ? L.apoyos.map(a => a.p) : L.puntos;
-        puntos.forEach((p, i) => {
-            const punta = i === 0 ? 'inicio' : i === puntos.length - 1 ? 'fin' : null;
-            if (punta && REMATE.has(`${L.id} (${punta})`)) return;
-            if (cerca(p) || (!punta && p[1] <= 0.06)) return;
-            sueltos.push(`${L.id} (punto ${i + 1}, sin borne)`);
-        });
-    }
-    return sueltos;
-}
+/** Los cables cuelgan de algo: cada punta en un borne y cada punto de en medio en un borne o en el piso (planta-comun/lineas.js). */
+export const cablesSueltos = () => revisarCables(LINEAS, BORNES, REMATE);
 export const partesFuera = () => PARTES.filter(p => p.ancla[0] < BLOQUE.x[0] || p.ancla[0] > BLOQUE.x[1] || p.ancla[2] < BLOQUE.z[0] || p.ancla[2] > BLOQUE.z[1]).map(p => p.id);
 
 /** Revisión de cifras contra las fuentes y contra la física. Devuelve la lista de lo que no cuadra. */

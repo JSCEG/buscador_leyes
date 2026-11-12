@@ -9,7 +9,9 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { azar, clamp01, fract, lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, crearAyudante, crearTubos, en, estudio, geoEntre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BLOQUE, CALLEZ, CASAS, FICHA, FLUIDOS, LINEAS, PARTES, X, Y, ZP, acometidaPlanta, diablitoPlanta } from './modelo.js';
+import { colgar } from '../planta-comun/lineas.js';
+import { MATERIAL_CONDUCTOR } from '../planta-comun/conductores.js';
+import { AEREAS, BAJA, BLOQUE, BORNES, CALLEZ, CASAS, FICHA, FLUIDOS, LINEAS, PARTES, X, Y, ZP, ZS, diablitoPlanta, enLaRed } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -30,7 +32,8 @@ export function materiales(P) {
         porcelana: new THREE.MeshStandardMaterial({ color: '#8b5a43', roughness: 0.32, metalness: 0.05, envMapIntensity: 0.9 }),
         carrete: new THREE.MeshStandardMaterial({ color: '#efece6', roughness: 0.4, envMapIntensity: 0.6 }),
         trafo: new THREE.MeshStandardMaterial({ color: '#9aa3a6', roughness: 0.45, metalness: 0.4, envMapIntensity: 0.9 }),
-        cable: new THREE.MeshStandardMaterial({ color: '#3c3f45', roughness: 0.5, metalness: 0.5 }),
+        cable: MATERIAL_CONDUCTOR(),
+        cableCobre: MATERIAL_CONDUCTOR(),
         acometida: new THREE.MeshStandardMaterial({ color: '#2b2d31', roughness: 0.6, metalness: 0.2 }),
         diablito: new THREE.MeshBasicMaterial({ color: '#e0302a', toneMapped: false }),
         medidor: new THREE.MeshStandardMaterial({ color: '#dfe3e6', roughness: 0.35, metalness: 0.2 }),
@@ -43,6 +46,7 @@ export function materiales(P) {
         chispa: new THREE.MeshBasicMaterial({ color: '#ffb000', toneMapped: false }),
         tierraX: new THREE.MeshStandardMaterial({ color: '#c8743c', roughness: 0.34, metalness: 0.9, transparent: true }),
     });
+    M.cableCobre.color.set('#8a6450');
     M.casas = COLORES_CASA.map(c => new THREE.MeshStandardMaterial({ color: c, roughness: 0.85, envMapIntensity: 0.3 }));
     M.vaho = { calor: new THREE.SpriteMaterial({ map: M.vaho, color: '#c9b9a6', transparent: true, opacity: 0, depthWrite: false }) };
     return M;
@@ -54,7 +58,7 @@ const Y0 = BLOQUE.y[0];
 export function escenario(renderer, scene, M, { movil = false, oscuro = false } = {}) {
     const dia = { roca: new THREE.Color(oscuro ? '#c9c5bc' : '#ffffff'), pasto: new THREE.Color(oscuro ? '#c4cbb9' : '#ffffff'), asfalto: new THREE.Color(oscuro ? '#c0c0c0' : '#ffffff'), banqueta: new THREE.Color(oscuro ? '#bdbab3' : '#d9d6cf') };
     const noche = { roca: new THREE.Color('#6a655c'), pasto: new THREE.Color('#545a50'), asfalto: new THREE.Color('#4a4c50'), banqueta: new THREE.Color('#5f5e5a') };
-    if (oscuro) { M.cable.color.set('#8a8d94'); M.acometida.color.set('#7c7f86'); M.galv.color.set('#a9afb7'); }
+    if (oscuro) { M.acometida.color.set('#7c7f86'); M.galv.color.set('#a9afb7'); }
     return estudio(renderer, scene, {
         movil, oscuro, y0: Y0, alcance: 15,
         alActualizar(n) {
@@ -72,6 +76,13 @@ const geoAislador = (h, r) => una(`a${h}|${r}`, () => {
     for (let i = 0; i < n; i++) g.push(new THREE.CylinderGeometry(r, r, 0.01, 14).translate(0, 0.02 + (i * (h - 0.04)) / Math.max(1, n - 1), 0));
     return mergeGeometries(g);
 });
+/** Un conductor que cuelga entre apoyos, igual que los de planta-comun/conductores.js: k es la fase (-1, 0 o 1). */
+function geoHilo(apoyos, k = 0, r = 0.0065) {
+    const curva = new THREE.CatmullRomCurve3(colgar(apoyos, k).map(p => new THREE.Vector3(...p)));
+    return new THREE.TubeGeometry(curva, Math.max(12, Math.round(curva.getLength() * 28)), r, 5);
+}
+/** Un cable por varios puntos (un puente), como malla. */
+const geoPuente = (puntos, r = 0.0055) => new THREE.TubeGeometry(new THREE.CatmullRomCurve3(puntos.map(p => new THREE.Vector3(...p))), 16, r, 5, false);
 /** Un cable de a a b con su comba, como malla. */
 function geoComba(a, b, comba, r = 0.006, n = 12) {
     const pts = [];
@@ -156,7 +167,6 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     const secundaria = unidad('secundaria');
     const neutro = unidad('neutro');
     const retenida = unidad('retenida');
-    const ZS = ZP - 0.06;
     {
         const g = [];
         const crucetas = [];
@@ -175,21 +185,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         postes.add(malla(crucetas, M.galv));
         alimentador.add(malla(pines, M.porcelana));
         secundaria.add(malla(bastidores, M.galv), malla(carretes, M.carrete));
-        // la fase de media tensión: llega de fuera del dibujo y va de poste en poste
-        const mt = [];
-        const xs = [X0 + 0.02, ...X.postes, X1 - 0.02];
-        for (let i = 1; i < xs.length; i++) mt.push(geoComba([xs[i - 1], Y.cruceta + 0.11, ZP + 0.3], [xs[i], Y.cruceta + 0.11, ZP + 0.3], 0.06, 0.007));
-        alimentador.add(malla(mt, M.cable));
-        // la red de baja tensión: el neutro y las dos fases, de poste en poste
-        const bt = [];
-        const neu = [];
-        for (let i = 1; i < X.postes.length; i++) {
-            const [a, b] = [X.postes[i - 1], X.postes[i]];
-            neu.push(geoComba([a, Y.neutro, ZS], [b, Y.neutro, ZS], 0.07, 0.006));
-            for (const y of Y.fases) bt.push(geoComba([a, y, ZS], [b, y, ZS], 0.07, 0.006));
-        }
-        secundaria.add(malla(bt, M.cable));
-        neutro.add(malla(neu, M.cable));
+        // la fase de media tensión: llega de fuera del dibujo y va de poste en poste, sobre el aislador de alfiler de cada cruceta
+        alimentador.add(malla([geoHilo(AEREAS.mtCalle)], M.cable));
+        // la red de baja tensión, de cobre: las dos fases y el neutro, de carrete en carrete del bastidor; remata en los postes de las orillas
+        secundaria.add(malla([geoHilo(AEREAS.btCalle, -1), geoHilo(AEREAS.btCalle, 0)], M.cableCobre));
+        neutro.add(malla([geoHilo(AEREAS.btCalle, 1)], M.cableCobre));
         // el neutro baja por el poste del transformador a su varilla de tierra (se ve como por rayos X al elegirlo)
         const t = [geoEntre([X.trafo - 0.05, Y.neutro, ZP + 0.03], [X.trafo - 0.05, -0.02, ZP + 0.03], 0.006, 5), geoEntre([X.trafo - 0.05, -0.02, ZP + 0.03], [X.trafo - 0.25, -0.05, ZP + 0.03], 0.006, 5), geoEntre([X.trafo - 0.25, -0.05, ZP + 0.03], [X.trafo - 0.25, -0.34, ZP + 0.03], 0.012, 6)];
         const tm = new THREE.Mesh(mergeGeometries(t), M.tierraX);
@@ -222,6 +222,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         piv.add(en(sombra(new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.2, 10).translate(0, 0.1, 0), M.galv)), 0, 0, 0));
         cortacircuito.add(piv);
         tubo = piv;
+        // sus contactos: arriba llega la línea; abajo, la bisagra del tubo, de donde sale el puente al transformador
+        const [ca, cb] = [BORNES.cortaArriba, BORNES.cortaAbajo];
+        cortacircuito.add(en(caja(0.03, 0.02, 0.03, M.galv), ca[0], ca[1] - 0.012, ca[2]));
+        cortacircuito.add(en(caja(0.03, 0.025, 0.03, M.galv), cb[0], cb[1] - 0.008, cb[2]));
+        cortacircuito.add(sombra(new THREE.Mesh(geoEntre([X.trafo + 0.06, Y.cortacircuito + 0.17, ZP + 0.35], [ca[0], ca[1] - 0.002, ca[2]], 0.005, 5), M.galv)));
         // apartarrayos, acostado en la cruceta
         const ap = new THREE.Mesh(geoAislador(0.18, 0.024), M.porcelana);
         ap.rotation.z = PI / 2;
@@ -244,10 +249,14 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         tg.add(en(caja(0.04, 0.24, 0.04, M.galv), -0.13, 0.04, 0));
         transformador.add(mover(tg, [0, 0, 0.5]));
         brillo(tg, 0, 0.2, 0, 0.6, '#ff8a3c', 'calor', 1, false);
-        // puentes: de la línea al cortacircuito, de este al transformador, y del transformador a la red de baja tensión
-        const pu = [geoComba([X.trafo, Y.cruceta + 0.11, ZP + 0.3], [X.trafo + 0.06, Y.cortacircuito + 0.1, ZP + 0.3], 0.02, 0.005), geoComba([X.trafo + 0.12, Y.cortacircuito - 0.02, ZP + 0.3], [X.trafo + 0.14, Y.trafo + 0.32, ZP + 0.14], 0.03, 0.005)];
-        for (const y of [Y.neutro, ...Y.fases]) pu.push(geoComba([X.trafo + 0.01, Y.trafo + 0.08, ZP + 0.1], [X.trafo, y, ZS], 0.02, 0.005));
+        // puentes: de la línea al cortacircuito, de este al transformador y de la línea al apartarrayos; cada punta en su borne
+        const alfiler = BORNES[`alfiler${X.postes.indexOf(X.trafo)}`];
+        const bAp = BORNES.apartarrayos;
+        const yLinea = colgar(AEREAS.mtCalle, 0, 64).reduce((m, p) => (Math.abs(p[0] - bAp[0]) < Math.abs(m[0] - bAp[0]) ? p : m))[1];
+        const pu = [geoComba(alfiler, BORNES.cortaArriba, 0.02, 0.0055), geoComba(BORNES.cortaAbajo, BORNES.trafoAlta, 0.03, 0.0055), geoComba([bAp[0], yLinea, bAp[2]], bAp, 0, 0.0055)];
         transformador.add(malla(pu, M.cable));
+        // y de cada boquilla de baja tensión a su carrete del bastidor, por un lado del poste (la de en medio, al neutro)
+        transformador.add(malla(BAJA.map(({ boquilla: b, carrete: c }) => geoPuente([b, [X.trafo - 0.068, (b[1] + c[1]) / 2, ZP + 0.01], c])), M.cableCobre));
         // el calor del transformador cuando se pasa
         const vahos = [];
         for (let i = 0; i < 4; i++) { const s = new THREE.Sprite(M.vaho.calor); s.visible = false; raiz.add(s); vahos.push({ s, fase: i / 4 }); }
@@ -259,9 +268,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     {
         const g = [];
         const gU = [];
-        for (const c of CASAS) {
-            const geo = geoComba(...acometidaPlanta(c), 0.05, 0.004, 10);
-            (c.i === FICHA.acometida ? gU : g).push(geo);
+        for (const L of LINEAS.filter(l => l.grupo === 'acometidas')) {
+            const geo = geoHilo(L.apoyos, 0, 0.004);
+            (L.casa === FICHA.acometida ? gU : g).push(geo);
         }
         raiz.add(malla(g, M.acometida));
         acometida.add(malla(gU, M.acometida));
@@ -296,7 +305,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     for (let i = 0; i < 6; i++) { const r = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.009, 0.14, 4).translate(0, 0.07, 0), M.chispa); r.rotation.set(azar(i, 2) * PI * 2, 0, azar(i, 3) * PI * 2); chispa.add(r); }
     chispa.renderOrder = 7;
     raiz.add(chispa);
-    const brilloChispa = brillo(raiz, 0, Y.fases[0], ZS, 0.5, '#ffb000', 'falla', 1.3, false);
+    const brilloChispa = brillo(raiz, 0, enLaRed(0), ZS, 0.5, '#ffb000', 'falla', 1.3, false);
 
     // --------- al desarmar: el transformador se separa, el tubo y el apartarrayos suben, la red de baja tensión sube
     for (const [g, d] of [[cortacircuito, [0, 0.35, 0]], [apartarrayos, [0, 0.5, 0]], [secundaria, [0, 0.25, -0.3]], [neutro, [0, 0.25, -0.3]], [acometida, [0, 0.4, 0]], [paneles, [0, 0.35, 0]]]) mover(g, d);
@@ -332,12 +341,12 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         tubo.rotation.z = lerp(tubo.rotation.z, e.abierto ? -2.4 : 0, kt);
         // la rama: arriba en el árbol, o sobre la red cuando hay falla
         const xr = e.xRama;
-        const [tx, ty, tr] = e.rama ? [xr, Y.fases[0] + 0.02, PI / 2.05] : [X.arbol - 0.25, 1.35, PI / 2.6];
+        const [tx, ty, tr] = e.rama ? [xr, enLaRed(xr) + 0.02, PI / 2.05] : [X.arbol - 0.25, 1.35, PI / 2.6];
         rama.position.x = lerp(rama.position.x || tx, tx, kt);
         rama.position.y = lerp(rama.position.y || ty, ty, kt);
         rama.position.z = ZS + 0.02;
         rama.rotation.z = lerp(rama.rotation.z, tr, kt);
-        chispa.position.set(xr, Y.fases[0], ZS);
+        chispa.position.set(xr, enLaRed(xr), ZS);
         brilloChispa.position.copy(chispa.position);
         const parpadeo = 0.6 + 0.4 * Math.sin(e.t * 47) * Math.sin(e.t * 31);
         chispa.visible = e.enFalla && a < 0.5;

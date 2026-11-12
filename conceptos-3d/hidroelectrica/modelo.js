@@ -10,6 +10,7 @@
 // - Presión y velocidad al cerrar: columna de agua rígida y rotor con inercia de 8.01 s. La misma tesina da 10 a 18 % y 34 a 41 %.
 // - De ejemplo, para ver la tendencia: el nivel del río abajo (395 m), la forma de la curva de la turbina, el reparto por mes, la curva de la demanda,
 //   la regla de operación del embalse, el voltaje de salida y el vaivén de la galería.
+import { apoyo, cablesSueltos as revisarCables, enCruceta, lineaAerea } from '../planta-comun/lineas.js';
 
 const clamp01 = x => Math.min(1, Math.max(0, x));
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -427,13 +428,59 @@ export const FLUIDOS = {
     agua: { nombre: 'Agua', color: '#3f9bd0' },
     ca: { nombre: 'Electricidad', color: '#ffb000' },
 };
-const T0 = [5.2, 1.4];
-export const TORRES = [T0, [7.86, 0.7], [7.5, -1.55]];
+// Las torres de la RNT: la primera, en la ladera junto al pórtico; la segunda, en lo plano del otro lado del río. De ahí la línea baja
+// al marco de la subestación reductora. Ninguna pata cae en el río.
+export const TORRES = [[5.25, 2.3], [7.15, -0.55]];
 const ALTO_TORRE = 2.7;
 const TERR = (x, z) => terreno(x, z);
 const puntasTorre = TORRES.map(([x, z]) => [x, TERR(x, z) + ALTO_TORRE, z]);
 export const PUNTAS_TORRE = puntasTorre;
 const YP = 1.92;
+/** La subestación reductora (x, z) y los postes de la RGD que van al pueblo: [x, z, alto]. */
+export const REDUCTORA = [7.5, -1.65];
+export const POSTES_RGD = [[6.5, -1.82, 1], [5.9, -1.85, 0.78]];
+const YR = TERR(...REDUCTORA);
+const cruceta = ([x, z]) => [x, TERR(x, z) + ALTO_TORRE * 0.92, z];
+const brazo = ([x, z, h]) => [x, TERR(x, z) + h - 0.02, z];
+/**
+ * Los bornes donde se conecta cada cable: la caja de bornes del generador, la charola y la lumbrera por donde suben los cables, la zanja
+ * hasta la caja de cables del transformador, las puntas de las boquillas, el pórtico, las crucetas de las torres y de los postes, y el marco
+ * de la reductora. Cada uno coincide con la pieza que dibuja planta.js.
+ */
+export const BORNES = {
+    generador: [1.85, 0.68, 2.62],
+    charola: [2.06, 0.68, 2.62],
+    lumbrera: [2.06, 1.945, 2.62],
+    zanja: [3.2, 1.945, 2.62],
+    pieTrafo: [3.2, 1.945, 2.25],
+    trafoCables: [3.2, YP + 0.15, 2.25],
+    trafoAlta: [3.2, YP + 1.0, 1.85],
+    gisEntrada: [3.95, YP + 0.86, 1.85],
+    gisSalida: [4.55, YP + 0.86, 2.05],
+    portico: [4.77, YP + 1.54, 2.05],
+    torre1: cruceta(TORRES[0]),
+    torre2: cruceta(TORRES[1]),
+    marcoReductora: [REDUCTORA[0], YR + 1.28, REDUCTORA[1] + 0.26],
+    reductoraAlta: [REDUCTORA[0], YR + 0.64, REDUCTORA[1] + 0.1],
+    reductoraBaja: [REDUCTORA[0] - 0.12, YR + 0.56, REDUCTORA[1] - 0.08],
+    poste1: brazo(POSTES_RGD[0]),
+    poste2: brazo(POSTES_RGD[1]),
+};
+/** Las líneas aéreas, apoyo por apoyo: tres fases que llegan a boquillas, al pórtico, a crucetas y al marco de la reductora. */
+export const AEREAS = {
+    alta: [apoyo(BORNES.trafoAlta, [0, 0, 0.22]), apoyo(BORNES.gisEntrada, [0, 0, 0.22])],
+    gis: [apoyo(BORNES.gisSalida, [0, 0, 0.14]), apoyo(BORNES.portico, [0, 0, 0.14])],
+    rnt: [
+        apoyo(BORNES.portico, [0, 0, 0.14]),
+        apoyo(BORNES.torre1, [0, 0, 0.25], 0.08),
+        enCruceta(BORNES.torre2, BORNES.torre1, BORNES.marcoReductora),
+        apoyo(BORNES.marcoReductora, [0.2, 0, 0], 0.08),
+        apoyo(BORNES.reductoraAlta, [0.11, 0, 0]),
+    ],
+    rgd: [apoyo(BORNES.reductoraBaja, [0, 0, 0.08]), ...[BORNES.poste1, BORNES.poste2].map(p => apoyo(p, [0, 0, 0.1], 0.04))],
+};
+/** Ningún cable sale por la orilla: todos rematan en algo de la figura. */
+export const REMATE = new Set();
 // Cada caja: x0, x1, y0, y1, z0, z1. Las pinta planta.js y con ellas se revisa que cada tubo y cable llegue a un equipo.
 export const EQUIPOS = {
     embalse: [-8.4, -0.82, -0.2, 4.6, -2.5, 3.28],
@@ -449,8 +496,6 @@ export const EQUIPOS = {
     reductora: [7.1, 7.9, 0.4, 2, -2.1, -1.2],
     pueblo: [4.9, 7, 0.3, 1.1, -2.45, -1.4],
 };
-const catenaria = (a, b, flecha, n = 5) => Array.from({ length: n + 1 }, (_, i) => { const k = i / n; return [lerp(a[0], b[0], k), lerp(a[1], b[1], k) - flecha * 4 * k * (1 - k), lerp(a[2], b[2], k)]; });
-const unir = (...tramos) => tramos.reduce((acc, t) => acc.concat(acc.length ? t.slice(1) : t), []);
 const YT = MAQUINA.y;
 const PIE = [MAQUINA.x, -0.82, MAQUINA.z1];
 const curvaRio = RIO.filter((_, i) => i > 0).map(([x, z]) => [x, YABAJO + 0.018, z]);
@@ -462,11 +507,14 @@ export const LINEAS = [
     { id: 'desfogue', grupo: 'u1', parte: 'desfogue', fluido: 'agua', r: 0.058, oculto: true, puntos: [[3.22, -0.55, TUBO.z], [4.4, -0.3, TUBO.z], [5.4, -0.08, TUBO.z], [6.18, 0.02, TUBO.z]] },
     { id: 'abajo', grupo: 'rioAbajo', fluido: 'agua', r: 0.024, oculto: true, puntos: [[2.25, YABAJO + 0.018, -1.4], ...curvaRio] },
     { id: 'vierte', grupo: 'vierte', fluido: 'agua', r: 0.05, oculto: true, puntos: [[-1.1, 4, VERTEDOR.z], [-0.72, VERTEDOR.cresta + 0.06, VERTEDOR.z], [-0.2, vertedorY(-0.2) + 0.05, vertedorZ(-0.2)], [0.8, vertedorY(0.8) + 0.05, vertedorZ(0.8)], [2, vertedorY(2) + 0.05, vertedorZ(2)], [2.85, vertedorY(2.85) + 0.05, vertedorZ(2.85)], [3.02, 1.2, vertedorZ(3) - 0.05], [3.45, 0.85, -0.45], [3.95, 0.1, -1.08]] },
-    { id: 'bus', grupo: 'u1', parte: 'generador', fluido: 'ca', r: 0.018, cable: true, puntos: [[MAQUINA.x + 0.62, 0.75, MAQUINA.z1], [1.96, 0.95, 2.72], [1.96, 1.3, 2.86], [1.96, 1.94, 2.86], [2.5, 2.08, 2.5], [2.9, 2.42, 1.9]] },
-    { id: 'alta', grupo: 'red', parte: 'subestacion', fluido: 'ca', r: 0.016, puntos: [[3.45, YP + 0.82, 1.85], [3.84, YP + 0.5, 1.82]] },
-    { id: 'gis', grupo: 'red', parte: 'subestacion', fluido: 'ca', r: 0.016, puntos: [[4.6, YP + 0.45, 1.82], [4.77, YP + 1.32, 2.05]] },
-    { id: 'rnt', grupo: 'red', parte: 'red', fluido: 'ca', r: 0.016, cable: true, puntos: unir(catenaria([4.77, YP + 1.38, 2.05], puntasTorre[0], 0.02, 2), catenaria(puntasTorre[0], puntasTorre[1], 0.3), catenaria(puntasTorre[1], puntasTorre[2], 0.22), catenaria(puntasTorre[2], [7.5, 1.72, -1.65], 0.04, 2)) },
-    { id: 'rgd', grupo: 'red', parte: 'red', fluido: 'ca', r: 0.014, cable: true, puntos: unir(catenaria([7.2, 1.1, -1.7], [6.5, 1.05, -1.82], 0.03, 3), catenaria([6.5, 1.05, -1.82], [5.9, 0.85, -1.85], 0.05, 3)) },
+    // la electricidad: los cables salen de la caja de bornes del generador, cruzan por una charola, suben pegados a la lumbrera y van
+    // por una zanja hasta la caja de cables del transformador
+    { id: 'bus', grupo: 'u1', parte: 'generador', fluido: 'ca', r: 0.014, cable: true, puntos: [BORNES.generador, BORNES.charola, BORNES.lumbrera, BORNES.zanja, BORNES.pieTrafo, BORNES.trafoCables] },
+    // las líneas aéreas no llevan tubo: planta.js dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la electricidad
+    lineaAerea('alta', AEREAS.alta, { grupo: 'red', parte: 'subestacion', fluido: 'ca' }),
+    lineaAerea('gis', AEREAS.gis, { grupo: 'red', parte: 'subestacion', fluido: 'ca' }),
+    lineaAerea('rnt', AEREAS.rnt, { grupo: 'red', parte: 'red', fluido: 'ca' }),
+    lineaAerea('rgd', AEREAS.rgd, { grupo: 'red', parte: 'red', fluido: 'ca' }),
 ];
 
 // Puntos clave: cada uno, una ficha. vista: desde dónde mirarlo (grados) y su tamaño, para la cámara. ancla: el punto en 3D.
@@ -484,7 +532,7 @@ export const PARTES = [
     { id: 'oscilacion', ancla: [2.96, 0.78, 3.2], vista: { az: 6, el: 8, tam: 3.5, mira: [2.55, 0.05, 3] } },
     { id: 'desfogue', ancla: [5.3, 0.26, 3.2], vista: { az: 18, el: 16, tam: 4.8, mira: [5.1, 0, 2.3] } },
     { id: 'subestacion', ancla: [3.75, 3.2, 1.8], vista: { az: -16, el: 22, tam: 4.4, mira: [3.7, 2.45, 1.9] } },
-    { id: 'red', ancla: [7.86, TERR(7.86, 0.7) + ALTO_TORRE + 0.32, 0.7], vista: { az: 28, el: 16, tam: 7.4, mira: [6.4, 1.7, 0] } },
+    { id: 'red', ancla: [TORRES[1][0], TERR(...TORRES[1]) + ALTO_TORRE + 0.32, TORRES[1][1]], vista: { az: 28, el: 16, tam: 7.4, mira: [6.4, 1.7, 0] } },
 ];
 
 // ------------------------------------------------------------------ la pose
@@ -530,13 +578,15 @@ export function puntasSueltas() {
         for (const [nombre, p] of [['inicio', L.puntos[0]], ['fin', L.puntos.at(-1)]]) {
             if (ABIERTAS.has(`${L.id} (${nombre})`)) continue;
             const enEquipo = Object.values(EQUIPOS).some(c => dentro(p, c));
-            const enTorre = puntasTorre.some(q => Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]) < 0.05);
+            const enBorne = Object.values(BORNES).some(q => Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]) < 0.05);
             const enTubo = LINEAS.some(o => o !== L && o.puntos.some((q, i) => i > 0 && distSeg(p, o.puntos[i - 1], q) < 0.06));
-            if (!enEquipo && !enTorre && !enTubo) sueltas.push(`${L.id} (${nombre})`);
+            if (!enEquipo && !enBorne && !enTubo) sueltas.push(`${L.id} (${nombre})`);
         }
     }
-    return sueltas;
+    return sueltas.concat(cablesSueltos());
 }
+/** Cada cable llega a un borne: sus puntas y sus vueltas, y cada apoyo de las líneas aéreas (planta-comun/lineas.js). */
+export const cablesSueltos = () => revisarCables(LINEAS, BORNES, REMATE);
 /** El agua no se sale: el terreno y la cortina deben quedar arriba del NAME a lo largo de la orilla que cierra el embalse. */
 export function fugas() {
     const y = Y(NIVEL.NAME);

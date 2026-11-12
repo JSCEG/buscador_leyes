@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { BLOQUE, CENTRAL, CLIMA, GIRO_MAX, LINEAS, MODULO, PARTES, POR_CADENA, PVGIS, SAE_DEF, anual, calcular, central, cieloDelMes, curvaModulo, dia, diaConSAE, enHora, estadoPlanta, ghiDespejadoDia, giroSeguidor, inversor, luzDespejada, nubeTapa, pasoPlanta, pose, potenciaModulo, puntasSueltas, puntosModulo, revisar, solEn, tCelda } from '../conceptos-3d/fotovoltaica/modelo.js';
+import { BLOQUE, BORNES, CENTRAL, CLIMA, GIRO_MAX, LINEAS, MODULO, PARTES, POR_CADENA, PVGIS, REMATE, SAE_DEF, anual, calcular, central, cieloDelMes, curvaModulo, dia, diaConSAE, enHora, estadoPlanta, ghiDespejadoDia, giroSeguidor, inversor, luzDespejada, nubeTapa, pasoPlanta, pose, potenciaModulo, puntasSueltas, puntosModulo, revisar, solEn, tCelda } from '../conceptos-3d/fotovoltaica/modelo.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/fotovoltaica/fuentes.js';
 
 const correr = (s, m, segundos) => { let r = s; for (let i = 0; i < segundos * 20; i++) r = pasoPlanta(r, m, 0.05); return r; };
@@ -18,6 +19,26 @@ describe('Central fotovoltaica', () => {
 
     it('cada cable toca un equipo, una fila u otro cable en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
+    });
+
+    it('cada cable llega a un borne: los de piso van delgados por la zanja y las líneas aéreas son tres fases', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        for (const L of LINEAS.filter(l => l.cable && !l.apoyos)) expect(L.r).toBeLessThanOrEqual(0.02);
+        // cada cadena corre bajo el tubo del seguidor, baja por el último poste y va por el piso a su caja
+        for (let i = 0; i < 6; i++) {
+            const L = LINEAS.find(l => l.id === `cadena${i}`);
+            expect(L.puntos[0]).toBe(BORNES[`cadena${i}`]);
+            expect(L.puntos[1]).toBe(BORNES[`finFila${i}`]);
+            for (const p of L.puntos.slice(2, -1)) expect(p[1]).toBeLessThanOrEqual(0.06);
+            expect(L.puntos.at(-1)).toBe(BORNES[`cajaCadena${i}`]);
+        }
+        const aereas = LINEAS.filter(l => l.apoyos);
+        expect(aereas.map(l => l.id)).toEqual(['mtPuente', 'alta', 'rnt', 'rgd']);
+        for (const L of aereas) {
+            expect(L.oculto).toBe(true);
+            for (const a of L.apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.05);
+        }
+        expect(LINEAS.find(l => l.id === 'rnt').apoyos.map(a => a.p)).toEqual([BORNES.porticoAmarre, BORNES.torre1, BORNES.torre2, BORNES.remateReductora, BORNES.altaReductora]);
     });
 
     it('el módulo da lo que dice su ficha técnica', () => {

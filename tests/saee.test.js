@@ -4,6 +4,8 @@ import { CONCEPTO, PUENTE_HILO } from '../src/data/como-funciona.js';
 import { ATB, BLOQUE, CENTRAL, CONVOCATORIA, DIAS, EIA, HOMER, LINEAS, MESES, NASA, PARTES, SAEE, aislado, anio, despacho, dieselLh, factorPlanta, junto, mercado, perfilAnual, perfilMes, pose, puntasSueltas, revisar, solMes, tolling, totalConvocatoria } from '../conceptos-3d/saee/modelo.js';
 import { PML } from '../conceptos-3d/saee/precios.js';
 import { FUENTES } from '../conceptos-3d/saee/fuentes.js';
+import { AEREAS, BORNES, REMATE } from '../conceptos-3d/saee/modelo.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -24,6 +26,15 @@ describe('El almacenamiento de energía (SAEE)', () => {
     it('cada cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada cable llega a un borne, un poste o el piso, y las líneas aéreas son tres fases que cuelgan entre apoyos', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(Object.keys(AEREAS)).toEqual(['rnt', 'saee', 'central', 'fabrica', 'puente1', 'puente2', 'puente3', 'puente4']);
+        for (const L of LINEAS.filter(l => l.cable)) {
+            if (L.apoyos) expect(L.oculto).toBe(true);
+            else expect(L.r).toBeLessThanOrEqual(0.02);
+        }
     });
 
     it('los precios son un año seguido del CENACE en la zona de Chihuahua', () => {

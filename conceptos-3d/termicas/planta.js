@@ -7,8 +7,8 @@ import * as THREE from 'three';
 import { azar, fract, sale } from '../planta-comun/ayudas.js';
 import { montarGlb } from '../planta-comun/glb.js';
 import { crearAyudante, crearTubos, estudio, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { ALTO_CHIMENEA, ALTO_TORRE, BLOQUE, FLUIDOS, LINEAS, MAR, PARTES, POSTES, SITIO, TORRES, Z_TORRES, colgar } from './lugar.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { ALTO_CHIMENEA, ALTO_TORRE, BLOQUE, FLUIDOS, LINEAS, MAR, PARTES, POSTES, SITIO, TORRES, Z_TORRES } from './lugar.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -32,8 +32,6 @@ export function materiales(P) {
         tanque: new THREE.MeshStandardMaterial({ color: '#dcd9d2', roughness: 0.35, metalness: 0.4, envMapIntensity: 0.9 }),
         carbon: new THREE.MeshStandardMaterial({ color: '#ffffff', map: texturaGrano('#5b5854', 'rgba(255,255,255,0.1)', [5, 2]), roughness: 0.95, envMapIntensity: 0.3 }),
         llama: new THREE.MeshBasicMaterial({ color: '#ff8a3c', toneMapped: false }),
-        conductor: new THREE.MeshStandardMaterial({ color: '#7d838b', roughness: 0.38, metalness: 0.85, envMapIntensity: 1 }),
-        aislador: new THREE.MeshStandardMaterial({ color: '#9fb8c4', roughness: 0.25, metalness: 0.1 }),
         bcs: new THREE.MeshStandardMaterial({ color: '#e7e2d6', roughness: 0.95, envMapIntensity: 0.25 }),
     });
     return M;
@@ -94,38 +92,9 @@ export function construir(M, P, gltf, { movil = false, oscuro = false } = {}) {
         raiz.add(t);
         partes[id].push(t);
     }
-    // los conductores: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores en postes y torres
+    // los conductores: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores (planta-comun/conductores.js)
     const PARTE_LINEA = { aRed: 'trafo', turbogasRed: 'turbogas', rnt: 'subestacion', aislado: 'motores' };
-    for (const L of LINEAS.filter(l => l.apoyos)) {
-        const hilos = [];
-        const cadenas = [];
-        for (const k of [-1, 0, 1]) {
-            const curva = new THREE.CatmullRomCurve3(colgar(L.apoyos, k).map(p => new THREE.Vector3(...p)));
-            hilos.push(new THREE.TubeGeometry(curva, Math.round(curva.getLength() * 28), 0.0065, 5));
-            for (const a of L.apoyos) {
-                if (!a.aislador) continue;
-                // la cadena de aisladores: un tramo con sus platos, colgando de la cruceta
-                for (let j = 0; j < 4; j++) {
-                    const g = new THREE.CylinderGeometry(0.016, 0.016, 0.008, 10);
-                    g.translate(a.p[0] + k * a.fase[0], a.p[1] - 0.012 - (j * (a.aislador - 0.02)) / 3, a.p[2] + k * a.fase[2]);
-                    cadenas.push(g);
-                }
-                const eje = new THREE.CylinderGeometry(0.004, 0.004, a.aislador, 6);
-                eje.translate(a.p[0] + k * a.fase[0], a.p[1] - a.aislador / 2, a.p[2] + k * a.fase[2]);
-                cadenas.push(eje);
-            }
-        }
-        const parte = partes[PARTE_LINEA[L.id]];
-        const malla = new THREE.Mesh(mergeGeometries(hilos), M.conductor);
-        malla.castShadow = !movil;
-        raiz.add(malla);
-        parte.push(malla);
-        if (cadenas.length) {
-            const aisladores = new THREE.Mesh(mergeGeometries(cadenas), M.aislador);
-            raiz.add(aisladores);
-            parte.push(aisladores);
-        }
-    }
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: L => PARTE_LINEA[L.id], movil });
     plano('A la red de Baja California Sur', POSTES.motores[0] - 0.55, POSTES.motores[1] + 0.42, 1.3, PI / 2);
 
     // ---------- brillos: la flama del hogar, los escapes, las luces de la chimenea

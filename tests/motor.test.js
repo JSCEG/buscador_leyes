@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO, PUENTE_HILO } from '../src/data/como-funciona.js';
-import { ARMAZON, BLOQUE, CONUEE, EFICIENCIA, LINEAS, MOTOR, NORMA, PARTES, PERDIDAS, PRUEBAS, TNOM, arranque, calor, carga, estadoPlanta, gira, motorEn, parMaximo, pasoPlanta, pose, puntasSueltas, revisar, sincrona } from '../conceptos-3d/motor/modelo.js';
+import { ARMAZON, BLOQUE, BORNES, CONUEE, EFICIENCIA, LINEAS, MOTOR, NORMA, PARTES, PERDIDAS, PRUEBAS, REMATE, TNOM, arranque, calor, carga, estadoPlanta, gira, motorEn, parMaximo, pasoPlanta, pose, puntasSueltas, revisar, sincrona } from '../conceptos-3d/motor/modelo.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/motor/fuentes.js';
 
 const lista = archivo => {
@@ -20,6 +21,14 @@ describe('El motor', () => {
     it('cada cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('los cables son delgados y van por el piso, el poste de los cables o la orilla de la mesa, sin arcos en el aire', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        for (const l of LINEAS.filter(x => x.cable)) expect(l.r).toBeLessThanOrEqual(0.02);
+        // la alimentación y la medición llegan a la caja de conexiones por el brazo del poste
+        expect(LINEAS.find(l => l.id === 'alimenta').puntos.at(-1)).toBe(BORNES.cajaAl);
+        expect(LINEAS.find(l => l.id === 'mide').puntos[0]).toBe(BORNES.cajaMi);
     });
 
     it('el motor y sus pruebas son los de la tesis de la FES Aragón', () => {

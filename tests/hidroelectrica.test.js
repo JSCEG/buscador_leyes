@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { AGUA, BLOQUE, CENTRAL, DEF, ETA, FIN_EVENTO, GOLPE_M, LINEAS, NIVEL, PARTES, REPARTO_MES, TIPOS, UNIDAD, VAIVEN, VIAJE, VOL_UTIL, anual, areaKm2, calcular, demandaEn, dia, enEvento, enHora, enSerie, estadoPlanta, etaTurbina, fugas, kwhPorM3, nivelDe, nivelEnMes, pasoPlanta, pose, potenciaMax, puntasSueltas, rechazo, reparto, revisar, terreno, unidad, volumen, CAVERNA, CORTINA, MAQUINA, Y } from '../conceptos-3d/hidroelectrica/modelo.js';
+import { AEREAS, AGUA, BLOQUE, BORNES, CENTRAL, DEF, ETA, FIN_EVENTO, GOLPE_M, LINEAS, NIVEL, PARTES, REPARTO_MES, TIPOS, UNIDAD, VAIVEN, VIAJE, VOL_UTIL, anual, areaKm2, calcular, demandaEn, dia, enEvento, enHora, enSerie, estadoPlanta, etaTurbina, fugas, kwhPorM3, nivelDe, nivelEnMes, pasoPlanta, pose, potenciaMax, puntasSueltas, rechazo, reparto, revisar, terreno, unidad, volumen, CAVERNA, CORTINA, MAQUINA, REMATE, Y } from '../conceptos-3d/hidroelectrica/modelo.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/hidroelectrica/fuentes.js';
 
 const correr = (s, m, segundos) => { let r = s; for (let i = 0; i < segundos * 20; i++) r = pasoPlanta(r, m, 0.05); return r; };
@@ -20,6 +21,32 @@ describe('Central hidroeléctrica', () => {
     it('cada tubo y cable toca un equipo en sus dos puntas, y el agua no se sale del embalse', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(fugas()).toEqual([]);
+    });
+
+    it('cada cable llega a un borne: la caja del generador, la lumbrera, las boquillas, el pórtico, las crucetas y el marco', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // los cables de la caverna son delgados y van por charola, pared y zanja: nada de arcos por el aire
+        const bus = LINEAS.find(l => l.id === 'bus');
+        expect(bus.r).toBeLessThanOrEqual(0.02);
+        expect(bus.puntos[0]).toBe(BORNES.generador);
+        expect(bus.puntos.at(-1)).toBe(BORNES.trafoCables);
+        // las líneas aéreas son tres fases que cuelgan entre apoyos, sin tubo
+        expect(Object.keys(AEREAS)).toEqual(['alta', 'gis', 'rnt', 'rgd']);
+        for (const [id, apoyos] of Object.entries(AEREAS)) {
+            const linea = LINEAS.find(l => l.id === id);
+            expect(linea.oculto).toBe(true);
+            expect(linea.apoyos).toBe(apoyos);
+            expect(linea.fluido).toBe('ca');
+            for (const a of apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.05);
+            for (const k of [-1, 0, 1]) {
+                const p = colgar(apoyos, k);
+                expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+            }
+        }
+        // la línea de alta llega a las tres boquillas del transformador y sale por el pórtico hasta el marco de la reductora
+        expect(AEREAS.alta[0].p).toBe(BORNES.trafoAlta);
+        expect(AEREAS.rnt[0].p).toBe(BORNES.portico);
+        expect(AEREAS.rnt.at(-2).p).toBe(BORNES.marcoReductora);
     });
 
     it('en su punto de diseño da lo publicado, y la potencia crece con el agua y con la caída', () => {

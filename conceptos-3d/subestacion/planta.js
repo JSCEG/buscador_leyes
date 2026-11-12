@@ -9,7 +9,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { azar, clamp01, fract, lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, crearAyudante, crearTubos, en, estudio, geoEntre, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BLOQUE, CAMBIADOR, CAPAC, CASETA, CERCA, COLONIA, FASE_A, FASE_M, FLUIDOS, LINEAS, PARTES, X, Y, ZF, ZL } from './modelo.js';
+import { MATERIAL_CONDUCTOR, crearLineasAereas } from '../planta-comun/conductores.js';
+import { ALTO_TORRE, BLOQUE, BORNA_T, BORNES, CAMBIADOR, CAPAC, CASETA, CERCA, COLONIA, DIBUJADAS, FASE_A, FASE_M, FLUIDOS, LINEAS, PARARRAYOS, PARTES, X, Y, ZF, ZL } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -26,7 +27,7 @@ export function materiales(P) {
         galv: new THREE.MeshStandardMaterial({ color: '#b3b8be', roughness: 0.42, metalness: 0.75, envMapIntensity: 0.9 }),
         marco: new THREE.MeshStandardMaterial({ color: '#9ea4ab', roughness: 0.45, metalness: 0.7, envMapIntensity: 0.8 }),
         aluminio: new THREE.MeshStandardMaterial({ color: '#d6dade', roughness: 0.28, metalness: 0.85, envMapIntensity: 1 }),
-        cable: new THREE.MeshStandardMaterial({ color: '#45474d', roughness: 0.55, metalness: 0.5 }),
+        cable: MATERIAL_CONDUCTOR(),
         trafo: new THREE.MeshStandardMaterial({ color: '#8f999d', roughness: 0.5, metalness: 0.35, envMapIntensity: 0.8 }),
         camara: new THREE.MeshStandardMaterial({ color: '#c9cdd2', roughness: 0.3, metalness: 0.6, envMapIntensity: 0.9 }),
         nucleo: new THREE.MeshStandardMaterial({ color: '#4c5057', roughness: 0.45, metalness: 0.6 }),
@@ -54,7 +55,7 @@ export function escenario(renderer, scene, M, { movil = false, oscuro = false } 
     const P = M.P;
     const dia = { terreno: new THREE.Color(oscuro ? '#a2a497' : P.tierraDia), roca: new THREE.Color(oscuro ? '#c9c5bc' : '#ffffff'), concreto: new THREE.Color(oscuro ? '#a5a39c' : '#cfccc5') };
     const noche = { terreno: new THREE.Color(P.tierraNoche), roca: new THREE.Color('#6a655c'), concreto: new THREE.Color('#383c42') };
-    if (oscuro) { M.torre.color.set('#8f929a'); M.cable.color.set('#8a8d94'); }
+    if (oscuro) M.torre.color.set('#8f929a');
     return estudio(renderer, scene, {
         movil, oscuro, y0: Y0, alcance: 15,
         alActualizar(n) {
@@ -107,7 +108,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     const aislador = (padre, x, y, z, h, r = 0.04) => padre.add(en(sombra(new THREE.Mesh(geoAislador(h, r), M.porcelana)), x, y, z));
     const columna = (padre, x, z, h, w = 0.07, m = M.galv) => padre.add(en(sombra(new THREE.Mesh(geoColumna(h, w), m)), x, 0, z));
     const conductores = { alta: [], media: [] };
-    const cuerda = (nivel, a, b, comba = 0, r = nivel === 'alta' ? 0.008 : 0.006) => conductores[nivel].push(geoConductor(a, b, r, comba));
+    // los puentes entre aparatos: el mismo conductor de aluminio que las líneas (planta-comun/conductores.js), de borne a borne
+    const cuerda = (nivel, a, b, comba = 0, r = nivel === 'alta' ? 0.0065 : 0.0055) => conductores[nivel].push(geoConductor(a, b, r, comba));
 
     // --------- el predio, la grava, la cerca y la red de tierras
     const cx = (CERCA.x[0] + CERCA.x[1]) / 2;
@@ -165,7 +167,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
 
     // --------- 1 · las líneas de 115 kV: torres, cable de guarda y marco de remate
     const lineas = unidad('lineas');
-    const torre = new THREE.Mesh(geoTorre(2.05, 0.3), M.torre);
+    const torre = new THREE.Mesh(geoTorre(ALTO_TORRE, 0.3), M.torre);
     ZL.forEach((z, i) => {
         const t = sombra(torre.clone());
         t.position.set(X.torre, 0, z);
@@ -174,14 +176,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const marco = new THREE.Group();
         for (const s of [-1, 1]) marco.add(en(sombra(new THREE.Mesh(geoCelosia(Y.marco + 0.12, 0.11), M.marco)), X.marco, 0, z + s * 0.45));
         marco.add(en(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 1.02), M.marco)), X.marco, Y.marco + 0.08, z));
-        // aisladores de suspensión del marco y de la torre
-        for (const dz of FASE_A) {
-            marco.add(en(sombra(new THREE.Mesh(geoAislador(0.12, 0.03), M.porcelana)), X.marco, Y.marco - 0.09, z + dz));
-            lineas.add(en(sombra(new THREE.Mesh(geoAislador(0.12, 0.03), M.porcelana)), X.torre, Y.torre - 0.08, z + dz * 1.15));
-            cuerda('alta', [X0 + 0.02, Y.torre - 0.05, z + dz * 1.15], [X.torre, Y.torre - 0.08, z + dz * 1.15], 0.05);
-            cuerda('alta', [X.torre, Y.torre - 0.08, z + dz * 1.15], [X.marco, Y.marco - 0.09, z + dz], 0.1);
-            cuerda('alta', [X.marco, Y.marco - 0.09, z + dz], [X.apartarrayos + 0.12, Y.contacto, z + dz], 0.04);
-        }
+        // las tres fases y sus cadenas de aisladores, de la torre al marco y de ahí a los apartarrayos, las dibuja crearLineasAereas (abajo)
         // cable de guarda: arriba de todo, contra los rayos
         cuerda('alta', [X0 + 0.02, 2.12, z], [X.torre, 2.05, z], 0.04, 0.004);
         cuerda('alta', [X.torre, 2.05, z], [X.marco, Y.marco + 0.14, z], 0.06, 0.004);
@@ -235,7 +230,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             padre.add(b);
         }
     };
-    const bornaT = (x, s) => [x + s * (0.11 + Math.sin(0.22) * 0.52), 0.57 + Math.cos(0.22) * 0.52];
+    const bornaT = (x, s) => [x + s * BORNA_T.dx, BORNA_T.y];
     const tcFase = (padre, x, z, base, h) => {
         columna(padre, x, z, base, 0.08);
         aislador(padre, x, base, z, h, 0.055);
@@ -257,27 +252,30 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (const dz of FASE_A) {
             const zz = z + dz;
             if (conLinea) {
-                pararrayos(apartarrayos, X.apartarrayos, zz, 0.48, 0.62);
+                pararrayos(apartarrayos, X.apartarrayos, zz, PARARRAYOS.linea.alto, PARARRAYOS.linea.base);
                 cuchilla(cuchillas, X.cuchillaLinea - 0.17, X.cuchillaLinea + 0.17, zz, Y.contacto, 0.42, 0.035, true);
                 tcFase(medicion, X.tc, zz, 0.5, 0.52);
                 tanqueMuerto(interruptor, X.interruptor, zz);
                 cuchilla(cuchillas, X.cuchillaBarra - 0.17, X.cuchillaBarra + 0.17, zz, Y.contacto, 0.42);
-                cuerda('alta', [X.apartarrayos + 0.12, Y.contacto, zz], [X.cuchillaLinea - 0.17, Y.contacto, zz]);
+                // la línea baja del marco al borne del apartarrayos y de ahí sigue a la cuchilla
+                const [, ya] = BORNES['apartarrayos-l1'];
+                cuerda('alta', [X.apartarrayos, ya, zz], [X.cuchillaLinea - 0.17, Y.contacto, zz], 0.02);
                 cuerda('alta', [X.cuchillaLinea + 0.17, Y.contacto, zz], [X.tc, Y.contacto - 0.06, zz], 0.02);
                 const [bi, yb] = bornaT(X.interruptor, -1);
                 const [bd] = bornaT(X.interruptor, 1);
                 cuerda('alta', [X.tc, Y.contacto - 0.06, zz], [bi, yb, zz], 0.02);
                 cuerda('alta', [bd, yb, zz], [X.cuchillaBarra - 0.17, Y.contacto, zz], 0.02);
-                cuerda('alta', [X.apartarrayos, 1.12, zz], [X.apartarrayos + 0.12, Y.contacto, zz]);
             } else {
                 cuchilla(cuchillas, X.cuchillaBanco - 0.17, X.cuchillaBanco + 0.17, zz, Y.contacto, 0.42);
                 tanqueMuerto(interruptor, X.interruptorBanco, zz);
                 const [bi, yb] = bornaT(X.interruptorBanco, -1);
                 const [bd] = bornaT(X.interruptorBanco, 1);
                 cuerda('alta', [X.cuchillaBanco + 0.17, Y.contacto, zz], [bi, yb, zz], 0.02);
-                cuerda('alta', [bd, yb, zz], [X.boqAlta, Y.boqAlta, zz * 0.9], 0.04);
-                pararrayos(apartarrayos, X.interruptorBanco + 0.42, zz, 0.42, 0.5, 0.04);
-                cuerda('alta', [X.interruptorBanco + 0.42, 0.95, zz], [X.interruptorBanco + 0.5, 1.22, zz * 0.95]);
+                // del interruptor al borne del apartarrayos y de ahí a la boquilla de alta del transformador
+                pararrayos(apartarrayos, X.interruptorBanco + 0.42, zz, PARARRAYOS.banco.alto, PARARRAYOS.banco.base, 0.04);
+                const [xa, ya] = BORNES.apartarrayosBanco;
+                cuerda('alta', [bd, yb, zz], [xa, ya, zz], 0.02);
+                cuerda('alta', [xa, ya, zz], [X.boqAlta, Y.boqAlta, zz * 0.9], 0.03);
             }
         }
         mecanismo(interruptor, conLinea ? X.interruptor + 0.2 : X.interruptorBanco + 0.2, z + 0.42);
@@ -444,9 +442,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             cuerda('media', [X.barra13[k], Y.barra13, z], [X.cuchilla13 - 0.15, Y.contacto13, z], 0.01);
             cuerda('media', [X.cuchilla13 + 0.15, Y.contacto13, z], [X.interruptor13 - 0.07, 0.9, z]);
             cuerda('media', [X.interruptor13 + 0.07, 0.9, z], [X.cuchillaSal - 0.15, Y.contacto13, z]);
-            cuerda('media', [X.cuchillaSal + 0.15, Y.contacto13, z], [X.apartarrayos13, Y.contacto13, z]);
-            pararrayos(apartarrayos, X.apartarrayos13, z, 0.22, 0.6, 0.026);
-            cuerda('media', [X.apartarrayos13, Y.contacto13, z], [X.postes[0], Y.poste, z], 0.03);
+            // de la cuchilla al borne del apartarrayos; de ahí sale la línea a los postes (crearLineasAereas, abajo)
+            cuerda('media', [X.cuchillaSal + 0.15, Y.contacto13, z], [X.apartarrayos13, BORNES['apartarrayos13-0'][1], z]);
+            pararrayos(apartarrayos, X.apartarrayos13, z, PARARRAYOS.circuito.alto, PARARRAYOS.circuito.base, 0.026);
             // la cuchilla de paso: de la línea del circuito a la barra de interconexión
             const xi = X.interconexion[k];
             barras13.add(en(sombra(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.03), M.aluminio)), xi, Y.contacto13 + 0.01, z));
@@ -529,15 +527,16 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         colonia.add(malla(g, M.poste));
         colonia.add(malla(c, M.galv));
         for (const [x, zf] of postes) for (const dz of FASE_M) aislador(colonia, x, Y.poste - 0.025, zf + dz, 0.04, 0.012);
-        ZF.forEach((zf, i) => {
-            const xs = i === 0 ? X.postes : X.postes.slice(0, 3);
-            for (let k = 0; k < xs.length - 1; k++) for (const dz of FASE_M) cuerda('media', [xs[k], Y.poste, zf + dz], [xs[k + 1], Y.poste, zf + dz], 0.05);
-        });
+        // las tres fases de cada circuito van sobre los alfileres, de poste en poste (crearLineasAereas, abajo)
         plano(raiz, 'A la ciudad', X.postes[2] + 0.55, (ZF[2] + ZF[3]) / 2, 0.95, 0, 0.012);
         // transformador de poste: lo explica la red de distribución
         colonia.add(en(cil(0.045, 0.12, M.trafo), X.postes[3] + 0.06, 0.8, ZF[0] - 0.08));
+        // su puente: de la fase más cercana, en el alfiler, a la boquilla de arriba
+        const [xa, ya, za] = BORNES['poste3-0'];
+        cuerda('media', [xa, ya, za + FASE_M[0]], BORNES.trafoPoste, 0.02, 0.004);
         // casas, a los dos lados del circuito
         const casas = [];
+        const acometidas = new Set();
         for (let i = 0; i < 8; i++) {
             const x = COLONIA.x[0] + 0.1 + (i % 4) * 0.72;
             const z = i < 4 ? 2.62 : 0.95;
@@ -554,10 +553,14 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             casa.position.set(x, 0, z);
             colonia.add(casa);
             casas.push(casa);
-            // la acometida, del poste a la casa
             const xp = X.postes.reduce((m, p) => (Math.abs(p - x) < Math.abs(m - x) ? p : m), X.postes[2]);
-            cuerda('media', [xp, Y.poste - 0.3, ZF[0]], [x, h + 0.02, z - lado * 0.17], 0.03, 0.003);
+            // la acometida, de la abrazadera del poste a la fachada de enfrente de la casa
+            const hacia = Math.sign(z - ZF[0]);
+            cuerda('media', [xp, Y.poste - 0.3, ZF[0] - 0.02 + hacia * 0.035], [x, h + 0.02, z + lado * 0.17], 0.03, 0.003);
+            acometidas.add(xp);
         }
+        // de donde salen las acometidas: una abrazadera en el poste, a los dos lados
+        for (const xp of acometidas) for (const s of [-1, 1]) colonia.add(en(caja(0.03, 0.03, 0.03, M.galv), xp, Y.poste - 0.315, ZF[0] - 0.02 + s * 0.035));
         for (const [x, zf, i, k] of postes) if (i === 0 && k > 1) brillo(colonia, x, Y.poste - 0.12, zf + 0.2, 0.3, '#ffd9a0', 'luz', 0.8);
         // árboles de adorno
         for (const [x, z] of [[5.9, -0.6], [7.6, -1.9], [8.05, 0.3], [4.2, -2.6], [-7.6, 2.5]]) {
@@ -591,7 +594,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     const rayo = new THREE.Mesh(mergeGeometries(rayoG), M.rayo);
     rayo.renderOrder = 7;
     raiz.add(rayo);
-    FASE_A.forEach(dz => brillo(raiz, X.apartarrayos, 1.08, ZL[1] + dz, 0.5, '#ffb000', 'rayo', 1.3, false));
+    FASE_A.forEach(dz => brillo(raiz, X.apartarrayos, BORNES['apartarrayos-l2'][1] - 0.04, ZL[1] + dz, 0.5, '#ffb000', 'rayo', 1.3, false));
     // el arco de una cuchilla que se abre con corriente: tres zigzags que se turnan
     const arcos = [0, 1, 2].map(k => {
         const g = [];
@@ -608,6 +611,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     // --------- los conductores, juntos en una malla por nivel de tensión; al desarmar se quitan
     const cables = [malla(conductores.alta, M.cable), malla(conductores.media, M.cable)];
     cables.forEach(c => raiz.add(c));
+    // las líneas aéreas: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores (planta-comun/conductores.js)
+    cables.push(...crearLineasAereas({ raiz, lineas: DIBUJADAS, partes, parteDe: L => (L.id.startsWith('l') ? 'lineas' : 'colonia'), movil, conductor: M.cable }));
     // al desarmar, cada familia de equipos sube a su propia altura
     for (const [g, d] of [[apartarrayos, [0, 0.5, 0]], [cuchillas, [0, 0.85, 0]], [medicion, [0, 0.65, 0]], [interruptor, [0, 1.05, 0]], [barras, [0, 1.3, 0]], [barras13, [0, 1.1, 0]], [alimentadores, [0, 0.7, 0]], [capacitores, [0, 0.6, 0]], [lineas, [-0.5, 0, 0]]]) mover(g, d);
 

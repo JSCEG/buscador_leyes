@@ -11,6 +11,7 @@
 // - Las reglas: quién necesita permiso, quién puede vender y quién no puede inyectar (Disposiciones de la CNE, LSE y su reglamento).
 // De ejemplo, para ver la tendencia: los tamaños de la central, de la mina y de las baterías; el pago fijo del tolling; la forma del sol en
 // el día; la demanda de la mina; y que la batería hace a lo más un ciclo al día, cargando antes de descargar.
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 import { PML } from './precios.js';
 
 export const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -300,15 +301,90 @@ export const FLUIDOS = {
 };
 const [sx, sz] = SITIO.subestacion;
 const [tx, tz] = SITIO.trafo;
+const [ix, iz] = SITIO.inversorCE;
+/** Las filas de paneles de la central (z de cada una) y la x de sus cajas de conexión, al pie de la punta oeste. */
+export const FILAS_PANELES = [0, 1, 2, 3, 4].map(f => SITIO.central[1] - 1.2 + f * 0.6);
+export const X_COMBINADORAS = SITIO.central[0] - 2.5;
+/** Las torres que traen la Red Nacional de Transmisión: x, en z = Z_TORRES. La primera, detrás del CENACE, no lo pisa. */
+export const TORRES = [-7.55, -3.2];
+export const Z_TORRES = -3.4;
+export const ALTO_TORRE = ALTO_LINEA + 0.45;
+/** Postes de esquina que llevan las líneas a las bahías de la subestación: [x, z, alto]; su cruceta va girada en la bisectriz de la vuelta. */
+export const POSTES = { trafo: [sx - 0.75, tz, 1.6], central: [sx + 0.75, iz - 0.48, 1.6] };
+export const GIRO_POSTE = { trafo: Math.PI / 4, central: (3 * Math.PI) / 4 };
+/** Las cuatro bahías de la subestación, bajo las barras: x de cada una (tres boquillas en x, a 0.06 una de otra). */
+export const BAHIAS = [sx - 0.75, sx - 0.25, sx + 0.25, sx + 0.75];
+/** El transformador elevador de la central solar y el de la fábrica: [x, z]. */
+export const TRAFO_CE = [ix, iz - 0.48];
+export const TRAFO_FABRICA = [SITIO.fabrica[0] - 1.65, sz];
+const cruceta = ([x, z, h]) => [x, h * 0.92, z];
+/** Los bornes donde se conecta cada cable: cada punta que no remata en la orilla debe caer en uno. */
+export const BORNES = {
+    ...Object.fromEntries(TORRES.map((x, i) => [`torre${i + 1}`, [x, ALTO_TORRE * 0.92, Z_TORRES]])),
+    // las tres barras de la subestación (a 0.3 una de otra, en z), por sus dos puntas, y las boquillas de sus bahías
+    barraOeste: [sx - 1.0, 1.35, sz],
+    barraEste: [sx + 1.0, 1.35, sz],
+    ...Object.fromEntries(BAHIAS.map((x, i) => [`bahia${i + 1}`, [x, 0.9, sz]])),
+    ...Object.fromEntries(BAHIAS.map((x, i) => [`barraBahia${i + 1}`, [x, 1.35, sz]])),
+    // la cara del gabinete de la bahía 3, donde entra el cable del SAEE de la red
+    gabineteBahia3: [BAHIAS[2], 0.2, sz + 0.09],
+    saeeRed: [SITIO.saeeRed[0] - 0.35, 0.15, SITIO.saeeRed[1]],
+    // el transformador del SAEE no asociado: tres boquillas en z (a 0.13) y su caja de baja tensión al este
+    trafoAlta: [tx + 0.1, 0.76, tz],
+    trafoBaja: [tx + 0.31, 0.2, tz],
+    posteTrafo: cruceta(POSTES.trafo),
+    // el primer inversor de la fila: de ahí sale el cable que junta a los cinco
+    pcs: [SITIO.saee[0] - 2.3, 0.15, SITIO.saee[1] - 0.13],
+    // la central solar: su transformador (tres boquillas en z, a 0.1), su inversor y el SAEE de la central
+    trafoCE: [TRAFO_CE[0] - 0.1, 0.52, TRAFO_CE[1]],
+    posteCentral: cruceta(POSTES.central),
+    inversorCE: [ix + 0.3, 0.15, iz + 0.05],
+    inversorCEOeste: [ix - 0.3, 0.15, iz],
+    // las cajas de conexión de los paneles, una al pie de cada fila, en su punta oeste; el cable de corriente directa sale de la última
+    ...Object.fromEntries(FILAS_PANELES.map((z, i) => [`combinadora${i + 1}`, [X_COMBINADORAS, 0.06, z]])),
+    saeeCE: [SITIO.saeeCE[0] - 1.05, 0.15, SITIO.saeeCE[1] + 0.25],
+    // la fábrica: las tres boquillas de su transformador (en z, a 0.1)
+    trafoFabrica: [TRAFO_FABRICA[0], 0.52, TRAFO_FABRICA[1]],
+    // el CENACE y el control del SAEE
+    cenace: [SITIO.cenace[0] - 0.7, 0.3, SITIO.cenace[1] + 0.25],
+    control: [SITIO.control[0] - 0.25, 0.15, SITIO.control[1] - 0.21],
+    // la mina: su batería y su planta diésel
+    mina: [SITIO.mina[0] + 0.7, 0.15, SITIO.mina[1]],
+    diesel: [SITIO.diesel[0] - 0.3, 0.15, SITIO.diesel[1]],
+};
+const orillaRnt = [BLOQUE.x[0] + 0.05, ALTO_TORRE * 0.85, Z_TORRES];
+/** Cada línea aérea, apoyo por apoyo, con la abertura de sus fases donde llega: boquillas, barras, crucetas. */
+export const AEREAS = {
+    // la red llega por las dos torres a la punta oeste de las barras
+    rnt: [apoyo(orillaRnt, [0, 0, 0.28]), ...TORRES.map((_, i) => apoyo(BORNES[`torre${i + 1}`], [0, 0, 0.28], 0.08)), apoyo(BORNES.barraOeste, [0, 0, 0.3])],
+    // el SAEE no asociado: de su transformador, por el poste de esquina, a la bahía 1
+    saee: [apoyo(BORNES.trafoAlta, [0, 0, 0.13]), apoyo(BORNES.posteTrafo, [0.177, 0, 0.177], 0.08), apoyo(BORNES.bahia1, [0.06, 0, 0])],
+    // la central solar: de su transformador, por el poste de esquina, a la bahía 4
+    central: [apoyo(BORNES.trafoCE, [0, 0, 0.1]), apoyo(BORNES.posteCentral, [-0.177, 0, 0.177], 0.08), apoyo(BORNES.bahia4, [-0.06, 0, 0])],
+    // la fábrica: de la punta este de las barras a las boquillas de su transformador
+    fabrica: [apoyo(BORNES.barraEste, [0, 0, 0.3]), apoyo(BORNES.trafoFabrica, [0, 0, 0.1])],
+    // los puentes de cada bahía a las tres barras
+    ...Object.fromEntries(BAHIAS.map((_, i) => [`puente${i + 1}`, [apoyo(BORNES[`bahia${i + 1}`], [0.06, 0, 0]), apoyo(BORNES[`barraBahia${i + 1}`], [0, 0, 0.3])]])),
+};
+/** Al pie de un borne, ya en el piso, un poco hacia [x, z]. */
+const alPie = (p, [x, z], d = 0.07) => {
+    const l = Math.hypot(x - p[0], z - p[2]) || 1;
+    return [p[0] + (d * (x - p[0])) / l, 0.03, p[2] + (d * (z - p[2])) / l];
+};
+/** Un cable de piso: sale de un borne, baja al piso, sigue la ruta [x, z] y sube al otro borne. */
+const piso = (id, fluido, a, ruta, b) => ({ id, fluido, r: 0.02, cable: true, puntos: [a, alPie(a, ruta[0]), ...ruta.map(([x, z]) => [x, 0.03, z]), alPie(b, ruta.at(-1)), b] });
 export const LINEAS = [
-    { id: 'rnt', fluido: 'red', r: 0.04, cable: true, puntos: [[BLOQUE.x[0] + 0.05, ALTO_LINEA + 0.4, -3.4], [-3.0, ALTO_LINEA + 0.2, -3.4], [sx - 1.0, 1.4, sz - 0.4]] },
-    { id: 'saee', fluido: 'descarga', r: 0.04, cable: true, puntos: [[tx + 0.2, 0.6, tz - 0.1], [-1.6, 1.0, -1.6], [sx - 1.0, 1.0, sz + 0.4]] },
-    { id: 'pcs', fluido: 'carga', r: 0.03, oculto: true, puntos: [[-4.6, 0.25, 0.4], [tx - 0.2, 0.3, tz + 0.2]] },
-    { id: 'central', fluido: 'solar', r: 0.04, cable: true, puntos: [[SITIO.inversorCE[0], 0.6, SITIO.inversorCE[1] - 0.15], [2.2, 1.2, -1.6], [sx + 1.0, 1.0, sz + 0.4]] },
-    { id: 'saeeCE', fluido: 'carga', r: 0.03, cable: true, puntos: [[SITIO.saeeCE[0] - 0.9, 0.3, SITIO.saeeCE[1]], [4.6, 0.35, -0.5], [SITIO.inversorCE[0] + 0.3, 0.35, SITIO.inversorCE[1]]] },
-    { id: 'fabrica', fluido: 'red', r: 0.03, cable: true, puntos: [[sx + 1.0, 1.2, sz - 0.3], [2.6, 1.6, -3.3], [SITIO.fabrica[0] - 1.2, 0.9, SITIO.fabrica[1]]] },
-    { id: 'cenace', fluido: 'senal', r: 0.02, cable: true, puntos: [[SITIO.cenace[0] + 0.7, 1.0, SITIO.cenace[1] + 0.3], [-4.2, 1.4, -2.2], [SITIO.control[0] + 0.3, 0.7, SITIO.control[1] - 0.25]] },
-    { id: 'mina', fluido: 'solar', r: 0.025, cable: true, puntos: [[SITIO.mina[0] - 0.3, 0.3, SITIO.mina[1] + 0.5], [SITIO.mina[0] + 0.2, 0.35, 3.3], [SITIO.diesel[0] - 0.35, 0.3, SITIO.diesel[1]]] },
+    // las líneas aéreas no llevan tubo: la página dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la energía
+    ...Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos, { fluido: id === 'saee' ? 'descarga' : id === 'central' ? 'solar' : 'red' })),
+    // los cables de piso: de los inversores al transformador, del SAEE de la central a su inversor, del SAEE de la red a su bahía,
+    // las instrucciones del CENACE al control y, en la mina, de la batería a la planta diésel
+    piso('pcs', 'carga', BORNES.pcs, [[BORNES.pcs[0], 1.04], [-1.55, 1.04], [-1.55, tz]], BORNES.trafoBaja),
+    piso('saeeCE', 'carga', BORNES.saeeCE, [[4.3, BORNES.saeeCE[2]]], BORNES.inversorCE),
+    piso('saeeRed', 'descarga', BORNES.saeeRed, [[BAHIAS[2], SITIO.saeeRed[1]]], BORNES.gabineteBahia3),
+    piso('cenace', 'senal', BORNES.cenace, [[-7.2, -2.6], [-7.2, -1.35]], BORNES.control),
+    // el cable de corriente directa de los paneles: por el piso, al pie de las cajas de conexión de cada fila, hasta el inversor
+    piso('paneles', 'solar', BORNES[`combinadora${FILAS_PANELES.length}`], [[X_COMBINADORAS, FILAS_PANELES.at(-1) - 0.15], [X_COMBINADORAS, iz], [ix - 0.45, iz]], BORNES.inversorCEOeste),
+    piso('mina', 'solar', BORNES.mina, [[BORNES.mina[0] + 0.15, BORNES.mina[2]], [BORNES.mina[0] + 0.15, BORNES.diesel[2]]], BORNES.diesel),
 ];
 export const REMATE = new Set(['rnt (inicio)']);
 const caja = (x, y0, z, w, h, d) => [x - w / 2, x + w / 2, y0, y0 + h, z - d / 2, z + d / 2];
@@ -319,6 +395,9 @@ export const EQUIPOS = {
     control: caja(SITIO.control[0], 0, SITIO.control[1], 0.9, 0.6, 0.6),
     cenace: caja(SITIO.cenace[0], 0, SITIO.cenace[1], 1.6, 1.2, 1.0),
     inversorCE: caja(SITIO.inversorCE[0], 0, SITIO.inversorCE[1], 0.8, 0.8, 0.6),
+    central: caja(SITIO.central[0], 0, SITIO.central[1], 5.2, 0.6, 3.2),
+    trafoCE: caja(TRAFO_CE[0], 0, TRAFO_CE[1], 0.5, 0.7, 0.45),
+    trafoFabrica: caja(TRAFO_FABRICA[0], 0, TRAFO_FABRICA[1], 0.5, 0.7, 0.45),
     saeeCE: caja(SITIO.saeeCE[0], 0, SITIO.saeeCE[1], 2.0, 0.5, 1.0),
     fabrica: caja(SITIO.fabrica[0], 0, SITIO.fabrica[1], 2.6, 1.4, 1.4),
     mina: caja(SITIO.mina[0], 0, SITIO.mina[1], 1.4, 0.6, 1.4),
@@ -360,12 +439,15 @@ export function pose({ modo = 'mercado', noche = 0, adentro = 0, desarme = 0, en
         socSaee = L.socPct;
         flujos.saee = s(Math.max(cargando, descargando));
         flujos.pcs = flujos.saee;
+        flujos.puente1 = flujos.saee;
         flujos.rnt = s(0.4 + 0.6 * descargando);
         flujos.cenace = 0.35;
     } else if (modo === 'central') {
         const a = L.ahora;
         socCE = L.socPct;
         flujos.central = s(a.red / CENTRAL.contrato);
+        flujos.paneles = s(a.bruta / CENTRAL.mwCA);
+        flujos.puente4 = flujos.central;
         flujos.saeeCE = s(Math.max(a.carga, a.descarga) / Math.max(1, L.P));
         flujos.rnt = s(a.red / CENTRAL.contrato);
         flujos.cenace = 0.35;

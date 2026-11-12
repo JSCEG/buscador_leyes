@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { BLOQUE, CODIGO, E_PLENA, EJ, GEN, H2, IF_AIRE, LINEAS, PARTES, SINCRO, VHZ, carga, estadoPlanta, limitesQ, pasoPlanta, perdidas, pose, puntasSueltas, revisar, sincro, sincrona, vacio } from '../conceptos-3d/generador/modelo.js';
+import { AEREAS, BLOQUE, BORNES, CODIGO, E_PLENA, EJ, GEN, H2, IF_AIRE, LINEAS, PARTES, REMATE, SINCRO, VHZ, carga, estadoPlanta, limitesQ, pasoPlanta, perdidas, pose, puntasSueltas, revisar, sincro, sincrona, vacio } from '../conceptos-3d/generador/modelo.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/generador/fuentes.js';
 
 const lista = archivo => {
@@ -20,6 +21,25 @@ describe('El generador', () => {
     it('cada tubo y cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada cable llega a un borne, un poste o el piso, y la línea de salida son tres fases que cuelgan', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // el cable del campo es delgado y va por el piso hasta el poste de las escobillas
+        const campo = LINEAS.find(l => l.id === 'campo');
+        expect(campo.r).toBeLessThanOrEqual(0.02);
+        expect(campo.puntos.at(-1)).toBe(BORNES.escobillas);
+        // las fases salen de las tres boquillas del transformador y cuelgan del pórtico
+        const linea = LINEAS.find(l => l.id === 'linea');
+        expect(linea.oculto).toBe(true);
+        expect(linea.apoyos).toBe(AEREAS.linea);
+        expect(AEREAS.linea[0].p).toBe(BORNES.boquillas);
+        expect(AEREAS.linea[0].fase).toEqual([0, 0, 0.35]);
+        expect(AEREAS.linea[1].aislador).toBeGreaterThan(0);
+        for (const k of [-1, 0, 1]) {
+            const p = colgar(AEREAS.linea, k);
+            expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+        }
     });
 
     it('la placa es la de la tesis de la UNAM', () => {

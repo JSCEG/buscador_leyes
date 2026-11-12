@@ -9,7 +9,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { sale } from '../planta-comun/ayudas.js';
 import { caja, cil, crearAyudante, crearTubos, en, estudio, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { ALTO_POSTE, ALTO_TORRE, BLOQUE, CALLE, CASA, FLUIDOS, LAMPARAS, LINEAS, PARTES, POSTE_TRAFO, POSTES, SITIO, TORRES, Z_LAMPARA, Z_POSTE, Z_TORRES } from './lugar.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { ABRE_CRUCETA, ALTO_POSTE, ALTO_TORRE, ALTO_VECINAS, BLOQUE, BORNES, CALLE, CASA, CRUCETAS, FLUIDOS, LAMPARAS, LINEAS, PARTES, POSTE_TRAFO, POSTES, SITIO, TORRES, Z_LAMPARA, Z_POSTE, Z_TORRES } from './lugar.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -170,9 +171,13 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const colores = [M.muroAzul, M.muroRosa];
         SITIO.vecinas.forEach(([x, z], i) => {
             losa(new THREE.BoxGeometry(1.4, 0.02, 1.2).translate(0, 0.01, 0), M.banqueta, x, z);
-            const c = casita(raiz, x, z, { ancho: 1.15, fondo: 0.92, alto: 0.6 + i * 0.06, muro: colores[i] });
+            const c = casita(raiz, x, z, { ancho: 1.15, fondo: 0.92, alto: ALTO_VECINAS[i], muro: colores[i] });
             ventanasCasa.push(c.userData.ventanas);
             raiz.add(en(caja(0.08, 0.1, 0.04, M.gabinete), x - 0.4, 0.3, z + 0.48));
+            // el tubo que sube del medidor a la mufa, donde entra la acometida
+            const [mx, my, mz] = BORNES[`mufaVecina${i + 1}`];
+            raiz.add(en(cil(0.01, my - 0.03 - 0.4, M.acero), mx, 0.4, mz));
+            raiz.add(en(cil(0.016, 0.03, M.grafito), mx, my - 0.03, mz));
         });
     }
     const comercio = unidad('comercio');
@@ -190,6 +195,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         comercio.add(en(caja(0.24, 0.34, 0.005, M.vidrioV), x + 0.18, 0.06, z - 0.217));
         comercio.add(en(caja(0.1, 0.12, 0.04, M.gabinete), x - 0.3, 0.3, z + 0.49));
         comercio.add(en(cil(0.01, 0.48, M.acero), x - 0.3, 0.36, z + 0.5));
+        // la mufa, donde entra la acometida
+        comercio.add(en(cil(0.016, 0.03, M.grafito), x - 0.3, BORNES.mufaComercio[1] - 0.03, z + 0.5));
         plano(raiz, 'Tienda · PDBT', x, z + 0.75, 0.9);
     }
 
@@ -197,21 +204,34 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     const poste = unidad('poste');
     const alumbrado = unidad('alumbrado');
     {
-        const ps = [];
-        const crucetas = [];
-        const aisl = [];
-        for (const x of POSTES) {
-            ps.push(new THREE.CylinderGeometry(0.022, 0.034, ALTO_POSTE + 0.05, 8).translate(x, (ALTO_POSTE + 0.05) / 2, Z_POSTE));
-            crucetas.push(new THREE.BoxGeometry(0.03, 0.03, 0.42).translate(x, ALTO_POSTE - 0.04, Z_POSTE));
-            for (const dz of [-0.17, 0, 0.17]) aisl.push(new THREE.CylinderGeometry(0.012, 0.012, 0.05, 6).translate(x, ALTO_POSTE, Z_POSTE + dz));
+        // los postes de media tensión: cruceta con tres aisladores (el de en medio, sobre la punta); los de esquina la llevan girada
+        const piezas = { calle: [[], [], []], fabrica: [[], [], []] };
+        const alto = ALTO_POSTE - 0.025;
+        CRUCETAS.forEach(({ x, z, giro }, i) => {
+            const [ps, crucetas, aisl] = piezas[i < POSTES.length ? 'calle' : 'fabrica'];
+            ps.push(new THREE.CylinderGeometry(0.022, 0.034, alto, 8).translate(x, alto / 2, z));
+            crucetas.push(new THREE.BoxGeometry(0.03, 0.03, 0.42).rotateY(giro).translate(x, ALTO_POSTE - 0.04, z));
+            for (const k of [-1, 0, 1]) aisl.push(new THREE.CylinderGeometry(0.012, 0.012, 0.05, 6).translate(x + k * ABRE_CRUCETA * Math.sin(giro), ALTO_POSTE, z + k * ABRE_CRUCETA * Math.cos(giro)));
+        });
+        // el soporte de baja tensión de los postes que siguen al del transformador
+        for (const id of ['bt1', 'bt3', 'bt4']) {
+            const [x, y, z] = BORNES[id];
+            piezas.calle[1].push(new THREE.BoxGeometry(0.018, 0.018, 0.07).translate(x, y - 0.03, Z_POSTE + 0.035));
+            piezas.calle[2].push(new THREE.CylinderGeometry(0.014, 0.014, 0.03, 8).translate(x, y - 0.015, z));
         }
-        raiz.add(malla(ps, M.poste));
-        raiz.add(malla(crucetas, M.grafito));
-        raiz.add(malla(aisl, M.porcelana));
+        for (const [k, [ps, crucetas, aisl]] of Object.entries(piezas)) {
+            const padre = k === 'calle' ? raiz : unidad('fabrica');
+            padre.add(malla(ps, M.poste));
+            padre.add(malla(crucetas, M.grafito));
+            padre.add(malla(aisl, M.porcelana));
+        }
         // el transformador de poste: un tanque gris colgado, con su salida a la casa
         poste.add(en(cil(0.085, 0.24, M.trafo), POSTE_TRAFO + 0.1, 0.78, Z_POSTE));
         poste.add(en(caja(0.04, 0.03, 0.18, M.grafito), POSTE_TRAFO + 0.05, 0.98, Z_POSTE));
         for (const dz of [-0.04, 0.04]) poste.add(en(cil(0.012, 0.06, M.porcelana), POSTE_TRAFO + 0.1, 1.02, Z_POSTE + dz));
+        // la boquilla de media tensión, donde llega el puente de la línea
+        const [ax, ay, az] = BORNES.trafoPosteAlta;
+        poste.add(en(cil(0.014, ay - 1.02, M.porcelana), ax, 1.02, az));
         brillo(poste, POSTE_TRAFO + 0.1, 0.9, Z_POSTE, 0.7, '#f2b233', 'poste', 0.6, false);
         mover(poste.children[0], [0, 0, -0.4]);
         // el alumbrado público: lámparas en la banqueta que prenden de noche
@@ -251,18 +271,23 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const barras = [];
         for (let k = 0; k < 3; k++) barras.push(new THREE.BoxGeometry(1.5, 0.018, 0.018).translate(x, 1.2, z - 0.25 + k * 0.25));
         subestacion.add(malla(barras, M.cobre));
-        // dos transformadores de potencia
-        for (const dx of [-0.35, 0.35]) {
+        // dos transformadores de potencia: atrás las boquillas de alta, que bajan de las barras; al frente las de baja, de donde sale la media tensión
+        for (const [dx, lado] of [[-0.35, 'Oeste'], [0.35, 'Este']]) {
             subestacion.add(en(caja(0.34, 0.38, 0.3, M.trafo), x + dx, 0.02, z + 0.05));
             const rad = [];
             for (let k = 0; k < 5; k++) rad.push(new THREE.BoxGeometry(0.018, 0.28, 0.1).translate(x + dx - 0.12 + k * 0.06, 0.22, z + 0.25));
             subestacion.add(malla(rad, M.trafo));
-            for (let k = 0; k < 3; k++) subestacion.add(en(cil(0.02, 0.18, M.porcelana), x + dx - 0.1 + k * 0.1, 0.4, z));
+            const [, ay, az] = BORNES[`alta${lado}`];
+            const [, by, bz] = BORNES[`trafo${lado}`];
+            for (let k = -1; k <= 1; k++) {
+                subestacion.add(en(cil(0.022, ay - 0.4, M.porcelana), x + dx + k * 0.1, 0.4, az));
+                subestacion.add(en(cil(0.018, by - 0.4, M.porcelana), x + dx + k * 0.1, 0.4, bz));
+            }
         }
         plano(raiz, 'Subestación · 115 a 13.8 kV', x, z + 0.85, 1.6);
     }
     const transmision = unidad('transmision');
-    for (const xt of TORRES) transmision.add(en(sombra(new THREE.Mesh(geoTorre(ALTO_TORRE + 0.05, 0.3), M.torre)), xt, 0, Z_TORRES));
+    for (const xt of TORRES) transmision.add(en(sombra(new THREE.Mesh(geoTorre(ALTO_TORRE, 0.3), M.torre)), xt, 0, Z_TORRES));
     plano(raiz, 'Red Nacional de Transmisión', (TORRES[0] + TORRES[1]) / 2, Z_TORRES + 0.45, 1.8);
 
     const central = unidad('central');
@@ -278,6 +303,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             brillo(central, x + dx, 1.75, z - 0.2, 0.55, '#c9ccd1', 'central', 0.5, false);
         }
         central.add(en(caja(0.4, 0.34, 0.3, M.trafo), x + 0.55, 0, z - 0.6));
+        // las tres boquillas del transformador, de donde sale la línea de transmisión
+        const [bx, by, bz] = BORNES.centralTrafo;
+        for (const dz of [-0.1, 0, 0.1]) central.add(en(cil(0.02, by - 0.34, M.porcelana), bx, 0.34, bz + dz));
         plano(raiz, 'Central eléctrica', x, z + 0.95, 1.2);
     }
     const cenace = unidad('cenace');
@@ -292,6 +320,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         plato.rotation.x = -0.7;
         cenace.add(en(plato, x + 0.35, 1.0, z - 0.1));
         cenace.add(en(cil(0.02, 0.18, M.acero), x + 0.35, 0.82, z - 0.1));
+        // la caja de donde sale el cable de control
+        const [kx, ky, kz] = BORNES.cenace;
+        cenace.add(en(caja(0.04, 0.16, 0.14, M.gabinete), kx - 0.02, ky - 0.08, kz));
         plano(raiz, 'CENACE', x, z + 0.58, 0.8);
     }
 
@@ -362,6 +393,10 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (let k = 0; k < 3; k++) fabrica.add(en(cil(0.018, 0.14, M.porcelana), x + 0.85 + k * 0.1, 0.36, z - 0.25));
         plano(raiz, 'Fábrica · GDMTH', x, z + 0.8, 1.2);
     }
+
+    // ---------- los conductores: tres fases de aluminio en media y alta tensión, un solo cable en baja (planta-comun/conductores.js)
+    const PARTE_LINEA = { rnt: 'transmision', barrasOeste: 'subestacion', barrasEste: 'subestacion', mt: 'poste', puente: 'poste', bt: 'poste', secundaria: 'poste', secundariaOeste: 'poste', vecina1: 'poste', vecina2: 'poste', comercio: 'comercio', fabrica: 'fabrica' };
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: L => PARTE_LINEA[L.id], movil });
 
     // ---------- lo que corre por los cables y lo que va y viene en pesos
     const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe: L => ({ rnt: 'transmision', mt: 'poste', bt: 'poste', senal: 'cenace', fabrica: 'fabrica', comercio: 'comercio', pago: 'suministro', aporte: 'gobierno', dap: 'alumbrado' }[L.id] ?? null), movil });

@@ -7,7 +7,8 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { BLOQUE, CIRCULACION, EQUIPOS, FLUIDOS, FRONTERA, KM, LINEAS, PARTES, TORRES, X_INYECTORES, X_PRODUCTORES } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { BLOQUE, BORNES, CIRCULACION, DUCTO, EQUIPOS, FLUIDOS, FRONTERA, KM, LINEAS, PARTES, POSTES_RGD, REDUCTORA, TORRES, X_INYECTORES, X_PRODUCTORES } from './modelo.js';
 
 const PI = Math.PI;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -762,6 +763,21 @@ export function construir(M, P, { movil = false } = {}) {
         g.add(exc);
         brillo(g, 0, G_Y, 0.32, 0.6, FLUIDOS.elec.color, 'vapor', 0.32);
     }
+    // el ducto de barras: sale de la caja de terminales del generador, cruza la pared y baja a la garganta de baja del transformador
+    {
+        const g = unidad('generador');
+        const [x0, x1] = DUCTO.x;
+        const { y, z } = DUCTO;
+        const zG = BORNES.generador[2];
+        const yB = BORNES.trafoBaja[1];
+        const a = 0.12;
+        g.add(en(caja(0.24, 0.2, 0.14, M.grafito), x0, y - 0.1, zG - 0.05));
+        g.add(en(caja(a, a, z - zG + a / 2, M.acero), x0, y - a / 2, (zG + z + a / 2) / 2));
+        g.add(en(caja(x1 - x0 + a, a, a, M.acero), (x0 + x1) / 2, y - a / 2, z));
+        g.add(en(caja(a, y + a / 2 - yB, a, M.acero), x1, yB, z));
+        for (const x of [x0, x1]) g.add(en(caja(a + 0.03, a + 0.03, a + 0.03, M.grafito), x, y - (a + 0.03) / 2, z));
+        g.add(entre([2.78, 0, z], [2.78, y - a / 2, z], 0.022, M.acero));
+    }
 
     // --------- 7 · condensador: el vapor se encuentra con una lluvia de agua fría
     {
@@ -930,6 +946,9 @@ export function construir(M, P, { movil = false } = {}) {
         t.add(rotorBin);
         giran.push({ obj: rotorBin, eje: 'x', vel: e => 12 * e.activo.binaria });
         t.add(en(aroX(0.145, 0.009, M.neonElec), 0.33, 0.36, 0));
+        // la caja de terminales del generador de la binaria: de ahí sale su cable por el piso
+        const [tx, , tz] = BORNES.turbinaBin;
+        t.add(en(caja(0.1, 0.22, 0.08, M.grafito), tx + 3.25, 0, tz + 0.74 - 0.04));
         const b = unidad('binaria', -4, -0.75);
         b.add(cil(0.08, 0.18, M.grafito), en(cil(0.05, 0.1, M.neonIso), 0, 0.18, 0));
         // condensador de aire, en alto
@@ -985,11 +1004,11 @@ export function construir(M, P, { movil = false } = {}) {
             b.position.set(0.12, 0.9, z);
             boquillas.add(b);
             for (let i = 0; i < 4; i++) { const f = aro(0.038 - i * 0.003, 0.008, M.marfil); f.position.set(0.12, 0.96 + i * 0.07, z); boquillas.add(f); }
-            const m = cil(0.018, 0.1, M.acero);
-            m.position.set(-0.17, 0.9, z);
-            boquillas.add(m);
         }
         g.add(mover(boquillas, [0, 1.3, 0]));
+        // la garganta de baja: ahí llegan el ducto de barras del generador y el cable de la binaria
+        const [bx, by, bz] = BORNES.trafoBaja;
+        g.add(mover(en(caja(0.3, 0.25, 0.2, M.grafito), bx - 3.4, by - 0.25, bz - 0.85), [0, 1.3, 0]));
         const conserv = cilZ(0.08, 0.6, M.grafito, 14);
         conserv.position.set(-0.26, 1.05, 0);
         g.add(mover(conserv, [0, 1.3, 0]));
@@ -1015,21 +1034,16 @@ export function construir(M, P, { movil = false } = {}) {
             u.add(t);
             u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.012, 0.8), M.losa), x, 0.006, z));
         });
-        // otros dos cables de la misma línea
-        const rnt = LINEAS.find(l => l.id === 'rnt');
-        for (const s of [-1, 1]) {
-            const pts = rnt.puntos.map(([x, y, z]) => new THREE.Vector3(x + s * 0.13, y - 0.02, z + s * 0.13));
-            u.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 150, 0.009, 5), M.torre));
-        }
-        // subestación reductora
-        const r = unidad('red', -3.1, -3.55);
+        // subestación reductora: la RNT remata en su marco y baja a las boquillas de alta; la RGD sale de las de baja
+        const [rx, rz] = REDUCTORA;
+        const r = unidad('red', rx, rz);
         r.add(caja(0.8, 0.04, 0.72, M.losa));
         r.add(en(caja(0.36, 0.42, 0.42, M.grafito), 0, 0.04, 0));
-        for (const z of [-0.12, 0, 0.12]) r.add(en(cil(0.016, 0.2, M.marfil, 0.01, 8), 0.05, 0.46, z));
+        for (const z of [-0.12, 0, 0.12]) r.add(en(cil(0.016, 0.2, M.marfil, 0.01, 8), BORNES.reductoraAlta[0] - rx, 0.46, z));
+        for (const z of [-0.08, 0, 0.08]) r.add(en(cil(0.014, 0.12, M.marfil, 0.009, 8), BORNES.reductoraBaja[0] - rx, 0.46, BORNES.reductoraBaja[2] - rz + z));
         for (const [a, b] of [[[-0.3, 0, -0.3], [-0.3, 1.5, -0.3]], [[-0.3, 0, 0.3], [-0.3, 1.5, 0.3]], [[0.3, 0, -0.3], [0.3, 1.5, -0.3]], [[0.3, 0, 0.3], [0.3, 1.5, 0.3]], [[-0.32, 1.5, 0.3], [0.32, 1.5, 0.3]], [[-0.32, 1.5, -0.3], [0.32, 1.5, -0.3]], [[0, 1.5, -0.3], [0, 1.5, 0.3]]]) r.add(entre(a, b, 0.016, M.acero));
-        r.add(entre([0, 1.5, 0], [0, 0.46, 0], 0.012, M.acero));
         // postes de distribución
-        for (const [x, z, h] of [[-3.8, -3.35, 0.95], [-4.42, -3.3, 0.72]]) {
+        for (const [x, z, h] of POSTES_RGD) {
             u.add(en(cil(0.018, h, M.madera, 0.014, 8), x, 0, z));
             u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.26), M.madera), x, h - 0.02, z));
         }
@@ -1102,18 +1116,25 @@ export function construir(M, P, { movil = false } = {}) {
     });
 
     // ---------- tubos
+    // las líneas ocultas (el ducto de barras, las líneas aéreas) no llevan tubo: solo lo que corre por ellas
     const lineas = LINEAS.map(L => {
         const curva = curvaDe(L.puntos);
         const largo = curva.getLength();
-        const mat = L.cable
-            ? M.torre
-            : new THREE.MeshPhysicalMaterial({ color: FLUIDOS[L.fluido].color, roughness: 0.25, transparent: true, opacity: 0.4, clearcoat: 0.8, envMapIntensity: 0.6, depthWrite: false });
-        const tubo = new THREE.Mesh(new THREE.TubeGeometry(curva, Math.max(14, Math.round(largo * (L.cable ? 12 : 18))), L.r * (L.cable ? 0.7 : 1.3), 8), mat);
-        tubo.renderOrder = 2;
-        raiz.add(tubo);
+        let mat = null;
+        let tubo = null;
+        if (!L.oculto) {
+            mat = L.cable
+                ? M.torre
+                : new THREE.MeshPhysicalMaterial({ color: FLUIDOS[L.fluido].color, roughness: 0.25, transparent: true, opacity: 0.4, clearcoat: 0.8, envMapIntensity: 0.6, depthWrite: false });
+            tubo = new THREE.Mesh(new THREE.TubeGeometry(curva, Math.max(14, Math.round(largo * (L.cable ? 12 : 18))), L.r * (L.cable ? 0.7 : 1.3), 8), mat);
+            tubo.renderOrder = 2;
+            raiz.add(tubo);
+        }
         curva.arcLengthDivisions = Math.max(60, Math.round(largo * 30));
         return { L, curva, largo, mat, tubo, n: Math.min(L.cable ? 34 : 26, Math.max(3, Math.round(largo / 0.3))), desde: 0 };
     });
+    // las líneas aéreas: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores (planta-comun/conductores.js)
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: L => ({ trafoPortico: 'subestacion', rnt: 'red', rgd: 'red' })[L.id] ?? null, movil });
     const geoP = new THREE.SphereGeometry(1, 8, 6);
     let total = 0;
     lineas.forEach(l => { l.desde = total; total += l.n; });
@@ -1205,13 +1226,14 @@ export function construir(M, P, { movil = false } = {}) {
         soportes.visible = a < 0.6;
         lineas.forEach(l => {
             const f = e.flujos[l.L.id] ?? 0;
-            if (!l.L.cable) {
-                const vivo = clamp01(f * 5);
-                l.mat.color.copy(colorVacio).lerp(l.base, vivo);
-                l.mat.opacity = lerp(0.42, lerp(0.42, 0.74, clamp01(f * 2)), vivo) * (1 - a);
+            if (l.tubo) {
+                if (!l.L.cable) {
+                    const vivo = clamp01(f * 5);
+                    l.mat.color.copy(colorVacio).lerp(l.base, vivo);
+                    l.mat.opacity = lerp(0.42, lerp(0.42, 0.74, clamp01(f * 2)), vivo) * (1 - a);
+                }
+                l.tubo.visible = a < 0.98;
             }
-            else l.tubo.visible = a < 0.6;
-            l.tubo.visible = a < 0.98;
             const visible = f > 0.01 && a < 0.5;
             for (let p = 0; p < l.n; p++) {
                 const r = visible ? Math.max(l.L.r * 0.9, 0.018) : 0;

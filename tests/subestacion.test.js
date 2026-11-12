@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { APARTARRAYOS, BLOQUE, CABLE, CAMBIADOR, CAPACITOR, DEF, FP, INTERRUPTOR, LIMITE, LINEAS, PARTES, PASOS, RECIERRE, RELE, REPARTO, SCC, SUB, TC, TIERRA, TRAFO, amperes, bloqueo, calcular, dia, envejece, estadoPlanta, fallaEn, maniobra, maxManiobra, mvaDe, pasoPlanta, pose, puntasSueltas, revisar, secuencia, tRele, tapIdeal, tension } from '../conceptos-3d/subestacion/modelo.js';
+import { AEREAS, APARTARRAYOS, BLOQUE, BORNES, CABLE, CAMBIADOR, CAPACITOR, DEF, DIBUJADAS, FP, INTERRUPTOR, LIMITE, LINEAS, PARTES, PASOS, RECIERRE, RELE, REMATE, REPARTO, SCC, SUB, TC, TIERRA, TRAFO, amperes, bloqueo, calcular, dia, envejece, estadoPlanta, fallaEn, maniobra, maxManiobra, mvaDe, pasoPlanta, pose, puntasSueltas, revisar, secuencia, tRele, tapIdeal, tension } from '../conceptos-3d/subestacion/modelo.js';
 import { FUENTES } from '../conceptos-3d/subestacion/fuentes.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -28,6 +29,25 @@ describe('Subestación eléctrica', () => {
     it('cada cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada conductor llega a un borne: cruceta, marco, apartarrayos, navajas, boquillas, barras o alfileres', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(cablesSueltos(DIBUJADAS, BORNES, REMATE)).toEqual([]);
+        // las líneas de 115 kV y los circuitos son tres fases que cuelgan; en la torre y el marco, de sus cadenas de aisladores
+        expect(Object.keys(AEREAS)).toEqual(['l1', 'l2', 'c1', 'c2', 'c3', 'c4']);
+        for (const apoyos of Object.values(AEREAS)) {
+            for (const a of apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.1);
+            for (const k of [-1, 0, 1]) {
+                const p = colgar(apoyos.slice(0, 2), k);
+                expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+            }
+        }
+        expect(AEREAS.l1[1].aislador).toBeGreaterThan(0);
+        expect(AEREAS.l1[2].aislador).toBeGreaterThan(0);
+        // la línea baja del marco al borne de los apartarrayos, a la altura de las cuchillas
+        expect(AEREAS.l1.at(-1).p).toBe(BORNES['apartarrayos-l1']);
+        expect(BORNES['apartarrayos-l1'][1]).toBeCloseTo(BORNES['cuchillaLinea-l1-a'][1], 9);
     });
 
     it('del lado de 13.8 kV pasa 8.3 veces más corriente', () => {

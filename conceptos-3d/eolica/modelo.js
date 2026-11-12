@@ -12,6 +12,7 @@
 // - Estela: modelo de Jensen. A 7 diámetros, lo común en un parque desarrollado.
 // - De ejemplo, para ver la tendencia: el resto de las pérdidas, la forma de Weibull, la velocidad de punta, cuánto tarda en responder, y
 //   el voltaje de la línea.
+import { apoyo, cablesSueltos as revisarCables, lineaAerea } from '../planta-comun/lineas.js';
 
 const D2R = Math.PI / 180;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -258,8 +259,16 @@ const T0 = { x: -5.4, z: 2.4 };
 export const AEROS = [T0, { x: T0.x + SEP_VISTA * VIENTO.x, z: T0.z + SEP_VISTA * VIENTO.z }, { x: T0.x + 2 * SEP_VISTA * VIENTO.x, z: T0.z + 2 * SEP_VISTA * VIENTO.z }];
 export const MASTIL = { x: -1.45, z: 3.45, h: 2.75 };
 export const TORRES = [[7.32, -0.2], [7.32, 4.05]];
-const ALTO_TORRE = 3.3;
+export const ALTO_TORRE = 3.3;
 const puntasTorre = TORRES.map(([x, z]) => [x, ALTO_TORRE, z]);
+/** La subestación: el transformador elevador (x, z y su escala), el marco donde llegan sus fases y el pórtico de salida. */
+export const SUBESTACION = { x: 4.55, z: 1.45, esc: 1.35, marco: 5.92, yMarco: 1.25 };
+export const PORTICO = { x: 6.48, z: 1.55, alto: 2.55, aislador: 0.16 };
+export const REDUCTORA = { x: 7.1, z: 3.18, alto: 1.28 };
+/** Postes de madera de la RGD: x, z y alto; los conductores van sobre sus aisladores de perno. */
+export const POSTES = [[6.45, 3.4, 1], [5.95, 3.35, 0.78]];
+/** La caja de cables de media tensión, pegada atrás del transformador elevador: x0, x1, y0, y1, z0, z1. */
+export const CAJA_MT = [4.04, 4.44, 0, 0.42, 0.823, 0.963];
 export const FLUIDOS = {
     aire: { nombre: 'Viento', color: '#7fb2d6' },
     ca: { nombre: 'Electricidad', color: '#ffb000' },
@@ -271,21 +280,60 @@ export const EQUIPOS = {
     ...Object.fromEntries(AEROS.map((_, i) => { const [x, z] = base(i); return [`base${i}`, [x - CAJA_BASE / 2, x + CAJA_BASE / 2, 0, 0.42, z - CAJA_BASE / 2, z + CAJA_BASE / 2]]; })),
     ...Object.fromEntries(AEROS.map((t, i) => [`torre${i}`, [t.x - 0.2, t.x + 0.2, 0, ROTOR.H, t.z - 0.2, t.z + 0.2]])),
     subestacion: [3.95, 6.05, 0, 1.3, 0.55, 2.45],
-    portico: [6.28, 6.68, 0, 2.62, 1.2, 1.9],
+    portico: [6.15, 6.81, 0, 2.62, 1.2, 1.9],
     reductora: [6.75, 7.45, 0, 1.3, 2.85, 3.5],
     pueblo: [4.1, 6.5, 0, 0.9, 2.85, 4.1],
 };
-const catenaria = (a, b, flecha, n = 5) => Array.from({ length: n + 1 }, (_, i) => { const k = i / n; return [lerp(a[0], b[0], k), lerp(a[1], b[1], k) - flecha * 4 * k * (1 - k), lerp(a[2], b[2], k)]; });
-const unir = (...tramos) => tramos.reduce((acc, t) => acc.concat(acc.length ? t.slice(1) : t), []);
 const [b0, b1, b2] = [base(0), base(1), base(2)];
+const [mx0, , , , mz0] = CAJA_MT;
+const cruceta = ([x, z]) => [x, ALTO_TORRE * 0.92, z];
+const { x: rx, z: rz } = REDUCTORA;
+/** Los bornes donde se conecta cada cable o cada apoyo de línea; deben coincidir con lo que modela planta.js. */
+export const BORNES = {
+    // en cada aerogenerador: el cable sale de la góndola, baja por dentro de la torre y entra por atrás al transformador del pie
+    ...Object.fromEntries(AEROS.map((t, i) => [`gondola${i}`, [t.x + 0.06, ROTOR.H, t.z - 0.06]])),
+    ...Object.fromEntries(AEROS.map((t, i) => [`trafoPie${i}`, [base(i)[0], 0.05, base(i)[1] - CAJA_BASE / 2 - 0.01]])),
+    salida0: [b0[0], 0.05, b0[1] + CAJA_BASE / 2 - 0.01],
+    salida1: [b1[0], 0.05, b1[1] + CAJA_BASE / 2 - 0.01],
+    salida2: [b2[0] + CAJA_BASE / 2 - 0.01, 0.05, b2[1]],
+    // la caja de cables de media tensión del transformador elevador
+    cajaMT0: [mx0, 0.05, 0.92],
+    cajaMT1: [mx0, 0.05, 0.86],
+    cajaMT2: [4.36, 0.05, mz0],
+    // alta tensión: boquillas, marco, pórtico, torres, la reductora y los postes
+    boqAlta: [SUBESTACION.x, (0.68 + 0.32) * SUBESTACION.esc, SUBESTACION.z],
+    marco: [SUBESTACION.marco, SUBESTACION.yMarco, SUBESTACION.z],
+    portico: [PORTICO.x, PORTICO.alto, PORTICO.z],
+    porticoAmarre: [PORTICO.x, PORTICO.alto - PORTICO.aislador, PORTICO.z],
+    torre1: cruceta(TORRES[0]),
+    torre2: cruceta(TORRES[1]),
+    remateReductora: [rx, REDUCTORA.alto, rz + 0.26],
+    altaReductora: [rx + 0.02, 0.66, rz + 0.12],
+    bajaReductora: [rx - 0.11, 0.57, rz - 0.06],
+    ...Object.fromEntries(POSTES.map(([x, z, h], i) => [`poste${i + 1}`, [x, h + 0.02, z]])),
+};
+/** Puntas que salen por la orilla del sitio: aquí ninguna, la RGD termina en el último poste del pueblo. */
+export const REMATE = new Set();
+/** Un cable de piso: delgado y oscuro, por la zanja; sube pegado al equipo solo en sus puntas. */
+const cable = (id, grupo, parte, puntos) => ({ id, grupo, parte, fluido: 'ca', r: 0.02, cable: true, puntos });
+const yP = 0.03;
 export const LINEAS = [
-    ...AEROS.map((t, i) => { const [x, z] = base(i); return { id: `baja${i}`, grupo: `t${i}`, parte: i === 0 ? 'torre' : 'estela', fluido: 'ca', r: 0.02, oculto: i !== 0, puntos: [[t.x, ROTOR.H - 0.15, t.z], [t.x, 0.18, t.z], [x, 0.14, z]] }; }),
-    { id: 'col0', grupo: 't0', parte: 'subestacion', fluido: 'ca', r: 0.024, puntos: [[b0[0], 0.14, b0[1]], [b0[0] + 0.3, 0.05, 2.98], [3.4, 0.05, 2.98], [3.72, 0.05, 1.7], [4.02, 0.3, 1.55]] },
-    { id: 'col1', grupo: 't1', parte: 'subestacion', fluido: 'ca', r: 0.024, puntos: [[b1[0], 0.14, b1[1]], [b1[0] + 0.3, 0.05, 1], [b1[0] + 0.3, 0.05, 2.98]] },
-    { id: 'col2', grupo: 't2', parte: 'subestacion', fluido: 'ca', r: 0.024, puntos: [[b2[0], 0.14, b2[1]], [4.48, 0.05, -0.8], [4.48, 0.05, 0.2], [4.48, 0.3, 0.62]] },
-    { id: 'alta', grupo: 'red', parte: 'subestacion', fluido: 'ca', r: 0.016, puntos: [[5.92, 1.22, 1.55], [6.15, 1.95, 1.55], [6.4, 2.4, 1.55]] },
-    { id: 'rnt', grupo: 'red', parte: 'red', fluido: 'ca', r: 0.016, cable: true, puntos: unir(catenaria([6.48, 2.58, 1.55], puntasTorre[0], 0.06), catenaria(puntasTorre[0], puntasTorre[1], 0.34), catenaria(puntasTorre[1], [7.1, 1.28, 3.25], 0.1)) },
-    { id: 'rgd', grupo: 'red', parte: 'red', fluido: 'ca', r: 0.014, cable: true, puntos: unir(catenaria([6.9, 0.95, 3.25], [6.45, 0.97, 3.4], 0.03, 3), catenaria([6.45, 0.97, 3.4], [5.95, 0.75, 3.35], 0.05, 3)) },
+    // de la góndola al pie de cada torre: baja por dentro y sale por el piso al transformador
+    ...AEROS.map((t, i) => cable(`baja${i}`, `t${i}`, i === 0 ? 'torre' : 'estela', [BORNES[`gondola${i}`], [t.x + 0.06, yP, t.z - 0.06], [base(i)[0], yP, t.z - 0.06], BORNES[`trafoPie${i}`]])),
+    // la red interna del parque: un cable por aerogenerador, por la zanja hasta la caja del transformador elevador
+    cable('col0', 't0', 'subestacion', [BORNES.salida0, [b0[0], yP, 3.04], [3.67, yP, 3.04], [3.67, yP, 0.92], BORNES.cajaMT0]),
+    cable('col1', 't1', 'subestacion', [BORNES.salida1, [b1[0], yP, 2.92], [3.55, yP, 2.92], [3.55, yP, 0.86], BORNES.cajaMT1]),
+    cable('col2', 't2', 'subestacion', [BORNES.salida2, [4.48, yP, b2[1]], [4.48, yP, 0.62], [4.36, yP, 0.62], BORNES.cajaMT2]),
+    // las líneas aéreas no llevan tubo: la página dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la electricidad
+    lineaAerea('alta', [apoyo(BORNES.marco, [0, 0, -0.5]), apoyo(BORNES.portico, [0.2, 0, 0], PORTICO.aislador)], { grupo: 'red', parte: 'subestacion', fluido: 'ca' }),
+    lineaAerea('rnt', [
+        apoyo(BORNES.porticoAmarre, [0.2, 0, 0]),
+        apoyo(BORNES.torre1, [0.25, 0, 0], 0.08),
+        apoyo(BORNES.torre2, [0.25, 0, 0], 0.08),
+        apoyo(BORNES.remateReductora, [0.18, 0, 0], 0.1),
+        apoyo(BORNES.altaReductora, [0.09, 0, 0]),
+    ], { grupo: 'red', parte: 'red', fluido: 'ca' }),
+    lineaAerea('rgd', [apoyo(BORNES.bajaReductora, [0, 0, 0.09]), apoyo(BORNES.poste1, [0, 0, 0.1]), apoyo(BORNES.poste2, [0, 0, 0.1])], { grupo: 'red', parte: 'red', fluido: 'ca' }),
 ];
 
 // Puntos clave: cada uno, una ficha. vista: desde dónde mirarlo (grados) y su tamaño, para la cámara. ancla: el punto en 3D.
@@ -355,8 +403,10 @@ export function puntasSueltas() {
             if (!enEquipo && !enTorre && !enTubo) sueltas.push(`${L.id} (${nombre})`);
         }
     }
-    return sueltas;
+    return sueltas.concat(cablesSueltos());
 }
+/** Los cables cuelgan de algo: cada punta en un borne y cada punto de en medio en un borne o en el piso (planta-comun/lineas.js). */
+export const cablesSueltos = () => revisarCables(LINEAS, BORNES, REMATE);
 /** Revisión de cifras contra lo publicado. */
 export function revisar() {
     const p = [];

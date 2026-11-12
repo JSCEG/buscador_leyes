@@ -165,7 +165,16 @@ export function pose({ modo = 'recibo', noche = 0, adentro = 0, desarme = 0, enc
     flujos.mt = red;
     flujos.bt = modo === 'negocio' ? s(0.3) : red;
     flujos.comercio = s(modo === 'negocio' ? 0.4 + 0.6 * clamp01(kwh / 3000) : 0.3);
+    // la baja tensión que sigue por los postes a la tienda, y el puente que alimenta al transformador de poste
+    flujos.secundaria = flujos.comercio;
+    flujos.puente = Math.max(flujos.bt, flujos.comercio);
+    // las vecinas, del soporte de baja de los postes; y los puentes de las barras a los dos transformadores de la subestación
+    flujos.secundariaOeste = flujos.bt;
+    flujos.vecina1 = flujos.bt;
+    flujos.vecina2 = flujos.bt;
+    flujos.barrasEste = flujos.mt;
     flujos.fabrica = s(0.5);
+    flujos.barrasOeste = flujos.fabrica;
     flujos.senal = 0.35;
     flujos.pago = s(activo.pago);
     flujos.aporte = s(activo.aporte);

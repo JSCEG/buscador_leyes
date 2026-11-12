@@ -9,7 +9,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { azar, clamp01, fract, lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, crearAyudante, crearTubos, en, estudio, geoEntre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BLOQUE, FASES, FLUIDOS, GUARDAS, LINEAS, PARTES, SEP, X, Y, ZL, alturaEn, apoyos, claro, flechaA, terreno } from './modelo.js';
+import { MATERIAL_CONDUCTOR } from '../planta-comun/conductores.js';
+import { BLOQUE, BORNES, CADENA_REMATE, FASES, FLUIDOS, GUARDAS, LINEAS, PARTES, SEP, X, Y, ZL, alturaEn, apoyos, claro, faseReactor, flechaA, puenteRemate, terreno } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -47,7 +48,8 @@ export function materiales(P) {
         banderaAbierta: new THREE.MeshBasicMaterial({ color: '#e0302a', toneMapped: false }),
     });
     M.tierras = new THREE.MeshStandardMaterial({ color: '#c8743c', roughness: 0.34, metalness: 0.9, envMapIntensity: 1, transparent: true });
-    M.cables = [0, 1].map(() => new THREE.MeshStandardMaterial({ color: '#4a4d54', roughness: 0.45, metalness: 0.6, emissive: '#000000', envMapIntensity: 0.9 }));
+    M.cables = [0, 1].map(() => MATERIAL_CONDUCTOR());
+    M.puente = MATERIAL_CONDUCTOR();
     M.vaho = { humo: new THREE.SpriteMaterial({ map: M.vaho, color: '#8d857c', transparent: true, opacity: 0, depthWrite: false }) };
     return M;
 }
@@ -160,7 +162,7 @@ const geoViga = largo => una(`v${largo}`, () => {
 function geoComba(a, b, comba) {
     const pts = [];
     for (let i = 0; i <= 10; i++) { const u = i / 10; pts.push(new THREE.Vector3(lerp(a[0], b[0], u), lerp(a[1], b[1], u) - comba * 4 * u * (1 - u), lerp(a[2], b[2], u))); }
-    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 12, 0.006, 5, false);
+    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 12, 0.0055, 5, false);
 }
 /** La parábola de un claro como curva de three.js. */
 const puntosClaro = (a, b, f, z, n = 18) => claro(a, b, f, n).map(([x, y]) => new THREE.Vector3(x, y, z));
@@ -310,7 +312,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
                         c.position.set(s * 0.04, Y.cruceta - 0.035, dz);
                         t.add(c);
                     }
-                    t.add(geoBajante(dz));
+                    t.add(geoBajante(dz, i));
                 } else {
                     const c = sombra(new THREE.Mesh(geoPolimero(hCadena - 0.01), M.polimero));
                     const yugo = sombra(new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.012, SEP + 0.03), M.aluminio));
@@ -328,11 +330,10 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             torres[i].push({ t, x, y, esRemate });
         });
     });
-    function geoBajante(dz) {
-        // en las de remate, el puente que pasa el cable por debajo de la cruceta, de un lado al otro
-        const pts = [];
-        for (let i = 0; i <= 10; i++) { const u = i / 10; pts.push(new THREE.Vector3(lerp(-0.2, 0.2, u), Y.fase - 0.07 * Math.sin(u * PI), dz)); }
-        return sombra(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 12, 0.007, 5, false), M.cables[0]));
+    function geoBajante(dz, i) {
+        // en las de remate, el puente que pasa la corriente de la punta de una cadena a la de la otra, por debajo de la cruceta
+        const pts = puenteRemate({ x: 0, y: Y.cruceta - 0.035, ancho: CADENA_REMATE }).map(([x, y]) => new THREE.Vector3(x, y, dz));
+        return sombra(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 14, 0.0055, 5, false), M.cables[i]));
     }
     // tierras: contra-antenas y varillas en las cuatro patas de cada torre de la línea 1; se ven como por rayos X al elegirlas
     {
@@ -357,7 +358,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         ZL.forEach(zl => {
             for (const dz of GUARDAS) {
                 const z = zl + dz;
-                const A = [{ x: X.marcoA, y: Y.marco + 0.2 }, ...X.torres.map(x => ({ x, y: terreno(x, zl) + Y.guarda })), { x: X.marcoB, y: Y.marco + 0.2 }];
+                const A = [{ x: X.marcoA, y: Y.marco + 0.2, ancho: 0 }, ...X.torres.map(x => ({ x, y: terreno(x, zl) + Y.guarda, ancho: 0 })), { x: X.marcoB, y: Y.marco + 0.2, ancho: 0 }];
                 for (let k = 1; k < A.length; k++) g.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(puntosClaro(A[k - 1], A[k], 6.5, z, 14)), 16, 0.006, 4, false));
             }
         });
@@ -394,6 +395,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             // el marco donde rematan las líneas: dos columnas y una viga, de celosía galvanizada
             for (const s of [-1, 1]) padre.add(en(sombra(new THREE.Mesh(geoCelosia(Y.marco + 0.08, 0.12), M.galv)), xm, 0, zl + s * 0.82));
             padre.add(en(sombra(new THREE.Mesh(geoViga(1.64), M.galv)), xm, Y.marco, zl));
+            // los picos donde rematan los hilos de guarda
+            for (const zg of GUARDAS) padre.add(sombra(new THREE.Mesh(geoEntre([xm, Y.marco + 0.07, zl + zg], [xm, Y.marco + 0.2, zl + zg], 0.009, 5), M.galv)));
             for (const [j, dz] of FASES.entries()) {
                 const c = sombra(new THREE.Mesh(geoPolimero(0.22), M.polimero));
                 c.rotation.z = (-sg * PI) / 2;
@@ -417,11 +420,10 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
                 padre.add(tq);
                 banderas[lado][i].push(bandera);
                 interruptores[lado][i].push(tq);
-                // los puentes: del marco al interruptor y del interruptor a su barra
-                const z = zl + dz;
-                const borna = s => [xi + s * (0.09 + Math.sin(0.22) * 0.16), 0.4 + Math.cos(0.22) * 0.16, z];
-                puentes.push(geoComba([xm - sg * 0.02, Y.marco - 0.04, z], borna(-sg), 0.05));
-                puentes.push(geoComba(borna(sg), [xb + [-0.12, 0, 0.12][j], Y.barra, z], 0.04));
+                // los puentes: de la punta de la cadena del marco (donde remata el cable) al interruptor, y del interruptor a su barra
+                const k = sg < 0 ? 0 : X.torres.length + 1;
+                puentes.push(geoComba(BORNES[`l${i + 1}-${k}-${j}-${sg < 0 ? 'sale' : 'llega'}`], BORNES[`int${lado}${i + 1}-${j}-linea`], 0.05));
+                puentes.push(geoComba(BORNES[`int${lado}${i + 1}-${j}-barra`], BORNES[`barra${lado}${i + 1}-${j}`], 0.04));
             }
         });
         // las barras de 400 kV
@@ -437,8 +439,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         plano(padre, sg < 0 ? 'Minatitlán Dos' : 'Temascal Dos', sg < 0 ? -7.35 : 7.35, sg < 0 ? -2.15 : -2.15, 1.3);
         brillo(padre, cxs + 0.3, 0.45, 2.3, 0.9, '#ffd9a0', 'noche', 0.5);
     }
-    salida.add(malla(puentes.slice(0, puentes.length / 2), M.cables[0]));
-    llegada.add(malla(puentes.slice(puentes.length / 2), M.cables[0]));
+    salida.add(malla(puentes.slice(0, puentes.length / 2), M.puente));
+    llegada.add(malla(puentes.slice(puentes.length / 2), M.puente));
     // los reactores: uno por línea, en la subestación de llegada, del lado de la línea
     const reactores = [];
     ZL.forEach(zl => {
@@ -463,15 +465,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         reactores.push({ g, z });
         brillo(g, 0, 0.75, 0, 0.5, '#7d5cff', 'reactor', 0.9, false);
     });
-    // del lado de la línea, bajan del marco al reactor
-    {
-        const g = [];
-        ZL.forEach((zl, i) => {
-            const zr = reactores[i].z;
-            g.push(geoEntre([X.marcoB + 0.2, Y.marco - 0.04, zl + FASES[zl > 0 ? 2 : 0]], [X.reactor, 0.7, zr], 0.006, 4));
-        });
-        reactor.add(malla(g, M.cables[0]));
-    }
+    // del lado de la línea: de la punta de la cadena del marco, donde remata la fase de afuera, a la boquilla del reactor
+    reactor.add(malla(ZL.map((zl, i) => geoComba(BORNES[`l${i + 1}-${X.torres.length + 1}-${faseReactor(i)}-llega`], BORNES[`reactor${i + 1}`], 0.04)), M.puente));
 
     // --------- los cables: dos por fase, de apoyo en apoyo; se rehacen cuando cambia la flecha
     const conductores = unidad('haz');
@@ -495,7 +490,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             for (let k = 1; k < A.length; k++) {
                 for (const s of [-1, 1]) geos.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(puntosClaro(A[k - 1], A[k], f, zl + dz + (s * SEP) / 2)), 22, 0.0055, 5, false));
                 const pts = claro(A[k - 1], A[k], f, 22);
-                pts.forEach(([x, y], j) => { if (j || k === 1) camino.push([x, y, zl + dz]); });
+                pts.forEach(([x, y], j) => { if (j || k === 1 || A[k - 1].remate) camino.push([x, y, zl + dz]); });
+                // en las torres de remate, la corriente sigue por el puente de abajo de la cruceta
+                if (A[k].remate && k < A.length - 1) for (const [x, y] of puenteRemate(A[k]).slice(1, -1)) camino.push([x, y, zl + dz]);
                 // separadores a lo largo del claro (en las torres, el primero a 25 o 30 m)
                 if (!A[k - 1].marco && !A[k].marco) for (const u of [0.2, 0.5, 0.8]) { const [x, y] = claro(A[k - 1], A[k], f, 20)[Math.round(u * 20)]; seps.push(new THREE.BoxGeometry(0.012, 0.012, SEP + 0.012).translate(x, y, zl + dz)); }
             }
@@ -511,10 +508,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const pg = [];
         for (const dz of FASES) for (let k = 1; k < A.length; k++) {
             const [a, b] = [A[k - 1], A[k]];
-            const u = 0.26 / (b.x - a.x);
+            const [xa, xb] = [a.x + a.ancho, b.x - b.ancho];
+            const u = 0.26 / (xb - xa);
             for (const s of [-1, 1]) {
-                if (!a.marco) pesa(pg, a.x + 0.26, alturaEn(a, b, f, u), zl + dz + (s * SEP) / 2);
-                if (!b.marco) pesa(pg, b.x - 0.26, alturaEn(a, b, f, 1 - u), zl + dz + (s * SEP) / 2);
+                if (!a.marco) pesa(pg, xa + 0.26, alturaEn(a, b, f, u), zl + dz + (s * SEP) / 2);
+                if (!b.marco) pesa(pg, xb - 0.26, alturaEn(a, b, f, 1 - u), zl + dz + (s * SEP) / 2);
             }
         }
         if (mallaPesas[i]) { (i === 0 ? amortiguadores : segunda).remove(mallaPesas[i]); mallaPesas[i].geometry.dispose(); }
@@ -646,7 +644,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     const q0 = new THREE.Quaternion();
     const v3 = new THREE.Vector3();
     const s3 = new THREE.Vector3();
-    const gris = new THREE.Color('#4a4d54');
+    const gris = MATERIAL_CONDUCTOR().color;
     const grisClaro = new THREE.Color('#8a8d94');
     const rojo = new THREE.Color('#ff5a1f');
     const puntoEn = (camino, u) => {

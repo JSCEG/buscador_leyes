@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { A, BANCO, BLOQUE, CONEXION, DIF, FASE, I0, IN, LINEAS, NORMA, P0, PARTES, PRUEBA, ZBASE, auto, carga, energizar, estadoPlanta, falla, fallaConZ, flujoEn, parteNucleo, pasoPlanta, pose, puntasSueltas, relacion, revisar } from '../conceptos-3d/transformador/modelo.js';
+import { A, AEREAS, BANCO, BLOQUE, BORNES, CONEXION, DIF, FASE, I0, IN, LINEAS, NORMA, P0, PARTES, PRUEBA, REMATE, ZBASE, auto, carga, energizar, estadoPlanta, falla, fallaConZ, flujoEn, parteNucleo, pasoPlanta, pose, puntasSueltas, relacion, revisar } from '../conceptos-3d/transformador/modelo.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/transformador/fuentes.js';
 
 const lista = archivo => {
@@ -21,6 +22,27 @@ describe('El transformador', () => {
     it('cada tubo y cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada fase cuelga entre pórticos, marcos e interruptor, y llega a la boquilla de su unidad', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(Object.keys(AEREAS).sort()).toEqual(['altaA', 'altaB', 'altaC', 'bajaA', 'bajaB', 'bajaC']);
+        for (const [id, apoyos] of Object.entries(AEREAS)) {
+            const linea = LINEAS.find(l => l.id === id);
+            expect(linea.oculto).toBe(true);
+            expect(linea.apoyos).toBe(apoyos);
+            expect(linea.fases).toBe(1);
+            // un solo conductor por unidad, que cuelga por debajo de la recta entre apoyos
+            const p = colgar(apoyos);
+            const largos = apoyos.slice(1).map((a, i) => Math.hypot(a.p[0] - apoyos[i].p[0], a.p[2] - apoyos[i].p[2]));
+            expect(Math.max(...largos)).toBeLessThan(4.5);
+            expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+        }
+        for (const f of ['A', 'B', 'C']) {
+            expect(AEREAS[`alta${f}`].at(-1).p).toBe(BORNES[`at${f}`]);
+            expect(AEREAS[`baja${f}`][0].p).toBe(BORNES[`bt${f}`]);
+            expect(AEREAS[`alta${f}`].some(a => a.p === BORNES[`entra${f}`])).toBe(true);
+        }
     });
 
     it('el banco es el de la tesis de la UNAM', () => {

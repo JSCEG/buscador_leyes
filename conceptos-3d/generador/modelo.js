@@ -7,6 +7,7 @@
 // Cuatro formas de verlo: cómo nace el voltaje (la velocidad y el campo), sincronizar con la red, cargar el generador (su curva de
 // capabilidad) y lo que se calienta (y por qué se enfría con hidrógeno).
 import { D2R, clamp, clamp01, lerp } from '../planta-comun/ayudas.js';
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 
 // ------------------------------------------------------------------ la placa (tesis UNAM, Central Termoeléctrica Valle de México)
 /** S en MVA, V en kV, I en A; campo en A de corriente directa; H2 en kg/cm². */
@@ -168,7 +169,25 @@ export const X = { hp: [-6.7, -5.3], lp: [-5.1, -3.4], cople: -3.08, estator: [-
 export const R = { hp: 0.45, lp: 0.78, estator: 1.0, rotor: 0.5, anillos: 0.28 };
 export const SITIO = {
     excitacion: [4.7, -1.7], trafoExc: [4.7, -2.7], hidrogeno: [-4.6, 2.3], agua: [-2.3, 2.35],
-    bus: { z: 2.0, y: 0.55, x: [-0.6, 5.2] }, interruptor: [2.9, 2.0], transformador: [6.1, 2.0], sincro: [0.9, 2.95],
+    bus: { z: 2.0, y: 0.55, x: [-0.6, 5.4] }, interruptor: [2.9, 2.0], transformador: [6.1, 2.0], sincro: [0.9, 2.95],
+    // el poste que sube el cable del campo a las escobillas, junto a la base; el pórtico de salida de la línea
+    soporte: [2.5, -1.06], portico: { x: 7.2, y: 2.62, ancho: 1.2 },
+};
+/** Las escobillas: la barra que las sostiene va arriba de los anillos (de aquí a 0.08 más). */
+export const Y_ESCOBILLAS = EJE.y + R.anillos + 0.18;
+const bz = SITIO.bus.z;
+const xCable = SITIO.soporte[0] - 0.055; // el cable sube pegado a la cara del poste
+/** Los bornes donde se conecta cada cable o se apoya cada línea: cada punta que no remata en la orilla cae en uno. */
+export const BORNES = {
+    excitacion: [SITIO.excitacion[0] - 0.36, 0.3, SITIO.excitacion[1] + 0.265],
+    soporte: [xCable, Y_ESCOBILLAS + 0.04, SITIO.soporte[1]],
+    escobillas: [xCable, Y_ESCOBILLAS + 0.04, -0.265],
+    boquillas: [SITIO.transformador[0] + 0.2, 2.15, bz],
+    portico: [SITIO.portico.x, SITIO.portico.y, bz],
+};
+/** La línea de salida: las tres fases de las boquillas del transformador al pórtico y de ahí a la subestación, fuera del dibujo. */
+export const AEREAS = {
+    linea: [apoyo(BORNES.boquillas, [0, 0, 0.35]), apoyo(BORNES.portico, [0, 0, 0.35], 0.12), apoyo([BLOQUE.x[1] - 0.05, 2.45, bz], [0, 0, 0.35])],
 };
 export const FLUIDOS = {
     vapor: { nombre: 'Vapor que mueve la turbina', color: '#c9ced6' },
@@ -177,15 +196,16 @@ export const FLUIDOS = {
     h2: { nombre: 'Hidrógeno', color: '#7fb7e6' },
     agua: { nombre: 'Agua de los devanados', color: '#2f7fd1' },
 };
-const bz = SITIO.bus.z;
 export const LINEAS = [
     { id: 'vapor', fluido: 'vapor', r: 0.09, puntos: [[BLOQUE.x[0] + 0.05, 2.3, -0.6], [-7.3, 2.3, -0.6], [-6.4, 2.0, -0.3], [-6.0, EJE.y + R.hp + 0.02, 0]] },
-    { id: 'campo', fluido: 'campo', r: 0.03, cable: true, puntos: [[SITIO.excitacion[0] - 0.35, 1.2, SITIO.excitacion[1]], [3.6, 1.7, -1.0], [2.5, EJE.y + R.anillos + 0.25, -0.12]] },
+    // el campo: de la excitación por el piso al poste, sube pegado a él y llega por su brazo a las escobillas
+    { id: 'campo', fluido: 'campo', r: 0.02, cable: true, puntos: [BORNES.excitacion, [BORNES.excitacion[0], 0.025, BORNES.excitacion[2]], [xCable, 0.025, BORNES.excitacion[2]], [xCable, 0.025, SITIO.soporte[1]], [xCable, BORNES.soporte[1] - 0.02, SITIO.soporte[1]], [xCable, BORNES.soporte[1], SITIO.soporte[1] + 0.02], BORNES.escobillas] },
     { id: 'h2', fluido: 'h2', r: 0.035, puntos: [[SITIO.hidrogeno[0] + 0.3, 1.05, SITIO.hidrogeno[1] - 0.2], [-3.4, 1.75, 1.3], [-2.4, EJE.y + 0.75, 0.72]] },
     { id: 'agua', fluido: 'agua', r: 0.04, puntos: [[SITIO.agua[0] + 0.1, 0.75, SITIO.agua[1] - 0.25], [SITIO.agua[0] + 0.3, 1.3, 1.4], [-1.7, EJE.y + 0.6, 0.85]] },
     { id: 'bus', fluido: 'elec', r: 0.05, oculto: true, puntos: [[-0.6, 0.1, 0.6], [-0.6, SITIO.bus.y, 1.2], [-0.6, SITIO.bus.y, bz], [SITIO.interruptor[0] - 0.35, SITIO.bus.y, bz]] },
-    { id: 'salida', fluido: 'elec', r: 0.05, oculto: true, puntos: [[SITIO.interruptor[0] + 0.35, SITIO.bus.y, bz], [SITIO.bus.x[1], SITIO.bus.y, bz], [SITIO.transformador[0] - 0.6, 1.0, bz]] },
-    { id: 'linea', fluido: 'elec', r: 0.02, cable: true, puntos: [[SITIO.transformador[0] + 0.2, 2.15, bz], [7.2, 2.5, bz], [BLOQUE.x[1] - 0.1, 2.6, bz]] },
+    { id: 'salida', fluido: 'elec', r: 0.05, oculto: true, puntos: [[SITIO.interruptor[0] + 0.35, SITIO.bus.y, bz], [SITIO.bus.x[1], SITIO.bus.y, bz], [SITIO.transformador[0] - 0.55, SITIO.bus.y, bz]] },
+    // la línea aérea no lleva tubo: la página dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la energía
+    lineaAerea('linea', AEREAS.linea),
 ];
 export const REMATE = new Set(['vapor (inicio)', 'linea (fin)']); // el vapor viene de la caldera y la línea sigue a la subestación, fuera del dibujo
 /** Cajas de los equipos: x0, x1, y0, y1, z0, z1. */
@@ -198,7 +218,7 @@ export const EQUIPOS = {
     agua: [SITIO.agua[0] - 0.5, SITIO.agua[0] + 0.5, 0, 1.0, SITIO.agua[1] - 0.4, SITIO.agua[1] + 0.4],
     interruptor: [SITIO.interruptor[0] - 0.4, SITIO.interruptor[0] + 0.4, 0, 1.2, bz - 0.4, bz + 0.4],
     transformador: [SITIO.transformador[0] - 0.7, SITIO.transformador[0] + 0.7, 0, 2.3, bz - 0.6, bz + 0.6],
-    torre: [7.0, 7.4, 0, 2.7, bz - 0.2, bz + 0.2],
+    portico: [SITIO.portico.x - 0.1, SITIO.portico.x + 0.1, 0, 2.7, bz - SITIO.portico.ancho / 2, bz + SITIO.portico.ancho / 2],
 };
 
 /** Puntos clave: dónde va el número y desde dónde se ve. */

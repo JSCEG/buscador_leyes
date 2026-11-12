@@ -7,6 +7,7 @@
 // Cuatro formas de verlo: un día en Temixco (los seguidores de máxima potencia), cómo sale la onda (los pulsos y el filtro), con la red
 // (cuándo debe desconectarse) y el calor (eficiencia y temperatura).
 import { D2R, clamp, clamp01, lerp } from '../planta-comun/ayudas.js';
+import { apoyo, enCruceta, lineaAerea } from '../planta-comun/lineas.js';
 
 // ------------------------------------------------------------------ la planta (tesis IER-UNAM, 2017)
 export const PLANTA = { kWp: 42.84, modulos: 168, inversores: 2, inclinacion: 19, lat: 18.839, altitud: 1247, irradiacion: 6.2, tSol: [32, 36.7], viento: 1.75, lugar: 'techumbre del auditorio Tonatiuh' };
@@ -319,23 +320,58 @@ export const FLUIDOS = {
 const IX = INV.x[0];
 const yI = v => INV.y0 + v * INV.h;
 const zF = INV.z + INV.d / 2;
+/** El poste de la red (de celosía, como los de las otras figuras): su alto; la línea cuelga de su cruceta, a 0.92 del alto. */
+export const POSTE = { alto: 3.2 };
+// los cables de corriente directa bajan pegados a la pared y van por el piso, cada uno en su carril, hasta la parte de atrás de su
+// inversor; los de alterna salen por un costado del inversor, bajan de su base y van por el piso al transformador y al tablero
+const zPared = EDIFICIO.z[1] + 0.015;
+const zBase = INV.z - INV.d / 2 - 0.15 - 0.015; // la orilla de atrás de la base de concreto
+const carril = k => -0.425 - k * 0.02;
+const xCd = k => INV.x[k < 2 ? 0 : 1] + (k % 2 ? 0.18 : -0.18);
+const xBaseCa = x => x + INV.w / 2 + 0.215; // la orilla de la base, del lado derecho
+const [tx, tz] = SITIO.trafo;
+const [bx, bz] = SITIO.tablero;
+const [px, pz] = SITIO.poste;
+/** Los bornes donde se conecta cada cable o se apoya en una orilla: cajas, inversores, transformador, tablero y poste. */
+export const BORNES = {
+    ...Object.fromEntries(CAJAS.map((c, k) => [`caja${k + 1}`, [c.x, c.y + 0.2, zPared]])),
+    ...Object.fromEntries([0, 1, 2, 3].flatMap(k => [[`baseCd${k + 1}`, [xCd(k), INV.y0 + 0.015, zBase]], [`entraCd${k + 1}`, [xCd(k), INV.y0 + 0.05, INV.z - INV.d / 2 - 0.015]]])),
+    ...Object.fromEntries(INV.x.flatMap((x, k) => [[`saleCa${k + 1}`, [x + INV.w / 2 + 0.015, INV.y0 + 0.07, 0.1]], [`baseCa${k + 1}`, [xBaseCa(x), INV.y0 + 0.015, 0.1]], [`trafoCa${k + 1}`, [tx - 0.515, 0.15, 0.55 - k * 0.25]]])),
+    trafoSale: [tx + 0.515, 0.15, tz + 0.25],
+    tableroEntra: [bx - 0.365, 0.15, bz],
+    tableroSale: [bx + 0.365, 0.15, bz + 0.1],
+    poste: [px, POSTE.alto * 0.92, pz],
+};
+const piso = (x, z) => [x, 0.025, z];
 const bajada = (k) => {
     const c = CAJAS[k];
-    const inv = INV.x[k < 2 ? 0 : 1];
-    const dx = (k % 2 ? 0.18 : -0.18);
-    const zc = -0.4 + k * 0.035;
-    return { id: `cd${k + 1}`, fluido: 'cd', r: 0.03, cable: true, puntos: [[c.x, c.y + 0.1, c.z], [c.x, c.y - 0.25, EDIFICIO.z[1] + 0.08], [c.x, 0.15, zc], [lerp(c.x, inv, 0.5), 0.15, zc], [inv + dx, 0.15, zc], [inv + dx, yI(0.08), INV.z - 0.1]] };
+    const x = xCd(k);
+    return { id: `cd${k + 1}`, fluido: 'cd', r: 0.02, cable: true, puntos: [BORNES[`caja${k + 1}`], piso(c.x, zPared), piso(c.x + 0.12, carril(k)), piso(x - 0.12, carril(k)), piso(x, zBase), BORNES[`baseCd${k + 1}`], BORNES[`entraCd${k + 1}`]] };
 };
+const alterna = (x, k) => {
+    const xb = xBaseCa(x);
+    const llega = BORNES[`trafoCa${k + 1}`];
+    const z = llega[2];
+    // el del inversor 1 pasa por delante de la base del inversor 2
+    const paso = k === 0 ? [piso(xb + 0.1, z), piso(tx - 0.53, z)] : [piso(tx - 0.53, z)];
+    return { id: `ca${k + 1}`, fluido: 'ca', r: 0.02, cable: true, puntos: [BORNES[`saleCa${k + 1}`], BORNES[`baseCa${k + 1}`], piso(xb, 0.1), ...paso, llega] };
+};
+const orillaRed = [px, POSTE.alto * 0.85, BLOQUE.z[1] - 0.05];
+/** La línea de la red: tres fases que cuelgan de la cruceta del poste y salen a la calle. */
+export const AEREAS = { redAerea: [enCruceta(BORNES.poste, BORNES.poste, orillaRed), apoyo(orillaRed, [0.25, 0, 0])] };
 export const LINEAS = [
     bajada(0), bajada(1), bajada(2), bajada(3),
-    ...INV.x.map((x, k) => ({ id: `ca${k + 1}`, fluido: 'ca', r: 0.03, cable: true, puntos: [[x + 0.45, yI(0.06), INV.z], [x + 0.6, 0.1, 0.55], [lerp(x, SITIO.trafo[0], 0.6), 0.1, 0.65 + k * 0.08], [SITIO.trafo[0] - 0.45, 0.25, SITIO.trafo[1]]] })),
-    { id: 'salida', fluido: 'ca', r: 0.035, cable: true, puntos: [[SITIO.trafo[0] + 0.45, 0.3, SITIO.trafo[1] + 0.2], [6.95, 0.1, 1.2], [SITIO.tablero[0] - 0.3, 0.25, SITIO.tablero[1]]] },
-    { id: 'red', fluido: 'ca', r: 0.025, cable: true, puntos: [[SITIO.tablero[0] + 0.1, 1.35, SITIO.tablero[1] - 0.2], [SITIO.poste[0], 2.7, SITIO.poste[1] - 0.1], [BLOQUE.x[1] - 0.05, 2.9, SITIO.poste[1] + 0.6]] },
+    ...INV.x.map(alterna),
+    { id: 'salida', fluido: 'ca', r: 0.02, cable: true, puntos: [BORNES.trafoSale, piso(tx + 0.53, BORNES.trafoSale[2]), piso(tx + 0.65, bz), piso(bx - 0.38, bz), BORNES.tableroEntra] },
+    // del tablero, por el piso, al poste; sube por dentro de él hasta la cruceta
+    { id: 'red', fluido: 'ca', r: 0.02, cable: true, puntos: [BORNES.tableroSale, piso(bx + 0.38, BORNES.tableroSale[2]), piso(px, pz - 0.3), piso(px, pz), BORNES.poste] },
+    // la línea aérea no lleva tubo: la página dibuja sus tres conductores; aquí va la fase de en medio
+    lineaAerea('redAerea', AEREAS.redAerea, { fluido: 'ca' }),
     // por dentro del inversor 1: de las terminales, por los seguidores, al bus, al puente, al filtro y a los relevadores
     { id: 'adentroCD', fluido: 'cd', r: 0.03, oculto: true, puntos: [[IX - 0.4, yI(0.12), zF - 0.08], [IX - 0.3, yI(0.3), zF - 0.08], [IX - 0.1, yI(0.47), zF - 0.08], [IX + 0.05, yI(0.66), zF - 0.08]] },
     { id: 'adentroCA', fluido: 'ca', r: 0.03, oculto: true, puntos: [[IX + 0.12, yI(0.72), zF - 0.08], [IX + 0.38, yI(0.55), zF - 0.08], [IX + 0.42, yI(0.3), zF - 0.08], [IX + 0.45, yI(0.1), zF - 0.08]] },
 ];
-export const REMATE = new Set(['red (fin)']);
+export const REMATE = new Set(['redAerea (fin)']); // la línea sigue por la calle, fuera del dibujo
 const caja = (x, y0, z, w, h, d) => [x - w / 2, x + w / 2, y0, y0 + h, z - d / 2, z + d / 2];
 export const EQUIPOS = {
     ...Object.fromEntries(CAJAS.map(c => [`caja${c.id}`, caja(c.x, c.y - 0.05, c.z, 0.5, 0.45, 0.4)])),
@@ -376,7 +412,7 @@ export function pose({ modo = 'dia', planta = null, noche = 0, adentro = 0, desa
     for (const k of [1, 2, 3, 4]) flujos[`cd${k}`] = cd > 0.01 ? 0.1 + 0.85 * cd : 0;
     flujos.adentroCD = flujos.cd1;
     for (const id of ['ca1', 'ca2', 'salida', 'adentroCA']) flujos[id] = conectado && s > 0.01 ? 0.1 + 0.85 * s : 0;
-    flujos.red = flujos.salida;
+    flujos.red = flujos.redAerea = flujos.salida;
     const cam = camara || { mira: [-0.4, 1.4, -0.5], az: 16, el: 26, d: 34 };
     return {
         t, dt, modo, noche, adentro, desarme, encendido, lectura: L, flujos, conectado,

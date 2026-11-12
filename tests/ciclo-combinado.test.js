@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { ARRANQUES, BLOQUE, DEF, EQUIPO, LINEAS, PARTES, RECUPERADOR, arranque, bulboHumedo, calcular, central, estadoPlanta, pasoPlanta, pose, puntasSueltas, revisar, tEnQueDa, turbinaGas } from '../conceptos-3d/ciclo-combinado/modelo.js';
+import { ARRANQUES, BLOQUE, BORNES, DEF, EQUIPO, LINEAS, PARTES, RECUPERADOR, REMATE, arranque, bulboHumedo, calcular, central, estadoPlanta, pasoPlanta, pose, puntasSueltas, revisar, tEnQueDa, turbinaGas } from '../conceptos-3d/ciclo-combinado/modelo.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/ciclo-combinado/fuentes.js';
 
 const correr = (s, m, segundos) => { let r = s; for (let i = 0; i < segundos * 20; i++) r = pasoPlanta(r, m, 0.05); return r; };
@@ -18,6 +19,26 @@ describe('Central de ciclo combinado', () => {
 
     it('cada tubo toca un equipo o a otro tubo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
+    });
+
+    it('cada cable llega a un borne y las líneas aéreas son tres fases que cuelgan entre apoyos', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        const aereas = LINEAS.filter(l => l.apoyos);
+        expect(aereas.map(l => l.id)).toEqual(['trafoPortA', 'trafoPortB', 'trafoPortC', 'rnt', 'rgd']);
+        for (const L of aereas) {
+            expect(L.oculto).toBe(true);
+            for (const a of L.apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.05);
+        }
+        // la RNT sale de las barras, se amarra en el pórtico, pasa por las dos torres y baja a las boquillas de la reductora
+        const rnt = LINEAS.find(l => l.id === 'rnt');
+        expect(rnt.apoyos.map(a => a.p)).toEqual([BORNES.barraSalida, BORNES.portico, BORNES.torre1, BORNES.torre2, BORNES.remateReductora, BORNES.altaReductora]);
+        // del generador al transformador no hay cable que cuelgue: son barras rígidas, al ras del piso
+        for (const id of ['gen1A', 'gen1B', 'gen2']) {
+            const L = LINEAS.find(l => l.id === id);
+            expect(L.oculto).toBe(true);
+            expect(L.cable).toBeUndefined();
+            for (const p of L.puntos) expect(p[1]).toBe(BORNES.genA[1]);
+        }
     });
 
     it('la turbina de gas da lo que publica Siemens', () => {

@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { BLOQUE, DEF, FLUJO_NUCLEO, LIMITES, MESES_DENTRO, NUCLEO, PARTES, T_UNO, UNIDAD, aguaAPresion, aguaParaEnfriar, calcular, calorResidual, calorTotal, cicloVapor, composicion, enElCiclo, equilibrio, estadoReactor, kwPorTonelada, pasoReactor, pose, puntasSueltas, rejillaNucleo, revisar, sat, tSat, AGUA, P_DOMO } from '../conceptos-3d/nuclear/modelo.js';
+import { AEREAS, BLOQUE, BORNES, DEF, EQUIPOS, FLUJO_NUCLEO, LIMITES, LINEAS, MESES_DENTRO, NUCLEO, PARTES, REMATE, T_UNO, UNIDAD, aguaAPresion, aguaParaEnfriar, calcular, calorResidual, calorTotal, cicloVapor, composicion, enElCiclo, equilibrio, estadoReactor, kwPorTonelada, pasoReactor, pose, puntasSueltas, rejillaNucleo, revisar, sat, tSat, AGUA, P_DOMO } from '../conceptos-3d/nuclear/modelo.js';
 import { FUENTES } from '../conceptos-3d/nuclear/fuentes.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 
 const correr = (s, m, segundos) => { let r = s; for (let i = 0; i < segundos * 20; i++) r = pasoReactor(r, m, 0.05); return r; };
 
@@ -13,6 +14,38 @@ describe('Central nuclear', () => {
 
     it('cada tubo toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
+    });
+
+    it('cada cable llega a un borne: caja del generador, boquillas, pórtico, crucetas, el marco de la reductora y el tablero', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // del generador al transformador va un ducto de barras, no un cable que cuelga; el de los diésel va delgado por el piso
+        const gen = LINEAS.find(l => l.id === 'gen');
+        expect(gen.oculto).toBe(true);
+        expect(gen.cable).toBeFalsy();
+        expect(gen.puntos[0]).toBe(BORNES.generador);
+        expect(gen.puntos.at(-1)).toBe(BORNES.trafoBaja);
+        const diesel = LINEAS.find(l => l.id === 'dieselElec');
+        expect(diesel.cable).toBe(true);
+        expect(diesel.r).toBeLessThanOrEqual(0.02);
+        for (const p of diesel.puntos) expect(p[1]).toBeLessThanOrEqual(0.06);
+        // el tablero de emergencia está sobre el piso (la losa llega a 0.03), no flotando
+        expect(EQUIPOS.tablero[2]).toBeLessThanOrEqual(0.03);
+        expect(diesel.puntos.at(-1)).toBe(BORNES.tablero);
+        // las líneas aéreas son tres fases que cuelgan entre apoyos, sin tubo
+        expect(Object.keys(AEREAS)).toEqual(['trafoPortico', 'rnt', 'rgd']);
+        for (const [id, apoyos] of Object.entries(AEREAS)) {
+            const linea = LINEAS.find(l => l.id === id);
+            expect(linea.oculto).toBe(true);
+            expect(linea.apoyos).toBe(apoyos);
+            for (const a of apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.05);
+            for (const k of [-1, 0, 1]) {
+                const p = colgar(apoyos, k);
+                expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+            }
+        }
+        expect(AEREAS.trafoPortico[0].p).toBe(BORNES.trafoAlta);
+        expect(AEREAS.rnt[0].p).toBe(BORNES.portico);
+        expect(AEREAS.rnt.at(-1).p).toBe(BORNES.reductoraAlta);
     });
 
     it('una unidad de Laguna Verde da lo que informan CFE y WNA', () => {

@@ -9,7 +9,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { azar, clamp01, fract, lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, cilX, crearAyudante, crearTubos, en, estudio, geoEntre, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BANDA, BLOQUE, DIAL, F0, FLUIDOS, LINEAS, PARTES, RED, SECTORES, SITIO, giroVista } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { ALTO_TORRE, BAJA, BANDA, BLOQUE, BOQUILLA, COMBINADOR, CONEXION, DIAL, F0, FILAS_SOLAR, FLUIDOS, LINEAS, PARTES, POSTE_SECTOR, RED, RELEVADOR, SECTORES, SITIO, TRAFOS, giroVista } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -36,6 +37,7 @@ export function materiales(P) {
         contenedor: new THREE.MeshStandardMaterial({ color: '#eceeef', roughness: 0.5, metalness: 0.2, envMapIntensity: 0.6 }),
         trafo: new THREE.MeshStandardMaterial({ color: '#8e979b', roughness: 0.45, metalness: 0.45, envMapIntensity: 0.9 }),
         galv: new THREE.MeshStandardMaterial({ color: '#9aa0a8', roughness: 0.45, metalness: 0.7, envMapIntensity: 0.85 }),
+        porcelana: new THREE.MeshStandardMaterial({ color: '#8a5a44', roughness: 0.35 }),
         verde: new THREE.MeshBasicMaterial({ color: '#2fb36a', toneMapped: false }),
         rojo: new THREE.MeshBasicMaterial({ color: '#e0302a', toneMapped: false }),
         bateriaLuz: new THREE.MeshBasicMaterial({ color: '#3fb6c6', toneMapped: false }),
@@ -139,6 +141,20 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     // la velocidad de cada rotor se suaviza: al apagarse o al dispararse, se frena poco a poco
     const rotores = [];
     const girar = (obj, eje, gira, k = 1) => { const r = { v: 0 }; rotores.push(r); giran.push({ obj, eje, vel: e => { r.v = lerp(r.v, gira(e) ? giroVista(e.f) * k : 0, Math.min(1, (e.dt || 0.016) * 0.8)); return r.v; } }); };
+    // las tres boquillas de porcelana en la tapa de un transformador: ahí llegan las tres fases de su línea (TRAFOS y BORNES del modelo)
+    const geoBoquilla = (() => {
+        const h = BOQUILLA.alto - 0.012;
+        const g = [new THREE.CylinderGeometry(0.007, 0.009, h, 8).translate(0, h / 2, 0)];
+        for (let i = 0; i < 3; i++) g.push(new THREE.CylinderGeometry(0.014, 0.014, 0.006, 12).translate(0, 0.014 + i * 0.019, 0));
+        return mergeGeometries(g);
+    })();
+    const boquillas = (padre, id) => {
+        const t = TRAFOS[id];
+        for (const k of [-1, 0, 1]) {
+            padre.add(en(sombra(new THREE.Mesh(geoBoquilla, M.porcelana)), t.x + k * BOQUILLA.paso, t.tapa, t.z));
+            padre.add(en(cil(0.009, 0.012, M.galv), t.x + k * BOQUILLA.paso, t.tapa + BOQUILLA.alto - 0.012, t.z));
+        }
+    };
 
     // --------- el suelo: pasto, una calle que cruza la ciudad y la roca del corte
     {
@@ -256,6 +272,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (const x of SITIO.eolico.torres) {
             eolico.add(en(cil(0.05, 2.1, M.marfil, 0.03), x, 0, z));
             eolico.add(en(caja(0.12, 0.1, 0.28, M.marfil), x, 2.08, z - 0.03));
+            // su caja de conexión, al pie de la torre: de ahí sale su cable al transformador del parque
+            eolico.add(en(caja(0.05, 0.07, 0.03, M.galv), x, 0, z + 0.065));
             const r = new THREE.Group();
             r.add(new THREE.Mesh(new THREE.SphereGeometry(0.05, 10, 8), M.marfil));
             for (let k = 0; k < 3; k++) { const a = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.62, 0.012).translate(0, 0.33, 0), M.aspa); a.rotation.z = (k / 3) * PI * 2; a.castShadow = true; r.add(a); }
@@ -278,7 +296,10 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             }
         }
         solar.add(malla(geos, M.panel), malla(patas, M.marcoPanel));
+        // la caja combinadora en la punta de cada fila: de ahí sale el cable de corriente directa al inversor
+        for (const zz of FILAS_SOLAR) solar.add(en(caja(0.05, 0.1, 0.05, M.galv), COMBINADOR, 0, zz));
         solar.add(en(caja(0.3, 0.3, 0.22, M.contenedor), SITIO.solar.sub[0], 0, SITIO.solar.sub[1]));
+        boquillas(solar, 'solar');
         plano(raiz, 'Parque solar', SITIO.solar.x, Z1 - 0.25, 1.3);
     }
 
@@ -295,6 +316,7 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             brillo(baterias, x + dx, 0.45, z, 0.6, '#3fb6c6', 'bateria', 1.1, false);
         }
         baterias.add(en(caja(0.3, 0.3, 0.22, M.contenedor), SITIO.baterias.sub[0], 0, SITIO.baterias.sub[1]));
+        boquillas(baterias, 'baterias');
         plano(raiz, 'Baterías', x, z + 0.7, 0.9);
     }
 
@@ -304,13 +326,18 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const g = partes[id][0];
         g.add(en(caja(0.5, 0.04, 0.4, M.concreto), x, 0, z));
         g.add(en(caja(0.24, 0.3, 0.2, M.trafo), x - 0.05, 0.04, z));
-        g.add(sombra(new THREE.Mesh(geoEntre([x + 0.12, 0.04, z], [x + 0.12, 0.62, z], 0.015), M.galv)));
+        boquillas(g, id);
+        // su caja de baja tensión, en la cara que ve a la central: ahí sube el cable que viene de ella
+        const [bx, bz] = BAJA[id];
+        g.add(en(id === 'eolico' ? caja(0.06, 0.05, 0.03, M.trafo) : caja(0.03, 0.05, 0.06, M.trafo), bx, BAJA.y, bz));
+        // y la caja de conexión al pie del edificio, de donde sale ese cable
+        if (CONEXION[id]) g.add(en(caja(0.06, 0.08, 0.03, M.galv), CONEXION[id].x, 0, CONEXION[id].z + 0.015));
     }
 
     // --------- la red: las torres que unen todo
     const red = unidad('red');
     {
-        const torre = geoTorre(1.45, 0.16);
+        const torre = geoTorre(ALTO_TORRE, 0.16);
         const g = RED.torres.map(x => torre.clone().translate(x, 0, RED.z));
         red.add(malla(g, M.torre));
     }
@@ -331,16 +358,19 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
                 for (let piso = 0.12; piso < h - 0.06; piso += 0.13) vent.push(new THREE.BoxGeometry(w * 0.72, 0.05, 0.01).translate(s.x + dx, piso, s.z + dz + 0.175));
             }
             ciudad.add(new THREE.Mesh(mergeGeometries(vent), M.ventanaSector[i]));
-            // el poste que alimenta el sector
-            ciudad.add(en(cil(0.02, 0.55, M.galv), s.x + 0.9, 0, s.z));
+            // el poste que alimenta el sector, con su transformador; su cable llega por el piso y sube pegado al poste
+            ciudad.add(en(cil(0.02, POSTE_SECTOR.alto, M.galv), s.x + 0.9, 0, s.z));
+            ciudad.add(en(cil(0.032, 0.09, M.trafo), s.x + 0.9, POSTE_SECTOR.trafo, s.z + 0.057));
+            ciudad.add(en(caja(0.016, 0.02, 0.04, M.galv), s.x + 0.9, POSTE_SECTOR.trafo + 0.05, s.z + 0.02));
         });
         const { sub } = SITIO.ciudad;
         relevadores.add(en(caja(0.8, 0.04, 0.6, M.concreto), sub[0], 0, sub[1]));
         relevadores.add(en(caja(0.26, 0.34, 0.22, M.trafo), sub[0] + 0.15, 0.04, sub[1] - 0.12));
+        boquillas(relevadores, 'ciudad');
         for (let i = 0; i < 4; i++) {
-            const xx = sub[0] - 0.28 + i * 0.13;
-            relevadores.add(en(caja(0.09, 0.28, 0.1, M.marfil), xx, 0.04, sub[1] + 0.15));
-            const f = en(caja(0.05, 0.05, 0.01, M.verde), xx, 0.25, sub[1] + 0.205);
+            const xx = RELEVADOR.x[i];
+            relevadores.add(en(caja(0.09, 0.28, 0.1, M.marfil), xx, 0.04, RELEVADOR.z));
+            const f = en(caja(0.05, 0.05, 0.01, M.verde), xx, 0.25, RELEVADOR.frente + 0.005);
             relevadores.add(f);
             focos.push(f);
         }
@@ -377,8 +407,12 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     // --------- al desarmar: los techos suben (ya puestos con mover) y la ciudad se separa de su subestación
     for (const [g, d] of [[relevadores, [0.3, 0.3, 0]], [medidor, [0, 0.5, 0]], [gobernador, [0.3, 0, 0.3]]]) mover(g, d);
 
+    // --------- los conductores: tres fases de aluminio que cuelgan entre apoyos, con sus aisladores (planta-comun/conductores.js)
+    const parteDe = L => ({ oeste: 'red', este: 'red', ciudad: 'ciudad' }[L.id] ?? L.central ?? (partes[L.id] ? L.id : /^s\d/.test(L.id) ? 'ciudad' : null));
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe, movil });
+
     // --------- lo que corre por los cables
-    const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe: () => null, movil });
+    const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe, movil });
 
     const anclas = {};
     for (const p of PARTES) { const o = new THREE.Object3D(); o.position.set(...p.ancla); raiz.add(o); anclas[p.id] = o; }

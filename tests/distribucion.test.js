@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { BLOQUE, CALLE, CASAS, CRITERIO, FICHA, FUSIBLE, GD, KVA_MEDIO, LINEAS, PARTES, PERDIDAS, RED, SERVICIOS_MEDIO, TRAFO, calle, casaKW, dia, diaKWh, estadoPlanta, falla, funde, lineaFalla, pasoPlanta, perdidas, plenaCarga, pose, puntasSueltas, revisar, secuencia } from '../conceptos-3d/distribucion/modelo.js';
+import { AEREAS, BLOQUE, BORNES, CALLE, CASAS, DIBUJADAS, CRITERIO, FICHA, FUSIBLE, GD, KVA_MEDIO, LINEAS, PARTES, PERDIDAS, RED, REMATE, SERVICIOS_MEDIO, TRAFO, calle, casaKW, dia, diaKWh, estadoPlanta, falla, funde, lineaFalla, pasoPlanta, perdidas, plenaCarga, pose, puntasSueltas, revisar, secuencia } from '../conceptos-3d/distribucion/modelo.js';
 import { FUENTES } from '../conceptos-3d/distribucion/fuentes.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -21,6 +22,21 @@ describe('Red de distribución', () => {
     it('cada cable toca un poste, el transformador o una casa en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada cable llega a un borne: un alfiler, un bastidor, el cortacircuito, el transformador o la mufa de una casa', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(cablesSueltos(DIBUJADAS, BORNES, REMATE)).toEqual([]);
+        // las líneas que se dibujan cuelgan entre apoyos; la de media tensión es una sola fase y la de baja, neutro arriba y dos fases
+        expect(Object.keys(AEREAS)).toEqual(['mtCalle', 'btCalle']);
+        expect(AEREAS.mtCalle.every(a => a.fase.every(v => v === 0))).toBe(true);
+        expect(AEREAS.btCalle[0].fase[1]).toBeCloseTo(0.09, 9);
+        for (const apoyos of Object.values(AEREAS)) {
+            const p = colgar(apoyos.slice(1, 3));
+            expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+        }
+        // y lo que corre por los cables va por el conductor que cuelga
+        for (const L of LINEAS) expect(L.apoyos?.length).toBeGreaterThan(1);
     });
 
     it('la calle y la red son las de las fuentes', () => {

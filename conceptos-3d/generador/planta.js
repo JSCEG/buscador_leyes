@@ -9,7 +9,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, cilX, crearAyudante, crearTubos, en, estudio, geoEntre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BLOQUE, EJE, FLUIDOS, LINEAS, PARTES, R, SINCRO, SITIO, X, giroVista } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { BLOQUE, BORNES, EJE, FLUIDOS, LINEAS, PARTES, R, SINCRO, SITIO, X, Y_ESCOBILLAS, giroVista } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -217,7 +218,15 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             escobillas.add(en(caja(0.1, 0.08, 0.42, M.galv), x, ey + R.anillos + 0.1, 0));
             for (const dz of [-0.12, 0, 0.12]) escobillas.add(en(caja(0.06, 0.07, 0.05, M.carbon), x, ey + R.anillos + 0.02, dz));
         }
-        escobillas.add(en(caja(0.7, 0.08, 0.5, M.galv), xm(X.anillos[0], X.anillos[1]), ey + R.anillos + 0.18, 0));
+        escobillas.add(en(caja(0.7, 0.08, 0.5, M.galv), xm(X.anillos[0], X.anillos[1]), Y_ESCOBILLAS, 0));
+        // el poste junto a la base, con su brazo hasta la barra de las escobillas: por él sube el cable del campo
+        const [px, pz] = SITIO.soporte;
+        const poste = malla([
+            new THREE.BoxGeometry(0.08, Y_ESCOBILLAS + 0.08, 0.08).translate(px, (Y_ESCOBILLAS + 0.08) / 2, pz),
+            new THREE.BoxGeometry(0.08, 0.08, -0.25 - pz).translate(px, Y_ESCOBILLAS + 0.04, (pz - 0.25) / 2),
+        ], M.galv);
+        raiz.add(poste);
+        partes.escobillas.push(poste);
     }
 
     // --------- la excitación: los gabinetes del sistema Unitrol y su transformador
@@ -312,10 +321,14 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const fins = [];
         for (let k = 0; k < 7; k++) fins.push(new THREE.BoxGeometry(0.04, 1.1, 0.3).translate(x - 0.45 + k * 0.15, 0.7, z + 0.7), new THREE.BoxGeometry(0.04, 1.1, 0.3).translate(x - 0.45 + k * 0.15, 0.7, z - 0.7));
         transformador.add(malla(fins, M.trafo));
-        for (const dz of [-0.35, 0, 0.35]) transformador.add(en(cil(0.05, 0.65, M.porcelana, 0.035), x + 0.2, 1.5, z + dz));
-        // el pórtico de salida
-        for (const dz of [-0.15, 0.15]) transformador.add(en(cil(0.05, 2.7, M.galv), 7.2, 0, z + dz));
-        transformador.add(en(caja(0.12, 0.08, 0.6, M.galv), 7.2, 2.62, z));
+        for (const dz of [-0.35, 0, 0.35]) transformador.add(en(cil(0.05, 0.65, M.porcelana, 0.035), x + 0.2, BORNES.boquillas[1] - 0.65, z + dz));
+        // la caja donde los tres ductos del bus entran al tanque
+        transformador.add(en(caja(0.16, 0.38, 0.96, M.bus), x - 0.66, SITIO.bus.y - 0.19, z));
+        // el pórtico de salida: de su viga cuelgan los aisladores de las tres fases
+        const { x: xp, y: yp, ancho } = SITIO.portico;
+        for (const dz of [-ancho / 2 + 0.06, ancho / 2 - 0.06]) transformador.add(en(cil(0.05, yp + 0.08, M.galv), xp, 0, z + dz));
+        transformador.add(en(caja(0.12, 0.08, ancho, M.galv), xp, yp, z));
+        crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: () => 'transformador', movil });
         plano(raiz, 'Transformador elevador', x, z + 0.95, 1.6);
     }
 

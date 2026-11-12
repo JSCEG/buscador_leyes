@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { AISLADOR, ALFA, BLOQUE, BLUEJAY, CATALOGO, CLARO, EVENTO2020, H_REF, LINEA, LINEAS, PARTES, PIE, RAYO, RECIERRE, SIL, TENSE, TERMICO, TORRE, ZC, amperes, corrienteA, corrienteCritica, enTramo, enlace, estadoPlanta, flechaA, holgura, lejos, limites, pasoPlanta, perfil, pose, puntasSueltas, resistencia, revisar, secuenciaIncendio, secuenciaRayo, temperaturaCon, tensionA, vacio, voltajeAislador } from '../conceptos-3d/red-transmision/modelo.js';
+import { AISLADOR, ALFA, BLOQUE, BLUEJAY, BORNES, CADENA_REMATE, CATALOGO, CLARO, DIBUJADAS, EVENTO2020, H_REF, LINEA, LINEAS, PARTES, PIE, RAYO, RECIERRE, REMATE, SIL, TENSE, TERMICO, TORRE, ZC, amperes, apoyos, claro, corrienteA, corrienteCritica, enTramo, enlace, estadoPlanta, flechaA, holgura, lejos, limites, pasoPlanta, perfil, pose, puntasSueltas, resistencia, revisar, secuenciaIncendio, secuenciaRayo, temperaturaCon, tensionA, vacio, voltajeAislador } from '../conceptos-3d/red-transmision/modelo.js';
 import { FUENTES } from '../conceptos-3d/red-transmision/fuentes.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -20,6 +21,14 @@ describe('Red Nacional de Transmisión', () => {
     it('cada cable toca un equipo o una torre en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+        // cada cable llega a un borne: la punta de una cadena, un yugo, una boquilla, una barra o el reactor
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(cablesSueltos(DIBUJADAS, BORNES, REMATE)).toEqual([]);
+        // en los marcos y en las torres de remate el cable remata en la punta de su cadena acostada, no en el acero
+        const A = apoyos(1.05);
+        for (const a of [A[0], A[1], A.at(-2), A.at(-1)]) expect(a.ancho).toBe(CADENA_REMATE);
+        expect(claro(A[0], A[1], flechaA(25))[0][0]).toBeCloseTo(A[0].x + CADENA_REMATE, 9);
+        expect(claro(A[0], A[1], flechaA(25)).at(-1)[0]).toBeCloseTo(A[1].x - CADENA_REMATE, 9);
         // y en la escena nunca toca el suelo, ni con el cable muy caliente
         expect(holgura(flechaA(120))).toBeGreaterThan(0.1);
     });

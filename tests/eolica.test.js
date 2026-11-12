@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { BETZ, BLOQUE, CP_MAX, CURVA_V126, LAMBDA_OPT, LINEAS, PARTES, PARQUE, SEPARACION, SITIOS, TURBINA, aerogenerador, anual, calcular, cp, deficit, densidad, estadoPlanta, fila, pasoPlanta, pose, puntasSueltas, reparto, revisar, vientoA, vientoTormenta, weibull } from '../conceptos-3d/eolica/modelo.js';
+import { BETZ, BLOQUE, BORNES, CP_MAX, CURVA_V126, LAMBDA_OPT, LINEAS, PARTES, PARQUE, REMATE, SEPARACION, SITIOS, TURBINA, aerogenerador, anual, calcular, cp, deficit, densidad, estadoPlanta, fila, pasoPlanta, pose, puntasSueltas, reparto, revisar, vientoA, vientoTormenta, weibull } from '../conceptos-3d/eolica/modelo.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/eolica/fuentes.js';
 
 const correr = (s, m, segundos) => { let r = s; for (let i = 0; i < segundos * 20; i++) r = pasoPlanta(r, m, 0.05); return r; };
@@ -18,6 +19,25 @@ describe('Central eólica', () => {
 
     it('cada cable toca un equipo, una torre u otro cable en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
+    });
+
+    it('cada cable llega a un borne: los de media tensión van delgados por la zanja y las líneas aéreas son tres fases', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // los cables del parque: delgados, por el piso, y solo sus puntas en la caja del pie y en la caja de media tensión
+        for (const id of ['col0', 'col1', 'col2']) {
+            const L = LINEAS.find(l => l.id === id);
+            expect(L.cable).toBe(true);
+            expect(L.r).toBeLessThanOrEqual(0.02);
+            for (const p of L.puntos.slice(1, -1)) expect(p[1]).toBeLessThanOrEqual(0.06);
+        }
+        const aereas = LINEAS.filter(l => l.apoyos);
+        expect(aereas.map(l => l.id)).toEqual(['alta', 'rnt', 'rgd']);
+        for (const L of aereas) {
+            expect(L.oculto).toBe(true);
+            for (const a of L.apoyos) expect(Math.hypot(...a.fase)).toBeGreaterThan(0.05);
+        }
+        // la RNT se amarra en el pórtico, pasa por las dos torres y baja a las boquillas de la reductora
+        expect(LINEAS.find(l => l.id === 'rnt').apoyos.map(a => a.p)).toEqual([BORNES.porticoAmarre, BORNES.torre1, BORNES.torre2, BORNES.remateReductora, BORNES.altaReductora]);
     });
 
     it('el modelo da la curva publicada de la máquina hermana, a cerca de 1 % desde 6 m/s', () => {

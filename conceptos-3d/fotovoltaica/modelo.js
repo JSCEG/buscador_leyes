@@ -13,6 +13,7 @@
 // - Seguidor de un eje norte–sur que regresa al amanecer y al atardecer para no hacerse sombra (fórmula de pvlib).
 // - Inversor central: 1,500 V y cerca de 99 % de rendimiento máximo (ficha de Sungrow). La forma de su curva es de ejemplo.
 // - Lo de ejemplo, para ver la tendencia: pérdidas en cables, reparto de la nube, curva del inversor y la manera de cargar el SAEE.
+import { apoyo, cablesSueltos as revisarCables, lineaAerea } from '../planta-comun/lineas.js';
 
 const D2R = Math.PI / 180;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -321,9 +322,21 @@ export const FILAS = { x: [-6.7, -5.15, -3.6, -2.05, -0.5, 1.05], z: [-3.85, 1.1
 export const ZANJA_Z = 1.72;
 export const CENTRO_SOL = [0.3, 0.3, -0.9];
 export const RADIO_SOL = 5.5;
+/** z de los postes del seguidor en cada fila; el último sostiene la punta de la cadena. */
+export const ZPOSTES = [-3.62, -2.5, -1.35, -0.2, 0.92];
 export const TORRES = [[7.32, -0.2], [7.32, 4.05]];
-const ALTO_TORRE = 3.3;
+export const ALTO_TORRE = 3.3;
 const puntasTorre = TORRES.map(([x, z]) => [x, ALTO_TORRE, z]);
+/** La subestación: el transformador elevador (x, z y su escala), el marco donde llegan sus fases y el pórtico de salida. */
+export const SUBESTACION = { x: 4.55, z: 1.45, esc: 1.35, marco: 5.92, yMarco: 1.25 };
+export const PORTICO = { x: 6.48, z: 1.55, alto: 2.55, aislador: 0.16 };
+export const REDUCTORA = { x: 7.1, z: 3.18, alto: 1.28 };
+/** Postes de madera de la RGD: x, z y alto; los conductores van sobre sus aisladores de perno. */
+export const POSTES = [[6.45, 3.4, 1], [5.95, 3.35, 0.78]];
+/** La caja de cables de media tensión, pegada atrás del transformador elevador: x0, x1, y0, y1, z0, z1. */
+export const CAJA_MT = [4.04, 4.44, 0, 0.42, 0.823, 0.963];
+/** La estructura de transición junto al transformador de media tensión: de sus boquillas al cable que va por el piso. */
+export const TRANSICION = { x: 3.45, z: 0.75, alto: 1 };
 export const FLUIDOS = {
     luz: { nombre: 'Luz del sol', color: '#ffc61a' },
     cd: { nombre: 'Corriente directa', color: '#e0457b' },
@@ -337,7 +350,7 @@ export const EQUIPOS = {
     inversor: [2.1, 3.5, 0, 0.95, -0.85, 0.25],
     trafoMT: [2.2, 3.4, 0, 0.95, 0.35, 1.15],
     subestacion: [3.95, 6.05, 0, 1.3, 0.55, 2.45],
-    portico: [6.28, 6.68, 0, 2.62, 1.2, 1.9],
+    portico: [6.15, 6.81, 0, 2.62, 1.2, 1.9],
     sae0: [4.1, 5.5, 0, 0.8, -3.7, -2.95],
     sae1: [4.1, 5.5, 0, 0.8, -2.65, -1.9],
     sae2: [5.85, 7.25, 0, 0.8, -3.7, -2.95],
@@ -345,35 +358,101 @@ export const EQUIPOS = {
     saeConv: [4.1, 5.5, 0, 0.8, -1.55, -0.85],
     reductora: [6.75, 7.45, 0, 1.3, 2.85, 3.5],
     celda: [-3.82, -2.58, 0, 1.1, 2.43, 3.67],
+    foco: [-2.26, -2.1, 0, 1.12, 2.98, 3.12],
+    transicion: [3.38, 3.52, 0, 1.12, 0.45, 1.05],
     pueblo: [4.1, 6.5, 0, 0.9, 2.85, 4.1],
 };
-const catenaria = (a, b, flecha, n = 5) => Array.from({ length: n + 1 }, (_, i) => { const k = i / n; return [lerp(a[0], b[0], k), lerp(a[1], b[1], k) - flecha * 4 * k * (1 - k), lerp(a[2], b[2], k)]; });
-const unir = (...tramos) => tramos.reduce((acc, t) => acc.concat(acc.length ? t.slice(1) : t), []);
-const Z1 = FILAS.z[1];
-const lineasFilas = FILAS.x.map((x, i) => {
-    const caja = i < 3 ? EQUIPOS.caja0 : EQUIPOS.caja1;
-    const xc = (caja[0] + caja[1]) / 2 + (i % 3 - 1) * 0.1;
-    return [
-        { id: `cadena${i}`, grupo: 'cd', parte: 'cadena', fluido: 'cd', r: 0.012, puntos: [[x, 0.48, FILAS.z[0] + 0.05], [x, 0.48, Z1 + 0.06], [x, 0.14, Z1 + 0.22]] },
-        { id: `fila${i}`, grupo: 'cd', parte: 'cadena', fluido: 'cd', r: 0.014, puntos: [[x, 0.14, Z1 + 0.22], [x, 0.05, ZANJA_Z], [xc, 0.05, ZANJA_Z], [xc, 0.12, 2]] },
-    ];
-}).flat();
+const cruceta = ([x, z]) => [x, ALTO_TORRE * 0.92, z];
+const { x: rx, z: rz } = REDUCTORA;
+const [mx0, , , , mz0] = CAJA_MT;
+const zPie = ZPOSTES.at(-1) + 0.045; // la cadena baja pegada al último poste, por detrás
+/** Las cadenas de cada caja: por qué carril de la zanja van y por dónde entran a la caja (x). Las del oeste y las del este no se cruzan. */
+const CADENAS = [{ carril: 1.62, entra: -5.17 }, { carril: 1.56, entra: -5.11 }, { carril: 1.68, entra: -5.05 }, { carril: 1.62, entra: -0.92 }, { carril: 1.56, entra: -0.86 }, { carril: 1.68, entra: -0.8 }];
+const ZCAJA = 2.05;
+/** Los bornes donde se conecta cada cable o cada apoyo de línea; deben coincidir con lo que modela planta.js. */
+export const BORNES = {
+    // cada cadena: empieza en el primer módulo, corre bajo el tubo del seguidor, baja por el último poste y entra por abajo a su caja
+    ...Object.fromEntries(FILAS.x.map((x, i) => [`cadena${i}`, [x, 0.53, FILAS.z[0] + 0.05]])),
+    ...Object.fromEntries(FILAS.x.map((x, i) => [`finFila${i}`, [x, 0.53, zPie]])),
+    ...Object.fromEntries(CADENAS.map((c, i) => [`cajaCadena${i}`, [c.entra, 0.2, ZCAJA]])),
+    // de cada caja sale un cable grueso al inversor
+    cajaTronco0: [-4.89, 0.2, ZCAJA],
+    cajaTronco1: [-0.64, 0.2, ZCAJA],
+    inversorA: [2.12, 0.06, -0.1],
+    inversorB: [2.12, 0.06, -0.3],
+    // de las boquillas del transformador de media tensión a la estructura de transición, y de ahí por el piso a la subestación
+    boqMT: [2.8, 1, 0.75],
+    transicion: [TRANSICION.x, TRANSICION.alto + 0.1, TRANSICION.z],
+    cajaTransicion: [TRANSICION.x + 0.04, 0.86, TRANSICION.z],
+    cajaMT0: [mx0, 0.05, 0.89],
+    cajaMT2: [4.36, 0.05, mz0],
+    // el SAEE: cada contenedor de baterías a su convertidor, y el convertidor a la subestación
+    saeConvS: [4.8, 0.05, EQUIPOS.saeConv[5]],
+    saeConvO: [EQUIPOS.saeConv[0], 0.05, -1.3],
+    saeConvN: [4.7, 0.05, EQUIPOS.saeConv[4]],
+    saeConvE2: [EQUIPOS.saeConv[1], 0.05, -1.35],
+    saeConvE3: [EQUIPOS.saeConv[1], 0.05, -1.1],
+    sae0: [EQUIPOS.sae0[0], 0.05, -3.3],
+    sae1: [4.7, 0.05, EQUIPOS.sae1[5]],
+    sae2: [EQUIPOS.sae2[0], 0.05, -3.3],
+    sae3: [EQUIPOS.sae3[0], 0.05, -2.3],
+    // la celda de muestra y su foco: los alambres bajan por la cara de la celda, cruzan el piso y suben por el poste del foco
+    celdaN: [-2.62, 0.7, 2.98],
+    repisaCelda1: [-2.57, 0.31, 2.98],
+    focoMas: [-2.2, 1, 3.03],
+    focoMenos: [-2.2, 1, 3.07],
+    repisaCelda2: [-2.57, 0.31, 3.12],
+    celdaP: [-2.625, 0.315, 3.12],
+    // alta tensión: boquillas, marco, pórtico, torres, la reductora y los postes
+    boqAlta: [SUBESTACION.x, (0.68 + 0.32) * SUBESTACION.esc, SUBESTACION.z],
+    marco: [SUBESTACION.marco, SUBESTACION.yMarco, SUBESTACION.z],
+    portico: [PORTICO.x, PORTICO.alto, PORTICO.z],
+    porticoAmarre: [PORTICO.x, PORTICO.alto - PORTICO.aislador, PORTICO.z],
+    torre1: cruceta(TORRES[0]),
+    torre2: cruceta(TORRES[1]),
+    remateReductora: [rx, REDUCTORA.alto, rz + 0.26],
+    altaReductora: [rx + 0.02, 0.66, rz + 0.12],
+    bajaReductora: [rx - 0.11, 0.57, rz - 0.06],
+    ...Object.fromEntries(POSTES.map(([x, z, h], i) => [`poste${i + 1}`, [x, h + 0.02, z]])),
+};
+/** Puntas que salen por la orilla del sitio: aquí ninguna, la RGD termina en el último poste del pueblo. */
+export const REMATE = new Set();
+/** Un cable de piso: delgado y oscuro, por la zanja o el piso; sube pegado al equipo solo en sus puntas. */
+const cable = (id, grupo, parte, fluido, r, puntos) => ({ id, grupo, parte, fluido, r, cable: true, puntos });
+const yP = 0.03;
+const B = BORNES;
 export const LINEAS = [
-    ...lineasFilas,
-    { id: 'circuito', grupo: 'cd', parte: 'celda', fluido: 'cd', r: 0.012, puntos: [[-2.62, 0.74, 3.05], [-2.3, 0.98, 3.05], [-2.18, 1.04, 3.05]] },
-    { id: 'circuito2', grupo: 'cd', parte: 'celda', fluido: 'cd', r: 0.012, puntos: [[-2.18, 1.04, 3.05], [-2.1, 0.6, 3.05], [-2.3, 0.34, 3.05], [-2.62, 0.34, 3.05]] },
-    { id: 'troncoA', grupo: 'cd', parte: 'caja', fluido: 'cd', r: 0.026, puntos: [[-4.86, 0.12, 2.05], [-4.86, 0.05, 1.56], [1.75, 0.05, 1.56], [1.95, 0.08, 0.1], [2.15, 0.3, -0.3]] },
-    { id: 'troncoB', grupo: 'cd', parte: 'caja', fluido: 'cd', r: 0.026, puntos: [[-0.62, 0.12, 2.05], [-0.62, 0.05, 1.66], [1.85, 0.05, 1.66], [2.05, 0.08, 0.2], [2.15, 0.3, 0]] },
-    { id: 'inv-trafo', grupo: 'ca', parte: 'trafoMT', fluido: 'ca', r: 0.024, puntos: [[2.8, 0.5, 0.2], [2.8, 0.5, 0.3], [2.8, 0.5, 0.42]] },
-    { id: 'mt', grupo: 'ca', parte: 'subestacion', fluido: 'ca', r: 0.024, puntos: [[3.38, 0.25, 0.75], [3.7, 0.05, 0.85], [4.02, 0.3, 0.95]] },
-    { id: 'saeBus', grupo: 'sae', parte: 'sae', fluido: 'sae', r: 0.024, puntos: [[4.8, 0.28, -0.88], [4.8, 0.06, -0.3], [4.5, 0.06, 0.2], [4.5, 0.3, 0.6]] },
-    { id: 'sae0v', grupo: 'sae', parte: 'sae', fluido: 'sae', r: 0.018, puntos: [[4.6, 0.25, -2.98], [3.92, 0.05, -2.8], [3.92, 0.05, -1.7], [4.15, 0.2, -1.5]] },
-    { id: 'sae1v', grupo: 'sae', parte: 'sae', fluido: 'sae', r: 0.018, puntos: [[4.7, 0.25, -1.93], [4.7, 0.2, -1.52]] },
-    { id: 'sae2v', grupo: 'sae', parte: 'sae', fluido: 'sae', r: 0.018, puntos: [[6.5, 0.25, -2.98], [5.68, 0.05, -2.8], [5.68, 0.05, -1.3], [5.45, 0.2, -1.25]] },
-    { id: 'sae3v', grupo: 'sae', parte: 'sae', fluido: 'sae', r: 0.018, puntos: [[6.4, 0.25, -1.93], [6.2, 0.05, -1.7], [5.75, 0.05, -1.15], [5.45, 0.2, -1.1]] },
-    { id: 'alta', grupo: 'red', parte: 'subestacion', fluido: 'ca', r: 0.016, puntos: [[5.92, 1.22, 1.55], [6.15, 1.95, 1.55], [6.4, 2.4, 1.55]] },
-    { id: 'rnt', grupo: 'red', parte: 'red', fluido: 'ca', r: 0.016, cable: true, puntos: unir(catenaria([6.48, 2.58, 1.55], puntasTorre[0], 0.06), catenaria(puntasTorre[0], puntasTorre[1], 0.34), catenaria(puntasTorre[1], [7.1, 1.28, 3.25], 0.1)) },
-    { id: 'rgd', grupo: 'red', parte: 'red', fluido: 'ca', r: 0.014, cable: true, puntos: unir(catenaria([6.9, 0.95, 3.25], [6.45, 0.97, 3.4], 0.03, 3), catenaria([6.45, 0.97, 3.4], [5.95, 0.75, 3.35], 0.05, 3)) },
+    // las cadenas, en corriente directa
+    ...FILAS.x.map((x, i) => {
+        const { carril, entra } = CADENAS[i];
+        return cable(`cadena${i}`, 'cd', 'cadena', 'cd', 0.012, [B[`cadena${i}`], B[`finFila${i}`], [x, yP, zPie], [x, yP, carril], [entra, yP, carril], [entra, yP, ZCAJA], B[`cajaCadena${i}`]]);
+    }),
+    { id: 'circuito', grupo: 'cd', parte: 'celda', fluido: 'cd', r: 0.012, cable: true, puntos: [B.celdaN, B.repisaCelda1, [-2.57, yP, 2.98], [-2.2, yP, 3.03], B.focoMas] },
+    { id: 'circuito2', grupo: 'cd', parte: 'celda', fluido: 'cd', r: 0.012, cable: true, puntos: [B.focoMenos, [-2.2, yP, 3.07], [-2.57, yP, 3.12], B.repisaCelda2, B.celdaP] },
+    // de cada caja al inversor: salen hacia atrás, por su propia zanja, para no cruzarse con las cadenas
+    cable('troncoA', 'cd', 'caja', 'cd', 0.02, [B.cajaTronco0, [-4.89, yP, ZCAJA], [-4.89, yP, 2.3], [1.95, yP, 2.3], [1.95, yP, -0.1], B.inversorA]),
+    cable('troncoB', 'cd', 'caja', 'cd', 0.02, [B.cajaTronco1, [-0.64, yP, ZCAJA], [-0.64, yP, 2.24], [1.85, yP, 2.24], [1.85, yP, -0.3], B.inversorB]),
+    // del inversor al transformador, por un ducto corto: no se ve el cable
+    { id: 'inv-trafo', grupo: 'ca', parte: 'trafoMT', fluido: 'ca', r: 0.024, oculto: true, puntos: [[2.8, 0.5, 0.2], [2.8, 0.5, 0.3], [2.8, 0.5, 0.42]] },
+    // del transformador de media tensión a la subestación
+    lineaAerea('mtPuente', [apoyo(B.boqMT, [0, 0, 0.22]), apoyo(B.transicion, [0, 0, 0.22])], { grupo: 'ca', parte: 'trafoMT', fluido: 'ca' }),
+    cable('mt', 'ca', 'subestacion', 'ca', 0.02, [B.cajaTransicion, [B.cajaTransicion[0], yP, TRANSICION.z], [3.9, yP, TRANSICION.z], [3.9, yP, B.cajaMT0[2]], B.cajaMT0]),
+    // el SAEE
+    cable('saeBus', 'sae', 'sae', 'sae', 0.02, [B.saeConvS, [4.8, yP, 0.6], [4.36, yP, 0.6], B.cajaMT2]),
+    cable('sae0v', 'sae', 'sae', 'sae', 0.018, [B.sae0, [3.98, yP, -3.3], [3.98, yP, -1.3], B.saeConvO]),
+    cable('sae1v', 'sae', 'sae', 'sae', 0.018, [B.sae1, [4.7, yP, -1.72], B.saeConvN]),
+    cable('sae2v', 'sae', 'sae', 'sae', 0.018, [B.sae2, [5.62, yP, -3.3], [5.62, yP, -1.35], B.saeConvE2]),
+    cable('sae3v', 'sae', 'sae', 'sae', 0.018, [B.sae3, [5.75, yP, -2.3], [5.75, yP, -1.1], B.saeConvE3]),
+    // las líneas aéreas no llevan tubo: la página dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la electricidad
+    lineaAerea('alta', [apoyo(B.marco, [0, 0, -0.5]), apoyo(B.portico, [0.2, 0, 0], PORTICO.aislador)], { grupo: 'red', parte: 'subestacion', fluido: 'ca' }),
+    lineaAerea('rnt', [
+        apoyo(B.porticoAmarre, [0.2, 0, 0]),
+        apoyo(B.torre1, [0.25, 0, 0], 0.08),
+        apoyo(B.torre2, [0.25, 0, 0], 0.08),
+        apoyo(B.remateReductora, [0.18, 0, 0], 0.1),
+        apoyo(B.altaReductora, [0.09, 0, 0]),
+    ], { grupo: 'red', parte: 'red', fluido: 'ca' }),
+    lineaAerea('rgd', [apoyo(B.bajaReductora, [0, 0, 0.09]), apoyo(B.poste1, [0, 0, 0.1]), apoyo(B.poste2, [0, 0, 0.1])], { grupo: 'red', parte: 'red', fluido: 'ca' }),
 ];
 
 // Puntos clave: cada uno, una ficha. vista: desde dónde mirarlo (grados) y su tamaño, para la cámara. ancla: el punto en 3D.
@@ -442,8 +521,10 @@ export function puntasSueltas() {
             if (!enEquipo && !enTorre && !enTubo) sueltas.push(`${L.id} (${nombre})`);
         }
     }
-    return sueltas;
+    return sueltas.concat(cablesSueltos());
 }
+/** Los cables cuelgan de algo: cada punta en un borne y cada punto de en medio en un borne o en el piso (planta-comun/lineas.js). */
+export const cablesSueltos = () => revisarCables(LINEAS, BORNES, REMATE);
 /** Revisión de cifras contra lo publicado. */
 export function revisar() {
     const p = [];

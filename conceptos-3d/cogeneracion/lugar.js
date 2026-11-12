@@ -1,6 +1,7 @@
 // Dónde va cada cosa en la figura de cogeneración: a la izquierda, una fábrica con su planta de cogeneración (gas, turbina de gas,
 // generador, caldera de recuperación, chimenea, vapor al proceso y una caldera aparte); atrás, la subestación, la línea a la red y el
 // CENACE; a la derecha, un ingenio azucarero que quema su bagazo. Lo puro de la figura, sin three.js. Nada está a escala.
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 
 export const BLOQUE = { x: [-8, 8], z: [-4, 3.4], y: [-0.4, 0] };
 /** [x, z] del centro de cada cosa. */
@@ -18,6 +19,7 @@ export const SITIO = {
     ingenio: [4.6, 1.6],
     bagazo: [6.9, 2.3],
     turbinaVapor: [4.8, -0.9],
+    trafoIngenio: [6.25, -0.9],
 };
 export const ALTO_TORRE = 2.1;
 export const TORRES = [0.0, 3.2, 6.4];
@@ -25,6 +27,48 @@ export const Z_TORRES = -3.4;
 export const TURBINA = { largo: 1.7, ancho: 0.62, alto: 0.7 };
 export const RECUPERADOR = { largo: 1.1, ancho: 0.9, alto: 1.5 };
 export const ALTO_CHIMENEA = 2.5;
+/** Postes que sostienen las líneas: [x, z, alto]. El cable pasa por la cruceta, a 0.92 del alto. El del transformador hace esquina. */
+export const POSTES = { trafo: [-6.3, -2.6, 1.45], ingenio: [7.6, -0.9, 1.3] };
+/** El poste de esquina va girado 45° para que su cruceta quede en la bisectriz de la vuelta. */
+export const GIRO_POSTE = { trafo: Math.PI / 4, ingenio: 0 };
+const cruceta = ([x, z, h]) => [x, h * 0.92, z];
+const [rx0, rz0] = SITIO.trafo;
+const [sx0, sz0] = SITIO.subestacion;
+const [ix0, iz0] = SITIO.trafoIngenio;
+/** Los bornes donde se conecta cada cable: cada punta de cable que no remata en la orilla debe caer en uno. */
+export const BORNES = {
+    // las tres boquillas de alta del transformador (a 0.13 una de otra, en x) y su gabinete de medición
+    trafoAlta: [rx0, 0.76, rz0 - 0.05],
+    medicion: [rx0 + 0.54, 0.16, rz0],
+    posteTrafo: cruceta(POSTES.trafo),
+    // las tres barras de la subestación (a 0.25 una de otra, en z), por sus dos puntas, y su gabinete de control
+    barraOeste: [sx0 - 0.7, 1.2, sz0],
+    barraEste: [sx0 + 0.7, 1.2, sz0],
+    // el punto de las barras sobre el transformador de la subestación, y sus tres boquillas (a 0.12, en x)
+    barraTrafo: [sx0, 1.2, sz0],
+    trafoSubestacion: [sx0, 0.62, sz0],
+    gabineteSubestacion: [sx0 + 0.55, 0.15, sz0 + 0.5],
+    cenace: [SITIO.cenace[0] - 0.55, 0.3, SITIO.cenace[1] + 0.2],
+    // la caja de conexión en la pared de la fábrica
+    fabrica: [-1.0, 0.15, SITIO.proceso[1] - 0.7],
+    // el transformador del ingenio: tres boquillas en z, a 0.09 una de otra
+    trafoIngenio: [ix0, 0.56, iz0],
+    posteIngenio: cruceta(POSTES.ingenio),
+    ...Object.fromEntries(TORRES.map((x, i) => [`torre${i + 1}`, [x, ALTO_TORRE * 0.92, Z_TORRES]])),
+};
+/** El ducto de barras del generador al transformador: sale de la caja de bornes del generador, sube, cruza a esta altura y baja a la caja de baja tensión del transformador. */
+export const DUCTO = { generador: [SITIO.generador[0], 0.28, SITIO.generador[1] - 0.3], trafo: [rx0, 0.6, rz0 + 0.12], alto: 0.7 };
+const orillaRnt = [BLOQUE.x[1] - 0.05, ALTO_TORRE * 0.85, Z_TORRES];
+const orillaIngenio = [BLOQUE.x[1] - 0.05, POSTES.ingenio[2] * 0.85, POSTES.ingenio[1]];
+/** Cada línea aérea, apoyo por apoyo, con la abertura de sus fases donde llega: boquillas, barras, crucetas. */
+export const AEREAS = {
+    // del transformador sale hacia atrás, da vuelta en el poste de esquina y entra a las barras por su punta oeste
+    aRed: [apoyo(BORNES.trafoAlta, [0.13, 0, 0]), apoyo(BORNES.posteTrafo, [0.177, 0, 0.177], 0.08), apoyo(BORNES.barraOeste, [0, 0, 0.25])],
+    // los puentes de las tres barras a las boquillas del transformador de la subestación
+    barras: [apoyo(BORNES.barraTrafo, [0, 0, 0.25]), apoyo(BORNES.trafoSubestacion, [0.12, 0, 0])],
+    rnt: [apoyo(BORNES.barraEste, [0, 0, 0.25]), ...[1, 2, 3].map(i => apoyo(BORNES[`torre${i}`], [0, 0, 0.28], 0.08)), apoyo(orillaRnt, [0, 0, 0.28])],
+    ingenioRed: [apoyo(BORNES.trafoIngenio, [0, 0, 0.09]), apoyo(BORNES.posteIngenio, [0, 0, 0.22], 0.08), apoyo(orillaIngenio, [0, 0, 0.22])],
+};
 
 export const FLUIDOS = {
     gas: { nombre: 'Gas natural', color: '#2f7fd1' },
@@ -53,17 +97,19 @@ export const LINEAS = [
     { id: 'vapor', fluido: 'vapor', r: 0.05, puntos: [[rx, 1.45, rz + 0.2], [rx + 0.4, 1.3, 1.4], [-1.8, 1.0, 1.7], [px - 0.9, 0.7, pz - 0.2]] },
     { id: 'vaporCaldera', fluido: 'vapor', r: 0.04, puntos: [[cx + 0.4, 0.55, cz], [-2.2, 0.6, 2.5], [px - 0.9, 0.5, pz + 0.2]] },
     { id: 'retorno', fluido: 'agua', r: 0.03, puntos: [[px - 0.9, 0.2, pz - 0.35], [-2.0, 0.18, 1.3], [rx + 0.3, 0.2, rz + 0.4]] },
-    { id: 'elec', fluido: 'elec', r: 0.03, cable: true, puntos: [[SITIO.generador[0], 0.6, SITIO.generador[1] - 0.25], [SITIO.trafo[0], 0.75, SITIO.trafo[1] + 0.2]] },
-    { id: 'aRed', fluido: 'elec', r: 0.035, cable: true, puntos: [[SITIO.trafo[0] + 0.25, 0.9, SITIO.trafo[1] - 0.1], [-5.0, 1.4, -2.0], [sx - 0.8, 1.2, sz]] },
-    { id: 'aFabrica', fluido: 'elec', r: 0.03, cable: true, puntos: [[SITIO.trafo[0] + 0.25, 0.85, SITIO.trafo[1] + 0.1], [-3.0, 1.2, -0.4], [px - 0.6, 1.0, pz - 0.7]] },
-    { id: 'rnt', fluido: 'elec', r: 0.04, cable: true, puntos: [[sx + 0.8, 1.3, sz - 0.3], [TORRES[0], ALTO_TORRE - 0.05, Z_TORRES], [TORRES[1], ALTO_TORRE - 0.05, Z_TORRES], [TORRES[2], ALTO_TORRE - 0.05, Z_TORRES], [BLOQUE.x[1] - 0.05, ALTO_TORRE - 0.2, Z_TORRES]] },
-    { id: 'ingenioRed', fluido: 'elec', r: 0.03, cable: true, puntos: [[vx + 0.6, 0.8, vz - 0.2], [5.6, 1.5, -2.4], [TORRES[2], ALTO_TORRE - 0.25, Z_TORRES]] },
+    // la electricidad: del generador al transformador por un ducto de barras (la página lo dibuja; aquí va lo que corre por dentro)
+    { id: 'elec', fluido: 'elec', r: 0.03, oculto: true, puntos: [DUCTO.generador, [rx0, DUCTO.alto, DUCTO.generador[2]], [rx0, DUCTO.alto, DUCTO.trafo[2]], DUCTO.trafo] },
+    // las líneas aéreas no llevan tubo: la página dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la electricidad
+    ...Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos)),
+    // a la fábrica, un cable de media tensión por el piso: del gabinete de medición a la caja de conexión de la fábrica
+    { id: 'aFabrica', fluido: 'elec', r: 0.02, cable: true, puntos: [BORNES.medicion, [BORNES.medicion[0] + 0.06, 0.03, rz0], [BORNES.fabrica[0], 0.03, rz0], [BORNES.fabrica[0], 0.03, BORNES.fabrica[2] - 0.08], BORNES.fabrica] },
     { id: 'banda', fluido: 'bagazo', r: 0.05, puntos: [[bx - 0.5, 0.35, bz - 0.4], [6.3, 0.5, 0.4], [vx - 0.3, 0.9, vz + 0.35]] },
     { id: 'molinos', fluido: 'bagazo', r: 0.045, puntos: [[ix + 0.9, 0.35, iz + 0.2], [bx - 0.6, 0.3, bz - 0.1]] },
     { id: 'vaporIngenio', fluido: 'vapor', r: 0.045, puntos: [[vx - 0.1, 1.0, vz + 0.4], [4.2, 0.9, 0.4], [ix - 0.3, 0.7, iz - 0.6]] },
-    { id: 'senal', fluido: 'senal', r: 0.02, cable: true, puntos: [[SITIO.cenace[0] - 0.55, 0.9, SITIO.cenace[1] - 0.2], [-1.8, 1.4, -2.0], [sx + 0.7, 1.0, sz + 0.3]] },
+    // las instrucciones del CENACE: un cable de control por el piso, de la pared del CENACE al gabinete de la subestación
+    { id: 'senal', fluido: 'senal', r: 0.02, cable: true, puntos: [BORNES.cenace, [BORNES.cenace[0] - 0.07, 0.03, BORNES.cenace[2]], [BORNES.gabineteSubestacion[0] + 0.07, 0.03, BORNES.gabineteSubestacion[2]], BORNES.gabineteSubestacion] },
 ];
-/** Puntas que rematan en el borde del sitio: el gasoducto y la línea a la red vienen de fuera. */
+/** Puntas que rematan en el borde del sitio: el gasoducto y las líneas a la red vienen de fuera. */
 export const REMATE = new Set(['gasoducto (inicio)', 'rnt (fin)', 'ingenioRed (fin)']);
 const caja = (x, y0, z, w, h, d) => [x - w / 2, x + w / 2, y0, y0 + h, z - d / 2, z + d / 2];
 export const EQUIPOS = {
@@ -71,7 +117,7 @@ export const EQUIPOS = {
     generador: caja(SITIO.generador[0], 0, SITIO.generador[1], 0.9, 0.9, 0.8),
     turbina: caja(tx, 0, tz, TURBINA.largo + 0.2, 1.0, TURBINA.ancho + 0.3),
     recuperador: caja(rx, 0, rz, RECUPERADOR.largo + 0.2, RECUPERADOR.alto + 0.2, RECUPERADOR.ancho + 0.3),
-    trafo: caja(SITIO.trafo[0], 0, SITIO.trafo[1], 0.8, 1.0, 0.7),
+    trafo: caja(SITIO.trafo[0] + 0.1, 0, SITIO.trafo[1], 1.1, 1.0, 0.7),
     proceso: caja(px, 0, pz, 2.2, 1.3, 1.6),
     caldera: caja(cx, 0, cz, 1.0, 0.8, 0.7),
     subestacion: caja(sx, 0, sz, 1.8, 1.6, 1.2),
@@ -79,6 +125,7 @@ export const EQUIPOS = {
     ingenio: caja(ix, 0, iz, 2.2, 1.2, 1.6),
     bagazo: caja(bx, 0, bz, 1.4, 0.8, 1.2),
     turbinaVapor: caja(vx, 0, vz, 2.0, 1.5, 1.2),
+    trafoIngenio: caja(ix0, 0, iz0, 0.5, 0.7, 0.45),
 };
 
 /** Puntos clave: dónde va el número y desde dónde se ve. */

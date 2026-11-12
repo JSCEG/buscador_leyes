@@ -9,7 +9,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, cilX, crearAyudante, crearTubos, en, estudio, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BLOQUE, EJE, FLUIDOS, LINEAS, MESA, MOTOR, PARTES, R, SITIO, X, giroVista } from './modelo.js';
+import { BLOQUE, BRAZO, EJE, FLUIDOS, LINEAS, MESA, MOTOR, PARTES, R, SITIO, X, giroVista } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -117,6 +117,14 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (let i = 0; i < 6; i++) cajaCon.add(en(cil(0.025, 0.06, M.cobre), x - 0.15 + (i % 3) * 0.15, y + 0.22, -0.08 + Math.floor(i / 3) * 0.16));
         brillo(cajaCon, x, y + 0.1, 0.2, 1.8, '#ffb000', 'golpe', 1.4, false);
         mover(cajaCon, [0, 2.1, 0]);
+        // el poste de los cables, junto a la mesa: por él suben la alimentación y la medición, y su brazo llega a la caja
+        const [px, pz] = SITIO.soporte;
+        const poste = malla([
+            new THREE.BoxGeometry(0.08, BRAZO.y, 0.08).translate(px, BRAZO.y / 2, pz),
+            new THREE.BoxGeometry(0.08, 0.08, -0.25 - pz).translate(px, BRAZO.y - 0.04, (pz - 0.25) / 2),
+        ], M.mesa);
+        raiz.add(poste);
+        partes.caja.push(poste);
     }
 
     // --------- adentro: el núcleo del estator (láminas) y sus bobinas
@@ -262,10 +270,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const p = [];
         for (const dx of [-0.62, 0.62]) for (const dz of [-0.32, 0.32]) p.push(new THREE.BoxGeometry(0.05, 0.95, 0.05).translate(x + dx, 0.475, z + dz));
         analizador.add(malla(p, M.grafito));
-        analizador.add(en(caja(0.7, 0.45, 0.4, M.gabinete), x - 0.2, 1.01, z - 0.1));
-        analizador.add(en(caja(0.5, 0.28, 0.02, M.pantalla), x - 0.2, 1.1, z + 0.105));
-        termopares.add(en(caja(0.3, 0.2, 0.25, M.grafito), x + 0.45, 1.01, z));
-        termopares.add(en(caja(0.18, 0.08, 0.02, M.pantalla), x + 0.45, 1.1, z + 0.13));
+        // los dos aparatos van a la orilla de atrás del carro, donde suben sus cables
+        analizador.add(en(caja(0.7, 0.45, 0.4, M.gabinete), x + 0.2, 1.01, z - 0.2));
+        analizador.add(en(caja(0.5, 0.28, 0.02, M.pantalla), x + 0.2, 1.1, z + 0.005));
+        termopares.add(en(caja(0.3, 0.2, 0.25, M.grafito), x - 0.5, 1.01, z - 0.275));
+        termopares.add(en(caja(0.18, 0.08, 0.02, M.pantalla), x - 0.5, 1.1, z - 0.145));
         // las puntas de los termopares, pegadas a la carcasa
         for (const xt of [-1.0, -0.5, -0.05]) termopares.add(en(new THREE.Mesh(new THREE.SphereGeometry(0.045, 10, 8), M.rojo), xt, ey + 0.3, R.aletas + 0.02));
         plano(raiz, 'Analizador de potencia', x, z + 0.7, 1.6);

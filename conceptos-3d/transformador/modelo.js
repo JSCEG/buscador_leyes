@@ -6,6 +6,7 @@
 //
 // Cinco formas de verlo: cómo cambia el voltaje (y el flujo del núcleo), por qué es autotransformador, con carga, al energizarlo y una falla.
 import { D2R, clamp, clamp01, lerp } from '../planta-comun/ayudas.js';
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 
 const R3 = Math.sqrt(3);
 
@@ -237,20 +238,44 @@ export const FLUIDOS = {
 };
 const yA = TANQUE.y1 + SITIO.at.h;
 const yB = TANQUE.y1 + SITIO.bt.h;
-const lin400 = (k) => {
-    const xb = UX[k] + SITIO.at.dx;
-    const zc = SITIO.z400[k];
-    const xi = SITIO.interruptor.x;
-    return { id: `alta${'ABC'[k]}`, fluido: 'elec', r: 0.025, cable: true, puntos: [[SITIO.portico400, SITIO.y400, zc], [xi - 0.45, SITIO.y400 - 0.2, zc], [xi + 0.45, SITIO.y400 - 0.2, zc], [lerp(xi, xb, 0.5), SITIO.y400 + 0.05, zc], [xb, SITIO.y400, zc], [xb, yA + 0.12, SITIO.at.z]] };
-};
-const lin230 = (k) => {
-    const xb = UX[k] + SITIO.bt.dx;
-    const zc = SITIO.z230[k];
-    return { id: `baja${'ABC'[k]}`, fluido: 'elec', r: 0.022, cable: true, puntos: [[xb, yB + 0.1, SITIO.bt.z], [xb + 0.05, SITIO.y230, zc], [lerp(xb, SITIO.portico230, 0.5), SITIO.y230 + 0.08, zc], [SITIO.portico230, SITIO.y230, zc]] };
-};
+/**
+ * Los marcos que sostienen las fases sobre el banco, entre una unidad y otra: x de cada marco, z de sus dos columnas y la altura de la
+ * parte de abajo de sus vigas, la de 400 kV y la de 230 kV. El tercero, pasando la fase C, solo lleva las de 230 kV.
+ */
+export const MARCOS = { x: [-1.65, 1.65, 5.1], z: [-2.3, 0.15], v400: 5.0, v230: 4.2, solo230: [false, false, true] };
+const FASES = ['A', 'B', 'C'];
+const xi = SITIO.interruptor.x;
+// cada fase de 400 kV pasa por los marcos antes de su unidad; cada una de 230 kV, por los que siguen después de la suya
+const marcos400 = k => MARCOS.x.map((_, j) => j).filter(j => j < k && !MARCOS.solo230[j]);
+const marcos230 = k => MARCOS.x.map((_, j) => j).filter(j => j >= k);
+/** Los bornes donde se apoya o llega cada fase: los pórticos, las dos puntas de cada polo del interruptor, los marcos y las boquillas. */
+export const BORNES = Object.fromEntries(FASES.flatMap((f, k) => [
+    [`portico400${f}`, [SITIO.portico400, SITIO.y400 + 0.14, SITIO.z400[k]]],
+    [`entra${f}`, [xi - 0.475, SITIO.y400 - 0.2, SITIO.z400[k]]],
+    [`sale${f}`, [xi + 0.475, SITIO.y400 - 0.2, SITIO.z400[k]]],
+    ...marcos400(k).map(j => [`marco${j + 1}_400${f}`, [MARCOS.x[j], MARCOS.v400, SITIO.z400[k]]]),
+    [`at${f}`, [UX[k] + SITIO.at.dx, yA + 0.12, SITIO.at.z]],
+    [`bt${f}`, [UX[k] + SITIO.bt.dx, yB + 0.12, SITIO.bt.z]],
+    ...marcos230(k).map(j => [`marco${j + 1}_230${f}`, [MARCOS.x[j], MARCOS.v230, SITIO.z230[k]]]),
+    [`portico230${f}`, [SITIO.portico230, SITIO.y230 + 0.14, SITIO.z230[k]]],
+]));
+// cada unidad es de una fase: cada línea lleva un solo conductor (sin abertura de fases)
+const sola = (p, aislador = 0) => apoyo(p, [0, 0, 0], aislador);
+/** Cada fase, apoyo por apoyo: llega de fuera al pórtico, pasa por su polo del interruptor y por los marcos, y baja a su boquilla. */
+export const AEREAS = Object.fromEntries(FASES.flatMap((f, k) => [
+    [`alta${f}`, [
+        sola([BLOQUE.x[0] + 0.05, SITIO.y400 - 0.05, SITIO.z400[k]]), sola(BORNES[`portico400${f}`], 0.15), sola(BORNES[`entra${f}`]), sola(BORNES[`sale${f}`]),
+        ...marcos400(k).map(j => sola(BORNES[`marco${j + 1}_400${f}`], 0.15)), sola(BORNES[`at${f}`]),
+    ]],
+    [`baja${f}`, [
+        sola(BORNES[`bt${f}`]), ...marcos230(k).map(j => sola(BORNES[`marco${j + 1}_230${f}`], 0.12)), sola(BORNES[`portico230${f}`], 0.12),
+        sola([BLOQUE.x[1] - 0.05, SITIO.y230 - 0.05, SITIO.z230[k]]),
+    ]],
+]));
 const DY = DEVANADO;
 export const LINEAS = [
-    lin400(0), lin400(1), lin400(2), lin230(0), lin230(1), lin230(2),
+    // las fases no llevan tubo: la página dibuja su conductor (uno por unidad); aquí va su recorrido, por donde corre la energía
+    ...Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos, { fases: 1 })),
     // por dentro de la unidad C: lo que pasa directo por el cobre (de la boquilla de 400 kV, por el devanado serie, a la de 230 kV)
     { id: 'cobre', fluido: 'elec', r: 0.03, oculto: true, puntos: [[C + SITIO.at.dx, TANQUE.y1 - 0.05, SITIO.at.z], [C - 0.3, DY.y1 + 0.12, 0.25], [C, DY.y1 - 0.05, DY.serie[1] + 0.03], [C + 0.25, (DY.y0 + DY.y1) / 2, DY.serie[1] + 0.03], [C + SITIO.bt.dx, TANQUE.y1 - 0.05, SITIO.bt.z]] },
     // el flujo da la vuelta por el núcleo: sube por la pierna de en medio y baja por las de los lados

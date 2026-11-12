@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { AGUANTE, BANDA, BLOQUE, CALOR, DEF, EVENTO2020, FEB2021, GOB, H, LINEAS, PARQUE, PARTES, PASOS, RESERVA, ROCOF_MAX, SEN2024, SISTEMA, UNIDAD, dia, en, estadoOperativo, estadoPlanta, hora, pasoPlanta, pose, puntasSueltas, revisar, simular } from '../conceptos-3d/equilibrio-red/modelo.js';
+import { AEREAS, AGUANTE, BANDA, BLOQUE, BORNES, CALOR, DEF, EVENTO2020, FEB2021, GOB, H, LINEAS, PARQUE, PARTES, PASOS, REMATE, RESERVA, ROCOF_MAX, SEN2024, SISTEMA, UNIDAD, dia, en, estadoOperativo, estadoPlanta, hora, pasoPlanta, pose, puntasSueltas, revisar, simular } from '../conceptos-3d/equilibrio-red/modelo.js';
 import { FUENTES } from '../conceptos-3d/equilibrio-red/fuentes.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -21,6 +22,27 @@ describe('Cómo se equilibra la red', () => {
     it('cada cable toca una torre, una subestación, un sector o el CENACE en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada cable llega a un borne: una cruceta, unas boquillas, un relevador o el poste de un sector', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // la red y cada central son líneas aéreas: tres fases que cuelgan, sin tubo
+        expect(Object.keys(AEREAS)).toEqual(['oeste', 'este', 'hidro', 'ciclo', 'grande', 'turbogas', 'eolico', 'solar', 'baterias', 'ciudad']);
+        for (const [id, apoyos] of Object.entries(AEREAS)) {
+            const linea = LINEAS.find(l => l.id === id);
+            expect(linea.oculto).toBe(true);
+            expect(linea.apoyos).toBe(apoyos);
+            for (const k of [-1, 0, 1]) {
+                const p = colgar(apoyos, k);
+                expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+            }
+        }
+        // los cables de los sectores y los de cada central a su transformador van por el piso y son delgados
+        expect(LINEAS.filter(l => l.central).map(l => l.central)).toEqual(['hidro', 'ciclo', 'grande', 'turbogas', 'eolico', 'eolico', 'eolico', 'solar', 'baterias', 'baterias', 'baterias']);
+        for (const L of LINEAS.filter(l => /^(s\d|g-)/.test(l.id))) {
+            expect(L.r).toBeLessThanOrEqual(0.02);
+            expect(L.puntos.slice(1, -1).every(p => p[1] <= 0.06)).toBe(true);
+        }
     });
 
     it('las reglas son las del Código de Red de 2021', () => {

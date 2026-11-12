@@ -7,8 +7,10 @@
 //   construir(M, P, { movil }) → { raiz, posar(e), partes, anclas, giran, repintar }
 import * as THREE from 'three';
 import { azar, clamp01, fract, lerp, sale } from '../planta-comun/ayudas.js';
-import { aro, aroX, caja, cil, cilX, cilZ, crearAyudante, crearTubos, en, entre, estudio, geoTorre, materialesBase, mediaCarcasa, recipienteGeo, sombra } from '../planta-comun/piezas.js';
-import { ALTO_CHIM, ALTO_PASO, BLOQUE, EJE_G, EQUIPOS, FLUIDOS, HRSG, LINEAS, PARTES, ST, TORRES, X, X_DOMOS, ZA, ZB } from './modelo.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { aro, aroX, caja, cil, cilX, cilZ, crearAyudante, crearTubos, en, entre, estudio, geoEntre, geoTorre, materialesBase, mediaCarcasa, recipienteGeo, sombra } from '../planta-comun/piezas.js';
+import { MATERIAL_CONDUCTOR, crearLineasAereas } from '../planta-comun/conductores.js';
+import { ALTO_CHIM, ALTO_PASO, ALTO_TORRE, BARRAS, BARRAS_GEN, BLOQUE, EJE_G, EQUIPOS, FLUIDOS, HRSG, LINEAS, PARTES, PORTICO, POSTES, REDUCTORA, ST, TORRES, TRAFOS, X, X_DOMOS, ZA, ZB } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -64,6 +66,28 @@ function prismaX(x0, [ya0, ya1, za0, za1], x1, [yb0, yb1, zb0, zb1]) {
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
     g.computeVertexNormals();
     return g;
+}
+
+/** Un camino de tramos rectos y horizontales, corrido `d` a su izquierda en el piso (xz), con las esquinas a inglete. */
+function aUnLado(puntos, d) {
+    const normal = (a, b) => { const [dx, dz] = [b[0] - a[0], b[2] - a[2]]; const l = Math.hypot(dx, dz) || 1; return [-dz / l, dx / l]; };
+    return puntos.map((p, i) => {
+        const n1 = i > 0 ? normal(puntos[i - 1], p) : null;
+        const n2 = i < puntos.length - 1 ? normal(p, puntos[i + 1]) : null;
+        let m = n1 || n2;
+        if (n1 && n2) { const k = 1 + n1[0] * n2[0] + n1[1] * n2[1]; m = [(n1[0] + n2[0]) / k, (n1[1] + n2[1]) / k]; }
+        return [p[0] + d * m[0], p[1], p[2] + d * m[1]];
+    });
+}
+/** Tres tubos paralelos por un camino: las tres fases de unas barras. */
+function geoTresFases(puntos, sep, r) {
+    const geos = [];
+    for (const k of [-1, 0, 1]) {
+        const p = aUnLado(puntos, k * sep);
+        for (let i = 0; i < p.length - 1; i++) geos.push(geoEntre(p[i], p[i + 1], r, 12));
+        for (let i = 1; i < p.length - 1; i++) geos.push(new THREE.SphereGeometry(r, 12, 8).translate(...p[i]));
+    }
+    return mergeGeometries(geos);
 }
 
 export function construir(M, P, { movil = false } = {}) {
@@ -654,11 +678,48 @@ export function construir(M, P, { movil = false } = {}) {
         for (let i = 0; i <= 8; i++) g.add(en(cil(0.008, 0.26, M.grafito, 0.008, 5), -7.03 + i * 0.36, 0, 4.22));
         g.add(en(cilX(0.005, 2.9, M.grafito, 5), -5.58, 0.25, 4.22));
     }
-    // --------- subestación: un transformador por generador y pórtico de salida
+    // --------- barras de fase aislada: de la caja de bornes de cada generador a la garganta de su transformador, sobre soportes bajos
+    {
+        const { y, fase, r } = BARRAS_GEN;
+        const libres = [[-3.32, 2.5], [-3.1, 2.5], [-3.32, 2.8], [3.7, 2.6]]; // ahí pasan los tubos de gas por abajo, y una lámpara
+        const barras = (id, padre) => {
+            const L = LINEAS.find(l => l.id === id);
+            const g = unidad('subestacion', 0, 0, padre);
+            g.add(sombra(new THREE.Mesh(geoTresFases(L.puntos, fase, r), M.acero)));
+            for (let i = 0; i < L.puntos.length - 1; i++) {
+                const [a, b] = [L.puntos[i], L.puntos[i + 1]];
+                const enX = Math.abs(b[0] - a[0]) > Math.abs(b[2] - a[2]);
+                const n = Math.max(1, Math.round(Math.hypot(b[0] - a[0], b[2] - a[2]) / 0.9));
+                for (let j = 0; j < n; j++) {
+                    const [x, z] = [lerp(a[0], b[0], (j + 0.5) / n), lerp(a[2], b[2], (j + 0.5) / n)];
+                    if (libres.some(([gx, gz]) => Math.hypot(x - gx, z - gz) < 0.25)) continue;
+                    const ancho = 2 * fase + 0.1;
+                    g.add(en(caja(0.04, y - r - 0.024, 0.04, M.grafito), x, 0, z));
+                    g.add(en(caja(enX ? 0.05 : ancho, 0.024, enX ? ancho : 0.05, M.grafito), x, y - r - 0.024, z));
+                }
+            }
+            return g;
+        };
+        barras('gen1A');
+        barras('gen1B', gDos);
+        barras('gen2');
+        // las cajas de bornes, pegadas a la base de cada generador
+        const cajaBornes = (id, [x0, x1, y0, y1, z0, z1], padre = raiz) => {
+            const g = unidad(id, 0, 0, padre);
+            g.add(en(caja(x1 - x0, y1 - y0, z1 - z0, M.grafito), (x0 + x1) / 2, y0, (z0 + z1) / 2));
+            g.add(en(caja(x1 - x0 + 0.02, 0.02, z1 - z0 + 0.02, M.acero), (x0 + x1) / 2, y1 - 0.02, (z0 + z1) / 2));
+        };
+        cajaBornes('gen1', EQUIPOS.cajaGenA);
+        cajaBornes('gen1', EQUIPOS.cajaGenB, gDos);
+        cajaBornes('gen2', EQUIPOS.cajaGen2);
+    }
+    // --------- subestación: un transformador por generador, sus barras y el pórtico de salida
     const trafoDos = [];
+    const ZT = TRAFOS.z;
+    const conductor = MATERIAL_CONDUCTOR();
     {
         const trafo = (x, nombre, padre = raiz) => {
-            const g = unidad('subestacion', x, 3.62, padre);
+            const g = unidad('subestacion', x, ZT, padre);
             const c = cub(nombre, ['subestacion'], { color: '#5a5c63', metal: 0.5 });
             const tanque = caja(0.58, 0.66, 0.95, c);
             tanque.position.y = 0.06;
@@ -670,6 +731,8 @@ export function construir(M, P, { movil = false } = {}) {
             for (const s of [-1, 1]) for (let i = 0; i < 6; i++) g.add(mover(en(caja(0.08, 0.54, 0.018, M.acero), s * 0.34, 0.1, -0.36 + i * 0.145), [s * 0.5, 0, 0]));
             g.add(en(caja(0.36, 0.52, 0.08, M.grafito), 0, 0.1, 0));
             for (const z of [-0.28, 0, 0.28]) g.add(en(cil(0.11, 0.42, M.cobre, 0.11, 16), 0, 0.14, z));
+            // la garganta del lado de baja, donde entran las barras del generador
+            g.add(en(caja(0.26, 0.18, 0.08, M.grafito), 0, BARRAS_GEN.y - 0.09, -0.515));
             const boq = new THREE.Group();
             for (const z of [-0.3, 0, 0.3]) {
                 boq.add(en(cil(0.026, 0.42, M.marfil, 0.014, 10), 0, 0.76, z));
@@ -679,42 +742,59 @@ export function construir(M, P, { movil = false } = {}) {
             brillo(g, 0, 0.42, 0.55, 0.7, FLUIDOS.elec.color, 'red', 0.2);
             return g;
         };
-        trafo(-0.6, 'tanqueA');
-        const tb = trafo(0.5, 'tanqueB');
-        trafoDos.push(tb);
-        trafo(1.6, 'tanqueC');
-        const p = unidad('subestacion', 2.5, 3.65);
-        p.add(entre([-0.24, 0, 0], [-0.24, 2.6, 0], 0.024, M.acero), entre([0.24, 0, 0], [0.24, 2.6, 0], 0.024, M.acero), entre([-0.26, 2.6, 0], [0.26, 2.6, 0], 0.024, M.acero));
-        p.add(entre([-0.24, 0, 0.4], [-0.24, 2.6, 0], 0.012, M.acero), entre([0.24, 0, -0.4], [0.24, 2.6, 0], 0.012, M.acero));
-        for (const z of [-0.09, 0, 0.09]) {
-            p.add(en(cil(0.012, 0.1, M.marfil, 0.012, 8), 0, 2.62, z));
-            p.add(en(cil(0.016, 0.5, M.marfil, 0.01, 8), -0.16, 1.9, z));
+        trafoDos.push(trafo(TRAFOS.B, 'tanqueB'));
+        trafo(TRAFOS.A, 'tanqueA');
+        trafo(TRAFOS.C, 'tanqueC');
+        // barras: tres tubos de aluminio sobre aisladores de poste, en marcos de acero entre los transformadores
+        const g = unidad('subestacion', 0, 0);
+        const [x0, x1] = BARRAS.x;
+        const yB = BARRAS.y;
+        const aisladorPoste = (padre, x, y0, z) => {
+            padre.add(en(cil(0.02, yB - 0.022 - y0, M.marfil, 0.014, 10), x, y0, z));
+            for (let i = 0; i < 3; i++) padre.add(en(aro(0.027, 0.005, M.marfil), x, y0 + 0.07 + i * 0.07, z));
+        };
+        for (const k of [-1, 0, 1]) g.add(en(cilX(0.022, x1 - x0 + 0.04, conductor, 12), (x0 + x1) / 2, yB, ZT + k * BARRAS.fase));
+        for (const x of [x0, -0.05, 1.05]) {
+            for (const s of [-1, 1]) g.add(en(caja(0.05, 1.43, 0.05, M.acero), x, 0, ZT + s * 0.45));
+            g.add(en(caja(0.05, 0.05, 0.95, M.acero), x, 1.38, ZT));
+            for (const k of [-1, 0, 1]) aisladorPoste(g, x, 1.43, ZT + k * BARRAS.fase);
         }
+        // pórtico de salida: las barras llegan abajo y la línea se amarra arriba
+        const p = unidad('subestacion', PORTICO.x, ZT);
+        const h = PORTICO.alto;
+        for (const s of [-1, 1]) {
+            p.add(entre([0, 0, s * 0.45], [0, h, s * 0.45], 0.026, M.acero));
+            p.add(entre([0.42, 0, s * 0.45], [0, h - 0.12, s * 0.45], 0.013, M.acero));
+        }
+        p.add(entre([0, h, -0.5], [0, h, 0.5], 0.026, M.acero));
+        p.add(entre([0, 1.41, -0.45], [0, 1.41, 0.45], 0.02, M.acero));
+        for (const k of [-1, 0, 1]) aisladorPoste(p, 0, 1.43, k * BARRAS.fase);
     }
     // --------- RNT y RGD: torres, subestación reductora, postes y pueblo
     {
         const u = unidad('red');
-        const geoT = geoTorre(3.3);
+        const geoT = geoTorre(ALTO_TORRE);
         TORRES.forEach(([x, z]) => {
             const t = new THREE.Mesh(geoT, M.torre);
             t.position.set(x, 0, z);
             u.add(t);
             u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.012, 0.6), M.losa), x, 0.006, z));
         });
-        const rnt = LINEAS.find(l => l.id === 'rnt');
-        for (const s of [-1, 1]) {
-            const pts = rnt.puntos.map(([x, y, z]) => new THREE.Vector3(x + s * 0.03, y - 0.02, z + s * 0.1));
-            u.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 150, 0.009, 5), M.torre));
-        }
-        const r = unidad('red', 7, 3.15);
+        const r = unidad('red', REDUCTORA.x, REDUCTORA.z);
         r.add(caja(0.8, 0.04, 0.72, M.losa));
         r.add(en(caja(0.36, 0.42, 0.42, M.grafito), 0, 0.04, 0));
-        for (const z of [-0.12, 0, 0.12]) r.add(en(cil(0.016, 0.2, M.marfil, 0.01, 8), 0.05, 0.46, z));
-        for (const [a, b] of [[[-0.3, 0, -0.3], [-0.3, 1.5, -0.3]], [[-0.3, 0, 0.3], [-0.3, 1.5, 0.3]], [[0.3, 0, -0.3], [0.3, 1.5, -0.3]], [[0.3, 0, 0.3], [0.3, 1.5, 0.3]], [[-0.32, 1.5, 0.3], [0.32, 1.5, 0.3]], [[-0.32, 1.5, -0.3], [0.32, 1.5, -0.3]], [[0, 1.5, -0.3], [0, 1.5, 0.3]]]) r.add(entre(a, b, 0.016, M.acero));
-        r.add(entre([0, 1.5, 0], [0, 0.46, 0], 0.012, M.acero));
-        for (const [x, z, h] of [[6.4, 3.35, 1], [5.9, 3.3, 0.78]]) {
-            u.add(en(cil(0.018, h, M.madera, 0.014, 8), x, 0, z));
-            u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.26), M.madera), x, h - 0.02, z));
+        // boquillas: las de alta, en fila bajo el larguero donde llega la línea; las de baja, del lado de los postes
+        for (const k of [-1, 0, 1]) {
+            r.add(en(cil(0.016, 0.24, M.marfil, 0.01, 8), 0.03 + k * 0.1, 0.46, 0.13));
+            r.add(en(cil(0.013, 0.14, M.marfil, 0.009, 8), -0.13, 0.46, -0.07 + k * 0.1));
+        }
+        const hR = REDUCTORA.alto;
+        for (const [a, b] of [[[-0.3, 0, -0.3], [-0.3, hR, -0.3]], [[-0.3, 0, 0.3], [-0.3, hR, 0.3]], [[0.3, 0, -0.3], [0.3, hR, -0.3]], [[0.3, 0, 0.3], [0.3, hR, 0.3]], [[-0.32, hR, 0.3], [0.32, hR, 0.3]], [[-0.32, hR, -0.3], [0.32, hR, -0.3]], [[0, hR, -0.3], [0, hR, 0.3]]]) r.add(entre(a, b, 0.016, M.acero));
+        // postes de madera con sus aisladores de perno
+        for (const [x, z, hP] of POSTES) {
+            u.add(en(cil(0.018, hP, M.madera, 0.014, 8), x, 0, z));
+            u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.26), M.madera), x, hP - 0.02, z));
+            for (const k of [-1, 0, 1]) u.add(en(cil(0.007, 0.03, M.marfil, 0.005, 6), x, hP - 0.01, z + k * 0.1));
         }
         const casas = [[5.55, 3.05, 0.34, 0.26, 0.24], [5.05, 3, 0.3, 0.3, 0.2], [4.55, 3.1, 0.34, 0.26, 0.26], [5.55, 3.58, 0.38, 0.28, 0.24], [5, 3.55, 0.34, 0.26, 0.26], [4.55, 3.6, 0.28, 0.24, 0.22], [6.05, 2.95, 0.26, 0.22, 0.2]];
         casas.forEach(([x, z, w, d, h], i) => {
@@ -751,7 +831,7 @@ export function construir(M, P, { movil = false } = {}) {
         copa.castShadow = true;
         raiz.add(copa, tronco);
     }
-    [[-4.4, 2.75], [3.7, 2.6], [3.75, -0.75], [-1.2, -0.2], [7.7, -1.5]].forEach(([x, z]) => {
+    [[-4.4, 3.02], [3.7, 2.6], [3.75, -0.75], [-1.2, -0.2], [7.7, -1.5]].forEach(([x, z]) => {
         const g = new THREE.Group();
         g.position.set(x, 0, z);
         g.add(cil(0.018, 1.45, M.grafito, 0.013, 8));
@@ -777,13 +857,16 @@ export function construir(M, P, { movil = false } = {}) {
         if (/^(cruce|alCondensador)/.test(L.id)) return 'turbinaVapor';
         if (/^(condensado|alimenta|alim)/.test(L.id)) return 'condensador';
         if (/^torre/.test(L.id)) return 'enfriamiento';
-        if (/^(gen|trafoPort)/.test(L.id)) return 'subestacion';
+        if (/^(gen|trafoPort|barras)/.test(L.id)) return 'subestacion';
         if (/^(rnt|rgd)/.test(L.id)) return 'red';
         if (/^(chim|paso)/.test(L.id)) return 'chimenea';
         if (/^difusor/.test(L.id)) return 'turbinaGas';
         return null;
     };
     const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe, movil, activa: (L, e) => L.tren !== 'B' || e.verDos >= 0.5 });
+    // las líneas aéreas: tres conductores que cuelgan de boquillas, barras, pórtico, torres y postes (planta-comun/conductores.js)
+    crearLineasAereas({ raiz, lineas: LINEAS.filter(l => l.tren !== 'B'), partes, parteDe, movil, conductor });
+    trafoDos.push(...crearLineasAereas({ raiz, lineas: LINEAS.filter(l => l.tren === 'B'), partes, parteDe, movil, conductor }));
     kit.cerrarGotas(new THREE.SphereGeometry(1, 8, 6));
 
     const anclas = {};

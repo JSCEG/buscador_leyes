@@ -204,7 +204,9 @@ export const MESA = { x: [-4.4, 5.4], z: [-1.1, 1.1], y: 0.9 };
 export const EJE = { y: 1.85, z: 0 };
 export const X = { motor: [-3.0, 0.2], ventilador: [-3.65, -3.0], eje: [-3.5, 2.7], torquimetro: [1.1, 1.9], cople: [0.7, 2.3], dinamometro: [2.7, 4.7] };
 export const R = { motor: 0.82, aletas: 0.92, dinamometro: 0.75 };
-export const SITIO = { variador: [-5.9, -1.6], analizador: [-1.4, 2.3], resistencias: [6.2, -1.7], caja: [-1.3, EJE.y + R.aletas + 0.15], placa: [-2.0, R.aletas + 0.02] };
+export const SITIO = { variador: [-5.9, -1.6], analizador: [-1.4, 2.3], resistencias: [6.2, -1.7], caja: [-1.3, EJE.y + R.aletas + 0.15], placa: [-2.0, R.aletas + 0.02], soporte: [-1.3, -1.25] };
+/** El poste de los cables, junto a la mesa: su brazo llega a la caja de conexiones; los cables van encima del brazo, a esta altura. */
+export const BRAZO = { y: SITIO.caja[1] + 0.12, cable: SITIO.caja[1] + 0.135 };
 export const FLUIDOS = {
     ca: { nombre: 'Corriente alterna', color: '#f2b233' },
     giro: { nombre: 'Potencia en el eje', color: '#2fb36a' },
@@ -213,14 +215,46 @@ export const FLUIDOS = {
 const [vx, vz] = SITIO.variador;
 const [ax, az] = SITIO.analizador;
 const [rx, rz] = SITIO.resistencias;
+// los cables del banco van por el piso; suben pegados al poste de los cables, a la orilla de la mesa o a la del carro del analizador
+const zPoste = SITIO.soporte[1] - 0.056; // la cara de atrás del poste
+const zMesa = MESA.z[1] + 0.015; // la orilla de la mesa, del lado del analizador
+const zCarro = az - 0.4 - 0.015; // la orilla de atrás del carro, donde quedan el analizador y el lector
+const [xAl, xMi] = [SITIO.caja[0] - 0.02, SITIO.caja[0] + 0.02]; // la alimentación y la medición, lado a lado por el poste
+const xm = (a, b) => (a + b) / 2;
+/** Los bornes donde se conecta cada cable o se apoya en una orilla. */
+export const BORNES = {
+    variadorEntra: [vx - 0.565, 0.2, vz],
+    variadorSale: [vx + 0.565, 0.2, vz + 0.15],
+    soporteAl: [xAl, BRAZO.cable, zPoste],
+    soporteMi: [xMi, BRAZO.cable, zPoste],
+    cajaAl: [xAl, BRAZO.cable, -0.265],
+    cajaMi: [xMi, BRAZO.cable, -0.265],
+    analizadorMide: [ax + 0.1, 1.12, zCarro],
+    analizadorPar: [ax + 0.4, 1.12, zCarro],
+    lector: [ax - 0.5, 1.1, zCarro],
+    torquimetro: [xm(...X.torquimetro), MESA.y + 0.03, 0.265],
+    bordePar: [xm(...X.torquimetro), MESA.y + 0.015, zMesa],
+    termopar: [-0.5, EJE.y + 0.3, R.aletas + 0.04],
+    bordeTermopar: [-0.5, MESA.y + 0.015, zMesa],
+    dinamometro: [xm(...X.dinamometro), MESA.y + 0.03, -0.665],
+    bordeCarga: [xm(...X.dinamometro), MESA.y + 0.015, -zMesa],
+    resistencias: [rx - 0.565, 0.2, rz],
+};
+const piso = (x, z) => [x, 0.025, z];
+// la vuelta de lo alto del poste al brazo, cerrada para que el cable no se levante
+const codo = b => [[b[0], b[1] - 0.02, b[2]], [b[0], b[1], b[2] + 0.02]];
 export const LINEAS = [
-    { id: 'red', fluido: 'ca', r: 0.03, cable: true, puntos: [[BLOQUE.x[0] + 0.05, 2.6, vz], [vx - 0.4, 2.3, vz], [vx - 0.2, 2.0, vz]] },
-    { id: 'alimenta', fluido: 'ca', r: 0.035, cable: true, puntos: [[vx + 0.3, 1.2, vz + 0.2], [-4.6, 0.9, -0.9], [-2.6, 2.6, -0.6], [SITIO.caja[0], SITIO.caja[1] + 0.1, -0.1]] },
+    // la alimentación llega por el piso desde el tablero del laboratorio, fuera del dibujo
+    { id: 'red', fluido: 'ca', r: 0.02, cable: true, puntos: [piso(BLOQUE.x[0] + 0.05, vz), piso(vx - 0.58, vz), BORNES.variadorEntra] },
+    // del variador por el piso al poste de los cables; sube y llega por su brazo a la caja de conexiones
+    { id: 'alimenta', fluido: 'ca', r: 0.02, cable: true, puntos: [BORNES.variadorSale, piso(vx + 0.58, BORNES.variadorSale[2]), piso(xAl, BORNES.variadorSale[2]), piso(xAl, zPoste), ...codo(BORNES.soporteAl), BORNES.cajaAl] },
     { id: 'eje', fluido: 'giro', r: 0.05, oculto: true, puntos: [[0.0, EJE.y, 0], [X.torquimetro[0], EJE.y, 0], [X.dinamometro[0] + 0.2, EJE.y, 0]] },
-    { id: 'carga', fluido: 'ca', r: 0.035, cable: true, puntos: [[X.dinamometro[1] - 0.2, EJE.y + 0.6, -0.4], [5.3, 2.4, -1.0], [rx - 0.2, 1.3, rz + 0.2]] },
-    { id: 'mide', fluido: 'medida', r: 0.02, cable: true, puntos: [[SITIO.caja[0] + 0.2, SITIO.caja[1], 0.2], [-0.9, 2.2, 1.2], [ax, 1.25, az - 0.2]] },
-    { id: 'par', fluido: 'medida', r: 0.02, cable: true, puntos: [[(X.torquimetro[0] + X.torquimetro[1]) / 2, EJE.y - 0.35, 0.3], [0.6, 1.0, 1.4], [ax + 0.3, 1.2, az - 0.2]] },
-    { id: 'termopar', fluido: 'medida', r: 0.015, cable: true, puntos: [[-0.5, EJE.y + 0.4, R.aletas], [-0.7, 1.5, 1.6], [ax + 0.45, 1.15, az - 0.1]] },
+    // lo que da el dinamómetro baja de la mesa y va por el piso al banco de resistencias
+    { id: 'carga', fluido: 'ca', r: 0.02, cable: true, puntos: [BORNES.dinamometro, BORNES.bordeCarga, piso(BORNES.bordeCarga[0], -zMesa), piso(rx - 0.58, rz), BORNES.resistencias] },
+    // la medición baja por el mismo poste, cruza por debajo de la mesa y sube por la orilla del carro al analizador
+    { id: 'mide', fluido: 'medida', r: 0.015, cable: true, puntos: [BORNES.cajaMi, ...codo(BORNES.soporteMi).reverse(), piso(xMi, zPoste), piso(0.2, MESA.z[1]), piso(BORNES.analizadorMide[0] + 0.1, zCarro - 0.3), piso(BORNES.analizadorMide[0], zCarro), BORNES.analizadorMide] },
+    { id: 'par', fluido: 'medida', r: 0.015, cable: true, puntos: [BORNES.torquimetro, BORNES.bordePar, piso(BORNES.bordePar[0], zMesa), piso(BORNES.analizadorPar[0] + 0.2, zCarro - 0.3), piso(BORNES.analizadorPar[0], zCarro), BORNES.analizadorPar] },
+    { id: 'termopar', fluido: 'medida', r: 0.015, cable: true, puntos: [BORNES.termopar, BORNES.bordeTermopar, piso(BORNES.bordeTermopar[0], zMesa), piso(BORNES.lector[0] + 0.3, zCarro - 0.3), piso(BORNES.lector[0], zCarro), BORNES.lector] },
 ];
 export const REMATE = new Set(['red (inicio)']);
 const caja = (x, y0, z, w, h, d) => [x - w / 2, x + w / 2, y0, y0 + h, z - d / 2, z + d / 2];
@@ -235,7 +269,6 @@ export const EQUIPOS = {
 };
 
 /** Puntos clave: dónde va el número y desde dónde se ve. */
-const xm = (a, b) => (a + b) / 2;
 export const PARTES = [
     { id: 'carcasa', ancla: [-2.4, EJE.y + R.aletas + 0.05, 0.4], vista: { az: 24, el: 18, tam: 4.4, mira: [-1.4, EJE.y, 0] } },
     { id: 'placa', ancla: [SITIO.placa[0], EJE.y + 0.2, SITIO.placa[1] + 0.05], vista: { az: 4, el: 8, tam: 1.6, mira: [SITIO.placa[0], EJE.y, 0.5] } },

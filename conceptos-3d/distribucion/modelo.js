@@ -7,6 +7,7 @@
 // Cuatro formas de verla: un día en la calle (la carga del transformador), el voltaje hasta la última casa (y los paneles en los techos),
 // una rama sobre los cables (el fusible) y lo que se pierde (técnicas y no técnicas).
 import { D2R, clamp01, lerp } from '../planta-comun/ayudas.js';
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 
 // ------------------------------------------------------------------ la red de CFE Distribución, al cierre de 2024 (su programa 2025-2039)
 export const RED = { transformadores: 1660977, MVA: 60912, servicios: 49.1, kmMT: 555336, kmBT: 345966, electronicos: 37.2, ami: 4.9 };
@@ -206,30 +207,66 @@ export const FLUIDOS = {
     solar: { nombre: 'Energía de los paneles', color: '#3fb27f' },
     falla: { nombre: 'Corriente de una falla', color: '#e0302a' },
 };
-const ZS = ZP - 0.06; // el bastidor de la red de baja tensión, del lado de la calle
+export const ZS = ZP - 0.06; // el bastidor de la red de baja tensión, del lado de la calle
 const yF = Y.fases[0];
 const POSTES_DER = X.postes.filter(x => x > X.trafo);
-const acometidaDe = c => {
-    const xp = posteDe(c);
-    return [[xp, yF, ZS], [lerp(xp, c.x, 0.5), yF - 0.12, lerp(ZS, c.z - c.lado * 0.62, 0.5)], [c.x, Y.fachada + 0.12, c.z - c.lado * 0.62]];
+/** Dónde se conecta cada cable: el aislador de alfiler de cada cruceta, el bastidor de cada poste (su carrete de en medio), el
+ *  cortacircuito, las boquillas del transformador, el apartarrayos y la mufa de cada casa. Coinciden con la geometría de planta.js. */
+const yPin = Y.cruceta + 0.11;
+export const BORNES = {
+    ...Object.fromEntries(X.postes.map((x, k) => [`alfiler${k}`, [x, yPin, ZP + 0.3]])),
+    ...Object.fromEntries(X.postes.map((x, k) => [`bastidor${k}`, [x, yF, ZS]])),
+    cortaArriba: [X.trafo + 0.12, Y.cortacircuito + 0.215, ZP + 0.3],
+    cortaAbajo: [X.trafo + 0.12, Y.cortacircuito - 0.02, ZP + 0.3],
+    trafoAlta: [X.trafo + 0.14, Y.trafo + 0.32, ZP + 0.14],
+    apartarrayos: [X.trafo - 0.24, Y.cortacircuito + 0.055, ZP + 0.3],
+    ...Object.fromEntries(CASAS.map(c => [`mufa${c.i}`, [c.x - 0.38, Y.fachada + 0.12, c.z - c.lado * 0.43]])),
 };
+/** Las boquillas de baja tensión del transformador (la de en medio, el neutro) y a qué carrete del bastidor va cada una. */
+export const BAJA = [[-0.06, Y.fases[0]], [0, Y.neutro], [0.06, Y.fases[1]]].map(([dz, y]) => ({ boquilla: [X.trafo - 0.05, Y.trafo + 0.08, ZP + 0.14 + dz], carrete: [X.trafo, y, ZS] }));
+const alfiler = x => apoyo(BORNES[`alfiler${X.postes.indexOf(x)}`], [0, 0, 0]);
+/** El bastidor: la fase de en medio y, a 0.09 en vertical, la otra fase (abajo) y el neutro (arriba). */
+const bastidor = x => apoyo(BORNES[`bastidor${X.postes.indexOf(x)}`], [0, Y.neutro - yF, 0]);
+const unaFase = p => apoyo(p, [0, 0, 0]);
+const orillaMT = x => unaFase([x, yPin, ZP + 0.3]);
+/** Las líneas aéreas que se dibujan, apoyo por apoyo: una sola fase de media tensión que cruza la calle (viene de la subestación y sigue) y
+ *  la red de baja tensión de poste a poste, que remata en los postes de las orillas. */
+export const AEREAS = {
+    mtCalle: [orillaMT(BLOQUE.x[0] + 0.02), ...X.postes.map(alfiler), orillaMT(BLOQUE.x[1] - 0.02)],
+    btCalle: X.postes.map(bastidor),
+};
+/** Altura de un cable de la red de baja tensión en x, colgando entre postes como lo dibuja colgar(): k = 0 la fase de en medio, -1 la de
+ *  abajo y 1 el neutro. Ahí caen la rama y el gancho del diablito. */
+export function enLaRed(x, k = 0) {
+    const i = Math.min(X.postes.length - 1, Math.max(1, X.postes.findIndex(p => p >= x)));
+    const [a, b] = [X.postes[i - 1], X.postes[i]];
+    const u = clamp01((x - a) / (b - a));
+    return yF + k * (Y.neutro - yF) - 4 * 0.035 * (b - a) * u * (1 - u);
+}
+/** La acometida: del bastidor del poste más cercano a la mufa de la casa, colgando. */
+const acometidaApoyos = c => [bastidor(posteDe(c)), unaFase(BORNES[`mufa${c.i}`])];
+const porLaRed = xs => xs.map(bastidor);
 export const LINEAS = [
-    { id: 'mt', grupo: 'mt', parte: 'alimentador', fluido: 'media', r: 0.012, cable: true, oculto: true, puntos: [[BLOQUE.x[0] + 0.05, Y.mt, ZP + 0.3], [X.trafo, Y.mt, ZP + 0.3], [X.trafo, Y.cortacircuito, ZP + 0.3], [X.trafo + 0.12, Y.trafo + 0.32, ZP + 0.14]] },
-    ...[-1, 1].map((s, k) => ({ id: `b${k + 1}`, grupo: `b${k + 1}`, parte: 'secundaria', fluido: 'baja', r: 0.012, cable: true, oculto: true, puntos: [[X.trafo, yF, ZS], ...X.postes.filter(x => s * x > 0).sort((a, b) => s * (a - b)).map(x => [x, yF, ZS])] })),
-    ...[-1, 1].map((s, k) => ({ id: `r${k + 1}`, grupo: `r${k + 1}`, parte: 'paneles', fluido: 'solar', r: 0.012, cable: true, oculto: true, puntos: [...X.postes.filter(x => s * x > 0).sort((a, b) => s * (b - a)).map(x => [x, yF, ZS]), [X.trafo, yF, ZS]] })),
-    ...CASAS.map(c => ({ id: `a${c.i}`, grupo: 'acometidas', parte: 'acometida', fluido: 'baja', r: 0.008, cable: true, oculto: true, casa: c.i, puntos: acometidaDe(c) })),
-    ...CASAS.map(c => ({ id: `g${c.i}`, grupo: 'paneles', parte: 'paneles', fluido: 'solar', r: 0.008, cable: true, oculto: true, casa: c.i, puntos: acometidaDe(c).slice().reverse() })),
+    // la fase de media tensión llega por la cruceta, baja por el cortacircuito y entra al transformador
+    lineaAerea('mt', [orillaMT(BLOQUE.x[0] + 0.02), ...X.postes.filter(x => x <= X.trafo).map(alfiler), ...['cortaArriba', 'cortaAbajo', 'trafoAlta'].map(b => unaFase(BORNES[b]))], { grupo: 'mt', parte: 'alimentador', fluido: 'media' }),
+    ...[-1, 1].map((s, k) => lineaAerea(`b${k + 1}`, porLaRed([X.trafo, ...X.postes.filter(x => s * x > 0).sort((a, b) => s * (a - b))]), { grupo: `b${k + 1}`, parte: 'secundaria', fluido: 'baja' })),
+    ...[-1, 1].map((s, k) => lineaAerea(`r${k + 1}`, porLaRed([...X.postes.filter(x => s * x > 0).sort((a, b) => s * (b - a)), X.trafo]), { grupo: `r${k + 1}`, parte: 'paneles', fluido: 'solar' })),
+    ...CASAS.map(c => lineaAerea(`a${c.i}`, acometidaApoyos(c), { grupo: 'acometidas', parte: 'acometida', fluido: 'baja', r: 0.008, casa: c.i })),
+    ...CASAS.map(c => lineaAerea(`g${c.i}`, acometidaApoyos(c).slice().reverse(), { grupo: 'paneles', parte: 'paneles', fluido: 'solar', r: 0.008, casa: c.i })),
     // la corriente de una falla: del transformador hasta el primer poste después de la rama (la rama cae hacia la derecha)
-    ...POSTES_DER.map((x, k) => ({ id: `f${k + 1}`, grupo: `f${k + 1}`, parte: 'secundaria', fluido: 'falla', r: 0.014, cable: true, oculto: true, puntos: [[X.trafo, yF, ZS], ...POSTES_DER.filter(p => p <= x).map(p => [p, yF, ZS])] })),
+    ...POSTES_DER.map((x, k) => lineaAerea(`f${k + 1}`, porLaRed([X.trafo, ...POSTES_DER.filter(p => p <= x)]), { grupo: `f${k + 1}`, parte: 'secundaria', fluido: 'falla', r: 0.014 })),
 ];
 /** Qué línea de falla se enciende: la que llega al primer poste después de la rama. */
 export const lineaFalla = d => `f${Math.max(0, POSTES_DER.findIndex(p => p >= xRama(d) - 0.05)) + 1}`;
-export const REMATE = new Set(['mt (inicio)']); // la línea de media tensión viene de la subestación, fuera del dibujo
+/** La línea de media tensión viene de la subestación, fuera del dibujo, y sigue a otras calles. */
+export const REMATE = new Set(['mt (inicio)', 'mtCalle (inicio)', 'mtCalle (fin)']);
+/** Las líneas aéreas que se dibujan, en la forma de LINEAS, para revisarlas con cablesSueltos(). */
+export const DIBUJADAS = Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos, { fluido: 'media' }));
 const caja = (x, y, z, w, h, d) => [x - w / 2, x + w / 2, y, y + h, z - d / 2, z + d / 2];
 export const EQUIPOS = {
     ...Object.fromEntries(X.postes.map(x => [`poste${x}`, caja(x, 0, ZP, 0.16, Y.poste, 0.3)])),
     trafo: caja(X.trafo + 0.14, Y.trafo - 0.2, ZP + 0.14, 0.3, 0.6, 0.3),
-    ...Object.fromEntries(CASAS.map(c => [`casa${c.i}`, caja(c.x, 0, c.z - c.lado * 0.62, 0.9, Y.techo, 0.1)])),
+    ...Object.fromEntries(CASAS.map(c => [`casa${c.i}`, caja(c.x, 0, c.z, 0.92, Y.techo + 0.3, 0.9)])),
 };
 
 // Puntos clave: cada uno, una ficha. vista: desde dónde mirarlo (grados) y su tamaño, para la cámara. ancla: el punto en 3D.
@@ -239,8 +276,12 @@ export const FICHA = { casa: 19, medidor: 20, acometida: 24, paneles: 18, diabli
 export const fachadaZ = c => c.z - c.lado * 0.42;
 export const medidorEn = c => [c.x - 0.38, Y.fachada - 0.04, c.z - c.lado * 0.45];
 /** Los cables como los dibuja la planta: la acometida llega al medidor; el diablito, a la azotea. */
-export const acometidaPlanta = c => [[posteDe(c), yF, ZS], [c.x - 0.38, Y.fachada + 0.12, c.z - c.lado * 0.43]];
-export const diablitoPlanta = c => [[posteDe(c) + (c.x > posteDe(c) ? 0.55 : -0.55), Y.fases[1] - 0.05, ZS], [c.x + 0.3, Y.techo + 0.02, c.z - c.lado * 0.3]];
+export const acometidaPlanta = c => acometidaApoyos(c).map(a => a.p);
+/** El gancho del diablito se cuelga de la fase de abajo, a 0.55 del poste; de ahí el cable baja a la azotea. */
+export function diablitoPlanta(c) {
+    const x = posteDe(c) + (c.x > posteDe(c) ? 0.55 : -0.55);
+    return [[x, enLaRed(x, -1) - 0.025, ZS], [c.x + 0.3, Y.techo + 0.02, c.z - c.lado * 0.3]];
+}
 const enMedio = ([a, b], dy = 0) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + dy, (a[2] + b[2]) / 2];
 export const PARTES = [
     { id: 'alimentador', ancla: [-4.5, Y.mt + 0.1, ZP + 0.3], vista: { az: 20, el: 18, tam: 3.4, mira: [-3.5, 1.7, ZP] } },

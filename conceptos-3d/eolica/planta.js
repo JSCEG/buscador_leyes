@@ -7,7 +7,8 @@
 import * as THREE from 'three';
 import { azar, clamp01, lerp, sale } from '../planta-comun/ayudas.js';
 import { aro, caja, cil, cilZ, crearAyudante, crearTubos, en, entre, estudio, geoTorre, materialesBase, sombra } from '../planta-comun/piezas.js';
-import { AEROS, BLOQUE, EQUIPOS, FLUIDOS, LINEAS, MASTIL, PARTES, ROTOR, SEP_VISTA, TORRES, VIENTO } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { AEROS, ALTO_TORRE, BLOQUE, BORNES, CAJA_MT, EQUIPOS, FLUIDOS, LINEAS, MASTIL, PARTES, PORTICO, POSTES, REDUCTORA, ROTOR, SEP_VISTA, SUBESTACION, TORRES, VIENTO } from './modelo.js';
 
 const PI = Math.PI;
 const D2R = PI / 180;
@@ -118,9 +119,12 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             terreno.add(l);
         };
         // la zanja de los cables, el camino de servicio y la grava de la subestación
+        const [s1, s2] = [BORNES.salida1, BORNES.salida2];
         losa(-5, 3.5, 2.84, 3.12, M.concreto);
-        losa(3.36, 3.86, 1.5, 3.12, M.concreto);
-        losa(4.34, 4.62, -1.8, 0.55, M.concreto);
+        losa(3.36, 3.86, 0.75, 3.12, M.concreto);
+        losa(4.34, 4.62, -2.6, 0.55, M.concreto);
+        losa(s1[0] - 0.14, s1[0] + 0.14, s1[2], 2.84, M.concreto);
+        losa(s2[0], 4.34, s2[2] - 0.14, s2[2] + 0.14, M.concreto);
         losa(3.85, 6.75, 0.45, 2.55, M.grava);
         // el camino une las plataformas
         AEROS.forEach(t => { const c = new THREE.Mesh(new THREE.CircleGeometry(1.18, 40).rotateX(-PI / 2), M.losa); c.position.set(t.x, 0.012, t.z); c.receiveShadow = true; terreno.add(c); });
@@ -410,8 +414,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         return g;
     };
     {
-        transformador(raiz, 'subestacion', 'tanqueAlta', 4.55, 1.45, 1.35);
+        transformador(raiz, 'subestacion', 'tanqueAlta', SUBESTACION.x, SUBESTACION.z, SUBESTACION.esc);
         const g = unidad('subestacion', 0, 0);
+        const [bx, by, bz] = BORNES.boqAlta;
         for (let i = 0; i < 3; i++) {
             const z = 0.95 + i * 0.5;
             g.add(en(caja(0.06, 0.5, 0.06, M.acero), 5.25, 0.02, z));
@@ -420,41 +425,47 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             g.add(en(caja(0.05, 0.42, 0.05, M.acero), 5.72, 0.02, z));
             g.add(en(cil(0.018, 0.26, M.marfil, 0.012, 8), 5.72, 0.44, z));
             g.add(entre([5.25, 0.85, z], [5.72, 0.72, z], 0.009, M.acero));
-            g.add(entre([4.86, 1.07, 1.45 + (i - 1) * 0.3], [5.25, 0.85, z], 0.008, M.acero));
+            // de cada boquilla del transformador a su interruptor, a su cuchilla y al marco
+            g.add(entre([bx, by, bz + (i - 1) * 0.22 * SUBESTACION.esc], [5.25, 0.85, z], 0.008, M.acero));
             g.add(entre([5.72, 0.72, z], [5.92, 1.2, z], 0.008, M.acero));
         }
+        // la caja de cables de media tensión, atrás del transformador: ahí entran los cables de los aerogeneradores
+        const [x0, x1, y0, y1, z0, z1] = CAJA_MT;
+        g.add(en(caja(x1 - x0, y1 - y0, z1 - z0, M.grafito), (x0 + x1) / 2, y0, (z0 + z1) / 2));
+        g.add(en(caja(x1 - x0 + 0.02, 0.02, z1 - z0 + 0.02, M.acero), (x0 + x1) / 2, y1 - 0.02, (z0 + z1) / 2));
         for (const z of [0.7, 2.2]) g.add(entre([5.92, 0, z], [5.92, 1.25, z], 0.02, M.acero));
         g.add(entre([5.92, 1.25, 0.66], [5.92, 1.25, 2.24], 0.02, M.acero));
-        const p = unidad('subestacion', 6.48, 1.55);
-        p.add(entre([-0.18, 0, 0], [-0.18, 2.6, 0], 0.024, M.acero), entre([0.18, 0, 0], [0.18, 2.6, 0], 0.024, M.acero), entre([-0.2, 2.6, 0], [0.2, 2.6, 0], 0.024, M.acero));
-        p.add(entre([-0.18, 0, 0.3], [-0.18, 2.6, 0], 0.012, M.acero), entre([0.18, 0, -0.3], [0.18, 2.6, 0], 0.012, M.acero));
-        for (const z of [-0.09, 0, 0.09]) p.add(en(cil(0.012, 0.1, M.marfil, 0.012, 8), 0, 2.62, z));
+        // pórtico de salida: la línea se amarra en el larguero, de cara a la primera torre; los tirantes van del otro lado
+        const p = unidad('subestacion', PORTICO.x, PORTICO.z);
+        const hP = PORTICO.alto;
+        for (const sx of [-1, 1]) p.add(entre([sx * 0.3, 0, 0], [sx * 0.3, hP, 0], 0.024, M.acero), entre([sx * 0.3, 0, 0.42], [sx * 0.3, hP - 0.12, 0], 0.012, M.acero));
+        p.add(entre([-0.34, hP, 0], [0.34, hP, 0], 0.024, M.acero));
     }
 
     // --------- RNT y RGD: torres, subestación reductora, postes y pueblo
     {
         const u = unidad('red');
-        const geoT = geoTorre(3.3);
+        const geoT = geoTorre(ALTO_TORRE);
         TORRES.forEach(([x, z]) => {
             const t = new THREE.Mesh(geoT, M.torre);
             t.position.set(x, 0, z);
             u.add(t);
             u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.012, 0.56), M.losa), x, 0.006, z));
         });
-        const rnt = LINEAS.find(l => l.id === 'rnt');
-        for (const s of [-1, 1]) {
-            const pts = rnt.puntos.map(([x, y, z]) => new THREE.Vector3(x + s * 0.1, y - 0.02, z + s * 0.03));
-            u.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.2), 150, 0.009, 5), M.torre));
-        }
-        const r = unidad('red', 7.1, 3.18);
+        const r = unidad('red', REDUCTORA.x, REDUCTORA.z);
         r.add(caja(0.66, 0.04, 0.6, M.losa));
         r.add(en(caja(0.32, 0.4, 0.38, M.grafito), 0, 0.04, 0));
-        for (const z of [-0.11, 0, 0.11]) r.add(en(cil(0.016, 0.2, M.marfil, 0.01, 8), 0.05, 0.44, z));
+        // boquillas: las de alta, en fila bajo el larguero donde llega la línea; las de baja, del lado de los postes
+        for (const k of [-1, 0, 1]) {
+            r.add(en(cil(0.015, 0.22, M.marfil, 0.01, 8), 0.02 + k * 0.09, 0.44, 0.12));
+            r.add(en(cil(0.012, 0.13, M.marfil, 0.008, 8), -0.11, 0.44, -0.06 + k * 0.09));
+        }
         for (const [a, b] of [[[-0.26, 0, -0.26], [-0.26, 1.28, -0.26]], [[-0.26, 0, 0.26], [-0.26, 1.28, 0.26]], [[0.26, 0, -0.26], [0.26, 1.28, -0.26]], [[0.26, 0, 0.26], [0.26, 1.28, 0.26]], [[-0.28, 1.28, 0.26], [0.28, 1.28, 0.26]], [[-0.28, 1.28, -0.26], [0.28, 1.28, -0.26]], [[0, 1.28, -0.26], [0, 1.28, 0.26]]]) r.add(entre(a, b, 0.014, M.acero));
-        r.add(entre([0, 1.28, 0], [0, 0.44, 0], 0.012, M.acero));
-        for (const [x, z, h] of [[6.45, 3.4, 1], [5.95, 3.35, 0.78]]) {
+        // postes de madera con sus aisladores de perno
+        for (const [x, z, h] of POSTES) {
             u.add(en(cil(0.018, h, M.madera, 0.014, 8), x, 0, z));
             u.add(en(new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.26), M.madera), x, h - 0.02, z));
+            for (const k of [-1, 0, 1]) u.add(en(cil(0.007, 0.03, M.marfil, 0.005, 6), x, h - 0.01, z + k * 0.1));
         }
         const casas = [[5.55, 3.05, 0.34, 0.26, 0.24], [5.05, 3, 0.3, 0.3, 0.2], [4.55, 3.1, 0.34, 0.26, 0.26], [5.55, 3.6, 0.38, 0.28, 0.24], [5, 3.58, 0.34, 0.26, 0.26], [4.55, 3.65, 0.28, 0.24, 0.22], [6.05, 3.02, 0.26, 0.22, 0.2]];
         casas.forEach(([x, z, w, d, h], i) => {
@@ -517,7 +528,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
 
     // ---------- cables
     const parteDe = L => L.parte ?? null;
-    const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe, movil });
+    // cuando sube el primer aerogenerador para ver su cimentación, sus cables se apagan: se quedarían en el piso
+    const subeTorre = e => Math.max(e.abierta?.cimentacion ?? 0, sale(e.desarme * 3) * 0.35) > 0.02;
+    const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe, movil, activa: (L, e) => !['baja0', 'col0'].includes(L.id) || !subeTorre(e) });
+    // las líneas aéreas: tres conductores que cuelgan de marco, pórtico, torres, boquillas y postes (planta-comun/conductores.js)
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe, movil });
     kit.cerrarGotas(new THREE.SphereGeometry(1, 8, 6));
 
     const anclas = {};

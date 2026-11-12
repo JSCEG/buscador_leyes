@@ -9,7 +9,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { sale } from '../planta-comun/ayudas.js';
 import { caja, cil, crearAyudante, crearTubos, en, estudio, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { ALTO_LINEA, BLOQUE, CONT, FILAS_SAEE, FLUIDOS, LINEAS, PARTES, POR_FILA, SITIO } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { ALTO_TORRE, BLOQUE, BORNES, CONT, FILAS_PANELES, FILAS_SAEE, FLUIDOS, GIRO_POSTE, LINEAS, PARTES, POR_FILA, POSTES, SITIO, TORRES, TRAFO_CE, TRAFO_FABRICA, Z_TORRES } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -168,7 +169,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const rad = [];
         for (let k = 0; k < 6; k++) rad.push(new THREE.BoxGeometry(0.02, 0.36, 0.12).translate(x - 0.18 + k * 0.07, 0.3, z + 0.24));
         trafo.add(malla(rad, M.trafo));
-        for (let k = 0; k < 3; k++) trafo.add(en(cil(0.025, 0.22, M.porcelana), x - 0.13 + k * 0.13, 0.54, z - 0.05));
+        // las boquillas de alta, en fila hacia la subestación, y la caja de baja donde llega el cable de los inversores
+        const [bx, by, bz] = BORNES.trafoAlta;
+        for (let k = -1; k <= 1; k++) trafo.add(en(cil(0.025, by - 0.54, M.porcelana), bx, 0.54, bz + k * 0.13));
+        const [lx, ly, lz] = BORNES.trafoBaja;
+        trafo.add(en(caja(0.08, 0.2, 0.2, M.trafo), lx - 0.04, ly - 0.1, lz));
         plano(raiz, 'Transformador', x, z + 0.48, 0.9);
     }
     const medidor = unidad('medidor');
@@ -200,7 +205,18 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         }
         plano(raiz, 'Subestación · 230 kV', x, z + 1.05, 1.5);
         // dos torres que traen la línea de la Red Nacional de Transmisión
-        for (const xt of [-6.9, -3.2]) raiz.add(en(sombra(new THREE.Mesh(geoTorre(ALTO_LINEA + 0.45, 0.32), M.acero)), xt, 0, -3.4));
+        for (const xt of TORRES) {
+            const t = en(sombra(new THREE.Mesh(geoTorre(ALTO_TORRE, 0.32), M.acero)), xt, 0, Z_TORRES);
+            raiz.add(t);
+            partes.subestacion.push(t);
+        }
+        // los postes de esquina que llevan las líneas del SAEE y de la central a sus bahías
+        for (const [id, [xp, zp, h]] of Object.entries(POSTES)) {
+            const t = en(sombra(new THREE.Mesh(geoTorre(h, 0.16), M.acero)), xp, 0, zp);
+            t.rotation.y = GIRO_POSTE[id];
+            raiz.add(t);
+            partes[id].push(t);
+        }
     }
     const saeeRed = unidad('saeeRed');
     {
@@ -220,6 +236,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         plato.rotation.x = -0.7;
         cenace.add(en(plato, x + 0.4, 1.1, z - 0.1));
         cenace.add(en(cil(0.02, 0.2, M.acero), x + 0.4, 0.92, z - 0.1));
+        // la caja de donde sale el cable de control
+        const [kx, ky, kz] = BORNES.cenace;
+        cenace.add(en(caja(0.04, 0.16, 0.14, M.gabinete), kx - 0.02, ky - 0.08, kz));
         plano(raiz, 'CENACE', x, z + 0.62, 0.8);
     }
 
@@ -243,6 +262,15 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         central.add(en(caja(0.6, 0.5, 0.4, M.gabinete), ix, 0, iz));
         central.add(en(caja(0.24, 0.1, 0.005, M.pantalla), ix, 0.34, iz + 0.202));
         brillo(central, ix, 0.8, iz, 1.6, '#ff8a3c', 'tirada', 1.2, false);
+        // las cajas de conexión al pie de cada fila: por ellas pasa el cable de corriente directa que va al inversor
+        central.add(malla(FILAS_PANELES.map((_, i) => { const [bx, , bz] = BORNES[`combinadora${i + 1}`]; return new THREE.BoxGeometry(0.1, 0.12, 0.08).translate(bx, 0.06, bz); }), M.gabinete));
+        // el transformador elevador, pegado al inversor por un ducto, con sus tres boquillas hacia la subestación
+        const [ux, uz] = TRAFO_CE;
+        central.add(en(caja(0.5, 0.04, 0.4, M.concreto), ux, 0, uz));
+        central.add(en(caja(0.4, 0.32, 0.3, M.trafo), ux, 0.04, uz));
+        const [ax, ay, az] = BORNES.trafoCE;
+        for (let k = -1; k <= 1; k++) central.add(en(cil(0.02, ay - 0.36, M.porcelana), ax, 0.36, az + k * 0.1));
+        central.add(malla([new THREE.BoxGeometry(0.12, 0.08, iz - 0.2 - (uz + 0.15)).translate(ux, 0.24, (iz - 0.2 + uz + 0.15) / 2)], M.acero));
         plano(raiz, 'Central solar · 240 MW · contrato de 200 MW', cx, cz + 1.75, 3.0);
     }
     const saeeCE = unidad('saeeCE');
@@ -271,6 +299,14 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (let k = 0; k < 5; k++) v.push(new THREE.BoxGeometry(0.2, 0.16, 0.01).translate(x - 1.0 + k * 0.36, 0.5, z + 0.555));
         fabrica.add(malla(v, M.ventana));
         contenedor(fabrica, x + 1.0, z + 0.2, { largo: 0.55, cubierta: 'contCC', abre: ['fabrica'], guinda: false });
+        // el transformador de la fábrica, con sus tres boquillas hacia la subestación y un ducto a la pared
+        const [fx, fz] = TRAFO_FABRICA;
+        fabrica.add(en(caja(0.5, 0.04, 0.42, M.concreto), fx, 0, fz));
+        fabrica.add(en(caja(0.36, 0.32, 0.3, M.trafo), fx, 0.04, fz));
+        const [qx, qy, qz] = BORNES.trafoFabrica;
+        for (let k = -1; k <= 1; k++) fabrica.add(en(cil(0.02, qy - 0.36, M.porcelana), qx, 0.36, qz + k * 0.1));
+        const muro = x - 0.3 - 0.95;
+        fabrica.add(malla([new THREE.BoxGeometry(muro - (fx + 0.18), 0.08, 0.12).translate((muro + fx + 0.18) / 2, 0.24, fz)], M.acero));
         plano(raiz, 'Fábrica · su SAEE no inyecta', x, z + 0.75, 1.6);
     }
 
@@ -302,7 +338,10 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     }
 
     // ---------- lo que corre por los cables
-    const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe: L => ({ cenace: 'cenace', mina: 'mina', saeeCE: 'saeeCE', fabrica: 'fabrica' }[L.id] ?? null), movil });
+    // los conductores: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores (planta-comun/conductores.js)
+    const PARTE_LINEA = { rnt: 'subestacion', saee: 'trafo', central: 'central', fabrica: 'fabrica', puente1: 'subestacion', puente2: 'subestacion', puente3: 'subestacion', puente4: 'subestacion' };
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: L => PARTE_LINEA[L.id], movil });
+    const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe: L => ({ cenace: 'cenace', mina: 'mina', saeeCE: 'saeeCE', pcs: 'pcs', saeeRed: 'saeeRed', paneles: 'central' }[L.id] ?? null), movil });
 
     const anclas = {};
     for (const p of PARTES) { const o = new THREE.Object3D(); o.position.set(...p.ancla); raiz.add(o); anclas[p.id] = o; }

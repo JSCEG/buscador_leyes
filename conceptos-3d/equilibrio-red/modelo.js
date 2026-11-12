@@ -7,6 +7,7 @@
 // Cuatro formas de verlo: se dispara una central (los primeros segundos y los minutos siguientes), menos máquinas girando (sol, viento y
 // baterías), la reserva de un día de calor (hora por hora) y cuando falta mucho (el corte de carga por pasos, como el 28 de diciembre de 2020).
 import { D2R, clamp, clamp01, lerp } from '../planta-comun/ayudas.js';
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 
 // ------------------------------------------------------------------ lo que pide el Código de Red (CRE, RES/550/2021)
 export const F0 = 60;
@@ -237,36 +238,143 @@ export const FLUIDOS = {
     senal: { nombre: 'Señales del CENACE a las centrales', color: '#c2185b' },
 };
 const yR = RED.y;
-const cuelga = (x, z) => [x, yR, z];
 const xs = RED.torres;
+/** Las torres de la red (geoTorre): su alto; las fases cuelgan de la cruceta, a 0.92 del alto. */
+export const ALTO_TORRE = 1.45;
+/** El transformador de cada central (y el inversor del sol y de las baterías): su tapa, sus tres boquillas y el paso entre ellas. */
+export const TRAFOS = {
+    ...Object.fromEntries(['hidro', 'ciclo', 'grande', 'turbogas', 'eolico'].map(id => [id, { x: SITIO[id].sub[0] - 0.05, z: SITIO[id].sub[1], tapa: 0.34 }])),
+    solar: { x: SITIO.solar.sub[0], z: SITIO.solar.sub[1], tapa: 0.3 },
+    baterias: { x: SITIO.baterias.sub[0], z: SITIO.baterias.sub[1], tapa: 0.3 },
+    ciudad: { x: SITIO.ciudad.sub[0] + 0.15, z: SITIO.ciudad.sub[1] - 0.12, tapa: 0.38 },
+};
+export const BOQUILLA = { alto: 0.08, paso: 0.07 };
+/** El relevador de cada sector, en la subestación de la ciudad (x), y el transformador que cuelga del poste de cada sector. */
+export const RELEVADOR = { x: SECTORES.map((s, i) => SITIO.ciudad.sub[0] - 0.28 + i * 0.13), z: SITIO.ciudad.sub[1] + 0.15, frente: SITIO.ciudad.sub[1] + 0.2 };
+export const POSTE_SECTOR = { alto: 0.55, trafo: 0.36, lado: 0.035 };
+const posteDe = s => [s.x + 0.9, s.z];
+const torreMasCerca = x => xs.reduce((a, b) => (Math.abs(b - x) < Math.abs(a - x) ? b : a));
+/** La caja de conexión al pie de cada edificio, a un lado de su transformador: x y la cara de la pared que lo ve (z). */
+export const CONEXION = {
+    hidro: { x: TRAFOS.hidro.x - 0.25, z: SITIO.hidro.z + 0.55 },
+    ciclo: { x: TRAFOS.ciclo.x - 0.25, z: SITIO.ciclo.z + 0.725 },
+    grande: { x: TRAFOS.grande.x - 0.25, z: SITIO.grande.z + 0.6 },
+    turbogas: { x: TRAFOS.turbogas.x - 0.25, z: SITIO.turbogas.z + 0.25 },
+};
+/** La caja de baja tensión de cada transformador, de y a y + 0.05: en su cara del oeste, la que ve a la caja de conexión; en el parque
+ *  eólico, en la de atrás, la que ve a los aerogeneradores. [x, z] del centro de su cara de abajo. */
+export const BAJA = {
+    y: 0.15,
+    ...Object.fromEntries(Object.keys(CONEXION).map(id => [id, [TRAFOS[id].x - 0.135, TRAFOS[id].z]])),
+    eolico: [TRAFOS.eolico.x, TRAFOS.eolico.z - 0.115],
+};
+/** Las filas de paneles (z), con su caja combinadora en la punta de cada una, en x = COMBINADOR. */
+export const FILAS_SOLAR = Array.from({ length: 4 }, (_, i) => Math.round((SITIO.solar.z - 0.75 + i * 0.42) * 100) / 100);
+export const COMBINADOR = 4.1;
+const CONTENEDORES = [-0.55, 0, 0.55].map(dx => SITIO.baterias.x + dx);
+/** Los bornes donde se conecta cada cable: las crucetas de las torres, las boquillas de los transformadores, los relevadores y los postes,
+ *  y en el piso, las cajas de conexión de las centrales, las cajas de baja de sus transformadores, la base de cada aerogenerador, las
+ *  combinadoras de los paneles, los contenedores de baterías y la cara de cada inversor. */
+export const BORNES = {
+    ...Object.fromEntries(xs.map((x, i) => [`torre${i}`, [x, ALTO_TORRE * 0.92, RED.z]])),
+    ...Object.fromEntries(Object.entries(TRAFOS).map(([id, t]) => [`trafo-${id}`, [t.x, t.tapa + BOQUILLA.alto, t.z]])),
+    ...Object.fromEntries(SECTORES.map((s, i) => [`relevador${i + 1}`, [RELEVADOR.x[i], 0.06, RELEVADOR.frente]])),
+    ...Object.fromEntries(SECTORES.map((s, i) => { const [x, z] = posteDe(s); return [`poste${i + 1}`, [x, POSTE_SECTOR.trafo, z + POSTE_SECTOR.lado]]; })),
+    ...Object.fromEntries(Object.entries(CONEXION).map(([id, c]) => [`caja-${id}`, [c.x, 0.03, c.z + 0.03]])),
+    ...Object.fromEntries(['hidro', 'ciclo', 'grande', 'turbogas', 'eolico'].map(id => [`baja-${id}`, [BAJA[id][0], BAJA.y, BAJA[id][1]]])),
+    ...Object.fromEntries(SITIO.eolico.torres.map((x, k) => [`turbina${k}`, [x, 0.03, SITIO.eolico.z + 0.08]])),
+    ...Object.fromEntries(FILAS_SOLAR.map((z, k) => [`combinador${k}`, [COMBINADOR, 0.012, z]])),
+    'inversor-solar': [SITIO.solar.sub[0], 0.05, SITIO.solar.sub[1] + 0.11],
+    ...Object.fromEntries(CONTENEDORES.map((x, k) => [`contenedor${k}`, [x, 0.05, SITIO.baterias.z - 0.475]])),
+    ...Object.fromEntries(CONTENEDORES.map((x, k) => [`inversor-baterias${k}`, [SITIO.baterias.sub[0] + (k - 1) * 0.1, 0.05, SITIO.baterias.sub[1] + 0.11]])),
+};
+const torre = x => BORNES[`torre${xs.indexOf(x)}`];
+const enTorre = x => apoyo(torre(x), [0, 0, 0.25], 0.08);
+const orilla = x => apoyo([x, ALTO_TORRE * 0.85, RED.z], [0, 0, 0.25]);
+const boquillas = id => apoyo(BORNES[`trafo-${id}`], [BOQUILLA.paso, 0, 0]);
+/** Las líneas que llegan a una torre de lado (de una central o de la ciudad) se cuelgan del otro brazo de su cruceta, el que va a lo largo de la red. */
+const deLado = x => apoyo(torre(x), [0.25, 0, 0], 0.08);
+/** Cada central a la torre más cercana: de las boquillas de su transformador al brazo de la cruceta. */
+const aLaRed = id => [boquillas(id), deLado(torreMasCerca(TRAFOS[id].x))];
+/** Las líneas aéreas, apoyo por apoyo: la red sigue por las dos orillas hacia el resto del país. */
+export const AEREAS = {
+    oeste: [orilla(BLOQUE.x[0] + 0.05), ...xs.filter(x => x <= RED.nodo).map(enTorre)],
+    este: [orilla(BLOQUE.x[1] - 0.05), ...xs.filter(x => x >= RED.nodo).reverse().map(enTorre)],
+    ...Object.fromEntries(['hidro', 'ciclo', 'grande', 'turbogas', 'eolico', 'solar', 'baterias'].map(id => [id, aLaRed(id)])),
+    ciudad: [deLado(RED.nodo), boquillas('ciudad')],
+};
+/**
+ * De cada relevador al poste de su sector, cables de media tensión por el piso (por debajo de la losa y de la calle): por la cerrada de
+ * los sectores 1 y 2, o por un lado y la cerrada de los sectores 3 y 4; suben pegados al poste hasta su transformador.
+ */
+const yP = 0.012;
+const alSector = i => {
+    const s = SECTORES[i];
+    const [px, pz] = posteDe(s);
+    const zp = pz + POSTE_SECTOR.lado;
+    const x0 = RELEVADOR.x[i];
+    // sale por abajo del relevador, corre sobre la losa y baja al piso en su orilla
+    const losa = SITIO.ciudad.sub[1] + 0.3;
+    const sale = [[x0, 0.047, RELEVADOR.frente + 0.02], [x0, 0.047, losa], [x0, yP, losa + 0.015]];
+    const ida = i < 2
+        ? [[x0, yP, i ? 1.31 : zp], [px, yP, i ? 1.31 : zp]]
+        : [[x0, yP, 1.3], [x0, yP, i === 2 ? zp : 2.66], [px, yP, i === 2 ? zp : 2.66]];
+    return [BORNES[`relevador${i + 1}`], ...sale, ...ida, [px, yP, zp], BORNES[`poste${i + 1}`]];
+};
+const sinRepetir = puntos => puntos.filter((p, k, a) => k === 0 || Math.hypot(p[0] - a[k - 1][0], p[1] - a[k - 1][1], p[2] - a[k - 1][2]) > 1e-6);
+/**
+ * De cada central a su transformador, cables por el piso: salen de la caja de conexión al pie del edificio, corren junto a la losa de la
+ * subestación, suben a la losa y suben pegados a la cara del transformador hasta su caja de baja tensión. Los de los aerogeneradores salen
+ * de la base de cada uno y llegan por atrás; los del sol y las baterías van de las combinadoras y los contenedores a la cara de su inversor.
+ */
+const deLaCentral = id => {
+    const [bx, bz] = BAJA[id];
+    const orilla = SITIO[id].sub[0] - 0.25; // la orilla de la losa, del lado de la caja de conexión
+    return [BORNES[`caja-${id}`], [CONEXION[id].x, yP, bz], [orilla - 0.015, yP, bz], [orilla, 0.047, bz], [bx, 0.047, bz], [bx, BAJA.y, bz]];
+};
+const delAerogenerador = k => {
+    const x = SITIO.eolico.torres[k];
+    const [dx, carril] = [[-0.02, -1.45], [0, -1.4], [0.02, -1.36]][k];
+    const [bx, bz] = BAJA.eolico;
+    const orilla = SITIO.eolico.sub[1] - 0.2; // la orilla de la losa, del lado de los aerogeneradores
+    return [BORNES[`turbina${k}`], [x, yP, carril], [bx + dx, yP, carril], [bx + dx, yP, orilla - 0.015], [bx + dx, 0.047, orilla], [bx + dx, 0.047, bz], [bx + dx, BAJA.y, bz]];
+};
+const [sx, sz] = SITIO.solar.sub;
+const delSol = [...FILAS_SOLAR.slice().reverse().map((z, k) => BORNES[`combinador${FILAS_SOLAR.length - 1 - k}`]), [COMBINADOR, yP, sz + 0.3], [sx, yP, sz + 0.3], BORNES['inversor-solar']];
+const deLasBaterias = k => { const [x, , z] = BORNES[`inversor-baterias${k}`]; return [BORNES[`contenedor${k}`], [CONTENEDORES[k], yP, 0.9], [x, yP, 0.9], [x, yP, z + 0.14], BORNES[`inversor-baterias${k}`]]; };
+const alTrafo = (id, central, puntos, fluido = 'energia') => ({ id, central, fluido, r: 0.008, cable: true, puntos: sinRepetir(puntos) });
+/** Los cables de cada central a su transformador o inversor; su flujo es el de la línea de la central. */
+const DE_LAS_CENTRALES = [
+    ...Object.keys(CONEXION).map(id => alTrafo(`g-${id}`, id, deLaCentral(id))),
+    ...SITIO.eolico.torres.map((x, k) => alTrafo(`g-eolico${k}`, 'eolico', delAerogenerador(k))),
+    alTrafo('g-solar', 'solar', delSol),
+    ...CONTENEDORES.map((x, k) => alTrafo(`g-baterias${k}`, 'baterias', deLasBaterias(k), 'bateria')),
+];
 export const LINEAS = [
-    // la red: de las centrales del oeste al nodo de la ciudad, y de las del este
-    { id: 'oeste', fluido: 'energia', r: 0.016, cable: true, puntos: [...xs.filter(x => x <= RED.nodo).map(x => cuelga(x, RED.z))] },
-    { id: 'este', fluido: 'energia', r: 0.016, cable: true, puntos: [...xs.filter(x => x >= RED.nodo).reverse().map(x => cuelga(x, RED.z))] },
-    // cada central a la red
-    ...['hidro', 'ciclo', 'grande', 'turbogas', 'eolico'].map(id => {
-        const s = SITIO[id];
-        const x = s.sub[0];
-        const xt = xs.reduce((a, b) => (Math.abs(b - x) < Math.abs(a - x) ? b : a));
-        return { id, fluido: 'energia', r: 0.012, cable: true, puntos: [[x, 0.62, s.sub[1]], [x, yR - 0.1, s.sub[1] + 0.15], [xt, yR, RED.z]] };
-    }),
-    { id: 'solar', fluido: 'energia', r: 0.012, cable: true, puntos: [[SITIO.solar.sub[0], 0.62, SITIO.solar.sub[1]], [SITIO.solar.sub[0], yR - 0.15, 0.1], [4.8, yR, RED.z]] },
-    { id: 'baterias', fluido: 'bateria', r: 0.012, cable: true, puntos: [[SITIO.baterias.sub[0], 0.62, SITIO.baterias.sub[1]], [SITIO.baterias.sub[0], yR - 0.15, 0.1], [2.8, yR, RED.z]] },
-    // del nodo a la subestación de la ciudad, y de ahí a cada sector
-    { id: 'ciudad', fluido: 'energia', r: 0.014, cable: true, puntos: [cuelga(RED.nodo, RED.z), [RED.nodo - 0.2, yR - 0.15, 0.3], [SITIO.ciudad.sub[0], 0.75, SITIO.ciudad.sub[1]]] },
-    ...SECTORES.map((s, i) => ({ id: `s${i + 1}`, fluido: 'energia', r: 0.01, cable: true, puntos: [[SITIO.ciudad.sub[0] - 0.25, 0.55, SITIO.ciudad.sub[1]], [lerp(SITIO.ciudad.sub[0], s.x, 0.5), 0.75, lerp(SITIO.ciudad.sub[1], s.z, 0.5)], [s.x + 0.9, 0.5, s.z]] })),
+    // la red, de las centrales del oeste y del este al nodo de la ciudad; cada central a la red; del nodo a la subestación de la ciudad
+    ...Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos, { fluido: id === 'baterias' ? 'bateria' : 'energia' })),
+    // de la subestación de la ciudad a cada sector
+    ...SECTORES.map((s, i) => ({ id: `s${i + 1}`, fluido: 'energia', r: 0.008, cable: true, puntos: sinRepetir(alSector(i)) })),
+    // de cada central a su transformador o su inversor, por el piso
+    ...DE_LAS_CENTRALES,
     // las señales del control automático de generación del CENACE: corren por el aire, sin tubo
     ...['hidro', 'ciclo', 'turbogas'].map(id => ({ id: `agc-${id}`, fluido: 'senal', r: 0.02, oculto: true, puntos: [[SITIO.cenace.x - 0.2, 1.35, SITIO.cenace.z - 0.3], [lerp(SITIO.cenace.x, SITIO[id].x, 0.5), 2.6, lerp(SITIO.cenace.z, SITIO[id].z, 0.5)], [SITIO[id].x, 1.5, SITIO[id].z + 0.4]] })),
 ];
-export const REMATE = new Set();
+/** Puntas que salen por la orilla: la red sigue hacia el resto del país. */
+export const REMATE = new Set(['oeste (inicio)', 'este (inicio)']);
 /** Cajas de los equipos: x0, x1, y0, y1, z0, z1. Cada punta de cada cable debe caer en una. */
 export const EQUIPOS = {
     torres: [xs[0] - 0.1, xs.at(-1) + 0.1, yR - 0.15, yR + 0.1, RED.z - 0.1, RED.z + 0.1],
-    ...Object.fromEntries(['hidro', 'ciclo', 'grande', 'turbogas', 'eolico', 'solar', 'baterias'].map(id => { const [x, z] = SITIO[id].sub; return [`sub-${id}`, [x - 0.3, x + 0.3, 0.4, 0.8, z - 0.3, z + 0.3]]; })),
+    ...Object.fromEntries(['hidro', 'ciclo', 'grande', 'turbogas', 'eolico', 'solar', 'baterias'].map(id => { const [x, z] = SITIO[id].sub; return [`sub-${id}`, [x - 0.3, x + 0.3, 0, 0.8, z - 0.3, z + 0.3]]; })),
     subCiudad: [SITIO.ciudad.sub[0] - 0.45, SITIO.ciudad.sub[0] + 0.35, 0.4, 0.9, SITIO.ciudad.sub[1] - 0.35, SITIO.ciudad.sub[1] + 0.35],
+    relevadores: [RELEVADOR.x[0] - 0.05, RELEVADOR.x.at(-1) + 0.05, 0.04, 0.32, RELEVADOR.z - 0.05, RELEVADOR.frente],
     ...Object.fromEntries(SECTORES.map((s, i) => [`sector${i + 1}`, [s.x - 1.1, s.x + 1.1, 0, 1.2, s.z - 0.6, s.z + 0.6]])),
     cenace: [SITIO.cenace.x - 1.1, SITIO.cenace.x + 1.1, 0, 1.6, SITIO.cenace.z - 0.7, SITIO.cenace.z + 0.7],
     ...Object.fromEntries(['hidro', 'ciclo', 'turbogas'].map(id => [`planta-${id}`, [SITIO[id].x - 1.2, SITIO[id].x + 1.2, 0, 2.2, SITIO[id].z - 0.9, SITIO[id].z + 0.9]])),
+    'planta-grande': [SITIO.grande.x - 0.9, SITIO.grande.x + 0.9, 0, 2.6, SITIO.grande.z - 0.9, SITIO.grande.z + 0.7],
+    turbinas: [SITIO.eolico.torres[0] - 0.2, SITIO.eolico.torres.at(-1) + 0.2, 0, 2.6, SITIO.eolico.z - 0.2, SITIO.eolico.z + 0.2],
+    paneles: [COMBINADOR - 0.1, 7.4, 0, 0.4, FILAS_SOLAR[0] - 0.2, FILAS_SOLAR.at(-1) + 0.2],
+    contenedores: [CONTENEDORES[0] - 0.25, CONTENEDORES.at(-1) + 0.25, 0, 0.4, SITIO.baterias.z - 0.5, SITIO.baterias.z + 0.5],
 };
 
 /** Puntos clave: dónde va el número y desde dónde se ve. */
@@ -321,6 +429,8 @@ export function pose({ modo = 'disparo', planta = null, noche = 0, adentro = 0, 
         const agcVivo = L.t !== null && L.t >= AGC.empieza && Math.abs(F0 - f) > 0.005;
         for (const id of ['hidro', 'ciclo', 'turbogas']) flujos[`agc-${id}`] = agcVivo || (modo === 'reserva' && L.estado !== 'normal') ? 0.8 : 0;
     }
+    // el cable de cada central a su transformador lleva lo mismo que su línea
+    for (const l of DE_LAS_CENTRALES) flujos[l.id] = flujos[l.central];
     const cam = camara || { mira: [0, 0.8, 0], az: 18, el: 26, d: 34 };
     return {
         t, dt, modo, noche, adentro, desarme, encendido, lectura: L, flujos, f, giran, sectores, rota, apagado,

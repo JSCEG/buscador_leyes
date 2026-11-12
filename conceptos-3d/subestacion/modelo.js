@@ -6,6 +6,7 @@
 // Cuatro formas de verla: un día de carga (el transformador se calienta y prende sus ventiladores), el voltaje (cambiador de derivaciones y
 // capacitores), una falla (relevador, interruptor y recierre) y un mantenimiento (cambiar un interruptor sin dejar a nadie sin luz).
 import { D2R, clamp, clamp01, lerp } from '../planta-comun/ayudas.js';
+import { apoyo, lineaAerea } from '../planta-comun/lineas.js';
 
 const RAIZ3 = Math.sqrt(3);
 
@@ -301,23 +302,110 @@ export const FLUIDOS = {
     media: { nombre: 'Media tensión, 13.8 kV', color: '#2f9be0' },
     falla: { nombre: 'Corriente de una falla', color: '#e0302a' },
 };
-const camino = (z, xs) => xs.map(([x, y]) => [x, y, z]);
-const lineaAlta = (z, i) => ({ id: `l${i + 1}`, grupo: `l${i + 1}`, parte: 'lineas', fluido: 'alta', r: 0.02, cable: true, oculto: true, puntos: [[X.torre, Y.torre - 0.08, z], [X.marco, Y.marco - 0.03, z], [X.apartarrayos + 0.12, Y.contacto, z], [X.cuchillaLinea, Y.contacto + 0.02, z], [X.tc, Y.contacto - 0.06, z], [X.interruptor, Y.contacto - 0.04, z], [X.cuchillaBarra, Y.contacto + 0.02, z], [X.barra[1] - 0.05, Y.barra - 0.03, z]] });
-const circuito = (z, i) => ({ id: `a${i + 1}`, grupo: `a${i + 1}`, parte: 'alimentadores', fluido: 'media', r: 0.016, cable: true, oculto: true, puntos: [[X.barra13[1], Y.barra13, z], [X.cuchilla13, Y.contacto13, z], [X.interruptor13, Y.contacto13 - 0.04, z], [X.cuchillaSal, Y.contacto13, z], [X.apartarrayos13, Y.contacto13, z], [X.postes[0], Y.poste, z], ...(i === 0 ? X.postes.slice(1).map(x => [x, Y.poste, z]) : [[X.postes[1], Y.poste, z], [X.postes[2], Y.poste, z]])] });
+/** Las torres de las líneas de 115 kV (geoTorre): su alto; las fases cuelgan de la cruceta, a 0.92 del alto. */
+export const ALTO_TORRE = 2.05;
+/** Los interruptores de tanque: dónde queda la punta de sus dos boquillas inclinadas, respecto a su centro. */
+export const BORNA_T = { dx: 0.11 + Math.sin(0.22) * 0.52, y: 0.57 + Math.cos(0.22) * 0.52 };
+/** El apartarrayos de cada bahía: su columna, su porcelana y, encima, su borne (alto + base + 0.02). */
+export const PARARRAYOS = { linea: { base: 0.7, alto: 0.48 }, banco: { base: 0.5, alto: 0.42 }, circuito: { base: 0.71, alto: 0.22 } };
+const yPin13 = Y.poste + 0.02; // el conductor de 13.8 kV, encima del aislador de alfiler de cada poste
+const xsCircuito = i => (i === 0 ? X.postes : X.postes.slice(0, 3));
+/**
+ * Dónde se conecta cada conductor: en la fase de en medio de cada bahía (las otras dos van a ±FASE_A o ±FASE_M en z). Crucetas, el marco
+ * de remate, los bornes de cada aparato (apartarrayos, navajas, transformadores de medida, boquillas), las barras, los codos de los
+ * puentes rígidos y los alfileres de los postes. Coinciden con la geometría de planta.js.
+ */
+export const BORNES = (() => {
+    const b = {};
+    const zs = [...ZL.map((z, i) => [`l${i + 1}`, z])];
+    for (const [id, z] of zs) {
+        b[`torre-${id}`] = [X.torre, ALTO_TORRE * 0.92, z];
+        b[`marco-${id}`] = [X.marco, Y.marco + 0.03, z];
+        b[`apartarrayos-${id}`] = [X.apartarrayos, PARARRAYOS.linea.base + PARARRAYOS.linea.alto + 0.02, z];
+        b[`cuchillaLinea-${id}-a`] = [X.cuchillaLinea - 0.17, Y.contacto, z];
+        b[`cuchillaLinea-${id}-b`] = [X.cuchillaLinea + 0.17, Y.contacto, z];
+        b[`tc-${id}`] = [X.tc, Y.contacto - 0.06, z];
+        b[`interruptor-${id}-a`] = [X.interruptor - BORNA_T.dx, BORNA_T.y, z];
+        b[`interruptor-${id}-b`] = [X.interruptor + BORNA_T.dx, BORNA_T.y, z];
+        b[`cuchillaBarra-${id}-a`] = [X.cuchillaBarra - 0.17, Y.contacto, z];
+        b[`cuchillaBarra-${id}-b`] = [X.cuchillaBarra + 0.17, Y.contacto, z];
+        b[`codo-${id}`] = [X.cuchillaBarra + 0.17, Y.barra + 0.14, z];
+        b[`barra-${id}`] = [X.barra[1], Y.barra, z];
+    }
+    Object.assign(b, {
+        barraBanco: [X.barra[1], Y.barra, 0],
+        codoBarra: [X.barra[1], Y.barra + 0.14, 0],
+        codoBanco: [X.cuchillaBanco - 0.17, Y.barra + 0.14, 0],
+        cuchillaBancoA: [X.cuchillaBanco - 0.17, Y.contacto, 0],
+        cuchillaBancoB: [X.cuchillaBanco + 0.17, Y.contacto, 0],
+        interruptorBancoA: [X.interruptorBanco - BORNA_T.dx, BORNA_T.y, 0],
+        interruptorBancoB: [X.interruptorBanco + BORNA_T.dx, BORNA_T.y, 0],
+        apartarrayosBanco: [X.interruptorBanco + 0.42, PARARRAYOS.banco.base + PARARRAYOS.banco.alto + 0.02, 0],
+        boqAlta: [X.boqAlta, Y.boqAlta, 0],
+        boqBaja: [X.boqBaja, Y.boqBaja, 0],
+        interruptorBajaA: [X.interruptorBaja - 0.07, 0.9, 0],
+        interruptorBajaB: [X.interruptorBaja + 0.07, 0.9, 0],
+        barra13: [X.barra13[1], Y.barra13, 0],
+        barra13cap: [X.barra13[1], Y.barra13, -2.2],
+        cuchillaCapA: [X.barra13[2] + 0.09, 0.92, CAPAC.z],
+        cuchillaCapB: [X.barra13[2] + 0.35, 0.92, CAPAC.z],
+        capacitor: [CAPAC.x, 0.88, CAPAC.z],
+        trafoPoste: [X.postes[3] + 0.06, 0.92, ZF[0] - 0.08],
+    });
+    ZF.forEach((z, i) => {
+        b[`barra13-${i}`] = [X.barra13[1], Y.barra13, z];
+        b[`cuchilla13-${i}-a`] = [X.cuchilla13 - 0.15, Y.contacto13, z];
+        b[`cuchilla13-${i}-b`] = [X.cuchilla13 + 0.15, Y.contacto13, z];
+        b[`interruptor13-${i}-a`] = [X.interruptor13 - 0.07, 0.9, z];
+        b[`interruptor13-${i}-b`] = [X.interruptor13 + 0.07, 0.9, z];
+        b[`cuchillaSal-${i}-a`] = [X.cuchillaSal - 0.15, Y.contacto13, z];
+        b[`cuchillaSal-${i}-b`] = [X.cuchillaSal + 0.15, Y.contacto13, z];
+        b[`paso-${i}`] = [X.interconexion[1], Y.contacto13, z];
+        b[`interconexion-${i}`] = [X.interconexion[1], Y.interconexion, z];
+        b[`apartarrayos13-${i}`] = [X.apartarrayos13, PARARRAYOS.circuito.base + PARARRAYOS.circuito.alto + 0.02, z];
+        xsCircuito(i).forEach((x, k) => { b[`poste${k}-${i}`] = [x, yPin13, z]; });
+    });
+    return b;
+})();
+const en = nombre => apoyo(BORNES[nombre], [0, 0, 0]);
+/** Las líneas aéreas que se dibujan con sus tres fases (planta-comun/conductores.js): las de 115 kV, de la orilla a la torre, al marco de
+ *  remate y a los apartarrayos; y los cuatro circuitos de 13.8 kV, de sus apartarrayos de poste en poste. */
+const aereaAlta = id => {
+    const z = BORNES[`torre-${id}`][2];
+    return [
+        apoyo([BLOQUE.x[0] + 0.02, 1.8, z], [0, 0, FASE_A[2] * 1.15]),
+        apoyo(BORNES[`torre-${id}`], [0, 0, FASE_A[2] * 1.15], 0.12),
+        apoyo(BORNES[`marco-${id}`], [0, 0, FASE_A[2]], 0.12),
+        apoyo(BORNES[`apartarrayos-${id}`], [0, 0, FASE_A[2]]),
+    ];
+};
+const aereaMedia = i => [apoyo(BORNES[`apartarrayos13-${i}`], [0, 0, FASE_M[2]]), ...xsCircuito(i).map((x, k) => apoyo(BORNES[`poste${k}-${i}`], [0, 0, FASE_M[2]]))];
+export const AEREAS = {
+    ...Object.fromEntries(ZL.map((z, i) => [`l${i + 1}`, aereaAlta(`l${i + 1}`)])),
+    ...Object.fromEntries(ZF.map((z, i) => [`c${i + 1}`, aereaMedia(i)])),
+};
+/** Por dónde corre la energía (la fase de en medio): de borne en borne; los puentes cuelgan un poco, las barras van derechas. */
+const recorrido = (id, apoyos, extra) => lineaAerea(id, apoyos, { r: 0.02, ...extra });
+const derecho = (id, nombres, extra) => ({ id, r: 0.02, cable: true, oculto: true, puntos: nombres.map(n => BORNES[n]), ...extra });
+const bahiaLinea = id => ['apartarrayos', 'cuchillaLinea-#-a', 'cuchillaLinea-#-b', 'tc', 'interruptor-#-a', 'interruptor-#-b', 'cuchillaBarra-#-a', 'cuchillaBarra-#-b', 'codo', 'barra'].map(n => en(n.includes('#') ? n.replace('#', id) : `${n}-${id}`));
+const bahiaCircuito = i => ['cuchilla13-#-a', 'cuchilla13-#-b', 'interruptor13-#-a', 'interruptor13-#-b', 'cuchillaSal-#-a', 'cuchillaSal-#-b'].map(n => en(n.replace('#', i)));
+const circuito = (z, i) => recorrido(`a${i + 1}`, [en(`barra13-${i}`), ...bahiaCircuito(i), ...AEREAS[`c${i + 1}`]], { grupo: `a${i + 1}`, parte: 'alimentadores', fluido: 'media', r: 0.016 });
 export const LINEAS = [
-    ...ZL.map(lineaAlta),
-    { id: 'b1', grupo: 'l1', parte: 'barras', fluido: 'alta', r: 0.02, cable: true, oculto: true, puntos: [[X.barra[1], Y.barra, ZL[0]], [X.barra[1], Y.barra, 0]] },
-    { id: 'b2', grupo: 'l2', parte: 'barras', fluido: 'alta', r: 0.02, cable: true, oculto: true, puntos: [[X.barra[1], Y.barra, ZL[1]], [X.barra[1], Y.barra, 0]] },
-    { id: 'tr', grupo: 'tr', parte: 'transformador', fluido: 'alta', r: 0.02, cable: true, oculto: true, puntos: camino(0, [[X.barra[1], Y.barra], [X.cuchillaBanco, Y.contacto], [X.interruptorBanco, Y.contacto - 0.05], [X.boqAlta, Y.boqAlta]]) },
-    { id: 'bt', grupo: 'bt', parte: 'transformador', fluido: 'media', r: 0.02, cable: true, oculto: true, puntos: camino(0, [[X.boqBaja, Y.boqBaja], [X.interruptorBaja, Y.contacto13], [X.barra13[1], Y.barra13]]) },
-    { id: 'm1', grupo: 'm1', parte: 'barras13', fluido: 'media', r: 0.018, cable: true, oculto: true, puntos: [[X.barra13[1], Y.barra13, 0], [X.barra13[1], Y.barra13, ZF[0]]] },
-    { id: 'm2', grupo: 'm2', parte: 'barras13', fluido: 'media', r: 0.018, cable: true, oculto: true, puntos: [[X.barra13[1], Y.barra13, 0], [X.barra13[1], Y.barra13, ZF[3]]] },
+    ...ZL.map((z, i) => recorrido(`l${i + 1}`, [...AEREAS[`l${i + 1}`].slice(0, 3), ...bahiaLinea(`l${i + 1}`)], { grupo: `l${i + 1}`, parte: 'lineas', fluido: 'alta' })),
+    derecho('b1', ['barra-l1', 'barraBanco'], { grupo: 'l1', parte: 'barras', fluido: 'alta' }),
+    derecho('b2', ['barra-l2', 'barraBanco'], { grupo: 'l2', parte: 'barras', fluido: 'alta' }),
+    recorrido('tr', ['barraBanco', 'codoBarra', 'codoBanco', 'cuchillaBancoA', 'cuchillaBancoB', 'interruptorBancoA', 'interruptorBancoB', 'apartarrayosBanco', 'boqAlta'].map(en), { grupo: 'tr', parte: 'transformador', fluido: 'alta' }),
+    recorrido('bt', ['boqBaja', 'interruptorBajaA', 'interruptorBajaB', 'barra13'].map(en), { grupo: 'bt', parte: 'transformador', fluido: 'media' }),
+    derecho('m1', ['barra13', 'barra13-0'], { grupo: 'm1', parte: 'barras13', fluido: 'media', r: 0.018 }),
+    derecho('m2', ['barra13', 'barra13-3'], { grupo: 'm2', parte: 'barras13', fluido: 'media', r: 0.018 }),
     ...ZF.map(circuito),
-    { id: 'paso', grupo: 'paso', parte: 'barras13', fluido: 'media', r: 0.016, cable: true, oculto: true, puntos: [[X.interconexion[1], Y.contacto13, ZF[0]], [X.interconexion[1], Y.interconexion, ZF[0]], [X.interconexion[1], Y.interconexion, ZF[1]], [X.interconexion[1], Y.contacto13, ZF[1]]] },
-    { id: 'cap', grupo: 'cap', parte: 'capacitores', fluido: 'media', r: 0.016, cable: true, oculto: true, puntos: [[X.barra13[1], Y.barra13, ZF[3]], [X.barra13[1], Y.barra13, -2.2], [CAPAC.x - 0.3, 0.86, CAPAC.z], [CAPAC.x, 0.8, CAPAC.z]] },
-    { id: 'falla', grupo: 'falla', parte: 'alimentadores', fluido: 'falla', r: 0.02, cable: true, oculto: true, puntos: [[X.barra13[1], Y.barra13, 0], [X.barra13[1], Y.barra13, ZF[0]], [X.cuchilla13, Y.contacto13, ZF[0]], [X.interruptor13, Y.contacto13 - 0.04, ZF[0]], [X.cuchillaSal, Y.contacto13, ZF[0]], [X.apartarrayos13, Y.contacto13, ZF[0]], [X.postes[0], Y.poste, ZF[0]]] },
+    derecho('paso', ['paso-0', 'interconexion-0', 'interconexion-1', 'paso-1'], { grupo: 'paso', parte: 'barras13', fluido: 'media', r: 0.016 }),
+    recorrido('cap', ['barra13cap', 'cuchillaCapA', 'cuchillaCapB', 'capacitor'].map(en), { grupo: 'cap', parte: 'capacitores', fluido: 'media', r: 0.016 }),
+    recorrido('falla', [en('barra13-0'), ...bahiaCircuito(0), AEREAS.c1[0], AEREAS.c1[1]], { grupo: 'falla', parte: 'alimentadores', fluido: 'falla' }),
 ];
 export const REMATE = new Set(['l1 (inicio)', 'l2 (inicio)']); // las líneas vienen de fuera del dibujo
+/** Las líneas aéreas que se dibujan, en la forma de LINEAS, para revisarlas con cablesSueltos(). */
+export const DIBUJADAS = Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos, { fluido: id.startsWith('l') ? 'alta' : 'media' }));
 const caja = (x, y, z, w, h, d) => [x - w / 2, x + w / 2, y, y + h, z - d / 2, z + d / 2];
 export const EQUIPOS = {
     ...Object.fromEntries(ZL.map((z, i) => [`marco${i}`, caja(X.marco, 0, z, 0.2, Y.marco + 0.05, 1)])),

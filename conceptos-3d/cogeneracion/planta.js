@@ -8,7 +8,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { sale } from '../planta-comun/ayudas.js';
 import { caja, cil, cilX, crearAyudante, crearTubos, en, estudio, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { ALTO_CHIMENEA, ALTO_TORRE, BLOQUE, FLUIDOS, LINEAS, PARTES, RECUPERADOR, SITIO, TORRES, TURBINA, Z_TORRES } from './lugar.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { ALTO_CHIMENEA, ALTO_TORRE, BLOQUE, BORNES, DUCTO, FLUIDOS, GIRO_POSTE, LINEAS, PARTES, POSTES, RECUPERADOR, SITIO, TORRES, TURBINA, Z_TORRES } from './lugar.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -111,6 +112,17 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         giran.push({ obj: rg, eje: 'x', vel: e => 2 + 16 * (e.activo.turbina ?? 0) });
         brillo(generador, gx2, ejeY, gz2 + 0.3, 0.7, FLUIDOS.elec.color, 'generador', 0.5, false);
         plano(raiz, 'Generador', gx2, gz2 + 0.55, 0.8);
+        // la caja de bornes del generador y el ducto de barras que lleva la electricidad al transformador (no es un cable que cuelga)
+        const [dx, , dz] = DUCTO.generador;
+        const dzT = DUCTO.trafo[2];
+        generador.add(en(caja(0.22, 0.34, 0.1, M.gabinete), dx, 0, dz));
+        const ducto = [
+            new THREE.BoxGeometry(0.12, DUCTO.alto + 0.05 - 0.34, 0.1).translate(dx, (0.34 + DUCTO.alto + 0.05) / 2, dz),
+            new THREE.BoxGeometry(0.12, 0.1, dz - dzT + 0.1).translate(dx, DUCTO.alto, (dz + dzT) / 2),
+        ];
+        // un soporte a medio camino
+        ducto.push(new THREE.BoxGeometry(0.04, DUCTO.alto - 0.05, 0.04).translate(dx, (DUCTO.alto - 0.05) / 2, (dz + dzT) / 2));
+        generador.add(malla(ducto, M.acero));
     }
 
     // ---------- 3 · la caldera de recuperación y la chimenea
@@ -154,6 +166,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
             proceso.add(en(new THREE.Mesh(new THREE.TorusGeometry(0.21, 0.02, 6, 20).rotateX(PI / 2), M.fluido.vapor), x + dx, 0.3, z + 0.1));
         }
         brillo(proceso, x, 0.5, z, 1.6, '#d64545', 'proceso', 0.4, false);
+        // la caja de conexión en la pared, donde entra el cable que viene del transformador
+        const [fbx, fby, fbz] = BORNES.fabrica;
+        proceso.add(en(caja(0.16, 0.2, 0.08, M.gabinete), fbx, fby, fbz + 0.01));
         plano(raiz, 'Fábrica: el proceso usa el vapor', x, z + 0.95, 2.0);
     }
     const caldera = unidad('caldera');
@@ -179,6 +194,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (let k = 0; k < 6; k++) rad.push(new THREE.BoxGeometry(0.02, 0.36, 0.12).translate(x - 0.17 + k * 0.07, 0.3, z + 0.24));
         trafo.add(malla(rad, M.trafo));
         for (let k = 0; k < 3; k++) trafo.add(en(cil(0.025, 0.22, M.porcelana), x - 0.13 + k * 0.13, 0.54, z - 0.05));
+        // la caja de baja tensión, donde llega el ducto del generador
+        trafo.add(en(caja(0.2, 0.11, 0.1, M.trafo), x, 0.54, DUCTO.trafo[2]));
         trafo.add(en(caja(0.18, 0.26, 0.12, M.gabinete), x + 0.45, 0.04, z));
         trafo.add(en(caja(0.1, 0.06, 0.005, M.pantalla), x + 0.45, 0.2, z + 0.063));
         plano(raiz, 'Transformador y medición', x, z + 0.5, 1.4);
@@ -196,9 +213,27 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         subestacion.add(malla(barras, M.cobre));
         subestacion.add(en(caja(0.4, 0.42, 0.32, M.trafo), x, 0.02, z + 0.05));
         for (let k = 0; k < 3; k++) subestacion.add(en(cil(0.02, 0.18, M.porcelana), x - 0.12 + k * 0.12, 0.44, z));
+        // el gabinete de control, donde llega el cable del CENACE
+        const [gbx, , gbz] = BORNES.gabineteSubestacion;
+        subestacion.add(en(caja(0.2, 0.3, 0.12, M.gabinete), gbx - 0.1, 0, gbz));
+        subestacion.add(en(caja(0.08, 0.05, 0.005, M.pantalla), gbx - 0.1, 0.2, gbz + 0.063));
         plano(raiz, 'Subestación', x, z + 0.8, 1.0);
     }
-    for (const xt of TORRES) raiz.add(en(sombra(new THREE.Mesh(geoTorre(ALTO_TORRE + 0.05, 0.3), M.torre)), xt, 0, Z_TORRES));
+    for (const xt of TORRES) {
+        const t = en(sombra(new THREE.Mesh(geoTorre(ALTO_TORRE, 0.3), M.torre)), xt, 0, Z_TORRES);
+        raiz.add(t);
+        partes.subestacion.push(t);
+    }
+    // los postes que sostienen las líneas: el de esquina del transformador y el del ingenio, en la orilla
+    for (const [id, [xp, zp, h]] of Object.entries(POSTES)) {
+        const t = en(sombra(new THREE.Mesh(geoTorre(h, 0.16), M.torre)), xp, 0, zp);
+        t.rotation.y = GIRO_POSTE[id];
+        raiz.add(t);
+        partes[id === 'trafo' ? 'trafo' : 'turbinaVapor'].push(t);
+    }
+    // los conductores: tres fases de aluminio que cuelgan entre apoyos, con sus cadenas de aisladores (planta-comun/conductores.js)
+    const PARTE_LINEA = { aRed: 'trafo', barras: 'subestacion', rnt: 'subestacion', ingenioRed: 'turbinaVapor' };
+    crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: L => PARTE_LINEA[L.id], movil });
     plano(raiz, 'Red Nacional de Transmisión', (TORRES[0] + TORRES[1]) / 2, Z_TORRES + 0.45, 1.8);
     const cenace = unidad('cenace');
     {
@@ -212,6 +247,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         plato.rotation.x = -0.7;
         cenace.add(en(plato, x + 0.3, 0.95, z - 0.1));
         cenace.add(en(cil(0.02, 0.16, M.acero), x + 0.3, 0.77, z - 0.1));
+        // la caja de donde sale el cable de control
+        const [cbx, cby, cbz] = BORNES.cenace;
+        cenace.add(en(caja(0.04, 0.16, 0.14, M.gabinete), cbx - 0.02, cby - 0.08, cbz));
         plano(raiz, 'CENACE', x, z + 0.58, 0.8);
     }
 
@@ -238,7 +276,8 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         for (let k = 0; k < 24; k++) { const g = new THREE.CylinderGeometry(0.015, 0.015, 0.7, 5).rotateZ(PI / 2).rotateY(((k % 5) - 2) * 0.08); g.translate(x - 1.5, 0.05 + Math.floor(k / 6) * 0.03, z + 0.5 - (k % 6) * 0.06); cania.push(g); }
         ingenio.add(malla(cania, M.cania));
         brillo(ingenio, x, 0.5, z, 1.4, '#d64545', 'zafra', 0.4, false);
-        plano(raiz, 'Ingenio azucarero', x, z + 0.85, 1.4);
+        // los letreros del ingenio van sobre su piso, que está 2 cm arriba
+        plano(raiz, 'Ingenio azucarero', x, z + 0.85, 1.4, 0, 0.026);
         // la pila de bagazo
         const [bx, bz] = SITIO.bagazo;
         const pila = new THREE.Mesh(new THREE.ConeGeometry(0.62, 0.55, 18).translate(0, 0.275, 0), M.bagazo);
@@ -259,8 +298,19 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         turbinaVapor.add(tv);
         turbinaVapor.add(en(cilX(0.16, 0.35, M.marfil, 20), vx + 0.72, 0.3, vz));
         brillo(turbinaVapor, vx + 0.5, 0.3, vz + 0.3, 0.7, FLUIDOS.elec.color, 'zafra', 0.5, false);
+        // el transformador del ingenio: del generador le llegan unas barras; de sus boquillas sale la línea a la red
+        const [ux, uz] = SITIO.trafoIngenio;
+        turbinaVapor.add(en(caja(0.45, 0.04, 0.4, M.concreto), ux, 0, uz));
+        turbinaVapor.add(en(caja(0.3, 0.36, 0.26, M.trafo), ux, 0.04, uz));
+        const radI = [];
+        for (let k = 0; k < 4; k++) radI.push(new THREE.BoxGeometry(0.08, 0.26, 0.02).translate(ux - 0.105 + k * 0.07, 0.2, uz - 0.15));
+        turbinaVapor.add(malla(radI, M.trafo));
+        for (let k = -1; k <= 1; k++) turbinaVapor.add(en(cil(0.02, 0.16, M.porcelana), ux, 0.4, uz + k * 0.09));
+        const x0b = vx + 0.72 + 0.175;
+        turbinaVapor.add(malla([new THREE.BoxGeometry(ux - 0.15 - x0b, 0.08, 0.1).translate((ux - 0.15 + x0b) / 2, 0.3, uz)], M.acero));
+        plano(raiz, 'A la red', (ux + POSTES.ingenio[0]) / 2 + 0.15, POSTES.ingenio[1] + 0.42, 0.6, 0, 0.026);
         brillo(turbinaVapor, vx - 0.75, 2.2, vz - 0.3, 0.8, '#c9ccd1', 'zafra', 0.5, false);
-        plano(raiz, 'Caldera de bagazo y turbina de vapor', vx, vz + 0.75, 2.0);
+        plano(raiz, 'Caldera de bagazo y turbina de vapor', vx, vz + 0.75, 2.0, 0, 0.026);
     }
 
     // ---------- lo que corre por los tubos y los cables

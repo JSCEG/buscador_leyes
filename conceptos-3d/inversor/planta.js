@@ -9,8 +9,9 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { sale } from '../planta-comun/ayudas.js';
-import { caja, cil, crearAyudante, crearTubos, en, estudio, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { ARREGLO, BLOQUE, CAJAS, EDIFICIO, FLUIDOS, INV, LINEAS, MODULO, PARTES, PLANTA, SITIO, SUBARREGLO } from './modelo.js';
+import { caja, cil, crearAyudante, crearTubos, en, estudio, geoTorre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { ARREGLO, BLOQUE, CAJAS, EDIFICIO, FLUIDOS, INV, LINEAS, MODULO, PARTES, PLANTA, POSTE, SITIO, SUBARREGLO } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -35,7 +36,6 @@ export function materiales(P) {
         relevador: new THREE.MeshStandardMaterial({ color: '#e9e6df', roughness: 0.5 }),
         trafoSeco: new THREE.MeshStandardMaterial({ color: '#7d8f86', roughness: 0.5, metalness: 0.3, envMapIntensity: 0.8 }),
         tablero: new THREE.MeshStandardMaterial({ color: '#c2c7cd', roughness: 0.45, metalness: 0.45, envMapIntensity: 0.8 }),
-        poste: new THREE.MeshStandardMaterial({ color: '#a9a49a', roughness: 0.85, envMapIntensity: 0.3 }),
         pantalla: new THREE.MeshBasicMaterial({ color: '#1f3a4a', toneMapped: false }),
         verde: new THREE.MeshBasicMaterial({ color: '#2fb36a', toneMapped: false }),
         rojo: new THREE.MeshBasicMaterial({ color: '#e0302a', toneMapped: false }),
@@ -227,12 +227,12 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         plano(raiz, 'Punto de interconexión', x, z + 0.7, 1.4);
     }
 
-    // --------- el poste de la red del IER
+    // --------- el poste de la red del IER: el cable del tablero sube por dentro y de su cruceta cuelgan las tres fases
     const red = unidad('red');
     {
         const [x, z] = SITIO.poste;
-        red.add(en(cil(0.09, 3.2, M.poste, 0.07), x, 0, z));
-        red.add(en(caja(0.9, 0.08, 0.1, M.poste), x, 2.85, z));
+        red.add(en(sombra(new THREE.Mesh(geoTorre(POSTE.alto, 0.16), M.torre)), x, 0, z));
+        crearLineasAereas({ raiz, lineas: LINEAS, partes, parteDe: () => 'red', movil });
         brillo(red, x, 2.9, z, 1.6, '#4a4f57', 'isla', 1, false);
         plano(raiz, 'Red del IER, 220 V', x - 0.4, z + 0.45, 1.3);
     }

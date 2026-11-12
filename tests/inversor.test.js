@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { CONCEPTO } from '../src/data/como-funciona.js';
-import { AJUSTE, ARREGLO, BLOQUE, LINEAS, MEDIDO, MODULOS, PARTES, PLANTA, RED, TRAFO, TRIO, armonicasOnda, cadena, calor, canal, dia, eficiencia, eficienciaCEC, energiaDia, estadoPlanta, limiteOrden, maxPorCalor, onda, pasoPlanta, pose, puntasSueltas, red, revisar, tiempoFrecuencia, tiempoTension } from '../conceptos-3d/inversor/modelo.js';
+import { AEREAS, AJUSTE, ARREGLO, BLOQUE, BORNES, LINEAS, MEDIDO, MODULOS, PARTES, PLANTA, RED, REMATE, TRAFO, TRIO, armonicasOnda, cadena, calor, canal, dia, eficiencia, eficienciaCEC, energiaDia, estadoPlanta, limiteOrden, maxPorCalor, onda, pasoPlanta, pose, puntasSueltas, red, revisar, tiempoFrecuencia, tiempoTension } from '../conceptos-3d/inversor/modelo.js';
+import { cablesSueltos, colgar } from '../conceptos-3d/planta-comun/lineas.js';
 import { FUENTES } from '../conceptos-3d/inversor/fuentes.js';
 
 const lista = archivo => {
@@ -20,6 +21,23 @@ describe('El inversor', () => {
     it('cada cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('los cables van por el piso o pegados a la pared y a la base, y la red son tres fases que cuelgan del poste', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        // los cables de piso son delgados
+        for (const l of LINEAS.filter(x => x.cable && !x.apoyos)) expect(l.r).toBeLessThanOrEqual(0.02);
+        // la línea de la red sale de la cruceta del poste, adonde sube el cable del tablero
+        const aerea = LINEAS.find(l => l.id === 'redAerea');
+        expect(aerea.oculto).toBe(true);
+        expect(aerea.apoyos).toBe(AEREAS.redAerea);
+        expect(AEREAS.redAerea[0].p).toBe(BORNES.poste);
+        expect(LINEAS.find(l => l.id === 'red').puntos.at(-1)).toBe(BORNES.poste);
+        for (const k of [-1, 0, 1]) {
+            const p = colgar(AEREAS.redAerea, k);
+            expect(p[8][1]).toBeLessThan((p[0][1] + p[16][1]) / 2);
+        }
+        expect(pose({ modo: 'dia', hora: 13.6 }).flujos.redAerea).toBeGreaterThan(0);
     });
 
     it('la planta y sus equipos son los de la tesis del IER-UNAM', () => {

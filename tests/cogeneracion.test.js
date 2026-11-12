@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { CONCEPTO, HILO_SECTOR, PUENTE_HILO, siguienteConcepto } from '../src/data/como-funciona.js';
 import { BLOQUE, CEL, FP, INGENIOS, LINEAS, NACIONAL, PARTES, PLANTA, REF_E, REF_H, cuenta, dia, fp, hora, ingenio, operar, pose, puntasSueltas, refE, revisar, vaporMinimo } from '../conceptos-3d/cogeneracion/modelo.js';
 import { FUENTES } from '../conceptos-3d/cogeneracion/fuentes.js';
+import { AEREAS, BORNES, REMATE } from '../conceptos-3d/cogeneracion/lugar.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -23,6 +25,16 @@ describe('La cogeneración', () => {
     it('cada tubo y cada cable tocan un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada cable llega a un borne, un poste o el piso, y las líneas aéreas son tres fases que cuelgan entre apoyos', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(Object.keys(AEREAS)).toEqual(['aRed', 'barras', 'rnt', 'ingenioRed']);
+        for (const L of LINEAS.filter(l => l.cable)) {
+            // los cables de piso son delgados; las líneas aéreas no llevan tubo
+            if (L.apoyos) expect(L.oculto).toBe(true);
+            else expect(L.r).toBeLessThanOrEqual(0.02);
+        }
     });
 
     it('usa los valores de referencia vigentes de la CRE (A/018/2023)', () => {

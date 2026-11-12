@@ -2,8 +2,8 @@
 // bases, cada una con su tanque, su boquilla de 400 kV, su boquilla de 230 kV, su neutro a tierra, las boquillas del terciario (unidas en
 // delta entre las tres), su cambiador de derivaciones, sus radiadores con ventiladores y su conservador con el relevador Buchholz. La
 // fase C (la unidad AT421C de la tesis) se abre: adentro, el núcleo de tres piernas y los devanados terciario, común y serie. A la
-// izquierda, la llegada de 400 kV con su interruptor y el tablero de la protección diferencial; a la derecha, la salida de 230 kV.
-// Nada está a escala.
+// izquierda, la llegada de 400 kV con su interruptor y el tablero de la protección diferencial; a la derecha, la salida de 230 kV. Las
+// fases cuelgan de pórticos y de tres marcos sobre el banco hasta la boquilla de su unidad. Nada está a escala.
 //
 //   materiales(P)     escenario(renderer, scene, M, { movil, oscuro })
 //   construir(M, P, { movil, oscuro }) → { raiz, posar(e), partes, anclas, giran, repintar }
@@ -11,7 +11,8 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { lerp, sale } from '../planta-comun/ayudas.js';
 import { caja, cil, cilX, crearAyudante, crearTubos, en, estudio, geoEntre, materialesBase, sombra, texturaGrano } from '../planta-comun/piezas.js';
-import { BANCO, BLOQUE, DEVANADO, FLUIDOS, LINEAS, NUCLEO, PARTES, SITIO, TANQUE, UX } from './modelo.js';
+import { crearLineasAereas } from '../planta-comun/conductores.js';
+import { BANCO, BLOQUE, DEVANADO, FLUIDOS, LINEAS, MARCOS, NUCLEO, PARTES, SITIO, TANQUE, UX } from './modelo.js';
 
 const PI = Math.PI;
 export const P_PLANTA = {
@@ -314,6 +315,14 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         const xq = SITIO.portico230;
         for (const z of [zb[2] - 0.45, zb[0] + 0.45]) g.push(new THREE.BoxGeometry(0.14, SITIO.y230 + 0.25, 0.14).translate(xq, (SITIO.y230 + 0.25) / 2, z));
         g.push(new THREE.BoxGeometry(0.12, 0.12, zb[0] - zb[2] + 1.1).translate(xq, SITIO.y230 + 0.2, (zb[0] + zb[2]) / 2));
+        // los marcos sobre el banco, entre una unidad y otra: de sus vigas cuelgan los aisladores de las fases de 400 y de 230 kV
+        const [mz0, mz1] = MARCOS.z;
+        MARCOS.x.forEach((x, j) => {
+            const vigas = MARCOS.solo230[j] ? [MARCOS.v230] : [MARCOS.v230, MARCOS.v400];
+            const alto = Math.max(...vigas) + 0.12;
+            for (const z of [mz0, mz1]) g.push(new THREE.BoxGeometry(0.14, alto, 0.14).translate(x, alto / 2, z));
+            for (const v of vigas) g.push(new THREE.BoxGeometry(0.12, 0.12, mz1 - mz0 + 0.14).translate(x, v + 0.06, (mz0 + mz1) / 2));
+        });
         raiz.add(malla(g, M.galv));
         plano(raiz, 'Llegan 400 kV', xp + 0.9, -2.3, 1.3);
         plano(raiz, 'Salen 230 kV', xq - 0.9, -0.3, 1.3);
@@ -333,11 +342,11 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
         plano(raiz, 'Protección diferencial', x, z + 0.75, 1.7);
     }
 
-    // --------- luminarias de la subestación
-    for (const [x, z] of [[-1.65, -2.9], [4.95, -2.9]]) {
-        raiz.add(en(cil(0.05, 4.2, M.galv), x, 0, z));
-        raiz.add(en(caja(0.35, 0.1, 0.2, M.lampara), x, 4.15, z - 0.05));
-        brillo(raiz, x, 4.05, z - 0.05, 1.8, '#ffe2ad', 'noche', 0.9, true);
+    // --------- luminarias de la subestación, en las columnas de atrás del primer y del último marco
+    for (const x of [MARCOS.x[0], MARCOS.x[2]]) {
+        const z = MARCOS.z[0] - 0.17;
+        raiz.add(en(caja(0.35, 0.1, 0.2, M.lampara), x, 3.9, z));
+        brillo(raiz, x, 3.8, z, 1.8, '#ffe2ad', 'noche', 0.9, true);
     }
 
     // --------- al desarmar: la parte activa de la fase C sale al frente y los devanados se levantan de la pierna
@@ -345,6 +354,9 @@ export function construir(M, P, { movil = false, oscuro = false } = {}) {
     mover(serie, [0, 1.25, 0], 0.45);
     mover(comun, [0, 0.62, 0], 0.45);
     for (const [g, d] of [[conservador, [0, 0.45, 0]], [radiadores, [0, 0, -0.35]], [interruptor, [0, 0.3, 0]]]) mover(g, d);
+
+    // --------- los conductores de cada fase, que cuelgan entre pórticos, polos del interruptor, marcos y boquillas (planta-comun/conductores.js)
+    crearLineasAereas({ raiz, lineas: LINEAS, movil });
 
     // --------- lo que corre por los cables y por dentro
     const tubos = crearTubos({ raiz, lineas: LINEAS, fluidos: FLUIDOS, M, partes, parteDe: L => (L.id.startsWith('aceite') ? 'radiadores' : null), movil });

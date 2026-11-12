@@ -388,20 +388,35 @@ export function terreno(x, z) {
     const plano = Math.abs(x) > 6.2 ? clamp01((Math.abs(x) - 6.2) / 0.5) : 0; // las subestaciones van en terreno plano
     return lerp(valle + lomas, 0, plano);
 }
-/** Dónde se sujetan los cables de una línea (zl: su eje): los marcos de las subestaciones y las torres. */
+/** Largo de las cadenas acostadas de los marcos y de las torres de remate: el cable se sujeta en su punta, del lado del claro. */
+export const CADENA_REMATE = 0.26;
+/** Donde está la punta de las dos boquillas de los interruptores de tanque, respecto a su centro. */
+export const BORNA = { dx: 0.09 + Math.sin(0.22) * 0.16, y: 0.4 + Math.cos(0.22) * 0.16 };
+/**
+ * Dónde se sujetan los cables de una línea (zl: su eje). En los marcos de las subestaciones y en las torres de remate, en la punta de su
+ * cadena acostada (ancho: a cuánto del eje, hacia el claro); en las torres de suspensión, en el yugo bajo su cadena.
+ */
 export function apoyos(zl) {
+    const n = X.torres.length - 1;
     return [
-        { x: X.marcoA, y: Y.marco, marco: true },
-        ...X.torres.map(x => ({ x, y: terreno(x, zl) + Y.fase })),
-        { x: X.marcoB, y: Y.marco, marco: true },
+        { x: X.marcoA, y: Y.marco - 0.04, marco: true, ancho: CADENA_REMATE },
+        ...X.torres.map((x, k) => (k === 0 || k === n ? { x, y: terreno(x, zl) + Y.cruceta - 0.035, remate: true, ancho: CADENA_REMATE } : { x, y: terreno(x, zl) + Y.fase, ancho: 0 })),
+        { x: X.marcoB, y: Y.marco - 0.04, marco: true, ancho: CADENA_REMATE },
     ];
 }
 /** Altura del cable en la fracción u de un claro: parábola con la flecha f (m de verdad), entre dos apoyos. */
 export const alturaEn = (a, b, f, u) => lerp(a.y, b.y, u) - 4 * f * ESC * 0.92 * u * (1 - u); // el claro está recortado: un poco menos de caída
-/** Un cable de un claro: n + 1 puntos [x, y]. */
+/** Un cable de un claro: n + 1 puntos [x, y], de la punta de la cadena de un apoyo a la del otro. */
 export function claro(a, b, f, n = 18) {
+    const [xa, xb] = [a.x + a.ancho, b.x - b.ancho];
     const pts = [];
-    for (let i = 0; i <= n; i++) { const u = i / n; pts.push([lerp(a.x, b.x, u), alturaEn(a, b, f, u)]); }
+    for (let i = 0; i <= n; i++) { const u = i / n; pts.push([lerp(xa, xb, u), alturaEn(a, b, f, u)]); }
+    return pts;
+}
+/** El puente de una torre de remate: pasa la corriente de la punta de una cadena a la de la otra, por debajo de la cruceta. */
+export function puenteRemate(a, n = 10) {
+    const pts = [];
+    for (let i = 0; i <= n; i++) { const u = i / n; pts.push([a.x + lerp(-a.ancho, a.ancho, u), a.y - 0.19 * Math.sin(u * Math.PI)]); }
     return pts;
 }
 /** El punto más bajo de un claro sobre el suelo, en unidades de la escena, para revisar que no toque. */
@@ -420,21 +435,62 @@ export const FLUIDOS = {
     rayo: { nombre: 'El rayo', color: '#7d5cff' },
 };
 
-/** Lo que se ve dentro de cada subestación (sus cables no tienen tubo: corre por dentro de los equipos). */
+/** Dónde se conecta cada cable: la punta de cada cadena y cada yugo (por línea, fase y apoyo), las boquillas de los interruptores, las
+ *  barras y la boquilla de los reactores. Coinciden con la geometría de planta.js. */
+export const BORNES = (() => {
+    const b = {};
+    ZL.forEach((zl, i) => {
+        const A = apoyos(zl);
+        FASES.forEach((dz, j) => A.forEach((a, k) => {
+            const z = zl + dz;
+            if (!a.ancho) b[`l${i + 1}-${k}-${j}`] = [a.x, a.y, z];
+            if (a.ancho && k > 0) b[`l${i + 1}-${k}-${j}-llega`] = [a.x - a.ancho, a.y, z];
+            if (a.ancho && k < A.length - 1) b[`l${i + 1}-${k}-${j}-sale`] = [a.x + a.ancho, a.y, z];
+        }));
+        for (const [lado, xi, xb, sg] of [['A', X.intA, X.barraA, -1], ['B', X.intB, X.barraB, 1]]) {
+            FASES.forEach((dz, j) => {
+                b[`int${lado}${i + 1}-${j}-linea`] = [xi - sg * BORNA.dx, BORNA.y, zl + dz];
+                b[`int${lado}${i + 1}-${j}-barra`] = [xi + sg * BORNA.dx, BORNA.y, zl + dz];
+                b[`barra${lado}${i + 1}-${j}`] = [xb + [-0.12, 0, 0.12][j], Y.barra, zl + dz];
+            });
+        }
+        b[`reactor${i + 1}`] = [X.reactor, 0.68, zl > 0 ? 2.1 : -2.1];
+    });
+    return b;
+})();
+/** La fase de afuera de cada línea, del lado del reactor, y la punta de su cadena en el marco de llegada. */
+export const faseReactor = i => (ZL[i] > 0 ? 2 : 0);
+/** Lo que se ve dentro de cada subestación (sus cables no tienen tubo: corre por dentro de los equipos): en la de salida, de la barra al
+ *  interruptor y a la línea; en la de llegada, de la línea al interruptor y a la barra. Por la fase de en medio. */
 const subLinea = (lado, z, i) => {
-    const s = lado === 'A' ? -1 : 1;
-    const xm = lado === 'A' ? X.marcoA : X.marcoB;
-    const xi = lado === 'A' ? X.intA : X.intB;
-    const xb = lado === 'A' ? X.barraA : X.barraB;
-    return { id: `s${lado}${i + 1}`, grupo: `l${i + 1}`, parte: lado === 'A' ? 'salida' : 'llegada', fluido: 'alta', r: 0.02, cable: true, oculto: true, puntos: [[xm, Y.marco - 0.04, z], [xm + s * 0.25, Y.contacto + 0.04, z], [xi, Y.contacto, z], [xb, Y.barra, z]] };
+    const k = lado === 'A' ? 0 : X.torres.length + 1;
+    const marco = BORNES[`l${i + 1}-${k}-1-${lado === 'A' ? 'sale' : 'llega'}`];
+    const camino = [marco, BORNES[`int${lado}${i + 1}-1-linea`], BORNES[`int${lado}${i + 1}-1-barra`], BORNES[`barra${lado}${i + 1}-1`]];
+    return { id: `s${lado}${i + 1}`, grupo: `l${i + 1}`, parte: lado === 'A' ? 'salida' : 'llegada', fluido: 'alta', r: 0.02, cable: true, oculto: true, puntos: lado === 'A' ? camino.reverse() : camino };
 };
 export const LINEAS = [...ZL.flatMap((z, i) => [subLinea('A', z, i), subLinea('B', z, i)])];
+export const REMATE = new Set();
+/**
+ * Los cables que se dibujan, en la forma de LINEAS, para revisarlos con cablesSueltos(): cada fase de cada línea, de punta de cadena en
+ * punta de cadena (las torres de remate tienen dos, unidas por su puente); los puentes de las subestaciones y los de los reactores.
+ */
+export const DIBUJADAS = ZL.flatMap((zl, i) => {
+    const A = apoyos(zl);
+    const ultimo = A.length - 1;
+    const fases = FASES.map((dz, j) => ({ id: `l${i + 1}f${j}`, cable: true, oculto: true, puntos: A.flatMap((a, k) => (a.ancho ? [k > 0 && `llega`, k < ultimo && `sale`].filter(Boolean).map(t => BORNES[`l${i + 1}-${k}-${j}-${t}`]) : [BORNES[`l${i + 1}-${k}-${j}`]])) }));
+    const puentes = ['A', 'B'].flatMap(lado => FASES.flatMap((dz, j) => {
+        const marco = BORNES[`l${i + 1}-${lado === 'A' ? 0 : ultimo}-${j}-${lado === 'A' ? 'sale' : 'llega'}`];
+        return [{ id: `p${lado}${i + 1}${j}a`, cable: true, puntos: [marco, BORNES[`int${lado}${i + 1}-${j}-linea`]] }, { id: `p${lado}${i + 1}${j}b`, cable: true, puntos: [BORNES[`int${lado}${i + 1}-${j}-barra`], BORNES[`barra${lado}${i + 1}-${j}`]] }];
+    }));
+    const reactor = { id: `reactor${i + 1}`, cable: true, puntos: [BORNES[`l${i + 1}-${ultimo}-${faseReactor(i)}-llega`], BORNES[`reactor${i + 1}`]] };
+    return [...fases, ...puentes, reactor];
+});
 const caja = (x, y, z, w, h, d) => [x - w / 2, x + w / 2, y, y + h, z - d / 2, z + d / 2];
 export const EQUIPOS = {
-    ...Object.fromEntries(ZL.flatMap((z, i) => [[`marcoA${i}`, caja(X.marcoA, 0, z, 0.2, Y.marco + 0.06, 1.5)], [`marcoB${i}`, caja(X.marcoB, 0, z, 0.2, Y.marco + 0.06, 1.5)]])),
+    ...Object.fromEntries(ZL.flatMap((z, i) => [[`marcoA${i}`, caja(X.marcoA, 0, z, 2 * CADENA_REMATE + 0.06, Y.marco + 0.06, 1.5)], [`marcoB${i}`, caja(X.marcoB, 0, z, 2 * CADENA_REMATE + 0.06, Y.marco + 0.06, 1.5)]])),
     barraA: caja(X.barraA, Y.barra - 0.06, 0, 0.2, 0.12, 4.4),
     barraB: caja(X.barraB, Y.barra - 0.06, 0, 0.2, 0.12, 4.4),
-    ...Object.fromEntries(X.torres.flatMap(x => ZL.map((z, i) => [`torre${x}_${i}`, caja(x, terreno(x, z), z, 0.3, Y.guarda + 0.05, 1.5)]))),
+    ...Object.fromEntries(X.torres.flatMap(x => ZL.map((z, i) => [`torre${x}_${i}`, caja(x, terreno(x, z), z, 2 * CADENA_REMATE + 0.06, Y.guarda + 0.05, 1.5)]))),
 };
 
 // Puntos clave: cada uno, una ficha. vista: desde dónde mirarlo (grados) y su tamaño, para la cámara. ancla: el punto en 3D.
@@ -514,7 +570,7 @@ const dentro = (p, c, h = 0.06) => p[0] >= c[0] - h && p[0] <= c[1] + h && p[1] 
 export function puntasSueltas() {
     const sueltas = [];
     for (const L of LINEAS) for (const [nombre, p] of [['inicio', L.puntos[0]], ['fin', L.puntos.at(-1)]]) if (!Object.values(EQUIPOS).some(c => dentro(p, c))) sueltas.push(`${L.id} (${nombre})`);
-    for (const [i, z] of ZL.entries()) for (const dz of FASES) for (const a of apoyos(z)) if (!Object.values(EQUIPOS).some(c => dentro([a.x, a.y, z + dz], c))) sueltas.push(`claro de la línea ${i + 1} en x = ${a.x}`);
+    for (const [i, z] of ZL.entries()) for (const dz of FASES) for (const a of apoyos(z)) for (const x of [a.x - a.ancho, a.x + a.ancho]) if (!Object.values(EQUIPOS).some(c => dentro([x, a.y, z + dz], c))) sueltas.push(`claro de la línea ${i + 1} en x = ${x}`);
     return sueltas;
 }
 /** Revisión de cifras contra lo publicado. */

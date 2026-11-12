@@ -4,6 +4,8 @@ import { CONCEPTO, PUENTE_HILO, siguienteConcepto } from '../src/data/como-funci
 import { AJUSTE, BASE, BLOQUE, DAC, LIMITE_DAC, LINEAS, NEGOCIO, PARTES, SUBSIDIO, TARIFAS, TEMPERATURA, anio, cobro, cobroDac, costoReal, modoNegocio, pose, puntasSueltas, revisar } from '../conceptos-3d/tarifas/modelo.js';
 import { porKwhVariable } from '../conceptos-3d/tarifas/costos.js';
 import { FUENTES } from '../conceptos-3d/tarifas/fuentes.js';
+import { AEREAS, BORNES, REMATE } from '../conceptos-3d/tarifas/lugar.js';
+import { cablesSueltos } from '../conceptos-3d/planta-comun/lineas.js';
 
 const lista = archivo => {
     const d = JSON.parse(readFileSync(`public/data/${archivo}`, 'utf8'));
@@ -23,6 +25,20 @@ describe('Las tarifas y el recibo de luz', () => {
     it('cada cable toca un equipo en sus dos puntas', () => {
         expect(puntasSueltas()).toEqual([]);
         expect(LINEAS.length).toBeGreaterThan(0);
+    });
+
+    it('cada cable llega a un borne, un poste o el piso, y las líneas aéreas cuelgan entre apoyos', () => {
+        expect(cablesSueltos(LINEAS, BORNES, REMATE)).toEqual([]);
+        expect(Object.keys(AEREAS)).toEqual(['rnt', 'barrasOeste', 'barrasEste', 'mt', 'fabrica', 'puente', 'bt', 'secundaria', 'secundariaOeste', 'vecina1', 'vecina2', 'comercio']);
+        for (const L of LINEAS.filter(l => l.cable)) {
+            if (L.apoyos) expect(L.oculto).toBe(true);
+            else expect(L.r).toBeLessThanOrEqual(0.02);
+        }
+        // la baja tensión es un solo cable: sus apoyos no abren fases y se dibuja con un conductor
+        for (const id of ['bt', 'secundaria', 'secundariaOeste', 'vecina1', 'vecina2', 'comercio']) {
+            for (const a of AEREAS[id]) expect(a.fase).toEqual([0, 0, 0]);
+            expect(LINEAS.find(l => l.id === id).fases).toBe(1);
+        }
     });
 
     it('las tarifas 1 a 1F de 2026 cobran por bloques, como las publica la CFE', () => {

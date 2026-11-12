@@ -3,6 +3,9 @@
 // lado, el patio de carbón y los tanques); a la derecha, una turbogás para las horas pico y una central de motores de combustión
 // interna; atrás, la subestación, la red y el CENACE. Lo puro de la figura, sin three.js; Blender (blender/equipos.py) y la página
 // leen este mismo acomodo. Nada está a escala.
+import { apoyo, colgar, enCruceta, lineaAerea } from '../planta-comun/lineas.js';
+
+export { colgar };
 
 export const BLOQUE = { x: [-8, 8], z: [-4, 3.4], y: [-0.4, 0] };
 /** [x, z] del centro de cada cosa. */
@@ -59,29 +62,6 @@ export const BORNES = {
 };
 
 // ------------------------------------------------------------------ las líneas aéreas: tres fases que cuelgan entre apoyos
-/** Un apoyo de una línea: su centro, hacia dónde se abren las fases (del centro a la fase de un lado) y el largo del aislador que cuelga. */
-const apoyo = (p, fase, aislador = 0) => ({ p, fase, aislador });
-/** Fases sobre la cruceta de un poste o torre: perpendiculares a la línea, sobre el brazo que más se le acerca. */
-const enCruceta = (p, antes, despues, largo = 0.25) => {
-    const dx = despues[0] - antes[0];
-    const dz = despues[2] - antes[2];
-    return apoyo(p, Math.abs(dx) > Math.abs(dz) ? [0, 0, largo] : [largo, 0, 0], 0.08);
-};
-/** Los puntos de un conductor que cuelga entre apoyos (parábola): flecha de 3.5 % del claro. desplaza: -1, 0 o 1, la fase. */
-export function colgar(apoyos, desplaza = 0, n = 16) {
-    const punto = a => [a.p[0] + desplaza * a.fase[0], a.p[1] - a.aislador + desplaza * a.fase[1], a.p[2] + desplaza * a.fase[2]];
-    const puntos = [punto(apoyos[0])];
-    for (let i = 0; i < apoyos.length - 1; i++) {
-        const a = punto(apoyos[i]);
-        const b = punto(apoyos[i + 1]);
-        const flecha = 0.035 * Math.hypot(b[0] - a[0], b[2] - a[2]);
-        for (let k = 1; k <= n; k++) {
-            const t = k / n;
-            puntos.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t - 4 * flecha * t * (1 - t), a[2] + (b[2] - a[2]) * t]);
-        }
-    }
-    return puntos;
-}
 const orillaRnt = [BLOQUE.x[1] - 0.05, ALTO_TORRE * 0.85, Z_TORRES];
 const orillaBcs = [BLOQUE.x[1] - 0.05, POSTES.motores[2] * 0.85, POSTES.motores[1]];
 /** Cada línea aérea, apoyo por apoyo, con la abertura de sus fases donde llega: boquillas, barras, marcos, crucetas. */
@@ -138,7 +118,7 @@ export const LINEAS = [
     // la electricidad: por las barras del generador al transformador, del marco de remate a la subestación y de ahí a la red
     { id: 'generador', fluido: 'elec', r: 0.02, oculto: true, puntos: [BORNES.generador, BORNES.trafoBaja] },
     // las líneas aéreas no llevan tubo: la página dibuja sus tres conductores; aquí va la fase de en medio, por donde corre la electricidad
-    ...Object.entries(AEREAS).map(([id, apoyos]) => ({ id, fluido: 'elec', r: 0.012, cable: true, oculto: true, apoyos, puntos: colgar(apoyos) })),
+    ...Object.entries(AEREAS).map(([id, apoyos]) => lineaAerea(id, apoyos)),
     // el gas natural llega a la turbogás (por fuera del terreno de Baja California Sur)
     { id: 'gasoducto', fluido: 'gas', r: 0.04, puntos: [[BLOQUE.x[1] - 0.05, 0.1, -1.15], [3.9, 0.1, -1.15], [3.9, 0.1, 0.38], [gx + 0.12, 0.1, 0.38], [gx + 0.12, 0.2, gz - 0.48]] },
     // las instrucciones del CENACE
