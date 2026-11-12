@@ -27,6 +27,7 @@ import { FUENTES as FUENTES_INV } from '../../conceptos-3d/inversor/fuentes.js';
 import { FUENTES as FUENTES_MOT } from '../../conceptos-3d/motor/fuentes.js';
 import { FUENTES as FUENTES_SAEE } from '../../conceptos-3d/saee/fuentes.js';
 import { FUENTES as FUENTES_TARIFAS } from '../../conceptos-3d/tarifas/fuentes.js';
+import { FUENTES as FUENTES_COGENERACION } from '../../conceptos-3d/cogeneracion/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -1173,6 +1174,93 @@ export const CONCEPTOS = [
             RLSE,
             LCNE,
             LSH,
+        ],
+        revisado: null,
+    },
+    {
+        id: 'cogeneracion',
+        nivel: 3,
+        antes: ['ciclo-combinado'],
+        titulo: 'Cogeneración',
+        sector: 'electricidad',
+        resumen: 'Hacer electricidad y calor útil con el mismo combustible. La figura es una fábrica con una planta del tamaño de la de Nuevo Pemex, que saca electricidad y vapor del mismo gas, y un ingenio azucarero que quema el bagazo de su caña. Muestra cuándo ahorra combustible, cómo decide la regla vigente si es eficiente y por qué una parte de su electricidad tiene despacho obligado, según las Disposiciones de la Comisión Nacional de Energía (CNE).',
+        figura: 'cogeneracion',
+        partesTitulo: 'Los puntos clave de la cogeneración',
+        definiciones: [
+            { termino: 'Cogeneración', texto: 'Producir electricidad y calor de manera secuencial, a partir de una sola fuente de energía (RLSE, art. 89). El permiso de generación puede tener esta modalidad cuando la electricidad se hace junto con vapor u otro calor, con el calor que sobra de un proceso o con combustibles que salen del mismo proceso (LSE, art. 41).' },
+            { termino: 'Cogeneración eficiente', texto: 'La que quema menos combustible que producir la misma electricidad y el mismo calor por separado. Su energía está en la lista de Energías Limpias (LSE, art. 3, fracc. XXI, inciso k), y recibe certificados por la parte libre de combustible.' },
+            { termino: 'Energía libre de combustible', texto: 'La parte de la electricidad que equivale al combustible que se ahorró. Por ella la central recibe Certificados de Energías Limpias (RLSE, art. 191).' },
+            { termino: 'Energía obligada y energía despachable', texto: 'La obligada es la electricidad que sale de cubrir el calor que pide el proceso, y tiene despacho obligado. La despachable es la que la planta podría dar de más: entra por precio, como cualquier central (Disposiciones de Cogeneración de la CNE, numeral 1.4).' },
+            { termino: 'Bagazo', texto: 'La fibra que queda al exprimir la caña, con cerca de la mitad de agua. Los ingenios lo queman para hacer su vapor y su electricidad durante la zafra.' },
+        ],
+        claves: [
+            'Una turbina de gas sola vuelve electricidad unas 34 de cada 100 partes del gas y tira el resto en gases calientes. En la cogeneración, esos gases pasan por una caldera de recuperación que hace el vapor que pide la fábrica. En la planta de ejemplo, del tamaño de Nuevo Pemex (277 MW y 500 t/h de vapor), se aprovechan 81 de cada 100.',
+            'Producir lo mismo por separado, con una central de 47 % y una caldera de 90 %, quemaría 1,026 MW de gas; la cogeneración quema 815: ahorra 21 %. Ese ahorro depende del vapor: si la fábrica pide menos de 251 t/h, el calor se tira por la chimenea y la planta gasta más gas que hacerlo por separado.',
+            'La regla para decidir si es eficiente es de la antigua Comisión Reguladora de Energía (CRE) y sigue vigente: las Disposiciones de Cogeneración de la CNE, del 16 de abril de 2026, la mantienen mientras la CNE emite sus Criterios Técnicos. Compara contra una central de 31 a 50 %, según el tamaño, y una caldera de 90 %.',
+            'Lo que ahorra se vuelve energía libre de combustible: en la planta de ejemplo, 36 de cada 100 MWh. Con 8,000 horas al año serían unos 796 mil Certificados de Energías Limpias. El requisito de certificados de 2026, fijado por la SENER, es de 13.9 % de la electricidad que se consume.',
+            'Contra un ciclo combinado nuevo, que aprovecha 60 de cada 100, el ahorro baja a 9 % y hace falta más vapor, unas 404 t/h, para empezar a ahorrar. Por eso la cogeneración rinde más donde hay mucho calor que usar casi todo el año, como una refinería.',
+            'La electricidad que sale de cubrir el vapor es la energía obligada: tiene despacho obligado (LSE, art. 43). Lo que la planta podría dar de más es despachable y entra solo por precio. En el día de ejemplo, al mediodía la planta manda 61 MW obligados a la red y podría mandar hasta 149.',
+            'La capacidad del permiso se fija según el calor que pide el proceso, no según lo que la planta quiera vender (LSE, art. 42). Si durante seis meses seguidos ofrece como obligada más energía de la que justifica su calor, sin una justificación técnica aceptada, el permiso pierde su objeto (Disposiciones de Cogeneración, numeral 3.7).',
+            'Un ingenio azucarero quema el bagazo de su caña. En la zafra 2025/26 molieron 47 ingenios, del 12 de noviembre al 17 de julio; en 2023/24 sacaron 22.1 kWh por tonelada de caña. Si todos vendieran 72 kWh por tonelada, como los ingenios más modernos de Brasil, el país sumaría unos 3,570 GWh en una zafra.',
+        ],
+        formulas: [
+            { expresion: 'Combustible por separado = electricidad ÷ (eficiencia de referencia × factor de pérdidas) + calor útil ÷ 0.90', lectura: 'lo que quemarían una central y una caldera para dar lo mismo que la cogeneración', ejemplo: 'planta de ejemplo, a 115 kV: 277 ÷ (0.47 × 0.98) + 382.5 ÷ 0.90 = 601 + 425 = 1,026 MW.' },
+            { expresion: 'Ahorro = combustible por separado − combustible de la cogeneración', lectura: 'si es mayor que cero, la cogeneración es eficiente', ejemplo: '1,026 − 815 = 212 MW; 212 ÷ 1,026 = 21 % menos gas.' },
+            { expresion: 'Energía libre de combustible = ahorro × eficiencia de referencia', lectura: 'la electricidad que equivale al gas ahorrado; por ella recibe certificados', ejemplo: '212 × 0.47 = 99.5 MW, 36 de cada 100 MW que genera; en 8,000 horas, unos 796 mil certificados.' },
+        ],
+        errores: [
+            { idea: 'Toda planta que hace electricidad y vapor ahorra combustible.', realidad: 'Solo si usa el calor. En la planta de ejemplo, con menos de 251 t/h de vapor tira tanto calor por la chimenea que quema más gas que una central y una caldera por separado.' },
+            { idea: 'Toda la electricidad de una cogeneración tiene despacho obligado.', realidad: 'Solo la que sale de cubrir el calor del proceso (LSE, art. 43). Lo que podría dar de más es energía despachable y compite por precio, como cualquier central.' },
+            { idea: 'Toda la electricidad de una cogeneración eficiente es limpia.', realidad: 'Recibe certificados solo por la parte libre de combustible: en la planta de ejemplo, 36 de cada 100 MWh. Un ingenio que solo quema bagazo sí cuenta 100 %, porque no usa combustible fósil.' },
+            { idea: 'Una cogeneración puede crecer para vender más a la red.', realidad: 'La capacidad del permiso se fija según el calor que pide el proceso (LSE, art. 42). Lo que va a la red es lo que sobra.' },
+            { idea: 'Un ciclo combinado es cogeneración porque aprovecha el calor del escape.', realidad: 'El ciclo combinado usa ese calor para hacer más electricidad. La cogeneración lo usa en un proceso, como el vapor de una refinería o de un ingenio.' },
+        ],
+        partes: [
+            { nombre: 'Estación de gas', texto: 'Entran 815 MW de energía en gas.' },
+            { nombre: 'Turbina de gas', texto: '277 MW, del tamaño de Nuevo Pemex.' },
+            { nombre: 'Generador', texto: 'Electricidad para la fábrica y la red.' },
+            { nombre: 'Caldera de recuperación', texto: '500 t/h de vapor; 800 con quemadores.' },
+            { nombre: 'Chimenea', texto: 'Con poco vapor, aquí se tira el calor.' },
+            { nombre: 'Vapor al proceso', texto: '42 kg/cm² y 385 °C, como en Madero.' },
+            { nombre: 'Fábrica', texto: 'Su vapor decide la energía obligada.' },
+            { nombre: 'Caldera aparte', texto: 'Con qué se compara: por separado.' },
+            { nombre: 'Transformador y medición', texto: 'Mide electricidad, vapor y gas.' },
+            { nombre: 'Subestación', texto: 'Lo que sobra va a la red.' },
+            { nombre: 'CENACE', texto: 'Despacha la obligada; la otra, por precio.' },
+            { nombre: 'Ingenio azucarero', texto: '47 ingenios en la zafra 2025/26.' },
+            { nombre: 'Bagazo', texto: '29.5 % de la caña; la mitad es agua.' },
+            { nombre: 'Caldera de bagazo y turbina de vapor', texto: '22.1 kWh por tonelada de caña.' },
+        ],
+        dato: 'La fábrica, el vapor que pide cada hora, lo que consume, la eficiencia de la turbina (34 %), las condiciones del vapor (las de la refinería de Madero) y las horas de operación son de ejemplo; la planta tiene el tamaño de la de Nuevo Pemex, pero no es su plano. Son reales las reglas de la CRE y de la CNE, los valores de referencia de 2023, el requisito de certificados de 2026, la cogeneración eficiente del país de 2014 a 2024 (PLADESE) y la zafra 2025/26 y lo que dio cada tonelada de caña en 2023/24 (CONADESUCA).',
+        ley: {
+            texto: 'La Ley del Sector Eléctrico deja que el permiso de generación tenga la modalidad de cogeneración, limita su capacidad al calor del proceso y da despacho obligado a la electricidad que sale de ese calor. Las Disposiciones de la CNE de abril de 2026 dicen cómo se fija la capacidad y separan la energía obligada de la despachable.',
+            siglas: ['LSE', 'RLSE', 'DACG-COGENERACION', 'MIGRACION-PERMISOS', 'CEL-REQUISITOS-2025-2026'],
+            ficha: {
+                elQue: 'El permiso de generación puede tener la modalidad de cogeneración cuando la electricidad se produce junto con vapor u otra energía térmica, con la energía térmica no aprovechada de los procesos industriales o con combustibles producidos en esos procesos (LSE, arts. 18 y 41). Es producir electricidad y calor de manera secuencial a partir de una sola fuente de energía, y se puede dar en autoconsumo y en generación para el Mercado Eléctrico Mayorista (RLSE, arts. 89 y 90). La energía de la cogeneración eficiente y la de los ingenios azucareros que cumplan los criterios de la CNE son Energías Limpias (LSE, art. 3, fracc. XXI, incisos k y l).',
+                elComo: 'La capacidad del permiso es solo la que puede obtenerse con la energía térmica del proceso (LSE, art. 42; RLSE, art. 91), y se define en función de la Demanda Térmica (Disposiciones de Cogeneración, numeral 2.6). Tiene despacho obligado la electricidad que sale de cubrir esa demanda (LSE, art. 43): es la Energía Eléctrica Obligada; lo demás que puede producir es Energía Despachable (numeral 1.4). Mientras la CNE emite sus Criterios Técnicos de Cogeneración se aplican los instrumentos vigentes de cogeneración eficiente (transitorio segundo), y la central recibe Certificados de Energías Limpias por su porcentaje de energía libre de combustible fósil (RLSE, art. 191). Los permisos anteriores de cogeneración pueden migrar del 19 de junio de 2026 al 6 de octubre de 2028, sin aumentar su capacidad, y sus acreditaciones de cogeneración eficiente siguen hasta que venzan (Lineamientos de migración, arts. 3 y 6, y transitorio quinto).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Art. 3, fracc. XXI, incisos k) y l)', nota: 'La cogeneración eficiente y los ingenios azucareros, entre las Energías Limpias.' },
+                    { siglas: 'LSE', refs: 'Arts. 18 y 41 a 43', nota: 'La modalidad de cogeneración, su capacidad y su despacho obligado.' },
+                    { siglas: 'RLSE', refs: 'Arts. 89 a 92 y 191', nota: 'Qué es la cogeneración, sus figuras, su capacidad, su despacho y sus certificados.' },
+                    { siglas: 'DACG-COGENERACION', refs: 'Numerales 1.4, 2.6, 2.8 y 3.7, y transitorios segundo y tercero', nota: 'Energía obligada y despachable, capacidad según el calor y las reglas mientras salen los Criterios Técnicos.' },
+                    { siglas: 'MIGRACION-PERMISOS', refs: 'Arts. 3, fracc. XVII, y 6, y transitorio quinto', nota: 'Plazo para migrar los permisos anteriores, sin aumentar su capacidad.' },
+                    { siglas: 'CEL-REQUISITOS-2025-2026', refs: 'Artículo único', nota: 'El requisito de certificados de 2026: 13.9 %.' },
+                ],
+            },
+        },
+        tramites: ['cogeneracion', 'migracion'],
+        mapa: { texto: 'Ver centrales de cogeneración en el mapa de permisos', hash: '#mapa-permisos' },
+        preguntas: [
+            { pregunta: '¿Qué hace una cogeneración con el calor que le sobra a la turbina?', opciones: ['Lo tira por la chimenea', 'Hace el vapor que usa la fábrica', 'Lo guarda en baterías'], correcta: 1 },
+            { pregunta: '¿Cuándo deja de ahorrar combustible?', opciones: ['Cuando la fábrica pide poco vapor y el calor se tira', 'Cuando hace frío', 'Nunca: siempre ahorra'], correcta: 0 },
+            { pregunta: '¿Qué electricidad de una cogeneración tiene despacho obligado?', opciones: ['Toda', 'La que sale de cubrir el calor del proceso', 'Solo la de la noche'], correcta: 1 },
+            { pregunta: '¿Por qué recibe Certificados de Energías Limpias una cogeneración eficiente?', opciones: ['Por toda su electricidad', 'Por la parte libre de combustible, la que ahorra', 'Por usar gas natural'], correcta: 1 },
+            { pregunta: '¿Qué quema un ingenio azucarero para hacer su vapor y su electricidad?', opciones: ['Carbón', 'El bagazo de su caña', 'Diésel'], correcta: 1 },
+        ],
+        fuentes: [
+            ...FUENTES_COGENERACION,
+            LSE,
+            RLSE,
         ],
         revisado: null,
     },
@@ -2324,8 +2412,8 @@ export const HILO_SECTOR = {
             {
                 num: 'IV',
                 titulo: 'Las centrales',
-                desc: 'Dónde se produce en grande: con el sol, con gas y el calor del escape, con el viento, con el agua de una presa, con el calor de la Tierra y partiendo átomos de uranio. Y cómo se guarda para la noche, con baterías e hidrógeno.',
-                ids: ['fotovoltaica', 'ciclo-combinado', 'eolica', 'hidroelectrica', 'geotermica', 'nuclear', 'hidrogeno', 'almacenamiento-energia'],
+                desc: 'Dónde se produce en grande: con el sol, con gas y el calor del escape, con el vapor de una fábrica o el bagazo de un ingenio, con el viento, con el agua de una presa, con el calor de la Tierra y partiendo átomos de uranio. Y cómo se guarda para la noche, con baterías e hidrógeno.',
+                ids: ['fotovoltaica', 'ciclo-combinado', 'cogeneracion', 'eolica', 'hidroelectrica', 'geotermica', 'nuclear', 'hidrogeno', 'almacenamiento-energia'],
             },
             {
                 num: 'V',
@@ -2415,7 +2503,13 @@ export const PUENTE_HILO = {
         eslabon: 'Eslabón 3 · Generación térmica firme de alta eficiencia',
         fisica: 'Aprovecha los gases de escape de la turbina de gas, a cerca de 630 °C, en un recuperador de calor que mueve una segunda turbina, de vapor. Con equipo nuevo llega a cerca de 60 de cada 100 de la energía del gas.',
         regulacion: 'Da más de la mitad de la generación nacional: 61 % de enero a septiembre de 2025. Requiere permiso de generación de la CNE y puede desarrollarla el Estado, un particular o un esquema de desarrollo mixto.',
-        transicion: 'Una central de ciclo combinado quema gas. La siguiente no quema nada: la eólica, que convierte el viento en electricidad.',
+        transicion: 'Un ciclo combinado usa el calor del escape para hacer más electricidad. ¿Y si ese calor lo pide una fábrica? Sigue la cogeneración: electricidad y vapor con el mismo gas.',
+    },
+    cogeneracion: {
+        eslabon: 'Eslabón 3 · Electricidad y calor con el mismo combustible',
+        fisica: 'Una turbina de gas sola aprovecha cerca de un tercio del gas; si sus gases calientes hacen el vapor de un proceso, se aprovechan alrededor de 80 de cada 100. Ahorra solo si el proceso usa ese calor.',
+        regulacion: 'El permiso de generación puede tener la modalidad de cogeneración (LSE, art. 41); su capacidad se limita al calor del proceso (art. 42) y la electricidad que sale de ese calor tiene despacho obligado (art. 43). Las Disposiciones de la CNE de abril de 2026 separan la energía obligada de la despachable.',
+        transicion: 'La cogeneración todavía quema gas, salvo en los ingenios. La siguiente no quema nada: la eólica, que convierte el viento en electricidad.',
     },
     'almacenamiento-energia': {
         eslabon: 'Eslabón 3 · Almacenamiento y flexibilidad de la red',
