@@ -1,0 +1,93 @@
+{
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5764007",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=29072025-MAT.pdf&repo=",
+  "sha256": "93a6497d9348ad4bff66310665a68dde093e8e6eb080c3ec5342a67feb484e35",
+  "paginas": [
+    21,
+    23
+  ],
+  "declaratoria": "53c8188a-012f-5cc3-ad7c-78be66708faa",
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo",
+      "paginas": [
+        21
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Considerandos",
+      "paginas": [
+        21
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Denominación del acuerdo",
+      "paginas": [
+        21
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Artículo primero",
+      "paginas": [
+        21
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Artículo segundo",
+      "paginas": [
+        21
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Croquis y criterios de localización, conectividad y población",
+      "paginas": [
+        22,
+        23
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Factibilidad social",
+      "paginas": [
+        23
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Criterio educativo",
+      "paginas": [
+        23
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Criterio territorial",
+      "paginas": [
+        23
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Firma",
+      "paginas": [
+        23
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    }
+  ]
+}

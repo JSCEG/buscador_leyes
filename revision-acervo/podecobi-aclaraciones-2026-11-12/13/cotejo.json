@@ -1,0 +1,45 @@
+{
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5786253",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=29042026-MAT.pdf&repo=",
+  "sha256": "26c71ead31b70591edea60e8bcb29dacdfb75df4845dc9e6e7edb6915fa10ba6",
+  "paginas": [
+    53,
+    54
+  ],
+  "declaratoria": "0600bc5a-3691-5d6a-aa6d-1fffd931d6eb",
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo y considerandos",
+      "paginas": [
+        53
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Artículo único",
+      "paginas": [
+        53,
+        54
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 2
+    },
+    {
+      "fragmento": "Transitorio único",
+      "paginas": [
+        54
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Firma",
+      "paginas": [
+        54
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    }
+  ]
+}

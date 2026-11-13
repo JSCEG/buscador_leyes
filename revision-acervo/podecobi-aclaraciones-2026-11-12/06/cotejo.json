@@ -1,0 +1,86 @@
+{
+  "fuente": "https://sidof.segob.gob.mx/notas/docFuente/5764006",
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2025&archivo=29072025-MAT.pdf&repo=",
+  "sha256": "93a6497d9348ad4bff66310665a68dde093e8e6eb080c3ec5342a67feb484e35",
+  "paginas": [
+    18,
+    20
+  ],
+  "declaratoria": "edd88cc5-dce7-5c1e-ac34-5d962d68cb10",
+  "fragmentos": [
+    {
+      "fragmento": "Preámbulo",
+      "paginas": [
+        18
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Artículo primero",
+      "paginas": [
+        18
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Artículo segundo",
+      "paginas": [
+        18
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Comunicación y conectividad",
+      "paginas": [
+        18,
+        19
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Criterio educativo",
+      "paginas": [
+        19
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 4
+    },
+    {
+      "fragmento": "Vocaciones del polo",
+      "paginas": [
+        20
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Factibilidad industrial",
+      "paginas": [
+        20
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Servicios e infraestructura",
+      "paginas": [
+        20
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    },
+    {
+      "fragmento": "Firma",
+      "paginas": [
+        20
+      ],
+      "coincideTextoLineal": true,
+      "tablas": 0
+    }
+  ],
+  "tablaEnImagen": "Página 19, bloque Dice. Dos secciones transcritas del cuadro rasterizado y cotejadas visualmente."
+}
