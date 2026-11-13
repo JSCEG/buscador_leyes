@@ -306,6 +306,23 @@ export function texOro(P, { fondo, filo = 0.05, vena = 0.014, barras = 0, punta 
                 x.fillStyle = p;
                 x.fillRect(0, 0, w, h * 0.3);
             }
+            // Las barbas siguen las UV de cada pluma. Se pintan una sola vez, también en móvil.
+            if (vena) {
+                x.lineCap = 'round';
+                for (const lado of [-1, 1]) {
+                    for (let i = 0; i < 27; i++) {
+                        const raiz = h * (0.95 - i * 0.032 + 0.005 * Math.sin(i * 8.3 + lado));
+                        const avance = Math.min(raiz - h * 0.015, h * (0.15 + 0.025 * Math.cos(i * 3.1 + lado)));
+                        const borde = w * (0.5 + lado * (0.44 + 0.022 * Math.sin(i * 2.7)));
+                        x.beginPath();
+                        x.moveTo(w * 0.5, raiz);
+                        x.quadraticCurveTo(w * (0.5 + lado * 0.23), raiz - avance * 0.7, borde, raiz - avance);
+                        x.lineWidth = i % 3 === 0 ? 1.5 : 1;
+                        x.strokeStyle = fondo === P.marfil ? 'rgba(97,65,39,.56)' : 'rgba(245,220,176,.48)';
+                        x.stroke();
+                    }
+                }
+            }
         }
         x.fillStyle = oro;
         x.fillRect(0, 0, w * filo, h);

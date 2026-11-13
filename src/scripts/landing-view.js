@@ -40,9 +40,6 @@ const section = ({ id, title, text, nav, action, show }) => `<section class="lp-
     <div class="lp-sec-show">${show}</div>
 </section>`;
 
-// ámbar y guinda no tienen foto propia: mientras llega el búho se ve la azul
-const vidrioFoto = () => (vidrioDelBuho() === 'verde' ? 'verde' : 'azul');
-
 const galleryHTML = () => `<h2 class="lp-gal-title">Lo que encuentras aquí</h2>
 ${section({ id: 'buscar', nav: 'nav-inicio', title: 'Buscar', text: 'Escribe una palabra y ve cada artículo donde aparece.', action: 'Ir a Buscar',
         show: `<p class="lp-show-note">Prueba con:</p><div class="lp-chips">${EXAMPLES.map(query => `<button type="button" class="lp-chip" data-query="${esc(query)}">${esc(query)}</button>`).join('')}</div>` })}
@@ -64,11 +61,12 @@ ${section({ id: 'como-funciona', nav: 'nav-como-funciona', title: 'Aprende', tex
         <div>
             <h3>¿Primera vez? El búho te enseña el sitio.</h3>
             <p>Gíralo y toca sus partes: cada una lleva a una sección.</p>
+            <p class="lp-plumaje">Ver plumaje en detalle · <a class="lp-link" href="/img/buho-plumaje-cabeza.webp" target="_blank" rel="noopener">Cabeza</a> · <a class="lp-link" href="/img/buho-plumaje-ala.webp" target="_blank" rel="noopener">Ala</a></p>
         </div>
         <button type="button" class="bu-btn bu-btn-primario" data-abrir-buho>Abrir la guía</button>
     </div>
     <div class="lp-owl-stage" data-owl-stage>
-        <img class="lp-owl-photo" src="/img/buho-bio-${vidrioFoto()}.webp" alt="Búho biomecánico de marfil, oro y vidrio, de pie sobre tres libros del sitio" width="900" height="900" loading="lazy" decoding="async">
+        <img class="lp-owl-photo" src="/img/buho-bio-${vidrioDelBuho()}.webp" alt="Búho de plumaje marfil y oro sobre tres libros" width="900" height="900" loading="lazy" decoding="async">
     </div>
 </section>`;
 
