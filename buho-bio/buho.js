@@ -12,11 +12,10 @@ import { construirLibros } from './libros.js';
 export const P_BUHO = { papel: '#fafafa', noche: '#080a19', tinta: '#171317', marfil: '#f0e9dd', guinda: '#7d1a38', oro: '#d6a44c', grafito: '#25262b', acero: '#a7abb3' };
 // tinte: lo que deja pasar; hondo, medio y calor: de la resina apagada a la más encendida; luz: líneas, núcleo y resplandor
 export const VIDRIOS = {
-    ambar: { fondo: '#7d1a38', tinte: '#ef8a16', hondo: '#4a1703', medio: '#d9620a', calor: '#ffb347', brillo: '#ffa02a', luz: '#ffb84f' },
-    guinda: { fondo: '#7d1a38', tinte: '#b3173f', hondo: '#2e0410', medio: '#b81a4a', calor: '#ff7fa4', brillo: '#ff2f63', luz: '#ff5f86' },
-    // azul y verde: los de Reglamento y Acuerdo en el sitio, encendidos
-    azul: { fondo: '#173a6b', tinte: '#2e78c4', hondo: '#071f42', medio: '#1c68bd', calor: '#8fcbff', brillo: '#3f95ff', luz: '#79bcff' },
-    verde: { fondo: '#0b4f41', tinte: '#0e9a7b', hondo: '#032b25', medio: '#0c9a76', calor: '#86f2cf', brillo: '#25d6a2', luz: '#62ebc0' },
+    ambar: { fondo: '#7d1a38', tinte: '#b47d45', hondo: '#442718', medio: '#aa6335', calor: '#dfb07e', brillo: '#c8925d', luz: '#d3a778' },
+    guinda: { fondo: '#7d1a38', tinte: '#913851', hondo: '#310e1a', medio: '#88334f', calor: '#ca8498', brillo: '#ae607a', luz: '#c28395' },
+    azul: { fondo: '#173a6b', tinte: '#486e90', hondo: '#122639', medio: '#3e6587', calor: '#9bb7cc', brillo: '#688fae', luz: '#89a8bf' },
+    verde: { fondo: '#0b4f41', tinte: '#377866', hondo: '#12322b', medio: '#356f61', calor: '#93bbab', brillo: '#619788', luz: '#80ab99' },
 };
 
 const PI = Math.PI;
@@ -901,9 +900,9 @@ export function construir(M, P) {
         M.pulso.offset.x = -e.t * 0.34;
 
         // luces: late con la respiración; de noche suben
-        const fuerza = e.luz * (e.latido + 0.22 * e.noche) * (1 + 0.5 * e.realce);
+        const fuerza = e.luz * (0.8 * e.latido + 0.12 * e.noche) * (1 + 0.12 * e.realce);
         M.piel.color.copy(M.luz.color).lerp(M.brillo, 0.6).multiplyScalar(0.42 + 0.24 * r + 0.4 * e.noche);
-        M.resina.rLuz.value = (0.7 + 0.2 * r + 0.45 * e.noche) * e.luz * (1 + 0.5 * (e.latido - 1));
+        M.resina.rLuz.value = (0.58 + 0.15 * r + 0.22 * e.noche) * e.luz * (1 + 0.5 * (e.latido - 1));
         M.nucleo.color.copy(M.luz.color).lerp(blanco, 0.42).multiplyScalar(0.84 + 0.2 * e.latido);
         for (const b of resplandores) {
             b.s.material.opacity = b.fuerza * clamp01(fuerza) * (0.8 + 0.5 * e.noche);

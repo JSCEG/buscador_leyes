@@ -42,6 +42,14 @@ export function mountLandingOwl(stage) {
         if (!item || !BUHO_NAV[item.dataset.nav] || !inView || !stage.classList.contains('is-on')) return;
         pointing = setTimeout(() => tell({ type: 'buho-elegir', seccion: item.dataset.nav }), POINT_MS);
     };
+    const touchMenu = event => {
+        if (event.pointerType !== 'touch' || !inView || !stage.classList.contains('is-on')) return;
+        const button = event.target.closest?.('#bottom-nav [data-nav], [id^="mobile-nav-"]');
+        if (!button) return;
+        const nav = button.dataset.nav || button.id.slice('mobile-'.length);
+        const section = Object.keys(BUHO_NAV).find(key => BUHO_NAV[key] === nav);
+        if (section) tell({ type: 'buho-elegir', seccion: section });
+    };
     const setView = visible => {
         inView = visible;
         showMark();
@@ -53,6 +61,7 @@ export function mountLandingOwl(stage) {
         marked = null;
         clearMarks();
         document.removeEventListener('pointerover', pointAt);
+        document.removeEventListener('pointerdown', touchMenu);
         document.removeEventListener('focusin', pointAt);
         window.removeEventListener('message', listen);
         themes?.disconnect();
@@ -86,6 +95,7 @@ export function mountLandingOwl(stage) {
         frame.setAttribute('allowtransparency', 'true');
         window.addEventListener('message', listen);
         document.addEventListener('pointerover', pointAt);
+        document.addEventListener('pointerdown', touchMenu);
         document.addEventListener('focusin', pointAt);
         waiting = setTimeout(drop, BUHO_WAIT_MS);
         stage.append(frame);

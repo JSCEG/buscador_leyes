@@ -132,6 +132,17 @@ describe('the owl at the bottom of the landing', () => {
       expect(document.querySelector('#bottom-nav [data-more]').classList.contains('is-senal-buho')).toBe(true);
       expect(document.querySelector('.bu-riel [data-nav="aprende"]').classList.contains('is-senal-buho')).toBe(true);
     });
+    it('notifies the visible owl on touch without cancelling navigation', () => {
+      owl = mountLandingOwl(stage);
+      comeNear();
+      visible(true);
+      say({ type: 'buho-listo' });
+      const post = vi.spyOn(frame().contentWindow, 'postMessage');
+      const touch = new Event('pointerdown', { bubbles: true, cancelable: true });
+      Object.defineProperty(touch, 'pointerType', { value: 'touch' });
+      expect(document.querySelector('#bottom-nav [data-nav]').dispatchEvent(touch)).toBe(true);
+      expect(post).toHaveBeenCalledWith({ type: 'buho-elegir', seccion: 'acervo' }, location.origin);
+    });
     it('marks nothing while the owl is out of view, and again when it returns', () => {
       owl = mountLandingOwl(stage);
       comeNear();

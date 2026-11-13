@@ -44,7 +44,7 @@ const FICHAS = [
     { nombre: 'Aprende', icono: 'M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5Z M12 6.5V20', texto: 'Cómo funcionan una planta solar, un transformador o una refinería, en modelos 3D que puedes girar y desarmar.' },
 ];
 const ICONO_TOCAR = 'M9 11V5.5a1.5 1.5 0 0 1 3 0V10 M12 9.5a1.5 1.5 0 0 1 3 0V11 M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.6-2.2L4.4 15.6a1.5 1.5 0 0 1 2.3-1.9L9 16';
-const MUESTRAS = { azul: ['Vidrio azul', '#2e6fb0'], verde: ['Vidrio verde', '#0e8a6e'], ambar: ['Vidrio ámbar', '#e8860f'], guinda: ['Vidrio guinda', '#9b2247'] };
+const MUESTRAS = { azul: ['Vidrio azul', '#486e90'], verde: ['Vidrio verde', '#377866'], ambar: ['Vidrio ámbar', '#b47d45'], guinda: ['Vidrio guinda', '#913851'] };
 const FINAL = FICHAS.length;
 
 const trazo = (d, tam) => `<svg viewBox="0 0 24 24" width="${tam}" height="${tam}" aria-hidden="true"><path class="bb-trazo" d="${d}"></path></svg>`;

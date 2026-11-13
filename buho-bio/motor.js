@@ -75,19 +75,26 @@ export function montar(lienzo, op = {}) {
     const pide = { alas: 0, adentro: 0, desarme: 0, noche: op.noche ? 1 : 0 };
     const ve = { alas: 0, adentro: 0, desarme: 0, noche: pide.noche, luz: REDUCIR ? 1 : 0 };
     const cam = { az: 0, el: 4, k: 1, vaz: 0, vel: 0, auto: true };
-    const cabeza = { yaw: 0, pitch: 0, saltoYaw: 0, saltoPitch: 0, show: 0 };
+    const cabeza = { yaw: 0, pitch: 0, parpado: 0, show: 0 };
     const puntero = { x: 0, y: 0 };
     let W = 1;
     let H = 1;
     let elegida = -1;
     let hover = -1;
     const zoom = { f: 0, centro: new THREE.Vector3(0, 0, 0), tam: 2, parte: -1, az: 0, el: 4 };
-    const vuelo = { t: 1, c0: new THREE.Vector3(), tam0: 2 };
+    const vuelo = { t: 1, c0: new THREE.Vector3(), tam0: 2, az0: 0, el0: 4 };
+    const focoVisible = { az: 0, el: 4, tam: 2 };
     const cVuelo = new THREE.Vector3();
     const auto = { on: false, hecho: !op.recorrido || REDUCIR, t: 0 };
     let entrada = REDUCIR ? 99 : 0;
     let ultimaMano = performance.now();
-    let parpadeo = { sig: 2.4, t: -1 };
+    const parpadeo = { sig: 2.4, t: -1, reposo: 0 };
+    function parpadear() {
+        if (REDUCIR || parpadeo.reposo > 0) return;
+        parpadeo.t = 0;
+        parpadeo.reposo = 0.5;
+        parpadeo.sig = 2.6 + Math.random() * 4.2;
+    }
     let listo = false;
     let vivo = true;
     const enlaces = { ficha: null, linea: null, punto: null, barra: null };
@@ -207,10 +214,15 @@ export function montar(lienzo, op = {}) {
     }
     function elegir(i, { solo = false } = {}) {
         if (!solo) pararRecorrido();
+        const previa = elegida;
         elegida = ((i % (FINAL + 1)) + FINAL + 1) % (FINAL + 1);
         cam.auto = false;
         ultimaMano = performance.now();
         const f = PARTES[elegida];
+        if (f && previa !== elegida) {
+            cabeza.show = 0;
+            parpadear();
+        }
         if (f?.alas !== undefined) pide.alasParte = f.alas;
         else delete pide.alasParte;
         avisar('alElegir', elegida);
@@ -318,11 +330,13 @@ export function montar(lienzo, op = {}) {
         if (enfoca && elegida !== zoom.parte) {
             // en la portada el búho vive dentro de una sección: abierto de alas se ve completo, o se cortaría en la orilla
             const f = INCRUSTADO && PARTES[elegida].parte === 'alas' ? { ...PARTES[elegida], mira: [0, 0.6, 0], az: 0, el: 6, tam: 5.4 } : PARTES[elegida];
-            if (zoom.parte >= 0 && zoom.f > 0.2) {
+            if (!REDUCIR && zoom.parte >= 0 && zoom.f > 0.2) {
                 vuelo.c0.copy(vuelo.t < 1 ? cVuelo : zoom.centro);
-                vuelo.tam0 = zoom.tam;
+                vuelo.tam0 = focoVisible.tam;
+                vuelo.az0 = focoVisible.az;
+                vuelo.el0 = focoVisible.el;
                 vuelo.t = 0;
-            }
+            } else vuelo.t = 1;
             zoom.parte = elegida;
             zoom.centro.set(...f.mira);
             zoom.tam = f.tam;
@@ -332,46 +346,53 @@ export function montar(lienzo, op = {}) {
         if (zoom.f > 0.001) {
             let c = zoom.centro;
             let tam = zoom.tam;
+            focoVisible.az = zoom.az;
+            focoVisible.el = zoom.el;
             if (vuelo.t < 1) {
                 vuelo.t = Math.min(1, vuelo.t + dt / VUELO_S);
                 const k = suave(vuelo.t);
                 c = cVuelo.copy(vuelo.c0).lerp(zoom.centro, k);
+                focoVisible.az = vuelo.az0 + envolver(zoom.az - vuelo.az0) * k;
+                focoVisible.el = lerp(vuelo.el0, zoom.el, k);
                 tam = lerp(vuelo.tam0, zoom.tam, k) * (1 + 0.6 * Math.sin(Math.PI * vuelo.t));
             }
+            focoVisible.tam = tam;
             const tv = Math.tan((camera.fov * D2R) / 2);
             const angosto = Math.min(1, W / H) * (vertical ? 0.86 : 1);
             const dParte = clamp((tam * 1.5) / (2 * tv * angosto), 2.2, 40);
             const zf = zoom.f;
             mira = mira.map((m, k) => m + (c.getComponent(k) - m) * zf);
-            const haciaParte = envolver(zoom.az - az);
+            const haciaParte = envolver(focoVisible.az - az);
             az += haciaParte * zf;
-            el += (zoom.el - el) * zf;
+            el += (focoVisible.el - el) * zf;
             d += (dParte - d) * zf;
         }
 
-        // cabeza: mira a la cámara, en movimientos secos; el puntero la desvía; «mirar» da la vuelta de un búho
+        // La mirada sigue a la sección elegida, incluso si cambia de destino a medio giro.
         cabeza.show = Math.max(0, cabeza.show - dt);
         let metaYaw = clamp(envolver(az), -140, 140) + puntero.x * 16;
         let metaPitch = clamp(-el * 0.55 + puntero.y * 9, -16, 14);
+        if (enfoca) [metaYaw, metaPitch] = PARTES[elegida].mirada;
+        if (REDUCIR) { metaYaw = 0; metaPitch = 0; }
         if (cabeza.show > 0) {
             const s = 4.4 - cabeza.show;
             metaYaw = s < 1.4 ? 135 : s < 3.2 ? -135 : 0;
             metaPitch = 0;
         }
-        if (Math.abs(metaYaw - cabeza.saltoYaw) > 9) cabeza.saltoYaw = metaYaw;
-        if (Math.abs(metaPitch - cabeza.saltoPitch) > 4) cabeza.saltoPitch = metaPitch;
-        cabeza.yaw = seguir(cabeza.yaw, cabeza.saltoYaw, 6.5, dt);
-        cabeza.pitch = seguir(cabeza.pitch, cabeza.saltoPitch, 6.5, dt);
+        cabeza.yaw = seguir(cabeza.yaw, metaYaw, 4.8, dt);
+        cabeza.pitch = seguir(cabeza.pitch, metaPitch, 4.8, dt);
 
         // parpadeo y pupila
         parpadeo.sig -= dt;
-        if (parpadeo.sig <= 0 && !REDUCIR) { parpadeo = { sig: 2.6 + Math.random() * 4.2, t: 0 }; }
+        parpadeo.reposo = Math.max(0, parpadeo.reposo - dt);
+        if (parpadeo.sig <= 0) parpadear();
         let parpado = 0;
         if (parpadeo.t >= 0) {
             parpadeo.t += dt;
-            parpado = Math.sin(clamp01(parpadeo.t / 0.19) * Math.PI);
-            if (parpadeo.t > 0.19) parpadeo.t = -1;
+            parpado = parpadeo.t < 0.08 ? suave(parpadeo.t / 0.08) : 1 - suave((parpadeo.t - 0.08) / 0.15);
+            if (parpadeo.t >= 0.23) parpadeo.t = -1;
         }
+        cabeza.parpado = parpado;
         const señalada = elegida >= 0 && elegida < FINAL ? elegida : hover;
         const abre = lerp(0.42, 0.8, ve.noche) + (señalada >= 0 ? 0.12 : 0);
 
@@ -501,7 +522,7 @@ export function montar(lienzo, op = {}) {
             const R = rect();
             return [x + R.left, y + R.top];
         },
-        info: () => ({ nivel: medida.nivel, draws: renderer.info.render.calls, tris: renderer.info.render.triangles, elegida, alas: ve.alas }),
+        info: () => ({ nivel: medida.nivel, draws: renderer.info.render.calls, tris: renderer.info.render.triangles, elegida, alas: ve.alas, yaw: cabeza.yaw, pitch: cabeza.pitch, parpado: cabeza.parpado }),
         destruir: () => {
             vivo = false;
             document.fonts?.removeEventListener?.('loadingdone', repintar);

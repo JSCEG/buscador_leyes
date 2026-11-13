@@ -132,13 +132,13 @@ function puntaAla(a) {
 // ---------------------------------------------------------------- las partes (cada una es una sección del sitio)
 // mira, az, el y tam: a dónde va la cámara al elegirla. alas: si conviene verla con las alas abiertas.
 export const PARTES = [
-    { parte: 'ojos', seccion: 'Buscar', mira: [0, 1.32, 0.5], az: 0, el: 2, tam: 1.75 },
-    { parte: 'libro', seccion: 'Acervo', mira: [0, -2.02, 0.45], az: -20, el: 26, tam: 2.7 },
-    { parte: 'columna', seccion: 'Cronología', mira: [0, -0.2, -0.45], az: 172, el: 10, tam: 2.2 },
-    { parte: 'garras', seccion: 'Permisos', mira: [0.36, -1.55, 0.42], az: 24, el: 12, tam: 1.15 },
-    { parte: 'alas', seccion: 'Polos', mira: [2.2, 1.0, 0], az: 12, el: 6, tam: 4.4, alas: 1 },
-    { parte: 'cara', seccion: 'Análisis', mira: [0, 1.25, 0.45], az: -24, el: 4, tam: 2.05 },
-    { parte: 'nucleo', seccion: 'Aprende', mira: [0, -0.02, 0.62], az: 12, el: 5, tam: 1.55 },
+    { parte: 'ojos', mirada: [8, -3], seccion: 'Buscar', mira: [0, 1.32, 0.5], az: 0, el: 2, tam: 1.75 },
+    { parte: 'libro', mirada: [-14, 19], seccion: 'Acervo', mira: [0, -2.02, 0.45], az: -20, el: 26, tam: 2.7 },
+    { parte: 'columna', mirada: [46, 3], seccion: 'Cronología', mira: [0, -0.2, -0.45], az: 172, el: 10, tam: 2.2 },
+    { parte: 'garras', mirada: [18, 15], seccion: 'Permisos', mira: [0.36, -1.55, 0.42], az: 24, el: 12, tam: 1.15 },
+    { parte: 'alas', mirada: [32, -2], seccion: 'Polos', mira: [2.2, 1.0, 0], az: 12, el: 6, tam: 4.4, alas: 1 },
+    { parte: 'cara', mirada: [-18, -3], seccion: 'Análisis', mira: [0, 1.25, 0.45], az: -24, el: 4, tam: 2.05 },
+    { parte: 'nucleo', mirada: [6, 12], seccion: 'Aprende', mira: [0, -0.02, 0.62], az: 12, el: 5, tam: 1.55 },
 ];
 
 // ---------------------------------------------------------------- pose
