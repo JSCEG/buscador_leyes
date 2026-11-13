@@ -23,20 +23,29 @@ export function takeSeoRoute({ resolve = resolveSeoRoute } = {}) {
         history.replaceState(null, '', `/#como-funciona=${parsed.id}`);
         return true;
     }
-    history.replaceState(null, '', '/');
-    resolve(parsed).then(hash => { location.hash = hash ? withReading(hash, search) : '#acervo'; }, () => { location.hash = '#acervo'; });
+    const originalAddress = location.href;
+    resolve(parsed).then(hash => {
+        if (location.href !== originalAddress) return;
+        history.replaceState(null, '', '/');
+        location.hash = hash ? withReading(hash, search) : '#acervo';
+    }).catch(() => {
+        // Keep the readable address for the recovery reload.
+        if (location.href === originalAddress) window.dispatchEvent(new Event('acervo:check-service'));
+    });
     return true;
 }
 
 /** App hash of an instrument or provision address, from Supabase. */
 export async function resolveSeoRoute(parsed) {
     const { supabase } = await import('./supabase.js');
-    const { data: laws } = await supabase.from('leyes').select('id, siglas, titulo');
+    const { data: laws, error } = await supabase.from('leyes').select('id, siglas, titulo');
+    if (error) throw error;
     const law = (laws || []).find(item => lawSlug(item) === parsed.law);
     if (!law) return '';
     if (parsed.type === 'law') return `#ley-${law.id}`;
     // The 8 hex characters are the start of the provision's UUID: a range finds it.
-    const { data } = await supabase.from('articulos').select('id').eq('ley_id', law.id)
+    const { data, error: articleError } = await supabase.from('articulos').select('id').eq('ley_id', law.id)
         .gte('id', `${parsed.idPrefix}-0000-0000-0000-000000000000`).lte('id', `${parsed.idPrefix}-ffff-ffff-ffff-ffffffffffff`).limit(1);
+    if (articleError) throw articleError;
     return data?.[0] ? `#art-${data[0].id}` : `#ley-${law.id}`;
 }

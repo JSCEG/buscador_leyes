@@ -1,0 +1,14 @@
+#service-maintenance[open] {
+    position: fixed; inset: 0; margin: 0; width: 100%; max-width: none; height: 100%;
+    max-height: none; overflow: auto; border: 0; padding: clamp(1.5rem, 6vw, 5rem);
+    background: var(--surface-0); color: var(--ink); align-content: center;
+}
+#service-maintenance::backdrop { background: var(--surface-0); }
+.maintenance-content { max-width: 37rem; margin-inline: auto; border-top: 4px solid var(--brand); padding-top: 1.5rem; }
+.maintenance-brand { display: flex; gap: .65rem; align-items: center; font-weight: 600; }
+.maintenance-content h1 { font: 600 clamp(2rem, 6vw, 3.6rem)/1.08 var(--font-display); margin: 2rem 0 1rem; }
+.maintenance-content p { color: var(--ink-muted); line-height: 1.6; }
+.maintenance-content button { margin: 1.5rem 0 .75rem; padding: .75rem 1.25rem; border-radius: .5rem;
+    background: var(--brand); color: var(--on-brand); font-weight: 600; }
+.maintenance-content button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.maintenance-content button:disabled { opacity: .7; }

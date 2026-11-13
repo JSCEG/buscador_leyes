@@ -57,6 +57,7 @@ async function rest(cfg, path, { fetcher = fetch, ttl = PAGE_TTL, cache = null, 
     const hit = key && await cache.match(key).catch(() => null);
     if (hit) return hit.json();
     const response = await fetcher(`${cfg.url}/rest/v1/${path}`, {
+        signal: AbortSignal.timeout(8500),
         headers: { apikey: cfg.key, Authorization: `Bearer ${cfg.key}`, Accept: 'application/json' },
         cf: { cacheTtl: ttl, cacheEverything: true },
     });
