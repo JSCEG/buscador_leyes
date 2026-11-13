@@ -31,20 +31,21 @@ void main() {
     vec2 p = vUv * 2.0 - 1.0;
     float r = length(p);
     float a = atan(p.y, p.x);
-    vec3 c = mix(tinte * 0.22, tinte * 0.82, smoothstep(0.34, 0.7, r));
-    c += brillo * 0.38 * (0.5 + 0.5 * sin(a * 54.0 + r * 8.0)) * smoothstep(0.2, 0.62, r) * (1.0 - smoothstep(0.7, 0.8, r)) * luz;
-    c += brillo * 0.8 * exp(-pow((r - 0.74) / 0.06, 2.0)) * luz;
-    c = mix(c, tinte * 0.07, smoothstep(0.8, 0.98, r));
-    c += vec3(1.0) * 0.28 * exp(-pow((r - 0.74) / 0.012, 2.0)) * luz;
+    vec3 perla = vec3(0.82, 0.77, 0.65);
+    float fibras = 0.5 + 0.5 * sin(a * 39.0 + r * 6.0);
+    vec3 c = mix(brillo, perla, 0.25 + 0.16 * fibras);
+    c = mix(c, mix(tinte, perla, 0.14), 0.68 * smoothstep(0.78, 0.98, r));
     float d = ngon(p, 7.0, giro);
-    float pup = mix(0.14, 0.62, abre);
-    c = mix(vec3(0.012, 0.008, 0.01), c, smoothstep(pup, pup + 0.022, d));
-    c += brillo * 0.9 * exp(-pow((d - pup) / 0.024, 2.0)) * luz;
+    float pup = mix(0.15, 0.44, abre);
+    c = mix(mix(tinte * 0.18, vec3(0.025), 0.45), c, smoothstep(pup, pup + 0.025, d));
+    float reflejo = 1.0 - smoothstep(0.045, 0.105, length(p - vec2(-0.14, 0.19)));
+    c = mix(c, perla, reflejo * 0.78 * luz);
     float lim = mix(1.45, -0.02, parpado);
     float hoja = smoothstep(lim, lim + 0.012, ngon(p, 7.0, giro + 0.4));
     float raya = 0.5 + 0.5 * sin((a + giro) * 7.0);
     c = mix(c, mix(vec3(0.16, 0.13, 0.1), vec3(0.42, 0.32, 0.16), raya), hoja);
     gl_FragColor = vec4(c, 1.0);
+    #include <colorspace_fragment>
 }`;
 
 export function materiales(P, { movil = false, vidrio = 'ambar' } = {}) {
