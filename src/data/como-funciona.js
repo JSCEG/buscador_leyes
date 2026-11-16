@@ -29,6 +29,7 @@ import { FUENTES as FUENTES_SAEE } from '../../conceptos-3d/saee/fuentes.js';
 import { FUENTES as FUENTES_TARIFAS } from '../../conceptos-3d/tarifas/fuentes.js';
 import { FUENTES as FUENTES_COGENERACION } from '../../conceptos-3d/cogeneracion/fuentes.js';
 import { FUENTES as FUENTES_TERMICAS } from '../../conceptos-3d/termicas/fuentes.js';
+import { FUENTES as FUENTES_INTERCONEXION } from '../../conceptos-3d/interconexion/fuentes.js';
 
 /** The learning route: from the basic ideas up to whole power plants and market operations. */
 export const SECTORES = [
@@ -1825,6 +1826,92 @@ export const CONCEPTOS = [
         revisado: null,
     },
     {
+        id: 'interconexion',
+        nivel: 4,
+        antes: ['subestacion', 'fotovoltaica'],
+        titulo: 'Cómo se conecta una central',
+        sector: 'electricidad',
+        resumen: 'Una central nueva no se conecta a la red cuando quiere: el CENACE estudia la central y la red, la CFE firma un contrato, se construyen las obras, una unidad de inspección las revisa y hay pruebas antes de operar. La figura sigue un caso real de Guanajuato: dos centrales solares de 90 MW unidas por una línea de 115 kV a una subestación de la CFE. Muestra los pasos del trámite, lo que corre por la línea, lo que pide el Código de Red en una falla y quién paga cada obra.',
+        figura: 'interconexion',
+        partesTitulo: 'Los puntos clave de la conexión',
+        definiciones: [
+            { termino: 'Punto de interconexión', texto: 'El lugar donde la central se conecta a la red. Lo fija el CENACE en sus estudios, y ahí termina lo que es responsabilidad de la central y empieza lo de la CFE. Ahí va la medición.' },
+            { termino: 'Obras de interconexión', texto: 'Las que van de la central al punto de interconexión, incluida la bahía en la subestación. Las paga siempre quien conecta la central.' },
+            { termino: 'Obras de refuerzo', texto: 'Las que hacen falta en la red para que aguante la central nueva sin perder calidad ni confiabilidad. En la modalidad individual las paga la central; en la de planeación entran al programa de la red.' },
+            { termino: 'Código de Red', texto: 'Las reglas técnicas que deben cumplir las centrales: en qué frecuencia y voltaje siguen conectadas, cuántos reactivos dan y qué aguantan en una falla. La versión vigente es de 2021.' },
+            { termino: 'Hueco de voltaje', texto: 'Una caída brusca del voltaje por una falla en la red. Una central grande de inversores debe seguir conectada aunque el voltaje caiga a cero hasta 450 milésimas de segundo.' },
+            { termino: 'Factor de potencia', texto: 'Cuánto de lo que mueve la central es potencia activa, la que hace trabajo. Con 0.95, por cada 100 MW se entregan o se absorben unos 33 MVAr de reactivos, que sostienen el voltaje.' },
+        ],
+        claves: [
+            'Las centrales del caso, Proteus Solar y Tampico Solar, están en San Luis de la Paz y Doctor Mora, Guanajuato. Su estudio de interconexión, en una tesis de la UNAM de 2019, toma 90 MW en el punto de interconexión: la subestación de maniobras San José Iturbide de la CFE, a 115 kV y 4.76 km de distancia.',
+            'Para una central de 30 a 100 MW, los estudios del CENACE (indicativo, de impacto, de instalaciones y validación) toman 100 días hábiles y cuestan 1,784,111 pesos, según el manual del CENACE de 2018. La atención de la solicitud no debe pasar de 280 días.',
+            'Firmado el contrato, la central construye sus obras. Con el certificado de una unidad de inspección, el CENACE ordena conectar, y la conexión se hace en 72 horas (LSE, art. 48). Antes de operar hay 15 días de pruebas con al menos 240 horas al 100 % de carga.',
+            'A 90 MW, la línea de enlace lleva 452 amperes, la mitad de lo que aguanta, y pierde unos 212 kW. En este modelo, de los inversores a la red se pierde en total cerca de 1.2 MW, sobre todo en los transformadores.',
+            'El Código de Red pide poder dar o absorber reactivos con factor de potencia 0.95. Con eso, los inversores del caso tendrían que trabajar al 106 % de su capacidad y el voltaje en sus terminales subiría a 1.07: la tesis concluye que hace falta compensación.',
+            'La red del caso es fuerte: en una falla junto a la subestación da 13.9 kA, unas 31 veces lo que mueve la central. Una central de inversores de más de 30 MW debe aguantar el voltaje en cero hasta 450 ms y recuperar su potencia en 0.25 a 0.5 s.',
+            'La primera convocatoria de la SENER, de octubre de 2025, señaló 34 proyectos (5,970 MW) en las subestaciones que pide la planeación, con 11,990 millones de pesos de refuerzos de referencia. Desde la segunda, de mayo de 2026, una central renovable nueva debe traer almacenamiento de al menos 30 % de su capacidad por tres horas.',
+        ],
+        formulas: [
+            { expresion: 'Corriente = potencia ÷ (√3 × voltaje)', lectura: 'cuánta corriente lleva una línea trifásica para cierta potencia', ejemplo: '90 MW a 115 kV: 90,000 ÷ (1.732 × 115) = 452 A.' },
+            { expresion: 'Pérdidas = 3 × corriente² × resistencia', lectura: 'lo que se calienta la línea, en sus tres fases', ejemplo: '3 × 452² × 0.347 Ω = 212 kW, para 4.76 km de ACSR 795.' },
+            { expresion: 'Relación de cortocircuito = potencia de cortocircuito ÷ potencia de la central', lectura: 'qué tan fuerte es la red frente a la central: mientras más alta, menos se mueve el voltaje cuando la central cambia', ejemplo: '√3 × 115 kV × 13.9 kA = 2,770 MVA; ÷ 90 MW = 31.' },
+        ],
+        errores: [
+            { idea: 'Con el permiso de generación ya se puede conectar la central.', realidad: 'El permiso no aprueba la interconexión (RLSE, art. 27): hacen falta los estudios del CENACE, el contrato con la CFE, las obras, la inspección y las pruebas.' },
+            { idea: 'La CFE paga las obras para conectar cada central nueva.', realidad: 'Las obras de la central al punto de interconexión las paga siempre quien conecta. Los refuerzos de la red, según la modalidad: los paga la central o entran al programa de la red.' },
+            { idea: 'Si hay una falla en la red, lo seguro es que la central se desconecte.', realidad: 'Si las centrales salieran con cada falla, la red perdería generación justo cuando más la necesita. El Código de Red pide que sigan conectadas y den reactivos mientras el voltaje no baje de su curva.' },
+            { idea: 'Quien pide primero el permiso tiene preferencia para conectarse.', realidad: 'La ley dice que el permiso no es criterio para el orden de las solicitudes de interconexión (LSE, art. 49).' },
+        ],
+        partes: [
+            { nombre: 'Las centrales solares', texto: '281,316 paneles de 385 W.' },
+            { nombre: 'Inversores', texto: '922 de 105 kVA.' },
+            { nombre: 'Red colectora', texto: 'Cables enterrados de 34.5 kV.' },
+            { nombre: 'Subestación elevadora', texto: '67 + 33 MVA, de 34.5 a 115 kV.' },
+            { nombre: 'Compensación de reactivos', texto: 'Factor de potencia 0.95.' },
+            { nombre: 'Casa de control', texto: 'Protecciones y datos al CENACE.' },
+            { nombre: 'Línea de enlace', texto: '4.76 km a 115 kV.' },
+            { nombre: 'Punto de interconexión', texto: 'Subestación San José Iturbide.' },
+            { nombre: 'Medición', texto: 'Para cobrar y pagar.' },
+            { nombre: 'La red de 115 kV', texto: '13.9 kA de cortocircuito.' },
+            { nombre: 'Obras de refuerzo', texto: 'En la red, no en la central.' },
+            { nombre: 'Almacenamiento', texto: '30 % por 3 horas.' },
+            { nombre: 'CENACE', texto: 'Estudia, instruye y ordena.' },
+        ],
+        dato: 'Las centrales, sus transformadores, la línea, la subestación y el cortocircuito son los del estudio de la tesis de la UNAM; la prensa da a las centrales 72 y 36 MW, y la tesis estudia 90 MW en el punto de interconexión. Son de ejemplo la duración de la obra y de las pruebas, el banco de capacitores, la obra de refuerzo y cómo responde la central en una falla. El costo de la línea es el de los precios de aportaciones de la CFE de 2018. No es el plano de la central.',
+        ley: {
+            texto: 'La CFE debe interconectar una central cuando es técnicamente factible y una vez hechas las obras que fija el CENACE: firma el contrato en 10 días hábiles y conecta en 72 horas después de la orden. El permiso de generación no aprueba la interconexión ni da lugar en la fila. Conectar sin contrato se multa con 10 % de los ingresos del año anterior.',
+            siglas: ['LSE', 'RLSE', 'MODELOS-INTERCONEXION', 'CONV-GEN-1', 'CONV-GEN-2'],
+            ficha: {
+                elQue: 'Las Centrales Eléctricas de 0.7 MW o más necesitan permiso de generación (LSE, art. 19), pero el permiso no implica aprobar la interconexión (RLSE, art. 27). La Transportista y la Distribuidora están obligadas a interconectar las centrales que lo soliciten, cuando sea técnicamente factible y una vez completadas las obras de conexión, interconexión y refuerzo que determine el CENACE (LSE, art. 48). La CNE expide los modelos de contrato de interconexión (art. 11, fracc. XV); el vigente es de marzo de 2026.',
+                elComo: 'El CENACE define las características de la infraestructura requerida, instruye la celebración del contrato, que se firma en 10 días hábiles, y ordena la conexión física, que se hace en 72 horas (LSE, art. 48). El permiso no es criterio de prelación, y el interesado puede construir las obras a su costa o pedir que entren a los programas de ampliación (art. 49). El CENACE entrega sus modelos y estudios en 7 días naturales (art. 179). Debe publicar la capacidad máxima de interconexión sin refuerzos a los 20 días hábiles del PLADESE (RLSE, art. 67), y el solicitante paga solo su parte de la solución técnica más económica (art. 130). Conectar sin contrato se sanciona con 10 % de los ingresos brutos del año anterior (LSE, art. 184).',
+                articulos: [
+                    { siglas: 'LSE', refs: 'Arts. 11, fracc. XV, y 19', nota: 'Los modelos de contrato de interconexión y el permiso de generación.' },
+                    { siglas: 'LSE', refs: 'Arts. 48 a 50', nota: 'La obligación de interconectar, el contrato, la conexión física, la prelación y las aportaciones.' },
+                    { siglas: 'LSE', refs: 'Arts. 179 y 184', nota: 'Los estudios al interesado y la multa por conectar sin contrato.' },
+                    { siglas: 'RLSE', refs: 'Arts. 27, 67 y 130', nota: 'Permiso e interconexión, planeación vinculante y capacidad sin refuerzos, y la parte que paga el solicitante.' },
+                    { siglas: 'MODELOS-INTERCONEXION', refs: 'Cláusulas primera, décima primera y décima cuarta', nota: 'El punto de interconexión, la medición y las obras de la central.' },
+                    { siglas: 'CONV-GEN-1', refs: 'Anexo técnico', nota: 'Los 34 proyectos que pide la planeación y sus refuerzos de referencia.' },
+                    { siglas: 'CONV-GEN-2', refs: 'Numeral 1.2.1, fracc. II', nota: 'Almacenamiento de 30 % de la capacidad por tres horas.' },
+                ],
+            },
+        },
+        tramites: ['generacion'],
+        mapa: { texto: 'Ver las líneas de transmisión en el mapa de permisos, en Capas', hash: '#mapa-permisos' },
+        preguntas: [
+            { pregunta: '¿Quién fija el punto de interconexión de una central nueva?', opciones: ['La empresa dueña de la central', 'El CENACE, en sus estudios', 'El municipio'], correcta: 1 },
+            { pregunta: '¿Quién paga la línea que une la central con la red?', opciones: ['La CFE', 'Quien conecta la central', 'Los usuarios en su recibo'], correcta: 1 },
+            { pregunta: '¿Cuánto tiempo hay para hacer la conexión física después de la orden del CENACE?', opciones: ['72 horas', 'Un año', '30 días'], correcta: 0 },
+            { pregunta: 'En una falla, ¿qué pide el Código de Red a una central grande de inversores?', opciones: ['Que se desconecte de inmediato', 'Que siga conectada mientras el voltaje no baje de su curva', 'Que suba su potencia al doble'], correcta: 1 },
+            { pregunta: '¿Para qué sirve un banco de capacitores en la subestación de la central?', opciones: ['Para guardar energía de noche', 'Para dar reactivos y quitarles carga a los inversores', 'Para medir la energía'], correcta: 1 },
+        ],
+        fuentes: [
+            ...FUENTES_INTERCONEXION,
+            LSE,
+            RLSE,
+        ],
+        revisado: null,
+    },
+    {
         id: 'mercado-cenace',
         nivel: 4,
         antes: ['transformador', 'ciclo-combinado', 'fotovoltaica'],
@@ -2506,8 +2593,8 @@ export const HILO_SECTOR = {
             {
                 num: 'V',
                 titulo: 'El mercado y la ley',
-                desc: 'Cómo el CENACE decide qué centrales operan y a qué precio, cuánto pagas en tu recibo y quién pone la diferencia, y quién vigila que se cumpla la regla 54 / 46: la SENER, la CNE y la CFE.',
-                ids: ['mercado-cenace', 'tarifas-recibo', 'planeacion-desarrollo-mixto'],
+                desc: 'Cómo se conecta una central nueva a la red y quién paga cada obra, cómo el CENACE decide qué centrales operan y a qué precio, cuánto pagas en tu recibo y quién pone la diferencia, y quién vigila que se cumpla la regla 54 / 46: la SENER, la CNE y la CFE.',
+                ids: ['interconexion', 'mercado-cenace', 'tarifas-recibo', 'planeacion-desarrollo-mixto'],
             },
         ],
     },
@@ -2609,7 +2696,13 @@ export const PUENTE_HILO = {
         eslabon: 'Eslabón 3 · Almacenamiento y flexibilidad de la red',
         fisica: 'Una batería no produce energía: guarda la del mediodía, cuando sobra el sol y es barata, y la entrega en la noche, cuando falta y es cara. Regresa unos 85 de cada 100 MWh.',
         regulacion: 'Los SAEE no asociados de 0.7 MW o más necesitan permiso de almacenamiento de la CNE (RLSE, art. 193); los de una central o de una fábrica, no. Con 3 horas o más pueden acreditar potencia (Disposiciones de SAEE, numeral 2.13.10).',
-        transicion: 'Con centrales, baterías y redes listas, ¿quién decide segundo a segundo cuál entra y a qué precio? Entramos al Nivel 4: el despacho del CENACE.',
+        transicion: 'Con centrales, baterías y redes listas, falta unirlas: ¿cómo se conecta una central nueva a la red, y quién paga las obras? Entramos al Nivel 4.',
+    },
+    interconexion: {
+        eslabon: 'Eslabón 4 · La conexión de una central nueva a la red',
+        fisica: 'Una línea lleva la energía de la central al punto de interconexión. Para no salirse de su rango, el voltaje se sostiene con reactivos, y en una falla la central debe seguir conectada mientras el voltaje no baje de la curva del Código de Red.',
+        regulacion: 'La CFE debe interconectar una central cuando es técnicamente factible y una vez hechas las obras que fija el CENACE (LSE, art. 48). El permiso de generación no aprueba la interconexión (RLSE, art. 27), y las obras de la central al punto las paga quien conecta.',
+        transicion: 'Ya conectada, la central no decide cuándo entra: lo decide el CENACE, segundo a segundo y por precio. Sigue el despacho del CENACE.',
     },
     'mercado-cenace': {
         eslabon: 'Eslabón 4 · Despacho económico y Precio Marginal Local (PML)',

@@ -28,5 +28,6 @@
   "saee": "Almacenamiento de energía (SAEE)",
   "tarifas": "Tarifas y recibo de luz",
   "cogeneracion": "Cogeneración",
-  "termicas": "Centrales térmicas"
+  "termicas": "Centrales térmicas",
+  "interconexion": "Cómo se conecta una central"
 }

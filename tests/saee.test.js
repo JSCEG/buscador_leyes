@@ -161,7 +161,8 @@ describe('El almacenamiento de energía (SAEE)', () => {
         expect(enFigura.map(f => f[2])).toEqual(c.partes.map(p => p.nombre));
         expect(c.revisado).toBeNull();
         expect(c.tramites).toContain('almacenamiento');
-        expect(PUENTE_HILO['almacenamiento-energia'].transicion).toContain('CENACE');
+        // la siguiente en la ruta es la conexión de una central nueva a la red
+        expect(PUENTE_HILO['almacenamiento-energia'].transicion).toContain('conecta');
     });
 
     it('la ficha cita artículos y numerales que sí dicen eso', () => {
