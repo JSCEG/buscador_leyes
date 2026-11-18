@@ -1,0 +1,303 @@
+{
+  "slug": "planeacion-vinculante",
+  "tema": "planeacion-vinculante",
+  "titulo": "¿Qué es la planeación vinculante?",
+  "descripcion": "Video explicativo de un minuto: la SENER planea el sector energético y sus planes son obligatorios.",
+  "revisado": "2026-11-18",
+  "poster": 10,
+  "voz": {
+    "nombre": "Cillian",
+    "modelo": "text2speech_v2 (elevenlabs)",
+    "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32",
+    "voice_type": "preset"
+  },
+  "estilo": {
+    "preset": "Hand Drawn",
+    "media_id": "a4ed35b7-c170-4e69-a203-1a6a0dd9fdb1",
+    "formula": "Hand-drawn pencil and ink illustration on plain off-white paper: loose sketchy black and graphite-grey lines, soft grey pencil hatching for shading, simple cartoon people with round heads, dot eyes and thin limbs, mostly greyscale with one single accent colour, a soft warm yellow, used only for electric light, calm uncluttered wide composition with generous white space, non-photorealistic. No text, no letters, no numbers, no words, no labels, no logos, no captions anywhere in the image."
+  },
+  "frases": [
+    {
+      "n": 1,
+      "texto": "Prendes un foco. ¿Quién decidió dónde se construyó la planta y por dónde pasa el cable?",
+      "audio": {
+        "job_id": "418f6ccd-dd84-4d2b-b90e-c9dd17e3879b",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062451_418f6ccd-dd84-4d2b-b90e-c9dd17e3879b.mp3"
+      }
+    },
+    {
+      "n": 2,
+      "texto": "En México, esa decisión sale de una especie de imprenta: la planeación vinculante.",
+      "audio": {
+        "job_id": "f84480b7-bed2-4ef2-b2dc-d99c69c7acfa",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062435_f84480b7-bed2-4ef2-b2dc-d99c69c7acfa.mp3"
+      }
+    },
+    {
+      "n": 3,
+      "texto": "Está a cargo de la Secretaría de Energía, la SENER, según la Ley de Planeación y Transición Energética.",
+      "fundamento": "LPTE, art. 2",
+      "audio": {
+        "job_id": "30a9d148-a4bc-4942-9572-e8c69cf0dead",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062436_30a9d148-a4bc-4942-9572-e8c69cf0dead.mp3"
+      }
+    },
+    {
+      "n": 4,
+      "texto": "Entra una idea: cuánta energía necesitará el país, y dónde.",
+      "audio": {
+        "job_id": "de18b8d3-f7ea-4588-853e-dd817cad1e99",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062435_de18b8d3-f7ea-4588-853e-dd817cad1e99.mp3"
+      }
+    },
+    {
+      "n": 5,
+      "texto": "Y salen cuadernos: la Estrategia, el Programa Sectorial de Energía y los planes de transición energética, de electricidad y de hidrocarburos.",
+      "subtitulo": "Y salen cuadernos: la Estrategia, el Programa Sectorial de Energía y los planes de transición energética (PLATEASE), de electricidad (PLADESE) y de hidrocarburos (PLADESHi).",
+      "fundamento": "LPTE, art. 21",
+      "audio": {
+        "job_id": "c4845981-5625-46fe-9fb5-d2b4d8774c56",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062436_c4845981-5625-46fe-9fb5-d2b4d8774c56.mp3"
+      }
+    },
+    {
+      "n": 6,
+      "texto": "Se publican en el Diario Oficial de la Federación. Y vinculante quiere decir que son obligatorios.",
+      "fundamento": "LPTE, art. 23; LSE, art. 12",
+      "audio": {
+        "job_id": "16716e49-4a6f-4192-8c06-d78bacb3c735",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062451_16716e49-4a6f-4192-8c06-d78bacb3c735.mp3"
+      }
+    },
+    {
+      "n": 7,
+      "texto": "Con el plan eléctrico, la SENER programa qué centrales se instalan y cuáles se retiran.",
+      "fundamento": "LSE, art. 12",
+      "audio": {
+        "job_id": "d79ef482-f72a-4c93-bb31-b7f0e8626ae6",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063354_d79ef482-f72a-4c93-bb31-b7f0e8626ae6.mp3"
+      }
+    },
+    {
+      "n": 8,
+      "texto": "La Comisión Nacional de Energía otorga los permisos con esos criterios.",
+      "subtitulo": "La Comisión Nacional de Energía (CNE) otorga los permisos con esos criterios.",
+      "fundamento": "LSE, art. 11",
+      "audio": {
+        "job_id": "c61ef0cb-5dd6-44b9-bfee-1d21c6e706fb",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062503_c61ef0cb-5dd6-44b9-bfee-1d21c6e706fb.mp3"
+      }
+    },
+    {
+      "n": 9,
+      "texto": "Y la SENER autoriza los programas con los que crecen la Red Nacional de Transmisión y las Redes Generales de Distribución.",
+      "subtitulo": "Y la SENER autoriza los programas con los que crecen la Red Nacional de Transmisión (RNT) y las Redes Generales de Distribución (RGD).",
+      "fundamento": "LSE, art. 13",
+      "audio": {
+        "job_id": "5a4ed04c-74c8-4048-9288-f96cedf781c5",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063508_5a4ed04c-74c8-4048-9288-f96cedf781c5.mp3"
+      }
+    },
+    {
+      "n": 10,
+      "texto": "En petróleo y gas pasa lo mismo, con su propio plan.",
+      "fundamento": "LSH, art. 8",
+      "audio": {
+        "job_id": "100aa34f-0acf-4cc6-94eb-7298e1fbd352",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062514_100aa34f-0acf-4cc6-94eb-7298e1fbd352.mp3"
+      }
+    },
+    {
+      "n": 11,
+      "texto": "Al final, todo el sector lee el mismo libro.",
+      "audio": {
+        "job_id": "ffff25a2-19d3-48d2-b519-7339034e66dc",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062514_ffff25a2-19d3-48d2-b519-7339034e66dc.mp3"
+      }
+    },
+    {
+      "n": 12,
+      "texto": "Consulta aquí los artículos que lo ordenan.",
+      "audio": {
+        "job_id": "8093b213-66c8-4d6c-afbc-bce813db6a07",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062435_8093b213-66c8-4d6c-afbc-bce813db6a07.mp3"
+      }
+    }
+  ],
+  "cuadros": [
+    {
+      "n": 1,
+      "frase": 1,
+      "tipo": "nuevo",
+      "escena": "Persona prende el foco en casa (clave de estilo)",
+      "job_id": "1e08cffd-c43a-4fce-b909-b5eb4fc8c94f",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_062834_1e08cffd-c43a-4fce-b909-b5eb4fc8c94f.png"
+    },
+    {
+      "n": 2,
+      "frase": 1,
+      "tipo": "nuevo",
+      "escena": "Postes y cables hacia una central, vistos por la ventana",
+      "job_id": "79b1c5c3-24af-45ba-b3be-0a52443a8660",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063122_79b1c5c3-24af-45ba-b3be-0a52443a8660.png"
+    },
+    {
+      "n": 3,
+      "frase": 1,
+      "tipo": "nuevo",
+      "escena": "Primer plano: la persona mira el foco, intrigada",
+      "job_id": "9f88da88-7c57-40b4-bf28-5b8b5107ee9c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063011_9f88da88-7c57-40b4-bf28-5b8b5107ee9c.png"
+    },
+    {
+      "n": 4,
+      "frase": 2,
+      "tipo": "nuevo",
+      "escena": "La imprenta en el taller",
+      "job_id": "9055239d-7452-4e37-ab2f-1005a63711dd",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063011_9055239d-7452-4e37-ab2f-1005a63711dd.png"
+    },
+    {
+      "n": 5,
+      "frase": 2,
+      "tipo": "edicion",
+      "base": 4,
+      "escena": "La rueda gira y sale la primera hoja",
+      "job_id": "3cf6befc-cb59-4f1b-9093-31557a3eb7a3",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063123_3cf6befc-cb59-4f1b-9093-31557a3eb7a3.png"
+    },
+    {
+      "n": 6,
+      "frase": 3,
+      "tipo": "nuevo",
+      "escena": "Funcionario mueve la imprenta; edificio de gobierno al fondo",
+      "job_id": "44143828-6eb5-42de-8a75-530e783a8e8d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063122_44143828-6eb5-42de-8a75-530e783a8e8d.png"
+    },
+    {
+      "n": 7,
+      "frase": 3,
+      "tipo": "nuevo",
+      "escena": "Manos abren el libro de la ley junto a la imprenta",
+      "job_id": "f72a2ddc-aa82-403e-9b16-0ee5c828db90",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063240_f72a2ddc-aa82-403e-9b16-0ee5c828db90.png"
+    },
+    {
+      "n": 8,
+      "frase": 4,
+      "tipo": "nuevo",
+      "escena": "Manos meten un mapa con alfileres a la tolva; foco como idea",
+      "job_id": "799c19d0-58cd-4bce-891c-a8c59d6c1746",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063242_799c19d0-58cd-4bce-891c-a8c59d6c1746.png"
+    },
+    {
+      "n": 9,
+      "frase": 4,
+      "tipo": "edicion",
+      "base": 8,
+      "escena": "El mapa entra y los rodillos giran",
+      "job_id": "01c667bc-7519-44ab-bed9-1a3517e677fc",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063425_01c667bc-7519-44ab-bed9-1a3517e677fc.png"
+    },
+    {
+      "n": 10,
+      "frase": 5,
+      "tipo": "nuevo",
+      "escena": "Cinco cuadernos: brújula, engrane, hoja, rayo, gota",
+      "job_id": "b31950b0-4acc-4537-bac0-2341365951b9",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063240_b31950b0-4acc-4537-bac0-2341365951b9.png"
+    },
+    {
+      "n": 11,
+      "frase": 5,
+      "tipo": "edicion",
+      "base": 10,
+      "escena": "Una mano levanta el cuaderno del rayo",
+      "job_id": "d7201a7a-875d-4d3a-ad13-e6449a28ae22",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063425_d7201a7a-875d-4d3a-ad13-e6449a28ae22.png"
+    },
+    {
+      "n": 12,
+      "frase": 6,
+      "tipo": "nuevo",
+      "escena": "Sello sobre el periódico oficial",
+      "job_id": "f73dbbe5-bc22-46f4-acb2-adca118131bf",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063122_f73dbbe5-bc22-46f4-acb2-adca118131bf.png"
+    },
+    {
+      "n": 13,
+      "frase": 6,
+      "tipo": "edicion",
+      "base": 12,
+      "escena": "El sello se levanta y deja la marca",
+      "job_id": "8afd9962-6f49-413c-a51f-c9119d2aa00c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063425_8afd9962-6f49-413c-a51f-c9119d2aa00c.png"
+    },
+    {
+      "n": 14,
+      "frase": 7,
+      "tipo": "nuevo",
+      "escena": "Mesa de planeación con centrales a escala",
+      "job_id": "66dd3232-ea35-4db7-801f-1b6a94e48e89",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063425_66dd3232-ea35-4db7-801f-1b6a94e48e89.png"
+    },
+    {
+      "n": 15,
+      "frase": 7,
+      "tipo": "edicion",
+      "base": 14,
+      "escena": "Se retira la fábrica vieja de la mesa",
+      "job_id": "50022226-4832-4570-b80c-757bd37dde24",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063525_50022226-4832-4570-b80c-757bd37dde24.png"
+    },
+    {
+      "n": 16,
+      "frase": 8,
+      "tipo": "nuevo",
+      "escena": "Funcionario firma un permiso guiado por el cuaderno del rayo",
+      "job_id": "a2215f44-954b-4bd2-a445-affe1d96887d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063525_a2215f44-954b-4bd2-a445-affe1d96887d.png"
+    },
+    {
+      "n": 17,
+      "frase": 9,
+      "tipo": "nuevo",
+      "escena": "Torres de transmisión; trabajadores levantan una nueva",
+      "job_id": "15e9f4cb-93a9-4df7-8831-04dccd064efa",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063012_15e9f4cb-93a9-4df7-8831-04dccd064efa.png"
+    },
+    {
+      "n": 18,
+      "frase": 9,
+      "tipo": "edicion",
+      "base": 17,
+      "escena": "Los cables llegan al pueblo y se encienden las ventanas",
+      "job_id": "c9e95cc7-c101-41d0-b09f-9bc59c03849a",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063525_c9e95cc7-c101-41d0-b09f-9bc59c03849a.png"
+    },
+    {
+      "n": 19,
+      "frase": 10,
+      "tipo": "nuevo",
+      "escena": "Plataforma marina, ducto y refinería; cuaderno de la gota",
+      "job_id": "e0c736f5-b986-4e95-90fc-d4af22b62d66",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063525_e0c736f5-b986-4e95-90fc-d4af22b62d66.png"
+    },
+    {
+      "n": 20,
+      "frase": 11,
+      "tipo": "nuevo",
+      "escena": "Cinco personas leen el mismo libro",
+      "job_id": "f3dbea22-6985-4c10-b227-faaa04147e3f",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063626_f3dbea22-6985-4c10-b227-faaa04147e3f.png"
+    },
+    {
+      "n": 21,
+      "frase": 12,
+      "tipo": "nuevo",
+      "escena": "La persona lee en su laptop, en casa",
+      "job_id": "2da3d3d4-fc37-41a2-a9ff-724dca49b074",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3G4IU4UNzOvBe9alnnuj9gF2tlG/hf_20261118_063011_2da3d3d4-fc37-41a2-a9ff-724dca49b074.png"
+    }
+  ]
+}
