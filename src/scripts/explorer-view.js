@@ -7,6 +7,7 @@ import { collectionIcon } from '../lib/collection-icons.js';
 import { friendlyCatalog } from '../lib/friendly-text.js';
 import { openExplorerEditor } from './explorer-editor.js';
 import { onAuthChange } from './auth.js';
+import { TEMA_VIDEOS } from '../data/temas-videos.js';
 import '../styles/explorer.css';
 
 const views = new WeakMap();
@@ -295,12 +296,27 @@ function drawEntity(state, focusHeading = false) {
   }
 }
 
+// Video explicativo del recorrido, si tiene. No se reproduce solo ni se descarga hasta que lo piden.
+function videoMarkup(topicId) {
+  const video = TEMA_VIDEOS[topicId];
+  if (!video) return '';
+  return `<figure class="nx-video">
+    <video controls playsinline preload="none" poster="${esc(video.poster)}" aria-label="${esc(video.titulo)}">
+      <source src="${esc(video.src)}" type="video/mp4">
+      <track kind="subtitles" src="${esc(video.subtitulos)}" srclang="es" label="Español" default>
+    </video>
+    <figcaption class="nx-video-text"><p class="nx-eyebrow">Video · ${esc(video.duracion)}</p><p class="nx-video-title">${esc(video.titulo)}</p><p class="nx-muted">${esc(video.resumen)}</p>
+      <details class="nx-video-sources"><summary>Fundamentos citados<span class="nx-count">${video.fundamentos.length}</span></summary><ul>${video.fundamentos.map(ref => `<li><button class="nx-link" data-video-article="${esc(ref.articleId)}">${esc(ref.label)} ${icon('arrow')}</button></li>`).join('')}</ul></details>
+    </figcaption></figure>`;
+}
+
 function drawTopic(state, focusHeading = false) {
   const overview = topicOverview(state.catalog, state.topicId);
   const target = state.container.querySelector('[data-explorer-topic]');
   if (!target) return;
   if (!overview) { target.innerHTML = '<p class="nx-empty">Todavía no hay recorridos publicados.</p>'; return; }
   target.innerHTML = `<div class="nx-topic-head"><p class="nx-eyebrow">Recorrido</p><p class="nx-topic-name">${esc(overview.topic.title)}</p><span class="nx-muted">${countLabel(overview.members, 'entidad', 'entidades')}${overview.typedRelations.length ? ` · ${countLabel(overview.typedRelations.length, 'relación', 'relaciones')}` : ''}</span></div>
+    ${videoMarkup(overview.topic.id)}
     ${graphMarkup(state)}
     <div class="nx-topic-body">${membersMarkup(state, overview)}<div class="nx-ficha-wrap" data-explorer-detail>${fichaMarkup(state, overview)}</div></div>`;
   state.container.querySelectorAll('[data-select-topic]').forEach(button => {
@@ -416,6 +432,9 @@ function draw(state) {
     } else if (button.hasAttribute('data-open-article')) {
       const list = getEntityReferences(state.catalog, state.entityId).map(ref => ref.articleId).filter(Boolean);
       document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id: button.dataset.openArticle, list: [...new Set([...list, button.dataset.openArticle])] } }));
+    } else if (button.hasAttribute('data-video-article')) {
+      const list = (TEMA_VIDEOS[state.topicId]?.fundamentos || []).map(ref => ref.articleId);
+      document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id: button.dataset.videoArticle, list } }));
     } else if (button.hasAttribute('data-return-published')) { state.catalog = state.publishedCatalog; state.preview = false; draw(state); notifyRoute(state); }
     else if (button.hasAttribute('data-edit-catalog')) {
       try {

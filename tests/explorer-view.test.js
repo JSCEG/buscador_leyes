@@ -146,3 +146,36 @@ describe('análisis conectado al acervo', () => {
     expect(container.querySelectorAll('.nx-theme-detail [data-open-law]')).toHaveLength(2);
   });
 });
+
+describe('video explicativo del recorrido', () => {
+  it('shows the planeación vinculante video without autoplay, with subtitles and citable sources', async () => {
+    const openArticle = vi.fn();
+    document.addEventListener('analisis:openArticle', openArticle);
+    await renderAnalisisView(container, { topicId: 'planeacion-vinculante' });
+    const video = container.querySelector('[data-explorer-topic] .nx-video video');
+    expect(video).not.toBeNull();
+    expect(video.hasAttribute('autoplay')).toBe(false);
+    expect(video.getAttribute('preload')).toBe('none');
+    expect(video.getAttribute('poster')).toBe('/video/planeacion-vinculante.webp');
+    expect(video.querySelector('source').getAttribute('src')).toMatch(/^https:\/\/cdn\.sassoapps\.com\/.+\/planeacion-vinculante-[0-9a-f]{10}\.mp4$/);
+    const track = video.querySelector('track');
+    expect(track.getAttribute('src')).toBe('/video/planeacion-vinculante.vtt');
+    expect(track.getAttribute('srclang')).toBe('es');
+    const sources = container.querySelectorAll('[data-video-article]');
+    expect(sources).toHaveLength(7);
+    sources[1].click();
+    const detail = openArticle.mock.calls[0][0].detail;
+    expect(detail.id).toBe(sources[1].dataset.videoArticle);
+    expect(detail.list).toHaveLength(7);
+    document.removeEventListener('analisis:openArticle', openArticle);
+  });
+
+  it('keeps the video when an entity changes and leaves topics without a video untouched', async () => {
+    await renderAnalisisView(container, { topicId: 'planeacion-vinculante' });
+    const video = container.querySelector('.nx-video video');
+    container.querySelector('[data-select-entity="pladese"]').click();
+    expect(container.querySelector('.nx-video video')).toBe(video);
+    container.querySelector('.nx-topic-card[data-select-topic="consejos-comites"]').click();
+    expect(container.querySelector('.nx-video')).toBeNull();
+  });
+});

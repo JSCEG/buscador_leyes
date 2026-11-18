@@ -29,6 +29,11 @@ node scripts/build-intro-3d.mjs           # el búho mecánico anterior → publ
 ```
 `video-intro/` (HyperFrames) es la intro anterior en 2D.
 
+Videos explicativos de Temas Transversales: guion, voz (Higgsfield, una toma por frase) y cuadros dibujados en `video-temas/<slug>/guion.json`; el script los baja a `.local/video-temas/`, los arma con FFmpeg, deja el mp4 en `.local/` y escribe `public/video/<slug>.vtt` (subtítulos exactos del guion) y `.webp` (póster). El mp4 no va al repo: `--subir` lo manda a R2 (`recursos-apps`, `cdn.sassoapps.com/buscador-juridico/video-temas/`) con una huella en el nombre; esa dirección va en `src/data/temas-videos.js`, que liga cada video a su recorrido por id (no en el catálogo, que puede venir de Supabase). No pidas la dirección antes de subir: la CDN guarda el 404 hasta cuatro horas.
+```bash
+node scripts/build-video-tema.mjs planeacion-vinculante --subir
+```
+
 `buho-bio/` por dentro: `motor.js` es el búho sobre un `<canvas>` y no arma interfaz; `node buho-bio/build.mjs` deja en `.local/buho-bio/` la toma para calcar y `buho-bio.js`, el paquete del lienzo de diseño.
 
 Variables de entorno requeridas (archivo `.env`):
