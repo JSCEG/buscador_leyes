@@ -2,13 +2,15 @@
 // Viven en código y no en el catálogo: el catálogo puede venir de Supabase y editarse
 // desde el panel, y una edición no debe borrar el video.
 // Guion, voz y cuadros: video-temas/<slug>/guion.json. Se arma con
-// `node scripts/build-video-tema.mjs <slug>`, que escribe los tres archivos de public/video/.
+// `node scripts/build-video-tema.mjs <slug> --subir`: el mp4 va al CDN (R2 `recursos-apps`,
+// cdn.sassoapps.com) con una huella del contenido en el nombre, y los subtítulos y el póster
+// a public/video/ (los subtítulos deben ser del mismo sitio para que el reproductor los cargue).
 export const TEMA_VIDEOS = {
   'planeacion-vinculante': {
     titulo: '¿Qué es la planeación vinculante?',
     resumen: 'Quién planea el sector energético, qué planes publica y por qué todos deben seguirlos.',
     duracion: '1:20',
-    src: '/video/planeacion-vinculante.mp4',
+    src: 'https://cdn.sassoapps.com/buscador-juridico/video-temas/planeacion-vinculante-7cf66bfc3b.mp4',
     poster: '/video/planeacion-vinculante.webp',
     subtitulos: '/video/planeacion-vinculante.vtt',
     fundamentos: [

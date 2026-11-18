@@ -7,10 +7,12 @@ const publico = ruta => path.join(process.cwd(), 'public', ruta);
 
 describe('videos de Temas Transversales', () => {
   for (const [tema, video] of Object.entries(TEMA_VIDEOS)) {
-    it(`${tema}: los tres archivos existen y caben en Cloudflare Pages`, () => {
-      const mp4 = fs.statSync(publico(video.src));
-      expect(mp4.size).toBeGreaterThan(1_000_000);
-      expect(mp4.size).toBeLessThan(25 * 1024 * 1024);
+    it(`${tema}: el video sale del CDN con huella y el póster y los subtítulos del sitio`, () => {
+      const slug = path.basename(video.subtitulos, '.vtt');
+      expect(video.src).toMatch(new RegExp(`^https://cdn\\.sassoapps\\.com/buscador-juridico/video-temas/${slug}-[0-9a-f]{10}\\.mp4$`));
+      expect(fs.existsSync(publico(`/video/${slug}.mp4`))).toBe(false);
+      expect(video.poster.startsWith('/video/')).toBe(true);
+      expect(video.subtitulos.startsWith('/video/')).toBe(true);
       expect(fs.statSync(publico(video.poster)).size).toBeGreaterThan(10_000);
       const vtt = fs.readFileSync(publico(video.subtitulos), 'utf8');
       expect(vtt.startsWith('WEBVTT')).toBe(true);
@@ -18,7 +20,7 @@ describe('videos de Temas Transversales', () => {
     });
 
     it(`${tema}: los subtítulos dicen lo mismo que el guion`, () => {
-      const slug = path.basename(video.src, '.mp4');
+      const slug = path.basename(video.subtitulos, '.vtt');
       const guion = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'video-temas', slug, 'guion.json'), 'utf8'));
       const vtt = fs.readFileSync(publico(video.subtitulos), 'utf8');
       const texto = vtt.split(/\r?\n/).filter(l => l && l !== 'WEBVTT' && !l.includes('-->')).join(' ');

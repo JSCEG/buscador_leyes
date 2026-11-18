@@ -3,12 +3,16 @@
 // Baja la voz (una toma por frase) y los cuadros dibujados a .local/video-temas/<slug>/,
 // deja cada cuadro el tiempo de su frase con un acercamiento lento (los cuadros de
 // «edicion» siguen el mismo movimiento que su base, para que se lean como animación)
-// y escribe en public/video/:
-//   <slug>.mp4  video 16:9 con voz
-//   <slug>.vtt  subtítulos con el texto exacto del guion (siglas incluidas)
-//   <slug>.webp póster
-// Uso: node scripts/build-video-tema.mjs planeacion-vinculante [--ancho 1920]
+// y escribe:
+//   .local/video-temas/<slug>/<slug>.mp4  video 16:9 con voz (va al CDN, no al repo)
+//   public/video/<slug>.vtt               subtítulos con el texto exacto del guion
+//   public/video/<slug>.webp              póster
+// Con --subir manda el mp4 a R2 (`recursos-apps`, que sirve cdn.sassoapps.com) como
+// <slug>-<huella>.mp4 con caché de un año, y dice la dirección que va en src/data/temas-videos.js.
+// No pidas esa dirección antes de subirlo: la CDN guarda el 404 hasta cuatro horas.
+// Uso: node scripts/build-video-tema.mjs planeacion-vinculante [--ancho 1920] [--subir]
 import { execFileSync } from 'node:child_process';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,6 +31,10 @@ const PAUSA = 0.35;       // entre frases
 const COLA = 1.8;         // después de la última
 const FUNDIDO = 0.4;      // cruce entre escenas
 const CRF = process.env.CRF || '27';
+const SUBIR = args.includes('--subir');
+const CUBETA = 'recursos-apps';
+const CARPETA_CDN = 'buscador-juridico/video-temas';
+const CDN = 'https://cdn.sassoapps.com';
 
 const guion = JSON.parse(fs.readFileSync(path.join(ROOT, 'video-temas', slug, 'guion.json'), 'utf8'));
 const TRABAJO = path.join(ROOT, '.local', 'video-temas', slug);
@@ -130,7 +138,7 @@ const clips = escenas.map((e, i) => {
 
 // ── Video final: cruces entre escenas, fundido desde y hacia el papel ─────────
 fs.mkdirSync(SALIDA, { recursive: true });
-const mp4 = path.join(SALIDA, `${slug}.mp4`);
+const mp4 = path.join(TRABAJO, `${slug}.mp4`);
 const entradas = clips.flatMap(f => ['-i', f]);
 let cadena = '[0:v]';
 const filtros = [];
@@ -212,4 +220,21 @@ fs.writeFileSync(path.join(TRABAJO, 'linea.json'), JSON.stringify({
     cuadros: cuadros.map(c => ({ n: c.n, frase: c.frase, inicio: +c.inicio.toFixed(3), fin: +c.fin.toFixed(3) })),
 }, null, 2));
 const mb = (f) => (fs.statSync(f).size / 1048576).toFixed(1);
-console.log(`${slug}: ${TOTAL.toFixed(1)} s, ${cuadros.length} cuadros en ${escenas.length} escenas, ${ANCHO}x${ALTO}, ${mb(mp4)} MB → public/video/${slug}.mp4 (+ .vtt, .webp)`);
+console.log(`${slug}: ${TOTAL.toFixed(1)} s, ${cuadros.length} cuadros en ${escenas.length} escenas, ${ANCHO}x${ALTO}, ${mb(mp4)} MB → ${path.relative(ROOT, mp4)} (+ public/video/${slug}.vtt y .webp)`);
+
+// ── CDN: nombre con huella, para que la caché de un año nunca sirva una versión vieja ──
+const huella = crypto.createHash('sha256').update(fs.readFileSync(mp4)).digest('hex').slice(0, 10);
+const clave = `${CARPETA_CDN}/${slug}-${huella}.mp4`;
+if (SUBIR) {
+    // En Windows npx es un .cmd y solo corre con shell: hay que entrecomillar la ruta (lleva espacios).
+    const win = process.platform === 'win32';
+    const arg = (a) => (win && /[\s,]/.test(a) ? `"${a}"` : a);
+    execFileSync('npx', ['--yes', 'wrangler@4', 'r2', 'object', 'put', `${CUBETA}/${clave}`, '--file', mp4,
+        '--content-type', 'video/mp4', '--cache-control', 'public, max-age=31536000, immutable', '--remote'].map(arg),
+    { stdio: 'inherit', shell: win });
+    const r = await fetch(`${CDN}/${clave}`, { method: 'HEAD' });
+    if (!r.ok) throw new Error(`La CDN no entrega ${CDN}/${clave}: ${r.status}`);
+    console.log(`Subido. En src/data/temas-videos.js: src: '${CDN}/${clave}'`);
+} else {
+    console.log(`Sin subir. Con --subir quedaría en ${CDN}/${clave}`);
+}

@@ -157,7 +157,7 @@ describe('video explicativo del recorrido', () => {
     expect(video.hasAttribute('autoplay')).toBe(false);
     expect(video.getAttribute('preload')).toBe('none');
     expect(video.getAttribute('poster')).toBe('/video/planeacion-vinculante.webp');
-    expect(video.querySelector('source').getAttribute('src')).toBe('/video/planeacion-vinculante.mp4');
+    expect(video.querySelector('source').getAttribute('src')).toMatch(/^https:\/\/cdn\.sassoapps\.com\/.+\/planeacion-vinculante-[0-9a-f]{10}\.mp4$/);
     const track = video.querySelector('track');
     expect(track.getAttribute('src')).toBe('/video/planeacion-vinculante.vtt');
     expect(track.getAttribute('srclang')).toBe('es');
