@@ -18,6 +18,20 @@ const TYPES = ['Otorgamiento de permiso', 'Modificación de permiso', 'Terminaci
 const MODES = ['Electricidad', 'Energía eléctrica', 'Hidrocarburos', 'Petrolíferos', 'Gas natural', 'Gas licuado de petróleo', 'Mercados de Hidrocarburos', 'Otros'];
 const FIRST_YEAR = 1995;
 
+/** Note on a detail built from a permit's file because the CNE search has not indexed the resolution yet. */
+export function resolutionSourceNote(row = {}) {
+    return row.desdeExpediente
+        ? '<p class="pm-note">La CNE aún no la publica en su buscador: se muestra lo que trae el expediente del permiso. El proemio y el fundamento aparecerán cuando la indexe.</p>'
+        : '';
+}
+
+/** Body of «Ninguna resolución coincide»: when a number was searched, a recent one may not be indexed yet. */
+export function noResultsHint(numero = '') {
+    return String(numero).trim()
+        ? 'Si es reciente, puede que la CNE aún no la publique en su buscador: ábrela desde el expediente de su permiso, en «Detalle y fundamento».'
+        : 'Prueba con menos filtros o con una parte del texto.';
+}
+
 export function renderResolutionsView(container, catalog = [], { resolution = null, filters = null, onRoute = () => {} } = {}) {
     const state = { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', start: 0 };
     let rows = [];
@@ -67,7 +81,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
     function drawList() {
         if (!rows.length) {
             status.textContent = '';
-            body.innerHTML = emptyState({ title: 'Ninguna resolución coincide', body: 'Prueba con menos filtros o con una parte del texto.' });
+            body.innerHTML = emptyState({ title: 'Ninguna resolución coincide', body: noResultsHint(state.numero) });
             return;
         }
         const to = state.start + rows.length;
@@ -155,14 +169,15 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
                     <div><dt>Sesión</dt><dd>${esc(row.NumeroActa || '—')}</dd></div>
                     ${row.Ponente ? `<div><dt>Ponente</dt><dd>${esc(row.Ponente)}</dd></div>` : ''}
                 </dl>
+                ${resolutionSourceNote(row)}
                 ${permits.length ? `<section class="pm-section" aria-labelledby="pm-res-permits">
                     <h3 id="pm-res-permits">Permisos que menciona</h3>
                     <div class="pm-laws">${permits.map(n => `<a class="pm-law" href="${permitsHash({ permit: n })}"><b>Permiso</b><span>${esc(n)}</span></a>`).join('')}</div>
                 </section>` : ''}
                 <section class="pm-section" aria-labelledby="pm-res-found">
                     <h3 id="pm-res-found">Fundamento legal</h3>
-                    <p class="pm-note">Artículos que cita la resolución. Los que están en el acervo se pueden abrir.</p>
-                    <div class="pm-found-host">${foundationHtml(row.Fundamentacion || '')}</div>
+                    <p class="pm-note">${row.desdeExpediente ? 'Se verá cuando la CNE publique la resolución en su buscador; mientras, consúltalo en el PDF.' : 'Artículos que cita la resolución. Los que están en el acervo se pueden abrir.'}</p>
+                    <div class="pm-found-host">${row.desdeExpediente ? '' : foundationHtml(row.Fundamentacion || '')}</div>
                     ${guide ? guideLinkHtml(guide, 'Guía de este tipo de trámite') : ''}
                 </section>
             </article>`;

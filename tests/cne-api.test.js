@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, fetchPermit, permitsHash, parseFoundation, permitNumbersIn, resolutionsQueryUrl, searchResolutions } from '../src/lib/cne-api.js';
+import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, fetchPermit, permitsHash, parseFoundation, permitNumbersIn, resolutionsQueryUrl, searchResolutions, fetchResolution, fetchResolutions, resolutionNumberVariants } from '../src/lib/cne-api.js';
 
 describe('permitKind', () => {
     it('reads sector and activity from the permit number', () => {
@@ -125,5 +125,75 @@ describe('resolutions', () => {
     it('finds permit numbers in a proemio, not resolution numbers', () => {
         expect(permitNumbersIn('MODIFICACIÓN DEL PERMISO E/1439/AUT/2015 POR EL NÚMERO CNE/E/1439/GEN/2015; VER CNE/RES/062/2026'))
             .toEqual(['E/1439/AUT/2015', 'CNE/E/1439/GEN/2015']);
+    });
+});
+
+// Búsqueda por número de resolución (bug 2026-11-18): la CNE compara el número como texto literal y lo guarda a veces
+// con ceros a la izquierda (RES/096/2021) y desde 2025 con «CNE/»; el número que trae el permiso suele ir sin ceros.
+describe('resolution numbers', () => {
+    afterEach(() => vi.unstubAllGlobals());
+
+    // The number filter (sSearch_1) a request to the resolutions search carries.
+    const numberFilter = url => JSON.parse(new URL(url).searchParams.get('aoData')).find(p => p.name === 'sSearch_1').value;
+    // A registry that only answers the numbers in `rows` (by exact filter), like the CNE's literal substring search.
+    const stubRegistry = rows => {
+        const fetchMock = vi.fn(async url => {
+            const found = rows[numberFilter(url)] || [];
+            return { ok: true, json: async () => ({ iTotalDisplayRecords: found.length, aaData: found }) };
+        });
+        vi.stubGlobal('fetch', fetchMock);
+        return fetchMock;
+    };
+
+    it('gives the canonical number and the zero-padded forms the CNE uses', () => {
+        expect(resolutionNumberVariants('RES/96/2021')).toEqual(['RES/96/2021', 'RES/096/2021', 'RES/0096/2021']);
+        expect(resolutionNumberVariants('RES/33/2012')).toEqual(['RES/33/2012', 'RES/033/2012', 'RES/0033/2012']);
+        expect(resolutionNumberVariants('res-96-2021')).toEqual(['RES/96/2021', 'RES/096/2021', 'RES/0096/2021']);
+    });
+    it('normalizes «Núm.», spaces, dashes, the CNE prefix, extra zeros and two-digit years', () => {
+        expect(resolutionNumberVariants('Núm. RES/2526/2024')).toEqual(['RES/2526/2024']);
+        expect(resolutionNumberVariants('CNE / RES / 1135 / 2026')).toEqual(['RES/1135/2026']);
+        expect(resolutionNumberVariants('cne-res-1135-2026')).toEqual(['RES/1135/2026']);
+        expect(resolutionNumberVariants('RES/02526/2024')).toEqual(['RES/2526/2024']);
+        expect(resolutionNumberVariants('RES/2526/24')).toEqual(['RES/2526/2024']);
+        expect(resolutionNumberVariants('RES/12/98')).toEqual(['RES/12/1998', 'RES/012/1998', 'RES/0012/1998']);
+    });
+    it('leaves a partial number or free text as it is, trimmed', () => {
+        expect(resolutionNumberVariants('RES/062')).toEqual(['RES/062']);
+        expect(resolutionNumberVariants('  texto libre ')).toEqual(['texto libre']);
+    });
+    it('retries the search with the zero-padded forms when the exact number finds nothing', async () => {
+        const fetchMock = stubRegistry({ 'RES/096/2021': [{ NumeroResolucion: 'RES/096/2021' }] });
+        const result = await searchResolutions({ numero: 'RES/96/2021' }, { length: 10 });
+        expect(result).toEqual({ total: 1, rows: [{ NumeroResolucion: 'RES/096/2021' }] });
+        expect(fetchMock.mock.calls.map(([url]) => numberFilter(url))).toEqual(['RES/96/2021', 'RES/096/2021']);
+    });
+    it('opens the resolution the CNE stores with zeros from the number without them', async () => {
+        stubRegistry({ 'RES/033/2012': [{ NumeroResolucion: 'RES/033/2012' }] });
+        expect((await fetchResolution('RES/33/2012'))?.NumeroResolucion).toBe('RES/033/2012');
+    });
+    it('prefers the resolution whose CNE prefix matches the one written', async () => {
+        const both = [{ NumeroResolucion: 'RES/045/2025' }, { NumeroResolucion: 'CNE/RES/045/2025' }];
+        stubRegistry({ 'RES/045/2025': both });
+        expect((await fetchResolution('CNE/RES/045/2025'))?.NumeroResolucion).toBe('CNE/RES/045/2025');
+        expect((await fetchResolution('Núm. CNE/RES/45/2025'))?.NumeroResolucion).toBe('CNE/RES/045/2025');
+        expect((await fetchResolution('RES/045/2025'))?.NumeroResolucion).toBe('RES/045/2025');
+        expect(await fetchResolution('RES/046/2025')).toBeNull();
+    });
+    // The CNE search indexes new resolutions late (on 2026-11-18 it reached CNE/RES/1317/2026) while the permit's
+    // file already lists them: «Detalle y fundamento» must open them with what the file gave.
+    it('opens a resolution the search has not indexed yet with the data of a permit file already loaded', async () => {
+        vi.stubGlobal('fetch', vi.fn(async url => ({
+            ok: true,
+            json: async () => (String(url).includes('resolucionId=81785')
+                ? [{ Acta: 'ACT/031/2026', ExpedienteId: 81785, FechaResolucion: '12/11/2026', TipoResolucion: 'Modificación de permiso', Modalidad: 'Energía eléctrica', NumeroResolucion: 'CNE/RES/1324/2026', REsolucionId: 30411 }]
+                : { iTotalDisplayRecords: 0, aaData: [] }),
+        })));
+        expect(await fetchResolution('CNE/RES/1324/2026')).toBeNull();
+        await fetchResolutions(81785);
+        expect(await fetchResolution('CNE/RES/1324/2026')).toEqual({
+            NumeroResolucion: 'CNE/RES/1324/2026', ResolucionId: 30411, FechaResolucion: '12/11/2026', NumeroActa: 'ACT/031/2026',
+            ModalidadResolucion: 'Energía eléctrica', TipoResolucion: 'Modificación de permiso', desdeExpediente: true,
+        });
     });
 });

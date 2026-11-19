@@ -148,10 +148,27 @@ export async function fetchPermit(numero) {
     return rows.find(row => String(row.Numero).trim().toUpperCase() === wanted) || null;
 }
 
+// Resolutions seen in permit files, by canonical number, in the search's shape. The CNE search indexes new ones
+// late (on 2026-11-18 it reached CNE/RES/1317/2026) while the file already lists them, so «Detalle y fundamento»
+// can open them before the search has them (without proemio or foundation).
+const fromFiles = new Map();
+const resolutionKey = text => resolutionNumberVariants(text)[0].toUpperCase();
+
 /** Resolutions of a permit's file (expediente), oldest first. */
 export async function fetchResolutions(expedienteId) {
     const rows = await request(`${PUBLIC_API}api/Resoluciones/?resolucionId=${encodeURIComponent(expedienteId)}&tipoEntidad=2`);
-    return (Array.isArray(rows) ? rows : []).map(row => ({ ...row, sortKey: resolutionSortKey(row) })).sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+    const list = (Array.isArray(rows) ? rows : []).map(row => ({ ...row, sortKey: resolutionSortKey(row) })).sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+    for (const row of list) {
+        if (!row.NumeroResolucion) continue;
+        const key = resolutionKey(row.NumeroResolucion);
+        const seen = fromFiles.get(key) || [];
+        if (!seen.some(item => item.NumeroResolucion === row.NumeroResolucion)) seen.push({
+            NumeroResolucion: row.NumeroResolucion, ResolucionId: row.REsolucionId, FechaResolucion: row.FechaResolucion,
+            TipoResolucion: row.TipoResolucion, ModalidadResolucion: row.Modalidad, NumeroActa: row.Acta, desdeExpediente: true,
+        });
+        fromFiles.set(key, seen);
+    }
+    return list;
 }
 
 // The resolutions search (https://www.cne.gob.mx/Resoluciones/) uses the legacy DataTables
@@ -182,8 +199,30 @@ export function resolutionsQueryUrl(filters = {}, { start = 0, length = 20 } = {
  * @returns {{ total: number, rows: Array }}
  */
 export async function searchResolutions(filters = {}, { start = 0, length = 20 } = {}) {
-    const data = await request(resolutionsQueryUrl(filters, { start, length }));
-    return { total: Number(data?.iTotalDisplayRecords) || 0, rows: Array.isArray(data?.aaData) ? data.aaData : [] };
+    // The CNE compares the number as literal text: try the canonical form and, if it finds nothing, its
+    // zero-padded forms (the CNE stores some as RES/096/2021 while permits cite them as RES/96/2021).
+    const variants = filters.numero ? resolutionNumberVariants(filters.numero) : [''];
+    let result = { total: 0, rows: [] };
+    for (const numero of variants) {
+        const data = await request(resolutionsQueryUrl({ ...filters, numero }, { start, length }));
+        result = { total: Number(data?.iTotalDisplayRecords) || 0, rows: Array.isArray(data?.aaData) ? data.aaData : [] };
+        if (result.total) break;
+    }
+    return result;
+}
+
+/**
+ * A resolution number as the CNE may store it: the canonical RES/<consecutive>/<year> (no "CNE/", no leading
+ * zeros, four-digit year, even when written with spaces, dashes or "Núm.") and, for short consecutives, the
+ * zero-padded forms. Text that is not a whole resolution number comes back as it is, trimmed.
+ */
+export function resolutionNumberVariants(text = '') {
+    const value = String(text).trim();
+    const match = /RES\s*[/\-\s]\s*0*(\d{1,5})\s*[/\-\s]\s*(\d{4}|\d{2})\b/i.exec(value);
+    if (!match) return [value];
+    const [, consecutive, rawYear] = match;
+    const year = rawYear.length === 2 ? `${Number(rawYear) >= 90 ? 19 : 20}${rawYear}` : rawYear;
+    return [...new Set([consecutive, consecutive.padStart(3, '0'), consecutive.padStart(4, '0')])].map(n => `RES/${n}/${year}`);
 }
 
 /** How many resolutions match, asking the registry for a single row. */
@@ -194,8 +233,12 @@ export async function countResolutions(filters = {}) {
 /** One resolution by its exact number, or null. */
 export async function fetchResolution(numero) {
     const { rows } = await searchResolutions({ numero }, { length: 10 });
-    const wanted = String(numero).trim().toUpperCase();
-    return rows.find(row => String(row.NumeroResolucion).trim().toUpperCase() === wanted) || null;
+    const wanted = resolutionKey(numero), withCne = /CNE/i.test(String(numero));
+    const indexed = rows.filter(row => resolutionKey(row.NumeroResolucion) === wanted);
+    // If the search has not indexed it yet, the one a permit's file already brought.
+    const same = indexed.length ? indexed : fromFiles.get(wanted) || [];
+    // In 2025 RES/… (CRE) and CNE/RES/… (CNE) coexisted: prefer the one whose prefix matches the one written.
+    return same.find(row => /^\s*CNE/i.test(String(row.NumeroResolucion)) === withCne) || same[0] || null;
 }
 
 /** Permit numbers quoted in a resolution's text (e.g. "CNE/E/1439/GEN/2015", "PL/24035/TRA/OM/2022"). */
