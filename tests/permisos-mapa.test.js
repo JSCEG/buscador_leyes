@@ -1,6 +1,6 @@
 // Permisos CNE sobre Azure: /api/permisos/* primero, /api/mapa/* de respaldo, y nunca la CNE en vivo.
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { buscarPermisos, buscarPermisosMapa, ligasPermiso, ligasDePermiso, ligasDeMuchos, numeroNorm, desdeBuscar, permisoPorNumero } from '../src/lib/permisos-mapa.js';
+import { RECIENTES, buscarPermisos, buscarPermisosMapa, ligasPermiso, ligasDePermiso, ligasDeMuchos, numeroNorm, desdeBuscar, permisoPorNumero } from '../src/lib/permisos-mapa.js';
 
 const json = (body, status = 200) => ({ ok: status >= 200 && status < 300, status, json: async () => body });
 
@@ -49,7 +49,7 @@ describe('buscarPermisos', () => {
         await expect(buscarPermisos({ titular: 'so' })).rejects.toMatchObject({ status: 401 });
         expect(calls.some(u => u.startsWith('/api/mapa/'))).toBe(false);
     });
-    it('without text lists the permits of the current year, highest number first, paged', async () => {
+    it('without text lists the latest permits, highest number first, paged', async () => {
         const anio = new Date().getFullYear();
         const filas = [
             { tipo: 'gas-lp', numeroPermiso: `CNE/LP/596/EXP/ES/${anio}`, nombre: 'B', vigente: true },
@@ -59,13 +59,24 @@ describe('buscarPermisos', () => {
         ];
         const calls = stubRoutes([[/\/api\/mapa\/buscar/, { total: filas.length, resultados: filas }]]);
         const r = await buscarPermisos({ pageSize: 2 });
-        expect(r.recientes).toBe(anio);
+        expect(r.recientes).toBe(true);
         expect(r.total).toBe(3);
         expect(r.rows.map(f => f.numero)).toEqual([`CNE/E/1001/GEN/${anio}`, `CNE/LP/856/EXP/ES/${anio}`]);
         expect(decodeURIComponent(calls[0])).toContain(`q=/${anio}&limite=500`);
         expect((await buscarPermisos({ start: 2, pageSize: 2 })).rows.map(f => f.numero)).toEqual([`CNE/LP/596/EXP/ES/${anio}`]);
         expect((await buscarPermisos({ tabla: 'gas-lp', estatus: 'Vigente' })).rows.map(f => f.numero)).toEqual([`CNE/LP/596/EXP/ES/${anio}`]);
         expect(noCne(calls)).toBe(true);
+    });
+    it('without text stops at the latest RECIENTES, reading last year only when this one falls short', async () => {
+        const anio = new Date().getFullYear();
+        const fila = (n, a) => ({ tipo: 'electricidad', numeroPermiso: `E/${n}/GEN/${a}`, nombre: 'X', vigente: true });
+        const porAnio = { [anio]: Array.from({ length: 60 }, (_, i) => fila(i + 1, anio)), [anio - 1]: Array.from({ length: 80 }, (_, i) => fila(i + 1, anio - 1)) };
+        const calls = stubRoutes([[/\/api\/mapa\/buscar/, url => json({ resultados: porAnio[decodeURIComponent(url).match(/q=\/(\d{4})/)[1]] || [] })]]);
+        const r = await buscarPermisos({ pageSize: 20 });
+        expect(r.total).toBe(RECIENTES);
+        expect(r.rows[0].numero).toBe(`E/60/GEN/${anio}`);
+        expect((await buscarPermisos({ start: 60, pageSize: 20 })).rows[0].numero).toBe(`E/80/GEN/${anio - 1}`);
+        expect(calls.filter(u => u.includes(`${anio - 1}`))).toHaveLength(2);
     });
     it('opens one permit by its number, ignoring «CNE/» and zeros', async () => {
         stubRoutes([[/\/api\/permisos\/permisos/, { total: 2, data: [{ numero: 'CNE/E/1439/GEN/2015-A' }, { numero: 'CNE/E/1439/GEN/2015', numeroNorm: 'E/1439/GEN/2015' }] }]]);

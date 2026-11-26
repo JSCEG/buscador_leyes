@@ -32,7 +32,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     root.innerHTML = `
         <form class="pm-form" role="search" novalidate>
             <label><span>Número de permiso</span><input name="numero" placeholder="Ej. E/1439/GEN/2015" autocomplete="off"></label>
-            <label><span>Titular o texto</span><input name="titular" placeholder="Razón social o palabra clave" autocomplete="off"></label>
+            <label><span>Razón social</span><input name="titular" placeholder="Ej. Eólica Cerritos" autocomplete="off"></label>
             <label><span>Actividad</span><select name="tabla"><option value="">Todas las actividades CNE</option>${CNE_SOURCES.map(s => `<option value="${esc(s.key)}">${esc(s.label)}</option>`).join('')}</select></label>
             <label><span>Estatus</span><select name="estatus"><option value="">Todos</option><option value="Vigente">Vigente</option><option value="No vigente">No vigente</option></select></label>
             <div class="pm-form-actions">
@@ -84,17 +84,17 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     function drawList() {
         if (!rows.length && recientes) {
             status.textContent = '';
-            body.innerHTML = emptyState({ title: `Sin permisos de ${recientes} con estos filtros`, body: 'Busca por número de permiso o por parte del nombre del titular (mínimo 2 caracteres).' });
+            body.innerHTML = emptyState({ title: 'Sin permisos recientes con estos filtros', body: 'Busca por número de permiso o por razón social (mínimo 2 caracteres).' });
             return;
         }
         if (!rows.length) {
             status.textContent = '';
-            body.innerHTML = emptyState({ title: 'Ningún permiso coincide', body: 'Revisa el número o prueba con una parte del nombre del titular (mínimo 2 caracteres).' });
+            body.innerHTML = emptyState({ title: 'Ningún permiso coincide', body: 'Revisa el número o prueba con una parte de la razón social (mínimo 2 caracteres).' });
             return;
         }
         const from = state.start + 1;
         const to = state.start + rows.length;
-        status.textContent = `${recientes ? `Más recientes · otorgados en ${recientes} · ` : ''}${number(from)}–${number(to)} de ${plural(total, 'permiso', 'permisos')}`;
+        status.textContent = `${recientes ? 'Últimos permisos otorgados · ' : ''}${number(from)}–${number(to)} de ${plural(total, 'permiso', 'permisos')}`;
         body.innerHTML = `
             <ul class="pm-list">${rows.map(card).join('')}</ul>
             <nav class="pm-pager" aria-label="Páginas de resultados">

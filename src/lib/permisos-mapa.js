@@ -7,6 +7,9 @@
 import { getPermisos } from './permisos-api.js';
 
 // Tablas que /api/mapa/buscar no cubre: se leen completas con /api/mapa/cne-lista y se filtran aquí.
+/** Cuántos permisos lista la pestaña sin texto. */
+export const RECIENTES = 100;
+
 export const TABLAS_LISTA = ['transporte', 'comercializacion', 'infraestructura', 'suministro', 'terceros'];
 
 const fold = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().trim();
@@ -57,7 +60,7 @@ async function getJson(path, signal) {
 
 /**
  * Búsqueda de permisos CNE en Azure por /api/mapa. Devuelve { total, rows } con la página pedida.
- * Sin texto (menos de 2 caracteres) y fuera de las tablas de lista, los recientes: { …, recientes: año }.
+ * Sin texto (menos de 2 caracteres) y fuera de las tablas de lista, los últimos RECIENTES permisos: { …, recientes: true }.
  */
 export async function buscarPermisosMapa({ numero = '', titular = '', tabla = '', estatus = '', start = 0, pageSize = 20 } = {}, { signal } = {}) {
     const termino = String(numero || titular || '').trim();
@@ -66,14 +69,19 @@ export async function buscarPermisosMapa({ numero = '', titular = '', tabla = ''
         const body = await getJson(`cne-lista?tabla=${tabla}${estatus ? `&estatus=${encodeURIComponent(estatus)}` : ''}`, signal);
         filas = (body?.filas || []).map(r => desdeLista(r, tabla));
     } else if (termino.length < 2) {
-        // Sin texto: los permisos del año en curso (el año va al final del número; la búsqueda no trae la fecha),
-        // del consecutivo más alto al más bajo.
+        // Sin texto: los últimos RECIENTES permisos. La búsqueda no trae la fecha, así que se leen por el año que va al
+        // final del número (el año en curso y, si no alcanza, el anterior), del consecutivo más alto al más bajo.
         const anio = new Date().getFullYear();
-        const body = await getJson(`buscar?q=${encodeURIComponent(`/${anio}`)}&limite=500`, signal);
-        const recientes = (body?.resultados || []).map(desdeBuscar).filter(f => f.numeroNorm.endsWith(`/${anio}`))
-            .sort((a, b) => consecutivo(b.numeroNorm) - consecutivo(a.numeroNorm) || a.numeroNorm.localeCompare(b.numeroNorm));
-        const todas = filtrar(recientes, { tabla, estatus });
-        return { total: todas.length, rows: todas.slice(start, start + pageSize), recientes: anio };
+        let todas = [];
+        for (const a of [anio, anio - 1]) {
+            const body = await getJson(`buscar?q=${encodeURIComponent(`/${a}`)}&limite=500`, signal);
+            const delAnio = (body?.resultados || []).map(desdeBuscar).filter(f => f.numeroNorm.endsWith(`/${a}`))
+                .sort((x, y) => consecutivo(y.numeroNorm) - consecutivo(x.numeroNorm) || x.numeroNorm.localeCompare(y.numeroNorm));
+            todas = todas.concat(filtrar(delAnio, { tabla, estatus }));
+            if (todas.length >= RECIENTES) break;
+        }
+        todas = todas.slice(0, RECIENTES);
+        return { total: todas.length, rows: todas.slice(start, start + pageSize), recientes: true };
     } else {
         const body = await getJson(`buscar?q=${encodeURIComponent(termino)}&limite=500`, signal);
         filas = (body?.resultados || []).map(desdeBuscar);
@@ -84,7 +92,7 @@ export async function buscarPermisosMapa({ numero = '', titular = '', tabla = ''
 
 /**
  * Búsqueda de la pestaña Permisos: /api/permisos/permisos (autoridad CNE) y, si falla (salvo 401), el respaldo
- * /api/mapa. Sin texto, los recientes del año (sólo el respaldo sabe ordenarlos por consecutivo).
+ * /api/mapa. Sin texto, los últimos RECIENTES (sólo el respaldo sabe ordenarlos por consecutivo).
  */
 export async function buscarPermisos({ numero = '', titular = '', tabla = '', estatus = '', start = 0, pageSize = 20 } = {}, { signal } = {}) {
     const num = String(numero || '').trim();
