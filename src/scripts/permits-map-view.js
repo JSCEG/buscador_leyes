@@ -10,8 +10,8 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
-import { fetchPermit, permitsHash, permitKind } from '../lib/cne-api.js';
-import { popupCounts, registryCounts } from '../lib/permit-popup.js';
+import { permitsHash, permitKind } from '../lib/cne-api.js';
+import { popupCounts, conteosDeLigas } from '../lib/permit-popup.js';
 import { permitType, typeTile } from '../lib/permit-type.js';
 import { infraType, infraIcon } from '../lib/infra-icons.js';
 import { cnePanelHtml, mountCneTables } from './cne-tables-layer.js';
@@ -269,7 +269,6 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
                     if (isMobile()) { marker.closePopup(); openSheet(m, p, lat, lon); return; }
                     marker.setIcon(iconFor(m, p, true)).setZIndexOffset(1000);
                     fillLinks(ev.popup, p.numeroPermiso);
-                    fillCounts(ev.popup, p.numeroPermiso);
                 });
                 marker.on('popupclose', () => marker.setIcon(iconFor(m, p)).setZIndexOffset(0));
                 // Hover brings the marker to the front without changing its size.
@@ -400,7 +399,7 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
             <p class="pmm-pop-kicker">${typeTile(permitType(p.numeroPermiso, { technology: p.tecnologia }), { size: 'ch' })} ${esc(type.label)}</p>
             <strong>${esc(p.nombre)}</strong>
             <p class="pmm-pop-num">${esc(p.numeroPermiso)}</p>
-            ${popupCounts(countsCache.get(p.numeroPermiso))}
+            ${popupCounts(conteosDeLigas(linksCache.get(p.numeroPermiso)))}
             <dl>${rows.join('')}</dl>
             <div class="pmm-pop-actions">
                 <a class="pm-btn pm-btn-primary" href="${permitsHash({ permit: p.numeroPermiso })}">Ficha y normativa</a>
@@ -421,14 +420,6 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         const resolutions = l.resoluciones || [];
         return link(l.ligaPermiso, 'Ver permiso') + link(l.ligaResolucion, 'Ver resolución')
             + (resolutions.length > 1 ? `<details class="pmm-res"><summary>Resoluciones (${resolutions.length})</summary><ul>${resolutions.map(r => `<li><a href="${esc(r.liga)}" target="_blank" rel="noopener">${esc(r.numero)}</a></li>`).join('')}</ul></details>` : '');
-    }
-    // Counts come from the public registry when the window opens; without them the window still works.
-    const countsCache = new Map();
-    const askCounts = registryCounts(fetchPermit, countsCache);
-    async function fillCounts(popup, numero) {
-        if (countsCache.has(numero)) return;
-        await askCounts(numero);
-        if (popup.isOpen() && countsCache.get(numero)) popup.update();
     }
     async function fillLinks(popup, numero) {
         if (linksCache.has(numero)) return;
@@ -453,7 +444,6 @@ export async function renderPermitsMapView(container, { permit = null } = {}) {
         // Point above the sheet, as in Google Maps: shift by half the sheet height.
         const target = map.project([lat, lon]).add([0, sheet.offsetHeight / 2]);
         map.panTo(map.unproject(target), { animate: true });
-        if (!countsCache.has(p.numeroPermiso)) askCounts(p.numeroPermiso).then(() => { if (sheetKey === p.numeroPermiso && !sheet.hidden) render(); });
         if (!linksCache.has(p.numeroPermiso)) {
             try { linksCache.set(p.numeroPermiso, await getJson(`ligas?numero=${encodeURIComponent(p.numeroPermiso)}`)); } catch { linksCache.set(p.numeroPermiso, null); }
             if (sheetKey === p.numeroPermiso && !sheet.hidden) render();

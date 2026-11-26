@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { authorityTag, renderCneView } from '../src/scripts/cne-view.js';
 import { resetTechIndexForTests } from '../src/lib/permit-type.js';
-import { searchPermits } from '../src/lib/cne-api.js';
+import { buscarPermisos } from '../src/lib/permisos-mapa.js';
 
 vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
-vi.mock('../src/lib/cne-api.js', async original => ({ ...(await original()), searchPermits: vi.fn(), fetchResolutions: vi.fn(async () => []) }));
+vi.mock('../src/lib/permisos-mapa.js', async original => ({ ...(await original()), buscarPermisos: vi.fn(), ligasDePermiso: vi.fn(async () => ({ encontrado: false, resoluciones: [] })) }));
 
-const row = { PermisoId: 1, Numero: 'E/1/GEN/2020', Persona: 'Titular', Estado: 'Operando', ResolucionesAsociadas: 2 };
+const row = { tabla: 'electricidad', numero: 'E/1/GEN/2020', razonSocial: 'Titular', estatus: 'Vigente', ligaPermiso: 'https://drive.cne.gob.mx/x' };
 const tick = () => new Promise(resolve => setTimeout(resolve, 5));
 
 describe('permits section', () => {
@@ -16,7 +16,7 @@ describe('permits section', () => {
     document.body.innerHTML = '<div id="h"></div>';
     host = document.getElementById('h');
     resetTechIndexForTests();
-    searchPermits.mockResolvedValue({ rows: [row], total: 1 });
+    buscarPermisos.mockResolvedValue({ rows: [row], total: 1 });
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('sin red'); }));
   });
   afterEach(() => { view?.destroy(); view = null; vi.unstubAllGlobals(); });

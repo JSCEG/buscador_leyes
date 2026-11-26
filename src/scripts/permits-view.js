@@ -1,24 +1,29 @@
 /**
- * Permisos CNE (#permisos): search the Comisión Nacional de Energía public registry and read a
- * permit's card — data and status, its resolutions in order, annexes and the acervo instruments
- * that regulate it. Data comes live from the registry (src/lib/cne-api.js).
+ * Permisos CNE (#permisos): search the CNE permits and read a permit's card — data and status, the official
+ * PDFs of its title and resolutions, and the acervo instruments that regulate it. Data comes from the Azure
+ * tables the permits bot updates every week (src/lib/permisos-mapa.js): /api/permisos/* first, /api/mapa/* as
+ * the fallback. The CNE registry is never called live (since 26/11/2026 it requires reCAPTCHA).
  */
 import { loadTechIndex, permitType, techOf, typeTile } from '../lib/permit-type.js';
 import { emptyState } from '../lib/empty-art.js';
 import { pinButtonHtml } from './desk-view.js';
 import { tramiteForPermit } from '../data/tramites.js';
-import { permitPinId, permitsHash, searchPermits, fetchResolutions, fetchAnnexes, permitPdfUrl, resolutionPdfUrl, annexUrl, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
-import { esc, fold, number, plural, dateLabel, skeleton, failure as failureFor, lawBySiglas, PDF_ICON, guideLinkHtml } from './cne-shared.js';
+import { permitPinId, permitsHash, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
+import { SOURCES, SOURCE, getPermisos, stateLabel, marketLabel, statusLabel, localDate, detailFields } from '../lib/permisos-api.js';
+import { buscarPermisos, ligasPermiso, ligasDePermiso, numeroNorm, https as safeHttps } from '../lib/permisos-mapa.js';
+import { esc, number, plural, skeleton, failure as failureFor, lawBySiglas, PDF_ICON, guideLinkHtml } from './cne-shared.js';
 
 const PAGE = 20;
 const TECH_WAIT_MS = 1500;
+const CNE_SOURCES = SOURCES.filter(s => s.autoridad === 'CNE');
 const failure = what => failureFor(what, REGISTRY_URL);
-const ESTADO_TONE = { 'Operando': 'ok', 'Por iniciar operaciones': 'info', 'En Construcción': 'info', 'Por iniciar obras': 'info' };
+const ESTADO_TONE = { Vigente: 'ok', Operando: 'ok', 'Por iniciar operaciones': 'info', 'En Construcción': 'info', 'Por iniciar obras': 'info' };
 
 export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {}, permit = null, onRoute = () => {} } = {}) {
-    const state = { numero: '', titular: '', proyecto: '', start: 0 };
+    const state = { numero: '', titular: '', tabla: '', estatus: '', start: 0 };
     let rows = [];
     let total = 0;
+    let recientes = null;
     let request = 0;
     let alive = true;
 
@@ -27,8 +32,9 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     root.innerHTML = `
         <form class="pm-form" role="search" novalidate>
             <label><span>Número de permiso</span><input name="numero" placeholder="Ej. E/1439/GEN/2015" autocomplete="off"></label>
-            <label><span>Titular</span><input name="titular" placeholder="Razón social" autocomplete="off"></label>
-            <label><span>Proyecto</span><input name="proyecto" placeholder="Nombre o alias" autocomplete="off"></label>
+            <label><span>Razón social</span><input name="titular" placeholder="Ej. Eólica Cerritos" autocomplete="off"></label>
+            <label><span>Actividad</span><select name="tabla"><option value="">Todas las actividades CNE</option>${CNE_SOURCES.map(s => `<option value="${esc(s.key)}">${esc(s.label)}</option>`).join('')}</select></label>
+            <label><span>Estatus</span><select name="estatus"><option value="">Todos</option><option value="Vigente">Vigente</option><option value="No vigente">No vigente</option></select></label>
             <div class="pm-form-actions">
                 <button type="submit" class="pm-btn pm-btn-primary">Buscar</button>
                 <button type="reset" class="pm-btn">Limpiar</button>
@@ -36,7 +42,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         </form>
         <p class="pm-status" role="status" aria-live="polite"></p>
         <div class="pm-body"></div>
-        <p class="pm-source">Fuente: <a href="${REGISTRY_URL}" target="_blank" rel="noopener">Registro Público de la CNE</a>. La información se consulta en vivo y puede cambiar; para efectos legales, consulta el documento oficial.</p>`;
+        <p class="pm-source">Fuente: <a href="${REGISTRY_URL}" target="_blank" rel="noopener">Registro Público de la CNE</a>, en la copia que se actualiza cada semana. Para efectos legales, consulta el documento oficial en PDF.</p>`;
     container.replaceChildren(root);
 
     const form = root.querySelector('.pm-form');
@@ -49,54 +55,78 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         techIndex ??= await Promise.race([loadTechIndex(), new Promise(resolve => setTimeout(() => resolve(null), TECH_WAIT_MS))]);
     };
 
+    const rowKey = row => `${row.tabla || 'cne'}:${row.id || row.numero}`;
+    const pdfTool = (url, numero) => `<a class="pm-card-pdf" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Título de permiso ${esc(numero)} en PDF" title="Título de permiso (PDF)">PDF</a>`;
+
     function estadoChip(estado) {
         return estado ? `<span class="pm-estado is-${ESTADO_TONE[estado] || 'off'}">${esc(estado)}</span>` : '';
     }
 
     function card(row) {
-        const type = permitType(row.Numero, { technology: techOf(techIndex, row.Numero) });
-        const { sector, activity } = permitKind(row.Numero);
+        const type = permitType(row.numero, { technology: techOf(techIndex, row.numero) });
+        const { sector, activity } = permitKind(row.numero);
+        const pdf = safeHttps(row.ligaPermiso) || safeHttps(row.fuenteUrl);
+        const entidad = row.efId && row.efId !== '--' ? stateLabel(row.efId, row.entidad) : (row.entidad || '');
+        const fuente = SOURCE[row.tabla]?.label || marketLabel(row);
         return `
-            <li><button type="button" class="pm-card" data-permit="${esc(row.PermisoId)}" data-sector="${sector?.id || 'otro'}">
-                <span class="pm-card-top"><span class="pm-num">${esc(row.Numero)}</span>${estadoChip(row.Estado)}</span>
-                <span class="pm-tipo">${typeTile(type)}<span class="pm-tipo-t">${esc(type.label)}</span></span>
-                <span class="pm-holder">${esc(row.Persona || 'Titular sin dato')}</span>
-                ${row.AliasProyecto ? `<span class="pm-alias">${esc(row.AliasProyecto)}</span>` : ''}
+            <li><button type="button" class="pm-card" data-permit="${esc(rowKey(row))}" data-sector="${sector?.id || 'otro'}">
+                <span class="pm-card-top"><span class="pm-num">${esc(row.numero)}</span>${estadoChip(row.estatus || row.estatusFuente)}</span>
+                <span class="pm-tipo">${typeTile(type)}<span class="pm-tipo-t">${esc(row.tipo || type.label)}</span></span>
+                <span class="pm-holder">${esc(row.razonSocial || 'Titular sin dato')}</span>
                 <span class="pm-meta">
-                    ${sector ? `<span class="pm-tag">${esc(sector.label)}${activity ? ` · ${esc(activity)}` : ''}</span>` : ''}
-                    <span>${plural(row.ResolucionesAsociadas, 'resolución', 'resoluciones')}</span>
-                    ${row.AnexosAsociados ? `<span>${plural(row.AnexosAsociados, 'anexo', 'anexos')}</span>` : ''}
+                    ${sector ? `<span class="pm-tag">${esc(sector.label)}${activity ? ` · ${esc(activity)}` : ''}</span>` : fuente ? `<span class="pm-tag">${esc(fuente)}</span>` : ''}
+                    ${entidad ? `<span>${esc(entidad)}</span>` : ''}
                 </span>
             </button>
-            <span class="pm-card-tools">${pinButtonHtml(permitPinId(row.Numero), { compact: true })}<a class="pm-card-pdf" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener" aria-label="Título de permiso ${esc(row.Numero)} en PDF" title="Título de permiso (PDF)">PDF</a></span></li>`;
+            <span class="pm-card-tools">${pinButtonHtml(permitPinId(row.numero), { compact: true })}${pdf ? pdfTool(pdf, row.numero) : ''}</span></li>`;
     }
 
     function drawList() {
+        if (!rows.length && recientes) {
+            status.textContent = '';
+            body.innerHTML = emptyState({ title: 'Sin permisos recientes con estos filtros', body: 'Busca por número de permiso o por razón social (mínimo 2 caracteres).' });
+            return;
+        }
         if (!rows.length) {
             status.textContent = '';
-            body.innerHTML = emptyState({ title: 'Ningún permiso coincide', body: 'Revisa el número o prueba con una parte del nombre del titular.' });
+            body.innerHTML = emptyState({ title: 'Ningún permiso coincide', body: 'Revisa el número o prueba con una parte de la razón social (mínimo 2 caracteres).' });
             return;
         }
         const from = state.start + 1;
         const to = state.start + rows.length;
-        status.textContent = `${number(from)}–${number(to)} de ${plural(total, 'permiso', 'permisos')}`;
+        status.textContent = `${recientes ? 'Últimos permisos otorgados · ' : ''}${number(from)}–${number(to)} de ${plural(total, 'permiso', 'permisos')}`;
         body.innerHTML = `
             <ul class="pm-list">${rows.map(card).join('')}</ul>
             <nav class="pm-pager" aria-label="Páginas de resultados">
                 <button type="button" class="pm-btn" data-page="-1" ${state.start ? '' : 'disabled'}>← Anteriores</button>
                 <button type="button" class="pm-btn" data-page="1" ${to < total ? '' : 'disabled'}>Siguientes →</button>
             </nav>`;
+        llenarPdfs();
+    }
+
+    // Rows of the /api/mapa/buscar fallback come without the title link: it is asked to Ligas_Permisos_CNE only for the visible page.
+    function llenarPdfs() {
+        const pagina = rows;
+        for (const row of pagina.filter(r => !safeHttps(r.ligaPermiso) && !safeHttps(r.fuenteUrl) && r.numero)) {
+            ligasPermiso(row.numero).then(l => {
+                if (!alive || rows !== pagina || !l.ligaPermiso) return;
+                row.ligaPermiso = l.ligaPermiso;
+                const boton = [...body.querySelectorAll('[data-permit]')].find(b => b.dataset.permit === rowKey(row));
+                boton?.closest('li')?.querySelector('.pm-card-tools')?.insertAdjacentHTML('beforeend', pdfTool(l.ligaPermiso, row.numero));
+            }).catch(() => {});
+        }
     }
 
     async function load() {
         const id = ++request;
         body.innerHTML = skeleton(6);
-        status.textContent = 'Consultando el registro de la CNE…';
+        status.textContent = 'Consultando los permisos de la CNE…';
         try {
-            const [result] = await Promise.all([searchPermits({ ...state, length: PAGE }), waitForTechIndex()]);
+            const [result] = await Promise.all([buscarPermisos({ ...state, pageSize: PAGE }), waitForTechIndex()]);
             if (!alive || id !== request) return;
             rows = result.rows;
             total = result.total;
+            recientes = result.recientes || null;
             drawList();
         } catch {
             if (!alive || id !== request) return;
@@ -114,41 +144,39 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
     }
 
     async function showPermit(row, { updateRoute = true } = {}) {
-        if (updateRoute) onRoute(row.Numero);
-        const { sector, activity } = permitKind(row.Numero);
+        if (updateRoute) onRoute(row.numero);
+        const { sector, activity } = permitKind(row.numero);
         const laws = lawsFor(sector);
-        const guide = tramiteForPermit(row.Numero);
+        const guide = tramiteForPermit(row.numero);
+        const pdfInicial = safeHttps(row.ligaPermiso) || safeHttps(row.fuenteUrl);
+        const entidad = row.efId && row.efId !== '--' ? stateLabel(row.efId, row.entidad) : (row.entidad || '');
+        const lugar = [entidad, row.municipio].filter(Boolean).join(' · ');
         status.textContent = '';
         body.innerHTML = `
             <article class="pm-detail" data-sector="${sector?.id || 'otro'}" aria-labelledby="pm-detail-title">
                 <button type="button" class="pm-back">← Volver a los resultados</button>
                 <div class="pm-detail-head">
-                    <div class="pm-card-top"><span class="pm-num">${sector ? `${esc(sector.label)}${activity ? ` · ${esc(activity)}` : ''}` : 'Permiso'}</span>${estadoChip(row.Estado)}</div>
-                    <h2 id="pm-detail-title">${esc(row.Numero)}</h2>
-                    <p class="pm-holder">${esc(row.Persona || 'Titular sin dato')}</p>
-                    ${row.AliasProyecto ? `<p class="pm-alias">${esc(row.AliasProyecto)}</p>` : ''}
+                    <div class="pm-card-top"><span class="pm-num">${sector ? `${esc(sector.label)}${activity ? ` · ${esc(activity)}` : ''}` : esc(SOURCE[row.tabla]?.label || 'Permiso')}</span>${estadoChip(row.estatus || row.estatusFuente)}</div>
+                    <h2 id="pm-detail-title">${esc(row.numero)}</h2>
+                    <p class="pm-holder">${esc(row.razonSocial || 'Titular sin dato')}</p>
+                    ${row.tipo ? `<p class="pm-alias">${esc(row.tipo)}</p>` : ''}
                     <div class="pm-actions">
-                        <a class="pm-btn pm-btn-primary" href="${permitPdfUrl(row.PermisoId)}" target="_blank" rel="noopener">Ver título de permiso (PDF)</a>
-                        ${pinButtonHtml(permitPinId(row.Numero))}
+                        <a class="pm-btn pm-btn-primary" data-pdf-link href="${esc(pdfInicial || '#')}" target="_blank" rel="noopener"${pdfInicial ? '' : ' hidden'}>Ver título de permiso (PDF)</a>
+                        ${pinButtonHtml(permitPinId(row.numero))}
                         <button type="button" class="pm-btn pm-share">Copiar enlace</button>
-                        <a class="pm-btn" href="${permitsHash({ mapPermit: row.Numero })}" data-map-link hidden><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ver en el mapa</a>
+                        <a class="pm-btn" href="${permitsHash({ mapPermit: row.numero })}" data-map-link${row.coordenadasValidas ? '' : ' hidden'}><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ver en el mapa</a>
                     </div>
                 </div>
-                <dl class="pm-facts">
-                    <div><dt>Expediente</dt><dd>${esc(row.NumeroExpediente || '—')}</dd></div>
-                    <div><dt>Último acuse</dt><dd>${esc(dateLabel(row.FechaAcuse) || '—')}</dd></div>
-                    <div><dt>Resoluciones</dt><dd>${number(row.ResolucionesAsociadas)}</dd></div>
-                    <div><dt>Oficios</dt><dd>${number(row.OficiosAsociados)}</dd></div>
-                    <div><dt>Acuerdos</dt><dd>${number(row.AcuerdosAsociados)}</dd></div>
-                    <div><dt>Anexos</dt><dd>${number(row.AnexosAsociados)}</dd></div>
+                <dl class="pm-facts" data-facts>
+                    <div><dt>Actividad</dt><dd>${esc(SOURCE[row.tabla]?.label || '—')}</dd></div>
+                    <div><dt>Mercado</dt><dd>${esc(marketLabel(row) || '—')}</dd></div>
+                    <div><dt>Ubicación</dt><dd>${esc(lugar || '—')}</dd></div>
+                    <div><dt>Estatus</dt><dd>${esc(statusLabel(row) || '—')}</dd></div>
+                    <div><dt>Actualización</dt><dd>${esc(localDate(row.fechaActualizacion) || '—')}</dd></div>
                 </dl>
                 <section class="pm-section" aria-labelledby="pm-res-title">
-                    <h3 id="pm-res-title">Línea de resoluciones</h3>
+                    <h3 id="pm-res-title">Resoluciones en PDF</h3>
                     <div class="pm-res">${skeleton(2)}</div>
-                </section>
-                <section class="pm-section" aria-labelledby="pm-anx-title">
-                    <h3 id="pm-anx-title">Anexos</h3>
-                    <div class="pm-anx">${row.AnexosAsociados ? skeleton(1) : '<p class="pm-note">Este permiso no tiene anexos publicados.</p>'}</div>
                 </section>
                 <section class="pm-section" aria-labelledby="pm-law-title">
                     <h3 id="pm-law-title">Marco aplicable</h3>
@@ -161,57 +189,64 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         // The card starts where the results were, below the search form.
         body.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        const resHost = body.querySelector('.pm-res');
-        fetchResolutions(row.ExpedienteId).then(list => {
-            if (!alive || !resHost.isConnected) return;
-            resHost.innerHTML = list.length ? `<ol class="pm-timeline">${list.map((res, i) => {
-                const pdf = resolutionPdfUrl(res.REsolucionId);
-                return `
-                <li class="${i === 0 ? 'is-first' : ''}">
-                    <time>${esc(dateLabel(res.FechaResolucion) || 'Sin fecha')}</time>
-                    <div>
-                        <p class="pm-res-type">${esc(res.TipoResolucion || 'Resolución')}</p>
-                        <p class="pm-res-meta"><b>${esc(res.NumeroResolucion || '')}</b>${res.Acta ? ` · Acta ${esc(res.Acta)}` : ''}${res.Modalidad ? ` · ${esc(res.Modalidad)}` : ''}</p>
-                        <div class="pm-res-links">
-                            ${pdf ? `<a class="pm-res-pdf" href="${esc(pdf)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(res.NumeroResolucion || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>` : ''}
-                            ${res.NumeroResolucion ? `<a class="pm-res-more" href="${permitsHash({ resolution: res.NumeroResolucion })}">Detalle y fundamento</a>` : ''}
-                        </div>
-                    </div>
-                </li>`;
-            }).join('')}</ol>`
-                : '<p class="pm-note">El registro no muestra resoluciones para este expediente.</p>';
-        }).catch(() => { if (resHost.isConnected) resHost.innerHTML = failure('las resoluciones'); });
-
-        if (row.AnexosAsociados) {
-            const anxHost = body.querySelector('.pm-anx');
-            fetchAnnexes(row.PermisoId).then(list => {
-                if (!alive || !anxHost.isConnected) return;
-                anxHost.innerHTML = list.length ? `<ul class="pm-annexes">${list.map(annex => {
-                    const url = annexUrl(annex);
-                    const label = esc(annex.Descripcion || 'Anexo');
-                    return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${label}</a>` : `<span>${label}</span><small>Sin archivo público</small>`}</li>`;
-                }).join('')}</ul>` : '<p class="pm-note">Este permiso no tiene anexos publicados.</p>';
-            }).catch(() => { if (anxHost.isConnected) anxHost.innerHTML = failure('los anexos'); });
+        // Full record from Azure (capacity, dates…): only the fields it brings.
+        const factsHost = body.querySelector('[data-facts]');
+        if (row.tabla && row.numero) {
+            getPermisos('detalle', { tabla: row.tabla, numero: row.numero }).then(det => {
+                if (!alive || !factsHost.isConnected) return;
+                const extra = detailFields(det?.data || det);
+                if (extra.length) factsHost.insertAdjacentHTML('beforeend', extra.map(f => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join(''));
+            }).catch(() => { /* without the detail the card keeps the fields of the search */ });
         }
+
+        // PDFs of the title and the resolutions (Ligas_Permisos_CNE), each resolution with its number when the table has it.
+        const resHost = body.querySelector('.pm-res');
+        const pdfLink = body.querySelector('[data-pdf-link]');
+        ligasDePermiso(row.numero).then(hit => {
+            if (!alive || !resHost.isConnected) return;
+            const tituloPdf = hit.ligaPermiso || pdfInicial;
+            if (tituloPdf && pdfLink.isConnected) { pdfLink.href = tituloPdf; pdfLink.hidden = false; }
+            const docs = [...hit.resoluciones, { numero: null, liga: hit.ligaResolucion }, { numero: null, liga: safeHttps(row.ligaResolucion) }]
+                .filter(d => d.liga).reduce((acc, d) => {
+                    const previa = acc.find(x => x.liga === d.liga);
+                    if (previa) previa.numero ||= d.numero; else acc.push({ ...d });
+                    return acc;
+                }, []);
+            resHost.innerHTML = docs.length
+                ? `<ol class="pm-timeline">${docs.map(({ numero: resNum, liga: url }, i) => `
+                    <li class="${i === 0 ? 'is-first' : ''}">
+                        <div>
+                            <p class="pm-res-type">${resNum ? esc(resNum) : 'Resolución'}</p>
+                            <div class="pm-res-links">
+                                <a class="pm-res-pdf" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(resNum || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>
+                            </div>
+                        </div>
+                    </li>`).join('')}</ol>`
+                : '<p class="pm-note">No hay ligas a resoluciones registradas para este permiso.</p>';
+        }).catch(() => {
+            if (resHost.isConnected) resHost.innerHTML = '<p class="pm-note">No se pudieron cargar las ligas a resoluciones de este permiso.</p>';
+        });
 
         // "Ver en el mapa" only when the map has this permit with coordinates.
         const mapLink = body.querySelector('[data-map-link]');
-        fetch(`/api/mapa/buscar?q=${encodeURIComponent(row.Numero)}&limite=5`, { credentials: 'same-origin' })
-            .then(response => (response.ok ? response.json() : null))
-            .then(data => {
-                const hit = (data?.resultados || []).find(r => fold(r.numeroPermiso) === fold(row.Numero) && r.latitud != null);
-                if (!alive || !hit || !mapLink.isConnected) return;
-                mapLink.href = permitsHash({ mapPermit: hit.numeroPermiso });
-                mapLink.hidden = false;
-            })
-            .catch(() => { /* without the map service the card simply has no map link */ });
+        if (!row.coordenadasValidas) {
+            fetch(`/api/mapa/buscar?q=${encodeURIComponent(row.numero)}&limite=5`, { credentials: 'same-origin' })
+                .then(response => (response.ok ? response.json() : null))
+                .then(data => {
+                    const hit = (data?.resultados || []).find(r => numeroNorm(r.numeroPermiso) === numeroNorm(row.numero) && r.latitud != null);
+                    if (!alive || !hit || !mapLink.isConnected) return;
+                    mapLink.href = permitsHash({ mapPermit: hit.numeroPermiso });
+                    mapLink.hidden = false;
+                })
+                .catch(() => { /* without the map service the card simply has no map link */ });
+        }
 
         body.querySelector('.pm-back').addEventListener('click', () => {
             onRoute(null);
             if (rows.length) drawList(); else load();
         });
         body.querySelector('.pm-share').addEventListener('click', event => {
-            const url = `${location.origin}${location.pathname}#permiso=${encodeURIComponent(row.Numero)}`;
+            const url = `${location.origin}${location.pathname}#permiso=${encodeURIComponent(row.numero)}`;
             navigator.clipboard?.writeText(url).then(() => { event.target.textContent = 'Enlace copiado'; }, () => {});
         });
         body.querySelectorAll('[data-law]').forEach(button => button.addEventListener('click', () => {
@@ -226,14 +261,16 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         body.innerHTML = skeleton(2);
         status.textContent = 'Buscando el permiso…';
         try {
-            const result = await searchPermits({ numero, length: 10 });
+            const result = await buscarPermisos({ numero, pageSize: 10 });
             if (!alive || id !== request) return;
-            const match = result.rows.find(row => fold(row.Numero) === fold(numero)) || (result.rows.length === 1 ? result.rows[0] : null);
+            const match = result.rows.find(row => numeroNorm(row.numero) === numeroNorm(numero) || numeroNorm(row.numeroNorm) === numeroNorm(numero))
+                || (result.rows.length === 1 ? result.rows[0] : null);
             if (match) { rows = []; showPermit(match, { updateRoute: false }); return; }
             form.numero.value = numero;
             state.numero = numero;
             rows = result.rows;
             total = result.total;
+            recientes = result.recientes || null;
             drawList();
         } catch {
             if (!alive || id !== request) return;
@@ -247,14 +284,15 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         Object.assign(state, {
             numero: form.numero.value.trim(),
             titular: form.titular.value.trim(),
-            proyecto: form.proyecto.value.trim(),
+            tabla: form.tabla.value,
+            estatus: form.estatus.value,
             start: 0,
         });
         onRoute(null);
         load();
     });
     form.addEventListener('reset', () => {
-        Object.assign(state, { numero: '', titular: '', proyecto: '', start: 0 });
+        Object.assign(state, { numero: '', titular: '', tabla: '', estatus: '', start: 0 });
         onRoute(null);
         setTimeout(load);
     });
@@ -266,7 +304,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
             return;
         }
         const cardButton = event.target.closest('[data-permit]');
-        const row = cardButton && rows.find(item => String(item.PermisoId) === cardButton.dataset.permit);
+        const row = cardButton && rows.find(item => rowKey(item) === cardButton.dataset.permit);
         if (row) showPermit(row);
     });
 

@@ -141,36 +141,6 @@ export async function searchPermits({ numero = '', titular = '', proyecto = '', 
     return { total: Number(data?.recordsFiltered) || 0, rows: Array.isArray(data?.data) ? data.data : [] };
 }
 
-/** The registry row of one permit by its exact number, or null when it is not in the registry. */
-export async function fetchPermit(numero) {
-    const { rows } = await searchPermits({ numero, length: 10 });
-    const wanted = String(numero).trim().toUpperCase();
-    return rows.find(row => String(row.Numero).trim().toUpperCase() === wanted) || null;
-}
-
-// Resolutions seen in permit files, by canonical number, in the search's shape. The CNE search indexes new ones
-// late (on 2026-11-18 it reached CNE/RES/1317/2026) while the file already lists them, so «Detalle y fundamento»
-// can open them before the search has them (without proemio or foundation).
-const fromFiles = new Map();
-const resolutionKey = text => resolutionNumberVariants(text)[0].toUpperCase();
-
-/** Resolutions of a permit's file (expediente), oldest first. */
-export async function fetchResolutions(expedienteId) {
-    const rows = await request(`${PUBLIC_API}api/Resoluciones/?resolucionId=${encodeURIComponent(expedienteId)}&tipoEntidad=2`);
-    const list = (Array.isArray(rows) ? rows : []).map(row => ({ ...row, sortKey: resolutionSortKey(row) })).sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-    for (const row of list) {
-        if (!row.NumeroResolucion) continue;
-        const key = resolutionKey(row.NumeroResolucion);
-        const seen = fromFiles.get(key) || [];
-        if (!seen.some(item => item.NumeroResolucion === row.NumeroResolucion)) seen.push({
-            NumeroResolucion: row.NumeroResolucion, ResolucionId: row.REsolucionId, FechaResolucion: row.FechaResolucion,
-            TipoResolucion: row.TipoResolucion, ModalidadResolucion: row.Modalidad, NumeroActa: row.Acta, desdeExpediente: true,
-        });
-        fromFiles.set(key, seen);
-    }
-    return list;
-}
-
 // The resolutions search (https://www.cne.gob.mx/Resoluciones/) uses the legacy DataTables
 // protocol: column filters in aoData, results in aaData. Its global search box is ignored.
 const RES_COLUMNS = ['DocumentoResolucion', 'NumeroResolucion', 'FechaResolucion', 'Proemio', 'ModalidadResolucion', 'TipoResolucion', 'DocumentoActa', 'NumeroActa'];
@@ -230,13 +200,13 @@ export async function countResolutions(filters = {}) {
     return (await searchResolutions(filters, { length: 1 })).total;
 }
 
+const resolutionKey = text => resolutionNumberVariants(text)[0].toUpperCase();
+
 /** One resolution by its exact number, or null. */
 export async function fetchResolution(numero) {
     const { rows } = await searchResolutions({ numero }, { length: 10 });
     const wanted = resolutionKey(numero), withCne = /CNE/i.test(String(numero));
-    const indexed = rows.filter(row => resolutionKey(row.NumeroResolucion) === wanted);
-    // If the search has not indexed it yet, the one a permit's file already brought.
-    const same = indexed.length ? indexed : fromFiles.get(wanted) || [];
+    const same = rows.filter(row => resolutionKey(row.NumeroResolucion) === wanted);
     // In 2025 RES/… (CRE) and CNE/RES/… (CNE) coexisted: prefer the one whose prefix matches the one written.
     return same.find(row => /^\s*CNE/i.test(String(row.NumeroResolucion)) === withCne) || same[0] || null;
 }
@@ -268,11 +238,6 @@ export function parseFoundation(text = '') {
     return result;
 }
 
-export async function fetchAnnexes(permisoId) {
-    const rows = await request(`${PUBLIC_API}api/Permisos/Anexos?permisoId=${encodeURIComponent(permisoId)}`);
-    return Array.isArray(rows) ? rows : [];
-}
-
 /** "dd/mm/yyyy" → "yyyy-mm-dd"; resolutions without a date sort by the year in their number. */
 export function resolutionSortKey(row) {
     const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(String(row.FechaResolucion || '').trim());
@@ -285,18 +250,8 @@ const hex = n => Array.from({ length: n }, () => Math.floor(Math.random() * 16).
 // The CNE drive wraps the record id in a random GUID-like token, the way its own pages build it.
 const driveUrl = (action, id) => `${DRIVE}Drive/${action}/?id=${encodeURIComponent(btoa(`${hex(8)}-${hex(4)}-4${hex(3)}-${id}-${hex(12)}`))}`;
 
-/** Link to the permit title PDF. */
-export const permitPdfUrl = permisoId => driveUrl('ObtenerPermiso', permisoId);
-
 /** Link to a resolution PDF (same link as the CNE resolutions search). */
 export const resolutionPdfUrl = resolucionId => (resolucionId ? driveUrl('ObtenerResolucion', resolucionId) : null);
-
-/** Public link of an annex when the registry publishes one; otherwise null. */
-export function annexUrl(annex) {
-    const url = annex?.UrlPublic;
-    if (!url) return null;
-    return /^https?:\/\//i.test(url) ? url : `${DRIVE}Drive/ObtenerHistoricoPermiso/${url}`;
-}
 
 /** Sector, activity and the acervo instruments that regulate it, read from the permit number. */
 const SECTORS = {
