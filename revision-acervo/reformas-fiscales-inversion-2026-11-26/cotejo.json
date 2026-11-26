@@ -1,0 +1,35 @@
+[
+ {
+  "siglas": "LIF-2027",
+  "html": "https://sidof.segob.gob.mx/notas/docFuente/5803757",
+  "fuente_sha256": "7a41d4d7b07d3919474c4e47f1abcf82baa6f74973bfdb0df77719dfd61b81ae",
+  "paginas": [
+   4,
+   51
+  ],
+  "fragmentos": 92,
+  "parrafos_celdas_cotejados": 1158
+ },
+ {
+  "siglas": "REF-LISR-2026",
+  "html": "https://sidof.segob.gob.mx/notas/docFuente/5803758",
+  "fuente_sha256": "a0f66c6da5375662caeeb3b48f6ccd3d793c2a29d4b537fcdb458b6761a3b8fb",
+  "paginas": [
+   52,
+   87
+  ],
+  "fragmentos": 43,
+  "parrafos_celdas_cotejados": 580
+ },
+ {
+  "siglas": "REF-INVERSION-EXTRANJERA-2026",
+  "html": "https://sidof.segob.gob.mx/notas/docFuente/5804310",
+  "fuente_sha256": "361eb30dcf94fbea9fb9e13bb95027a65cf5c462e434be53009d7fecb8e71ea8",
+  "paginas": [
+   4,
+   7
+  ],
+  "fragmentos": 20,
+  "parrafos_celdas_cotejados": 65
+ }
+]
