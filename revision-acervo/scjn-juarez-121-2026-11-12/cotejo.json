@@ -1,0 +1,238 @@
+{
+ "doi_nota": "5803632",
+ "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/12-11-2026/Matutina/330785",
+ "sha256": "92bc601e526d5501fe9f7084e079e2d9b00ef11d3e90929612b3f04acbda7312",
+ "paginas": [
+  26,
+  53
+ ],
+ "notas_al_pie": 66,
+ "tablas": 5,
+ "celdas": 140,
+ "apartados": [
+  {
+   "id": "2e5d068f-8a8e-501f-a0ad-fd42a8eadb28",
+   "apartado": "Ficha y problemas jurídicos",
+   "paginas": [
+    26
+   ]
+  },
+  {
+   "id": "8b7e8217-dc93-5440-9301-a07beff73123",
+   "apartado": "Índice temático",
+   "paginas": [
+    26,
+    27
+   ]
+  },
+  {
+   "id": "2328d8b3-aa68-5319-a495-d04f5cb68a71",
+   "apartado": "Identificación y presentación de la sentencia",
+   "paginas": [
+    28
+   ]
+  },
+  {
+   "id": "417272c4-1568-5823-b70b-4f0bb0047add",
+   "apartado": "ANTECEDENTES Y TRÁMITE DE LA DEMANDA",
+   "paginas": [
+    28,
+    29
+   ]
+  },
+  {
+   "id": "f7c8c1aa-4f78-5a8b-adb8-71bd16daa467",
+   "apartado": "I. COMPETENCIA",
+   "paginas": [
+    30
+   ]
+  },
+  {
+   "id": "dd980a24-38b5-5dcc-8d00-2ba10489c341",
+   "apartado": "II. PRECISIÓN Y EXISTENCIA DEL ACTO IMPUGNADO",
+   "paginas": [
+    30
+   ]
+  },
+  {
+   "id": "9472f747-28ac-54b5-adb7-b7a7ba46a9b5",
+   "apartado": "III. OPORTUNIDAD",
+   "paginas": [
+    30,
+    31
+   ]
+  },
+  {
+   "id": "88532fec-53e3-5451-9125-921745bb2088",
+   "apartado": "IV. LEGITIMACIÓN",
+   "paginas": [
+    32,
+    33
+   ]
+  },
+  {
+   "id": "43f63455-b976-56d6-b76c-f4bf9cf89546",
+   "apartado": "V. CAUSAS DE IMPROCEDENCIA Y SOBRESEIMIENTO",
+   "paginas": [
+    33,
+    34
+   ]
+  },
+  {
+   "id": "3bbb8ec4-f241-5063-a013-0bdb832b3d08",
+   "apartado": "VI. ESTUDIO DE FONDO",
+   "paginas": [
+    34,
+    35,
+    36,
+    37
+   ]
+  },
+  {
+   "id": "fff6963d-133d-51e0-8e63-36274dc847c5",
+   "apartado": "VI.1 Parámetro constitucional aplicable en materia de hidrocarburos",
+   "paginas": [
+    37,
+    38,
+    39,
+    40,
+    41
+   ]
+  },
+  {
+   "id": "7cfce206-62e7-5cb5-a69c-ba246c0a2109",
+   "apartado": "VI.2 Parámetro constitucional aplicable en materia de energía eléctrica",
+   "paginas": [
+    41,
+    42,
+    43
+   ]
+  },
+  {
+   "id": "d96049d3-0893-5e9f-9d98-7c995820f49b",
+   "apartado": "VI.3 Alcance de las facultades municipales en materia hacendaria, administrativa y de licencias de funcionamiento",
+   "paginas": [
+    43,
+    44,
+    45,
+    46
+   ]
+  },
+  {
+   "id": "df0eba9d-3fe6-5f6a-8023-aefe6456dfd8",
+   "apartado": "VI.4 Análisis del caso concreto",
+   "paginas": [
+    46,
+    47
+   ]
+  },
+  {
+   "id": "3aed8b95-f817-5650-925c-3564bc692283",
+   "apartado": "Numeral 1: Edificaciones productoras de energía eléctrica",
+   "paginas": [
+    47
+   ]
+  },
+  {
+   "id": "ff6524d6-14f2-5fe2-b536-caf27652a7d4",
+   "apartado": "Numerales 2 y 3: Edificaciones para extracción de gas natural y gas no asociado",
+   "paginas": [
+    48,
+    49,
+    50
+   ]
+  },
+  {
+   "id": "a00c1341-89b0-531c-9f15-bc7075ce1375",
+   "apartado": "VII. EFECTOS",
+   "paginas": [
+    50,
+    51
+   ]
+  },
+  {
+   "id": "2008c831-d165-5a5c-9437-6e73f447bba2",
+   "apartado": "VIII. DECISIÓN",
+   "paginas": [
+    51
+   ]
+  },
+  {
+   "id": "0f4c5998-13f3-5bda-aac0-46e4ab70214e",
+   "apartado": "Resolutivo PRIMERO",
+   "paginas": [
+    51
+   ]
+  },
+  {
+   "id": "d5e470c0-7601-56da-af35-8e1678ad9c97",
+   "apartado": "Resolutivo SEGUNDO",
+   "paginas": [
+    51
+   ]
+  },
+  {
+   "id": "81caaebb-3dbe-5271-b387-9741203bc6e9",
+   "apartado": "Resolutivo TERCERO",
+   "paginas": [
+    51
+   ]
+  },
+  {
+   "id": "1b2cf078-3077-5cae-aa6f-ab6b4dd11394",
+   "apartado": "Notificaciones, votación y firmas",
+   "paginas": [
+    51
+   ]
+  },
+  {
+   "id": "4554f67c-e982-54c9-8824-0d3e9288fd2d",
+   "apartado": "Certificación de la sentencia",
+   "paginas": [
+    51
+   ]
+  },
+  {
+   "id": "88782213-0da4-5ab0-b632-41b0239d31e8",
+   "apartado": "Voto concurrente de la ministra Lenia Batres Guadarrama",
+   "paginas": [
+    52,
+    53
+   ]
+  },
+  {
+   "id": "3150da38-dbae-53cd-87a9-234bb8065ff6",
+   "apartado": "Certificación del voto concurrente",
+   "paginas": [
+    53
+   ]
+  },
+  {
+   "id": "d77ed5dc-5b6e-59fe-9358-896bcc235f4e",
+   "apartado": "Notas al pie de la sentencia",
+   "paginas": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    45,
+    46,
+    48,
+    49,
+    50
+   ]
+  }
+ ]
+}

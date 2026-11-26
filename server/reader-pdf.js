@@ -11,6 +11,7 @@ export const MAX_STREAMED_PDF_BYTES = 96 * 1024 * 1024;
 const IDLE_TIMEOUT = 30000;
 const TOTAL_TIMEOUT = 240000;
 const reviewedDofPdfs = new Set([
+    'https://sidof.segob.gob.mx/notas/getNewsletter/12-11-2026/Matutina/330785',
     'https://sidof.segob.gob.mx/notas/getNewsletter/13-11-2026/Matutina/330805',
     'https://sidof.segob.gob.mx/notas/getNewsletter/19-11-2026/Matutina/330927',
     'https://sidof.segob.gob.mx/notas/getNewsletter/25-11-2026/Matutina/331125',
