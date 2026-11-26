@@ -184,7 +184,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                     <div><dt>Actualización</dt><dd>${esc(localDate(row.fechaActualizacion) || '—')}</dd></div>
                 </dl>
                 <section class="pm-section" aria-labelledby="pm-res-title">
-                    <h3 id="pm-res-title">Resoluciones en PDF</h3>
+                    <h3 id="pm-res-title">Resoluciones</h3>
                     <div class="pm-res">${skeleton(2)}</div>
                 </section>
                 <section class="pm-section" aria-labelledby="pm-law-title">
@@ -216,8 +216,8 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
             const tituloPdf = hit.ligaPermiso || pdfInicial;
             if (tituloPdf && pdfLink.isConnected) { pdfLink.href = tituloPdf; pdfLink.hidden = false; }
             const docs = [...hit.resoluciones, { numero: null, liga: hit.ligaResolucion }, { numero: null, liga: safeHttps(row.ligaResolucion) }]
-                .filter(d => d.liga).reduce((acc, d) => {
-                    const previa = acc.find(x => x.liga === d.liga);
+                .filter(d => d.liga || d.numero).reduce((acc, d) => {
+                    const previa = d.liga ? acc.find(x => x.liga === d.liga) : null;
                     if (previa) previa.numero ||= d.numero; else acc.push({ ...d });
                     return acc;
                 }, []);
@@ -227,11 +227,11 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                         <div>
                             <p class="pm-res-type">${resNum ? esc(resNum) : 'Resolución'}</p>
                             <div class="pm-res-links">
-                                <a class="pm-res-pdf" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(resNum || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>
+                                ${url ? `<a class="pm-res-pdf" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(resNum || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>` : '<span class="pm-note">PDF aún no publicado</span>'}
                             </div>
                         </div>
                     </li>`).join('')}</ol>`
-                : '<p class="pm-note">No hay ligas a resoluciones registradas para este permiso.</p>';
+                : '<p class="pm-note">No hay resoluciones registradas para este permiso.</p>';
         }).catch(() => {
             if (resHost.isConnected) resHost.innerHTML = '<p class="pm-note">No se pudieron cargar las ligas a resoluciones de este permiso.</p>';
         });
