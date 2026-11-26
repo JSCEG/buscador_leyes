@@ -1,4 +1,4 @@
-/** The permit's counts from the public registry, for the map's window. Missing data shows nothing. */
+/** The permit's counts for the map's window. Missing data shows nothing. */
 const COUNTS = [
     ['ResolucionesAsociadas', 'Resoluciones'],
     ['AcuerdosAsociados', 'Acuerdos'],
@@ -13,13 +13,10 @@ export function popupCounts(row) {
     return items.length ? `<dl class="pmm-cuentas">${items.join('')}</dl>` : '';
 }
 
-/** Asks the registry once per permit. A slow or failed registry resolves to null: the window keeps working. */
-export function registryCounts(fetchPermit, cache = new Map()) {
-    return async numero => {
-        if (cache.has(numero)) return cache.get(numero);
-        let row = null;
-        try { row = await fetchPermit(numero); } catch { row = null; }
-        cache.set(numero, row);
-        return row;
-    };
+/**
+ * Conteos del globo desde las ligas de Azure (/api/mapa/ligas, Ligas_Permisos_CNE): sólo resoluciones, que es lo que
+ * Azure trae. Acuerdos, oficios y anexos no están en Azure y no se muestran. Sin ligas, nada.
+ */
+export function conteosDeLigas(ligas) {
+    return ligas?.encontrado ? { ResolucionesAsociadas: (ligas.resoluciones || []).length } : null;
 }

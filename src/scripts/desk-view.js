@@ -12,7 +12,8 @@ import { articleHtml, markScrollableTables } from '../lib/article-html.js';
 import { collectionIcon } from '../lib/collection-icons.js';
 import { getAcervoGroup } from '../lib/acervo-model.js';
 import { withProgress } from '../lib/nav-progress.js';
-import { fetchPermit, permitFromPinId, permitKind, permitPdfUrl } from '../lib/cne-api.js';
+import { permitFromPinId, permitKind } from '../lib/cne-api.js';
+import { permisoPorNumero, ligasDePermiso } from '../lib/permisos-mapa.js';
 import { wordDiff } from '../lib/word-diff.js';
 import '../styles/desk.css';
 
@@ -123,9 +124,13 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         return (chosen.length >= 2 ? chosen : desk.filter(id => !permitFromPinId(id))).slice(0, SIDE_BY_SIDE_LIMIT);
     }
 
-    // Pinned CNE permits are read from the registry; a failed lookup is retried next time.
-    const loadPermits = ids => Promise.all(ids.map(id => fetchPermit(permitFromPinId(id))
-        .then(row => ({ id, permit: true, row }), () => null)));
+    // Pinned CNE permits are read from Azure (never the CNE live), with their PDF links; a failed lookup is retried next time.
+    const loadPermit = async id => {
+        const row = await permisoPorNumero(permitFromPinId(id));
+        const ligas = row ? await ligasDePermiso(row.numero).catch(() => null) : null;
+        return { id, permit: true, row, ligas };
+    };
+    const loadPermits = ids => Promise.all(ids.map(id => loadPermit(id).catch(() => null)));
 
     async function ensureLoaded() {
         const missing = getDesk().filter(id => !cache.has(id));
@@ -153,16 +158,17 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
         const numero = permitFromPinId(id);
         const item = itemFor(id);
         const row = item?.row;
+        const pdf = item?.ligas?.ligaPermiso || (/^https:\/\//i.test(row?.ligaPermiso || '') ? row.ligaPermiso : null);
         const { sector, activity } = permitKind(numero);
         const isOpen = expanded.has(id);
-        const status = !item ? 'No se pudo consultar el registro de la CNE; se intentará de nuevo.' : !row ? 'Ya no aparece en el registro de la CNE.' : '';
+        const status = !item ? 'No se pudo consultar el permiso; se intentará de nuevo.' : !row ? 'No aparece en los permisos de la CNE.' : '';
         return `<li class="desk-card desk-permit${isOpen ? ' is-open' : ''}" data-id="${esc(id)}" data-category="permisos">
             <div class="desk-card-head">
                 <span class="desk-check" aria-hidden="true"></span>
                 <div class="desk-card-meta">
                     <p class="desk-card-law">Permiso CNE${sector ? ` · ${esc(sector.label)}` : ''}</p>
                     <h3>${esc(numero)}</h3>
-                    <p class="desk-card-source" title="${esc(row?.Persona || '')}">${esc(row?.Persona || status)}</p>
+                    <p class="desk-card-source" title="${esc(row?.razonSocial || '')}">${esc(row?.razonSocial || status)}</p>
                 </div>
                 <div class="desk-card-actions">
                     <button type="button" class="desk-icon-btn" data-desk-move="-1" data-id="${esc(id)}" aria-label="Subir" ${index === 0 ? 'disabled' : ''}>↑</button>
@@ -171,14 +177,15 @@ export function initDesk({ loadArticles, onOpenArticle, lawFor = () => null, not
                 </div>
             </div>
             ${row ? `<div class="desk-text" id="desk-text-${esc(id)}">
-                <p><b>Estado:</b> ${esc(row.Estado || '—')}${activity ? ` · <b>Actividad:</b> ${esc(activity)}` : ''}</p>
-                ${row.AliasProyecto ? `<p><b>Proyecto:</b> ${esc(row.AliasProyecto)}</p>` : ''}
-                <p><b>Expediente:</b> ${esc(row.NumeroExpediente || '—')} · <b>Resoluciones:</b> ${Number(row.ResolucionesAsociadas || 0)} · <b>Anexos:</b> ${Number(row.AnexosAsociados || 0)}</p>
+                <p><b>Estatus:</b> ${esc(row.estatus || row.estatusFuente || '—')}${activity ? ` · <b>Actividad:</b> ${esc(activity)}` : ''}</p>
+                ${row.tipo ? `<p><b>Tipo:</b> ${esc(row.tipo)}</p>` : ''}
+                ${row.entidad ? `<p><b>Entidad:</b> ${esc(row.entidad)}</p>` : ''}
+                ${item.ligas?.encontrado ? `<p><b>Resoluciones en PDF:</b> ${item.ligas.resoluciones.length}</p>` : ''}
             </div>` : ''}
             <div class="desk-card-foot">
                 ${row ? `<button type="button" class="desk-link" data-desk-expand="${esc(id)}" aria-expanded="${isOpen}" aria-controls="desk-text-${esc(id)}">${isOpen ? 'Contraer' : 'Ver completo'}</button>` : ''}
                 ${others.length ? `<select class="desk-copy" data-desk-copy="${esc(id)}" aria-label="Copiar el permiso ${esc(numero)} a otra mesa"><option value="">Copiar a…</option>${others.map(d => `<option value="${esc(d.id)}">${esc(d.name)}</option>`).join('')}</select>` : ''}
-                ${row ? `<a class="desk-link" href="${esc(permitPdfUrl(row.PermisoId))}" target="_blank" rel="noopener">Título (PDF)</a>` : ''}
+                ${pdf ? `<a class="desk-link" href="${esc(pdf)}" target="_blank" rel="noopener">Título (PDF)</a>` : ''}
                 <button type="button" class="desk-link" data-desk-open-permit="${esc(numero)}">Abrir ficha</button>
             </div>
         </li>`;

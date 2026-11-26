@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from 'vitest';
-import { popupCounts, registryCounts } from '../src/lib/permit-popup.js';
+import { describe, expect, it } from 'vitest';
+import { popupCounts, conteosDeLigas } from '../src/lib/permit-popup.js';
 import { KV_CLASSES, pinIcon, pinSize, sectorCluster } from '../src/lib/map-common.js';
 
 describe('permit window', () => {
@@ -8,12 +8,12 @@ describe('permit window', () => {
     expect([...document.querySelectorAll('dt')].map(dt => dt.textContent)).toEqual(['Resoluciones', 'Acuerdos', 'Oficios', 'Anexos']);
     expect(document.querySelectorAll('dd')[3].textContent).toBe('12');
   });
-  it('the popup survives a slow or failed registry', async () => {
-    const fetchPermit = vi.fn(async () => { throw new Error('caído'); });
-    const ask = registryCounts(fetchPermit);
-    await expect(ask('E/1/GEN/2020')).resolves.toBeNull();
-    expect(popupCounts(await ask('E/1/GEN/2020'))).toBe('');
-    expect(fetchPermit).toHaveBeenCalledTimes(1);
+  it('counts resolutions from the Azure links; without links, nothing', () => {
+    document.body.innerHTML = popupCounts(conteosDeLigas({ encontrado: true, resoluciones: [{ numero: 'RES/1', liga: 'https://x' }, { numero: 'RES/2', liga: 'https://y' }] }));
+    expect([...document.querySelectorAll('dt')].map(dt => dt.textContent)).toEqual(['Resoluciones']);
+    expect(document.querySelector('dd').textContent).toBe('2');
+    expect(popupCounts(conteosDeLigas({ encontrado: false, resoluciones: [] }))).toBe('');
+    expect(popupCounts(conteosDeLigas(null))).toBe('');
   });
   it('shows nothing without counts', () => { expect(popupCounts({})).toBe(''); expect(popupCounts(null)).toBe(''); });
 });

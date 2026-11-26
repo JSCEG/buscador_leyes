@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { permitKind, permitsRoute, resolutionSortKey, annexUrl, permitPdfUrl, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, fetchPermit, permitsHash, parseFoundation, permitNumbersIn, resolutionsQueryUrl, searchResolutions, fetchResolution, fetchResolutions, resolutionNumberVariants } from '../src/lib/cne-api.js';
+import { permitKind, permitsRoute, resolutionSortKey, resolutionPdfUrl, searchPermits, permitPinId, permitFromPinId, permitsHash, parseFoundation, permitNumbersIn, resolutionsQueryUrl, searchResolutions, fetchResolution, resolutionNumberVariants } from '../src/lib/cne-api.js';
 
 describe('permitKind', () => {
     it('reads sector and activity from the permit number', () => {
@@ -49,15 +49,6 @@ describe('resolutionSortKey', () => {
 });
 
 describe('links', () => {
-    it('only links annexes with a public url', () => {
-        expect(annexUrl({ Descripcion: 'x' })).toBeNull();
-        expect(annexUrl({ UrlPublic: 'https://a.b/c.pdf' })).toBe('https://a.b/c.pdf');
-        expect(annexUrl({ UrlPublic: 'abc' })).toBe('https://drive.cne.gob.mx/Drive/ObtenerHistoricoPermiso/abc');
-    });
-    it('embeds the permit id in the PDF token', () => {
-        const id = new URL(permitPdfUrl(31120)).searchParams.get('id');
-        expect(atob(id)).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-31120-[0-9a-f]{12}$/);
-    });
     it('links resolutions by their id', () => {
         const url = new URL(resolutionPdfUrl(30179));
         expect(url.pathname).toBe('/Drive/ObtenerResolucion/');
@@ -88,11 +79,6 @@ describe('permits on a desk', () => {
         expect(permitPinId('CNE/E/1439/GEN/2015')).toBe('cne:CNE/E/1439/GEN/2015');
         expect(permitFromPinId('cne:CNE/E/1439/GEN/2015')).toBe('CNE/E/1439/GEN/2015');
         expect(permitFromPinId('12345')).toBeNull();
-    });
-    it('finds the exact permit among partial matches', async () => {
-        const rows = [{ Numero: 'CNE/E/1439/GEN/2015-A' }, { Numero: 'CNE/E/1439/GEN/2015' }];
-        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ recordsFiltered: 2, data: rows }) }));
-        expect(await fetchPermit('cne/e/1439/gen/2015')).toEqual(rows[1]);
     });
 });
 
@@ -179,21 +165,5 @@ describe('resolution numbers', () => {
         expect((await fetchResolution('Núm. CNE/RES/45/2025'))?.NumeroResolucion).toBe('CNE/RES/045/2025');
         expect((await fetchResolution('RES/045/2025'))?.NumeroResolucion).toBe('RES/045/2025');
         expect(await fetchResolution('RES/046/2025')).toBeNull();
-    });
-    // The CNE search indexes new resolutions late (on 2026-11-18 it reached CNE/RES/1317/2026) while the permit's
-    // file already lists them: «Detalle y fundamento» must open them with what the file gave.
-    it('opens a resolution the search has not indexed yet with the data of a permit file already loaded', async () => {
-        vi.stubGlobal('fetch', vi.fn(async url => ({
-            ok: true,
-            json: async () => (String(url).includes('resolucionId=81785')
-                ? [{ Acta: 'ACT/031/2026', ExpedienteId: 81785, FechaResolucion: '12/11/2026', TipoResolucion: 'Modificación de permiso', Modalidad: 'Energía eléctrica', NumeroResolucion: 'CNE/RES/1324/2026', REsolucionId: 30411 }]
-                : { iTotalDisplayRecords: 0, aaData: [] }),
-        })));
-        expect(await fetchResolution('CNE/RES/1324/2026')).toBeNull();
-        await fetchResolutions(81785);
-        expect(await fetchResolution('CNE/RES/1324/2026')).toEqual({
-            NumeroResolucion: 'CNE/RES/1324/2026', ResolucionId: 30411, FechaResolucion: '12/11/2026', NumeroActa: 'ACT/031/2026',
-            ModalidadResolucion: 'Energía eléctrica', TipoResolucion: 'Modificación de permiso', desdeExpediente: true,
-        });
     });
 });

@@ -15,7 +15,7 @@ export const skeleton = n => `<div class="pm-list">${'<div class="pm-card pm-ske
 
 export const failure = (what, url) => `
     <div class="pm-error">
-        <p><strong>No pudimos consultar ${what}.</strong> El sitio de la CNE no respondió; intenta de nuevo en un momento.</p>
+        <p><strong>No pudimos consultar ${what}.</strong> El portal público de la CNE ahora exige verificación (reCAPTCHA) o no respondió; puedes consultarlo directamente en su sitio oficial.</p>
         <a class="pm-btn" href="${url}" target="_blank" rel="noopener">Abrir el sitio de la CNE</a>
     </div>`;
 
