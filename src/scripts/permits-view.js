@@ -10,7 +10,7 @@ import { pinButtonHtml } from './desk-view.js';
 import { tramiteForPermit } from '../data/tramites.js';
 import { permitPinId, permitsHash, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
 import { SOURCES, SOURCE, getPermisos, stateLabel, marketLabel, statusLabel, localDate, detailFields } from '../lib/permisos-api.js';
-import { buscarPermisos, ligasPermiso, ligasDePermiso, numeroNorm, https as safeHttps } from '../lib/permisos-mapa.js';
+import { buscarPermisos, ligasDePermiso, numeroNorm, https as safeHttps } from '../lib/permisos-mapa.js';
 import { esc, number, plural, skeleton, failure as failureFor, lawBySiglas, PDF_ICON, guideLinkHtml } from './cne-shared.js';
 
 const PAGE = 20;
@@ -76,6 +76,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                 <span class="pm-meta">
                     ${sector ? `<span class="pm-tag">${esc(sector.label)}${activity ? ` · ${esc(activity)}` : ''}</span>` : fuente ? `<span class="pm-tag">${esc(fuente)}</span>` : ''}
                     ${entidad ? `<span>${esc(entidad)}</span>` : ''}
+                    ${resCount(row.ligas)}
                 </span>
             </button>
             <span class="pm-card-tools">${pinButtonHtml(permitPinId(row.numero), { compact: true })}${pdf ? pdfTool(pdf, row.numero) : ''}</span></li>`;
@@ -101,19 +102,27 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                 <button type="button" class="pm-btn" data-page="-1" ${state.start ? '' : 'disabled'}>← Anteriores</button>
                 <button type="button" class="pm-btn" data-page="1" ${to < total ? '' : 'disabled'}>Siguientes →</button>
             </nav>`;
-        llenarPdfs();
+        llenarLigas();
     }
 
-    // Rows of the /api/mapa/buscar fallback come without the title link: it is asked to Ligas_Permisos_CNE only for the visible page.
-    function llenarPdfs() {
+    // Each card asks Ligas_Permisos_CNE for its links: the number of resolutions and, when the row lacks it (the
+    // /api/mapa fallback), the title PDF. Only the visible page; the answer stays on the row for redraws.
+    const resCount = l => (l?.encontrado ? `<span class="pm-res-count">${plural(l.resoluciones.length, 'resolución', 'resoluciones')}</span>` : '');
+    function llenarLigas() {
         const pagina = rows;
-        for (const row of pagina.filter(r => !safeHttps(r.ligaPermiso) && !safeHttps(r.fuenteUrl) && r.numero)) {
-            ligasPermiso(row.numero).then(l => {
-                if (!alive || rows !== pagina || !l.ligaPermiso) return;
-                row.ligaPermiso = l.ligaPermiso;
-                const boton = [...body.querySelectorAll('[data-permit]')].find(b => b.dataset.permit === rowKey(row));
-                boton?.closest('li')?.querySelector('.pm-card-tools')?.insertAdjacentHTML('beforeend', pdfTool(l.ligaPermiso, row.numero));
-            }).catch(() => {});
+        for (const row of pagina.filter(r => r.numero && r.ligas === undefined)) {
+            row.ligas = null;
+            ligasDePermiso(row.numero).then(l => {
+                row.ligas = l;
+                if (!alive || rows !== pagina) return;
+                const li = [...body.querySelectorAll('[data-permit]')].find(b => b.dataset.permit === rowKey(row))?.closest('li');
+                if (!li) return;
+                li.querySelector('.pm-meta')?.insertAdjacentHTML('beforeend', resCount(l));
+                if (l.ligaPermiso && !safeHttps(row.ligaPermiso) && !safeHttps(row.fuenteUrl)) {
+                    row.ligaPermiso = l.ligaPermiso;
+                    li.querySelector('.pm-card-tools')?.insertAdjacentHTML('beforeend', pdfTool(l.ligaPermiso, row.numero));
+                }
+            }).catch(() => { row.ligas = undefined; });
         }
     }
 

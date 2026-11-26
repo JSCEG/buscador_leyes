@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { authorityTag, renderCneView } from '../src/scripts/cne-view.js';
 import { resetTechIndexForTests } from '../src/lib/permit-type.js';
-import { buscarPermisos } from '../src/lib/permisos-mapa.js';
+import { buscarPermisos, ligasDePermiso } from '../src/lib/permisos-mapa.js';
 
 vi.mock('../src/lib/supabase.js', () => ({ supabase: {} }));
 vi.mock('../src/lib/permisos-mapa.js', async original => ({ ...(await original()), buscarPermisos: vi.fn(), ligasDePermiso: vi.fn(async () => ({ encontrado: false, resoluciones: [] })) }));
@@ -16,7 +16,7 @@ describe('permits section', () => {
     document.body.innerHTML = '<div id="h"></div>';
     host = document.getElementById('h');
     resetTechIndexForTests();
-    buscarPermisos.mockResolvedValue({ rows: [row], total: 1 });
+    buscarPermisos.mockResolvedValue({ rows: [{ ...row }], total: 1 });
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('sin red'); }));
   });
   afterEach(() => { view?.destroy(); view = null; vi.unstubAllGlobals(); });
@@ -76,5 +76,11 @@ describe('permits section', () => {
     expect(card).not.toBeNull();
     expect(card.querySelector('.bu-ico svg')).not.toBeNull();
     expect(card.querySelector('.pm-tipo').textContent).toContain('Generación');
+  });
+  it('each card says how many resolutions the permit has, from the Azure links', async () => {
+    ligasDePermiso.mockResolvedValueOnce({ encontrado: true, ligaPermiso: 'https://d/p', ligaResolucion: null, resoluciones: [{ numero: 'RES/1', liga: 'https://d/1' }, { numero: 'RES/2', liga: 'https://d/2' }] });
+    view = renderCneView(host, () => [], {});
+    for (let i = 0; i < 6; i++) await tick();
+    expect(host.querySelector('.pm-card .pm-res-count')?.textContent).toBe('2 resoluciones');
   });
 });
