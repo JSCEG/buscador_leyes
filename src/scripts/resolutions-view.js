@@ -127,6 +127,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
                     <div><dt>Sesión</dt><dd>${actaHtml(row)}</dd></div>
                     <div><dt>Mercado</dt><dd>${esc(row.mercado || '—')}</dd></div>
                 </dl>
+                <p class="pm-note">El proemio y el fundamento legal no están en la base de Azure: consúltalos en el PDF de la resolución.</p>
                 <section class="pm-section" aria-labelledby="pm-res-permits">
                     <h3 id="pm-res-permits">Permisos de esta resolución</h3>
                     <div class="pm-res-permits">${row.permisos.length

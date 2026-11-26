@@ -1,5 +1,6 @@
 // Resolutions, Panorama and Trámites read Azure through /api/permisos/*: never the CNE site.
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync, existsSync } from 'node:fs';
 import { noResultsHint, actaHtml, renderResolutionsView } from '../src/scripts/resolutions-view.js';
 import { collect } from '../src/scripts/cne-panorama-view.js';
 import { recentResolutions } from '../src/scripts/tramites-view.js';
@@ -120,5 +121,16 @@ describe('Panorama and Trámites', () => {
         expect(byType.rows[0]).toMatchObject({ numero: 'CNE/RES/1133/2026', texto: null, href: '#resolucion=CNE%2FRES%2F1133%2F2026' });
         expect(calls[1]).toContain('modalidad=Petrol');
         expect(onlyAzure(calls)).toBe(true);
+    });
+});
+
+describe('no live CNE', () => {
+    it('no client or server code calls the CNE registry or the old /api/cne proxy', () => {
+        for (const file of ['src/lib/cne-api.js', 'src/lib/resoluciones-api.js', 'src/lib/permisos-mapa.js', 'src/scripts/permits-view.js', 'src/scripts/resolutions-view.js',
+            'src/scripts/cne-panorama-view.js', 'src/scripts/tramites-view.js', 'src/scripts/desk-view.js', 'src/scripts/permits-map-view.js', 'server/reader-dev.js']) {
+            expect(readFileSync(file, 'utf8'), file).not.toMatch(/api-creweb|api-publico|\/api\/cne\//);
+        }
+        expect(existsSync('server/cne-proxy.js')).toBe(false);
+        expect(existsSync('functions/api/cne')).toBe(false);
     });
 });

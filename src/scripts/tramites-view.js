@@ -80,7 +80,7 @@ export function renderTramitesView(container, catalog = [], { tramite = null, on
                     <div class="tr-articles"><div class="pm-skel tr-skel"><i></i><i></i><i></i></div></div>
                 </section>
                 ${item.resolutions ? `<section class="pm-section" aria-labelledby="tr-res">
-                    <h3 id="tr-res">Resoluciones recientes de la CNE</h3>
+                    <h3 id="tr-res">Antecedentes recientes</h3>
                     <p class="pm-note">Antecedentes de este tipo de trámite, de lo más reciente a lo más antiguo.</p>
                     <div class="tr-res"><div class="pm-skel tr-skel"><i></i><i></i><i></i></div></div>
                 </section>` : ''}
