@@ -1,0 +1,2 @@
+# Preserve the exact official HTML bytes used by the reproducible SHA check.
+fuente.html -text
