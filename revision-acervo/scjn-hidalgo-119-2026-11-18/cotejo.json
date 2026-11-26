@@ -1,0 +1,223 @@
+{
+ "nota_dof": "5804116",
+ "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/18-11-2026/Matutina/330885",
+ "sha256": "ff30562ae6c0602816142edfa02b6df30deba89bc9044b29a0e76cefab44fc7f",
+ "paginas": [
+  173,
+  198
+ ],
+ "notas_al_pie": 67,
+ "tablas": 5,
+ "celdas": 140,
+ "apartados": [
+  {
+   "id": "3c7b66e8-1638-576c-a317-5c1dd9897a82",
+   "apartado": "Ficha y problemas jurídicos",
+   "paginas": [
+    173
+   ]
+  },
+  {
+   "id": "a1330cfd-0cf3-5581-a4b5-0483361ff5f0",
+   "apartado": "Índice temático",
+   "paginas": [
+    173,
+    174
+   ]
+  },
+  {
+   "id": "44382887-530d-5b77-8966-5798a0544c16",
+   "apartado": "Identificación y presentación de la sentencia",
+   "paginas": [
+    175
+   ]
+  },
+  {
+   "id": "adb783f2-16de-56b1-91c7-5e9fc2d63b10",
+   "apartado": "ANTECEDENTES Y TRÁMITE DE LA DEMANDA",
+   "paginas": [
+    175,
+    176
+   ]
+  },
+  {
+   "id": "43863dc7-6837-505a-8e9c-be5679c53890",
+   "apartado": "I. COMPETENCIA",
+   "paginas": [
+    177
+   ]
+  },
+  {
+   "id": "3ccac0e4-41c9-53d0-8ca9-4dd4f0c3ec51",
+   "apartado": "II. PRECISIÓN Y EXISTENCIA DEL ACTO IMPUGNADO",
+   "paginas": [
+    177
+   ]
+  },
+  {
+   "id": "68554f8b-f4cf-50b3-b7c4-d267878cc829",
+   "apartado": "III. OPORTUNIDAD",
+   "paginas": [
+    177,
+    178
+   ]
+  },
+  {
+   "id": "493da014-368c-5371-98dc-6c21bdd1c8e7",
+   "apartado": "IV. LEGITIMACIÓN",
+   "paginas": [
+    179,
+    180
+   ]
+  },
+  {
+   "id": "08108134-822c-5d78-b752-b96b7ef2986f",
+   "apartado": "V. CAUSAS DE IMPROCEDENCIA Y SOBRESEIMIENTO",
+   "paginas": [
+    181
+   ]
+  },
+  {
+   "id": "3067344b-e672-558b-9d9c-d965ae077d5b",
+   "apartado": "VI. ESTUDIO DE FONDO",
+   "paginas": [
+    181,
+    182,
+    183,
+    184
+   ]
+  },
+  {
+   "id": "936dc18e-9e8b-5476-9d80-2a3b5ad849e0",
+   "apartado": "VI.1 Parámetro constitucional aplicable en materia de hidrocarburos",
+   "paginas": [
+    184,
+    185,
+    186,
+    187,
+    188
+   ]
+  },
+  {
+   "id": "fd1f6fcc-6073-5828-841c-f16e3ab1dd8d",
+   "apartado": "VI.2 Parámetro constitucional aplicable en materia de energía eléctrica",
+   "paginas": [
+    188,
+    189,
+    190
+   ]
+  },
+  {
+   "id": "76ceef66-8d55-5194-b5d8-0651a4e5092b",
+   "apartado": "VI.3 Alcance de las facultades municipales en materia hacendaria, administrativa y de licencias de funcionamiento",
+   "paginas": [
+    191,
+    192,
+    193,
+    194
+   ]
+  },
+  {
+   "id": "9a3af1c8-0bf4-5e0b-9f46-e8370836570b",
+   "apartado": "VI.4 Análisis del caso concreto",
+   "paginas": [
+    194
+   ]
+  },
+  {
+   "id": "4af91569-c84a-510a-bef5-ef8ca2bb9618",
+   "apartado": "Numeral 1: Edificaciones productoras de energía eléctrica",
+   "paginas": [
+    194,
+    195
+   ]
+  },
+  {
+   "id": "f631ac00-e109-5e8b-b695-c68da587a49f",
+   "apartado": "Numerales 2 y 3: Edificaciones para extracción de gas natural y gas no asociado",
+   "paginas": [
+    195,
+    196,
+    197
+   ]
+  },
+  {
+   "id": "ec42c801-e87b-5d1b-8059-3b4828861cdf",
+   "apartado": "VII. EFECTOS",
+   "paginas": [
+    197,
+    198
+   ]
+  },
+  {
+   "id": "d04f47b4-284c-50b4-9f63-4066dd0c890a",
+   "apartado": "VIII. DECISIÓN",
+   "paginas": [
+    198
+   ]
+  },
+  {
+   "id": "b11a75b2-c33c-5651-a62f-ae9fb90f09a7",
+   "apartado": "Resolutivo PRIMERO",
+   "paginas": [
+    198
+   ]
+  },
+  {
+   "id": "00702aff-4b37-572c-a3a9-2f917f1f245a",
+   "apartado": "Resolutivo SEGUNDO",
+   "paginas": [
+    198
+   ]
+  },
+  {
+   "id": "729c8adc-540f-5df1-8856-20beedd26dac",
+   "apartado": "Resolutivo TERCERO",
+   "paginas": [
+    198
+   ]
+  },
+  {
+   "id": "48b80c14-e7c4-5faf-922f-7b3288c6a3ce",
+   "apartado": "Notificaciones, votación y firmas",
+   "paginas": [
+    198
+   ]
+  },
+  {
+   "id": "f6966902-461d-5cd6-abca-291d24e9b6bb",
+   "apartado": "Certificación de la sentencia",
+   "paginas": [
+    198
+   ]
+  },
+  {
+   "id": "c863c806-b35b-5980-8e83-e15da75eb9bc",
+   "apartado": "Notas al pie de la sentencia",
+   "paginas": [
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    192,
+    193,
+    195,
+    196,
+    197,
+    198
+   ]
+  }
+ ]
+}
