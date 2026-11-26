@@ -10,6 +10,8 @@ import { pinButtonHtml } from './desk-view.js';
 import { tramiteForPermit } from '../data/tramites.js';
 import { permitPinId, permitsHash, permitKind, REGISTRY_URL } from '../lib/cne-api.js';
 import { SOURCES, SOURCE, getPermisos, stateLabel, marketLabel, statusLabel, localDate, detailFields } from '../lib/permisos-api.js';
+import { resolucionesDePermiso, fechaLabel } from '../lib/resoluciones-api.js';
+import { actaHtml } from './resolutions-view.js';
 import { buscarPermisos, ligasDePermiso, numeroNorm, https as safeHttps } from '../lib/permisos-mapa.js';
 import { esc, number, plural, skeleton, failure as failureFor, lawBySiglas, PDF_ICON, guideLinkHtml } from './cne-shared.js';
 
@@ -76,7 +78,7 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
                 <span class="pm-meta">
                     ${sector ? `<span class="pm-tag">${esc(sector.label)}${activity ? ` · ${esc(activity)}` : ''}</span>` : fuente ? `<span class="pm-tag">${esc(fuente)}</span>` : ''}
                     ${entidad ? `<span>${esc(entidad)}</span>` : ''}
-                    ${resCount(row.ligas)}
+                    ${resCount(row.resCount)}
                 </span>
             </button>
             <span class="pm-card-tools">${pinButtonHtml(permitPinId(row.numero), { compact: true })}${pdf ? pdfTool(pdf, row.numero) : ''}</span></li>`;
@@ -105,24 +107,27 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
         llenarLigas();
     }
 
-    // Each card asks Ligas_Permisos_CNE for its links: the number of resolutions and, when the row lacks it (the
-    // /api/mapa fallback), the title PDF. Only the visible page; the answer stays on the row for redraws.
-    const resCount = l => (l?.encontrado ? `<span class="pm-res-count">${plural(l.resoluciones.length, 'resolución', 'resoluciones')}</span>` : '');
+    // Each card counts its resolutions in Azure (dbo.Resoluciones_Permisos_CNE; Ligas_Permisos_CNE when that fails)
+    // and, when the row lacks it (the /api/mapa fallback), asks Ligas_Permisos_CNE for the title PDF.
+    // Only the visible page; the answers stay on the row for redraws.
+    const resCount = n => (Number.isInteger(n) ? `<span class="pm-res-count">${plural(n, 'resolución', 'resoluciones')}</span>` : '');
+    const cardOf = row => [...body.querySelectorAll('[data-permit]')].find(b => b.dataset.permit === rowKey(row))?.closest('li');
     function llenarLigas() {
         const pagina = rows;
-        for (const row of pagina.filter(r => r.numero && r.ligas === undefined)) {
-            row.ligas = null;
-            ligasDePermiso(row.numero).then(l => {
-                row.ligas = l;
-                if (!alive || rows !== pagina) return;
-                const li = [...body.querySelectorAll('[data-permit]')].find(b => b.dataset.permit === rowKey(row))?.closest('li');
-                if (!li) return;
-                li.querySelector('.pm-meta')?.insertAdjacentHTML('beforeend', resCount(l));
-                if (l.ligaPermiso && !safeHttps(row.ligaPermiso) && !safeHttps(row.fuenteUrl)) {
-                    row.ligaPermiso = l.ligaPermiso;
-                    li.querySelector('.pm-card-tools')?.insertAdjacentHTML('beforeend', pdfTool(l.ligaPermiso, row.numero));
-                }
-            }).catch(() => { row.ligas = undefined; });
+        for (const row of pagina.filter(r => r.numero && r.resCount === undefined)) {
+            row.resCount = null;
+            const sinPdf = !safeHttps(row.ligaPermiso) && !safeHttps(row.fuenteUrl);
+            const ligas = sinPdf ? ligasDePermiso(row.numero) : null;
+            resolucionesDePermiso(row.numero).then(list => list.length, () => ligas || ligasDePermiso(row.numero).then(l => (l.encontrado ? l.resoluciones.length : null)))
+                .then(n => {
+                    row.resCount = n;
+                    if (alive && rows === pagina && Number.isInteger(n)) cardOf(row)?.querySelector('.pm-meta')?.insertAdjacentHTML('beforeend', resCount(n));
+                }).catch(() => { row.resCount = undefined; });
+            ligas?.then(l => {
+                if (!l.ligaPermiso || !alive || rows !== pagina) return;
+                row.ligaPermiso = l.ligaPermiso;
+                cardOf(row)?.querySelector('.pm-card-tools')?.insertAdjacentHTML('beforeend', pdfTool(l.ligaPermiso, row.numero));
+            }).catch(() => {});
         }
     }
 
@@ -208,32 +213,50 @@ export function renderPermitsView(container, catalog = [], { onOpenLaw = () => {
             }).catch(() => { /* without the detail the card keeps the fields of the search */ });
         }
 
-        // PDFs of the title and the resolutions (Ligas_Permisos_CNE), each resolution with its number when the table has it.
+        // The resolutions of the permit (dbo.Resoluciones_Permisos_CNE), newest first; the title PDF from
+        // Ligas_Permisos_CNE. Without the resolutions table, the numbers and PDFs of Ligas_Permisos_CNE.
         const resHost = body.querySelector('.pm-res');
         const pdfLink = body.querySelector('[data-pdf-link]');
-        ligasDePermiso(row.numero).then(hit => {
-            if (!alive || !resHost.isConnected) return;
+        const ligas = ligasDePermiso(row.numero);
+        ligas.then(hit => {
             const tituloPdf = hit.ligaPermiso || pdfInicial;
-            if (tituloPdf && pdfLink.isConnected) { pdfLink.href = tituloPdf; pdfLink.hidden = false; }
+            if (alive && tituloPdf && pdfLink.isConnected) { pdfLink.href = tituloPdf; pdfLink.hidden = false; }
+        }).catch(() => {});
+        const pdfHtml = (url, resNum) => (url
+            ? `<a class="pm-res-pdf" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(resNum || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>`
+            : '<span class="pm-note">PDF aún no publicado</span>');
+        const none = '<p class="pm-note">No hay resoluciones registradas para este permiso.</p>';
+        resolucionesDePermiso(row.numero).then(list => {
+            if (!alive || !resHost.isConnected) return;
+            resHost.innerHTML = list.length ? `<ol class="pm-timeline">${list.map((res, i) => `
+                <li class="${i === 0 ? 'is-first' : ''}">
+                    <time>${esc(fechaLabel(res.fecha) || 'Sin fecha')}</time>
+                    <div>
+                        <p class="pm-res-type">${esc(res.tipo || 'Resolución')}</p>
+                        <p class="pm-res-meta"><b>${esc(res.numero)}</b>${res.acta ? ` · Sesión ${actaHtml(res)}` : ''}${res.modalidad ? ` · ${esc(res.modalidad)}` : ''}</p>
+                        <div class="pm-res-links">
+                            ${pdfHtml(res.ligaResolucion, res.numero)}
+                            <a class="pm-res-more" href="${permitsHash({ resolution: res.numero })}">Detalle</a>
+                        </div>
+                    </div>
+                </li>`).join('')}</ol>` : none;
+        }, () => ligas.then(hit => {
+            if (!alive || !resHost.isConnected) return;
             const docs = [...hit.resoluciones, { numero: null, liga: hit.ligaResolucion }, { numero: null, liga: safeHttps(row.ligaResolucion) }]
                 .filter(d => d.liga || d.numero).reduce((acc, d) => {
                     const previa = d.liga ? acc.find(x => x.liga === d.liga) : null;
                     if (previa) previa.numero ||= d.numero; else acc.push({ ...d });
                     return acc;
                 }, []);
-            resHost.innerHTML = docs.length
-                ? `<ol class="pm-timeline">${docs.map(({ numero: resNum, liga: url }, i) => `
-                    <li class="${i === 0 ? 'is-first' : ''}">
-                        <div>
-                            <p class="pm-res-type">${resNum ? esc(resNum) : 'Resolución'}</p>
-                            <div class="pm-res-links">
-                                ${url ? `<a class="pm-res-pdf" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Ver resolución ${esc(resNum || '')} en PDF">${PDF_ICON}Ver resolución (PDF)</a>` : '<span class="pm-note">PDF aún no publicado</span>'}
-                            </div>
-                        </div>
-                    </li>`).join('')}</ol>`
-                : '<p class="pm-note">No hay resoluciones registradas para este permiso.</p>';
-        }).catch(() => {
-            if (resHost.isConnected) resHost.innerHTML = '<p class="pm-note">No se pudieron cargar las ligas a resoluciones de este permiso.</p>';
+            resHost.innerHTML = docs.length ? `<ol class="pm-timeline">${docs.map(({ numero: resNum, liga: url }, i) => `
+                <li class="${i === 0 ? 'is-first' : ''}">
+                    <div>
+                        <p class="pm-res-type">${resNum ? esc(resNum) : 'Resolución'}</p>
+                        <div class="pm-res-links">${pdfHtml(url, resNum)}</div>
+                    </div>
+                </li>`).join('')}</ol>` : none;
+        })).catch(() => {
+            if (resHost.isConnected) resHost.innerHTML = '<p class="pm-note">No se pudieron cargar las resoluciones de este permiso.</p>';
         });
 
         // "Ver en el mapa" only when the map has this permit with coordinates.

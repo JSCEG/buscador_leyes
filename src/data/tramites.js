@@ -9,7 +9,8 @@
  * - forms: official forms
  * - calls: calls (convocatorias) and their amendments
  * - articles: search in the acervo for the articles about the procedure, limited to `in`
- * - resolutions: filters for the CNE resolutions search (text of the proemio, type)
+ * - resolutions: what the «Resoluciones recientes» box lists. `texto` searches the proemio of the regulatory
+ *   framework (/api/permisos/marco-regulatorio); `modalidad` and `tipo` filter the CNE resolutions with their exact values.
  * - scenario: an everyday situation that calls for this procedure (used by the Reto Jurídico)
  */
 export const TRAMITES = [
@@ -23,7 +24,7 @@ export const TRAMITES = [
         forms: [],
         calls: ['CONV-GEN-2', 'CONV-GEN-2-M1', 'CONV-GEN-2-M2', 'CONV-GEN-2-M3', 'CONV-GEN-2-M4', 'CONV-GEN-1', 'CONV-GEN-1-M1', 'CONV-GEN-1-M2', 'CONV-GEN-1-M3'],
         articles: { query: 'permiso de generación', in: ['LSE', 'RLSE', 'DACG-PERMISOS-GA'] },
-        resolutions: { texto: 'generación de energía eléctrica', tipo: 'Otorgamiento' },
+        resolutions: { texto: 'generación de energía eléctrica' },
     },
     {
         id: 'almacenamiento',
@@ -95,7 +96,7 @@ export const TRAMITES = [
         forms: [],
         calls: [],
         articles: { query: 'permiso petrolíferos', in: ['LSH', 'RLSH'] },
-        resolutions: { modalidad: 'Petrolíferos', tipo: 'Otorgamiento' },
+        resolutions: { modalidad: 'Petrolíferos', tipo: 'Otorgamiento de permiso' },
     },
     {
         id: 'gaslp',
@@ -107,7 +108,7 @@ export const TRAMITES = [
         forms: [],
         calls: [],
         articles: { query: 'gas licuado de petróleo permiso', in: ['LSH', 'RLSH'] },
-        resolutions: { modalidad: 'Gas licuado', tipo: 'Otorgamiento' },
+        resolutions: { modalidad: 'Gas licuado de petróleo', tipo: 'Otorgamiento de permiso' },
     },
     {
         id: 'gasnatural',
@@ -119,7 +120,7 @@ export const TRAMITES = [
         forms: [],
         calls: ['CONV-SISTRANGAS'],
         articles: { query: 'gas natural permiso', in: ['LSH', 'RLSH'] },
-        resolutions: { modalidad: 'Gas natural', tipo: 'Otorgamiento' },
+        resolutions: { modalidad: 'Gas natural', tipo: 'Otorgamiento de permiso' },
     },
     {
         id: 'biocombustibles',

@@ -1,31 +1,18 @@
 /**
  * Panorama tab of the CNE section (#panorama-cne): what the regulator has been resolving — totals,
- * resolutions per year, this year by type and by modality, and the latest resolutions. Every
- * figure is a count the CNE registry returns for a filter (one row per request, a few at a time),
- * kept in this browser for half a day so the registry is not asked again on every visit.
+ * resolutions per year, this year by type and by modality, and the latest resolutions. Every figure comes
+ * from Azure (/api/permisos/resoluciones-conteo, /resoluciones and /permisos, src/lib/resoluciones-api.js),
+ * kept in this browser for half a day. The CNE site is never called live.
  */
-import { countResolutions, searchResolutions, searchPermits, permitsHash, RESOLUTIONS_URL } from '../lib/cne-api.js';
-import { esc, number, plural, dateLabel, failure as failureFor } from './cne-shared.js';
+import { permitsHash, RESOLUTIONS_URL } from '../lib/cne-api.js';
+import { getPermisos } from '../lib/permisos-api.js';
+import { buscarResoluciones, conteoResoluciones, fechaLabel } from '../lib/resoluciones-api.js';
+import { MODES } from './resolutions-view.js';
+import { esc, number, plural, failure as failureFor } from './cne-shared.js';
 
-const STORE_KEY = 'cne-panorama-v1';
+const STORE_KEY = 'cne-panorama-v2';
 const STORE_TTL = 12 * 60 * 60 * 1000;
 const YEARS = 12;
-const TYPES = ['Otorgamiento de permiso', 'Modificación de permiso', 'Terminación de permiso', 'Transferencia de permiso', 'Visitas de verificación', 'Sanción', 'Regulación', 'Varios'];
-const MODES = [
-    { label: 'Electricidad', filter: 'Electricidad' },
-    { label: 'Petrolíferos', filter: 'Petrolíferos' },
-    { label: 'Gas licuado de petróleo', filter: 'Gas licuado' },
-    { label: 'Gas natural', filter: 'Gas natural' },
-    { label: 'Hidrocarburos', filter: 'Hidrocarburos' },
-    { label: 'Otros', filter: 'Otros' },
-];
-
-/** Runs async jobs a few at a time. */
-async function inBatches(jobs, size = 3) {
-    const results = [];
-    for (let i = 0; i < jobs.length; i += size) results.push(...await Promise.all(jobs.slice(i, i + size).map(job => job())));
-    return results;
-}
 
 function readStore() {
     try {
@@ -37,21 +24,21 @@ function writeStore(data) {
     try { localStorage.setItem(STORE_KEY, JSON.stringify({ at: Date.now(), data })); } catch { /* private mode */ }
 }
 
-async function collect() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const years = Array.from({ length: YEARS }, (_, i) => year - YEARS + 1 + i);
-    const [permits, resolutions, ...rest] = await inBatches([
-        () => searchPermits({ length: 1 }).then(r => r.total),
-        () => countResolutions({}),
-        ...years.map(y => () => countResolutions({ fecha: String(y) })),
-        ...TYPES.map(type => () => countResolutions({ fecha: String(year), tipo: type })),
-        ...MODES.map(mode => () => countResolutions({ fecha: String(year), modalidad: mode.filter })),
+/** Figures of the panorama: one count for everything, one for this year and one per modality this year. */
+export async function collect() {
+    const year = new Date().getFullYear();
+    const [permits, all, thisYear, ...modes] = await Promise.all([
+        getPermisos('permisos', { autoridad: 'CNE', pageSize: 1 }).then(r => Number(r?.total) || 0),
+        conteoResoluciones({}),
+        conteoResoluciones({ fecha: String(year) }),
+        ...MODES.map(modalidad => conteoResoluciones({ fecha: String(year), modalidad }).then(r => r.total)),
     ]);
-    const perYear = years.map((y, i) => ({ year: y, count: rest[i] }));
-    const byType = TYPES.map((type, i) => ({ label: type, count: rest[years.length + i] }));
-    const byMode = MODES.map((mode, i) => ({ label: mode.label, count: rest[years.length + TYPES.length + i] }));
-    return { year, permits, resolutions, thisYear: perYear.at(-1).count, perYear, byType, byMode, at: Date.now() };
+    const byYear = new Map(all.porAnio.filter(r => r.anio !== null).map(r => [r.anio, r.total]));
+    const perYear = Array.from({ length: YEARS }, (_, i) => year - YEARS + 1 + i).map(y => ({ year: y, count: byYear.get(y) || 0 }));
+    // Resolutions without a type or a date are counted in the total but have no bar of their own.
+    const byType = thisYear.porTipo.filter(r => r.tipo).map(r => ({ label: r.tipo, count: r.total }));
+    const byMode = MODES.map((label, i) => ({ label, count: modes[i] }));
+    return { year, permits, resolutions: all.total, thisYear: thisYear.total, perYear, byType, byMode, at: Date.now() };
 }
 
 export function renderPanoramaView(container) {
@@ -61,7 +48,7 @@ export function renderPanoramaView(container) {
     root.innerHTML = `
         <p class="pm-status" role="status" aria-live="polite">Reuniendo las cifras de la CNE…</p>
         <div class="pn-body"><div class="pn-kpis">${'<div class="pn-kpi pm-skel"><i></i><i></i></div>'.repeat(4)}</div></div>
-        <p class="pm-source">Fuente: registro público y resoluciones de la <a href="${RESOLUTIONS_URL}" target="_blank" rel="noopener">CNE</a>. Cifras calculadas con los filtros públicos de la CNE; se actualizan cada 12 horas.</p>`;
+        <p class="pm-source">Fuente: registro de permisos y <a href="${RESOLUTIONS_URL}" target="_blank" rel="noopener">resoluciones de la CNE</a>, en la copia que se actualiza cada semana. Las cifras se guardan 12 horas en este navegador.</p>`;
     container.replaceChildren(root);
     const status = root.querySelector('.pm-status');
     const body = root.querySelector('.pn-body');
@@ -85,7 +72,7 @@ export function renderPanoramaView(container) {
                 <a class="pn-kpi" href="${permitsHash({ tab: 'permisos' })}"><b>${number(data.permits)}</b><span>permisos en el registro</span></a>
                 <a class="pn-kpi" href="${permitsHash({ tab: 'resoluciones' })}"><b>${number(data.resolutions)}</b><span>resoluciones publicadas</span></a>
                 <div class="pn-kpi"><b>${number(data.thisYear)}</b><span>resoluciones en ${data.year}</span></div>
-                ${session ? `<a class="pn-kpi" href="${permitsHash({ tab: 'resoluciones' })}"><b>${esc(dateLabel(session.date))}</b><span>última sesión (${esc(session.acta)})${session.count ? `: ${plural(session.count, 'resolución', 'resoluciones')}` : ''}</span></a>` : ''}
+                ${session ? `<a class="pn-kpi" href="${permitsHash({ tab: 'resoluciones', filters: { acta: session.acta } })}"><b>${esc(fechaLabel(session.date) || session.acta)}</b><span>última sesión (${esc(session.acta)})${session.count ? `: ${plural(session.count, 'resolución', 'resoluciones')}` : ''}</span></a>` : ''}
             </div>
             <section class="pm-section pn-years" aria-labelledby="pn-years-title">
                 <h3 id="pn-years-title">Resoluciones por año</h3>
@@ -99,29 +86,28 @@ export function renderPanoramaView(container) {
             </section>
             <div class="pn-grid">
                 <section class="pm-section" aria-labelledby="pn-type-title"><h3 id="pn-type-title">${data.year} por tipo</h3>${bars(data.byType, 'resoluciones', item => ({ fecha: String(data.year), tipo: item.label }))}</section>
-                <section class="pm-section" aria-labelledby="pn-mode-title"><h3 id="pn-mode-title">${data.year} por modalidad</h3>${bars(data.byMode, 'resoluciones', item => ({ fecha: String(data.year), modalidad: MODES.find(mode => mode.label === item.label)?.filter || item.label }))}</section>
+                <section class="pm-section" aria-labelledby="pn-mode-title"><h3 id="pn-mode-title">${data.year} por modalidad</h3>${bars(data.byMode, 'resoluciones', item => ({ fecha: String(data.year), modalidad: item.label }))}</section>
             </div>
             <section class="pm-section" aria-labelledby="pn-latest-title">
                 <h3 id="pn-latest-title">Lo más reciente</h3>
                 ${latest.length ? `<ol class="pn-latest">${latest.map(row => `
-                    <li><a href="${permitsHash({ resolution: row.NumeroResolucion })}">
-                        <span class="pn-latest-top"><b>${esc(row.NumeroResolucion)}</b><time>${esc(dateLabel(row.FechaResolucion))}</time></span>
-                        <span class="pn-latest-type">${esc(row.TipoResolucion || '')}${row.ModalidadResolucion ? ` · ${esc(row.ModalidadResolucion)}` : ''}</span>
-                        <span class="pn-latest-text">${esc(row.Proemio || '')}</span>
+                    <li><a href="${permitsHash({ resolution: row.numero })}">
+                        <span class="pn-latest-top"><b>${esc(row.numero)}</b><time>${esc(fechaLabel(row.fecha))}</time></span>
+                        <span class="pn-latest-type">${esc(row.tipo || '')}${row.modalidad ? ` · ${esc(row.modalidad)}` : ''}</span>
                     </a></li>`).join('')}</ol>` : '<p class="pm-note">Sin resoluciones recientes.</p>'}
             </section>`;
     }
 
     (async () => {
         try {
-            const latestPromise = searchResolutions({}, { length: 8 }).then(r => r.rows).catch(() => []);
+            const latestPromise = buscarResoluciones({}, { pageSize: 8 }).then(r => r.rows).catch(() => []);
             let data = readStore();
             if (!data) { data = await collect(); writeStore(data); }
             const latest = await latestPromise;
             // The latest session: the acta of the newest resolution, and how many it approved.
             const top = latest[0];
-            const session = top?.NumeroActa
-                ? { date: top.FechaResolucion, acta: top.NumeroActa, count: await countResolutions({ acta: top.NumeroActa }).catch(() => 0) }
+            const session = top?.acta
+                ? { date: top.fecha, acta: top.acta, count: await conteoResoluciones({ acta: top.acta }).then(r => r.total).catch(() => 0) }
                 : null;
             if (alive) draw(data, latest, session);
         } catch {
