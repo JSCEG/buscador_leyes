@@ -130,6 +130,10 @@ describe('ligas', () => {
         expect(l).toEqual({ encontrado: true, ligaPermiso: 'https://d/p', ligaResolucion: null, resoluciones: [{ numero: 'RES/003/1994', liga: 'https://d/r1' }, { numero: 'RES/007/1996', liga: 'https://d/r2' }] });
         expect(calls).toHaveLength(1);
     });
+    it('ligasDePermiso: a resolution listed by number before its PDF counts, without a link', async () => {
+        stubRoutes([[/\/api\/permisos\/ligas/, { total: 1, data: [{ numeroPermiso: 'CNE/PL/964/DES/AUT/2026', ligaPermiso: 'https://d/p', ligaResolucion: null, ligasResoluciones: null, numerosResolucion: 'CNE/RES/1379/2026' }] }]]);
+        expect((await ligasDePermiso('CNE/PL/964/DES/AUT/2026')).resoluciones).toEqual([{ numero: 'CNE/RES/1379/2026', liga: null }]);
+    });
     it('ligasDePermiso: falls back to /api/mapa/ligas when /api/permisos fails', async () => {
         const calls = stubRoutes([[/\/api\/permisos\/ligas/, () => json({}, 503)], [/\/api\/mapa\/ligas/, { encontrado: true, ligaPermiso: 'https://d/p', resoluciones: [] }]]);
         expect((await ligasDePermiso('E/1/GEN/2020')).ligaPermiso).toBe('https://d/p');

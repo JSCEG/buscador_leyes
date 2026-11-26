@@ -1,58 +1,55 @@
 /**
- * Resoluciones tab of the CNE section (#resoluciones, #resolucion=<number>): search the CNE
- * resolutions (https://www.cne.gob.mx/Resoluciones/) and read one — its proemio, PDF, the permits
- * it mentions and its legal foundation, with each cited article linked to the acervo when we have it.
+ * Resoluciones tab of the CNE section (#resoluciones, #resolucion=<number>): the CNE resolutions from Azure
+ * (dbo.Resoluciones_CNE through /api/permisos/resoluciones*, src/lib/resoluciones-api.js), newest first, and
+ * one resolution's card — type, modality, date, session, PDF and the permits it touches. The CNE site is
+ * never called live. The proemio and the legal foundation are not in this load, so they are not shown.
  */
 import { emptyState } from '../lib/empty-art.js';
-import {
-    searchResolutions, fetchResolution, resolutionPdfUrl, parseFoundation, permitNumbersIn, permitsHash, RESOLUTIONS_URL,
-} from '../lib/cne-api.js';
-import { getArticleIdsByNumber } from './search-engine.js';
-import { esc, number, plural, dateLabel, skeleton, failure as failureFor, lawByCitedName, PDF_ICON, guideLinkHtml } from './cne-shared.js';
+import { permitsHash, RESOLUTIONS_URL } from '../lib/cne-api.js';
+import { buscarResoluciones, resolucionPorNumero, fechaLabel } from '../lib/resoluciones-api.js';
+import { esc, number, plural, skeleton, failure as failureFor, PDF_ICON, guideLinkHtml } from './cne-shared.js';
 import { tramiteForResolution } from '../data/tramites.js';
 
 const PAGE = 20;
 const failure = what => failureFor(what, RESOLUTIONS_URL);
-const TYPES = ['Otorgamiento de permiso', 'Modificación de permiso', 'Terminación de permiso', 'Transferencia de permiso', 'Negativa permiso',
-    'Revocación de permiso', 'Sanción', 'Visitas de verificación', 'Regulación', 'Autorización de tarifas', 'Recursos de reconsideración', 'Varios'];
-const MODES = ['Electricidad', 'Energía eléctrica', 'Hidrocarburos', 'Petrolíferos', 'Gas natural', 'Gas licuado de petróleo', 'Mercados de Hidrocarburos', 'Otros'];
-const FIRST_YEAR = 1995;
+// Values exactly as dbo.Resoluciones_CNE writes them (the filters match the whole value).
+export const TYPES = ['Otorgamiento de permiso', 'Modificación de permiso', 'Transferencia de permiso', 'Terminación de permiso', 'Revocación de permiso',
+    'Negativa permiso', 'Sanción', 'Visitas de verificación', 'Regulación', 'Autorización de tarifas', 'Recursos de reconsideración', 'Acreditación', 'Varios'];
+export const MODES = ['Electricidad', 'Energía eléctrica', 'Petrolíferos', 'Gas licuado de petróleo', 'Gas natural', 'Hidrocarburos'];
+const FIRST_YEAR = 1994;
 
-/** Note on a detail built from a permit's file because the CNE search has not indexed the resolution yet. */
-export function resolutionSourceNote(row = {}) {
-    return row.desdeExpediente
-        ? '<p class="pm-note">La CNE aún no la publica en su buscador: se muestra lo que trae el expediente del permiso. El proemio y el fundamento aparecerán cuando la indexe.</p>'
-        : '';
-}
-
-/** Body of «Ninguna resolución coincide»: when a number was searched, a recent one may not be indexed yet. */
+/** Body of «Ninguna resolución coincide». */
 export function noResultsHint(numero = '') {
     return String(numero).trim()
-        ? 'Si es reciente, puede que la CNE aún no la publique en su buscador: ábrela desde el expediente de su permiso, en «Detalle y fundamento».'
-        : 'Prueba con menos filtros o con una parte del texto.';
+        ? 'Revisa el número (por ejemplo, CNE/RES/1133/2026) o búscalo como texto.'
+        : 'Prueba con menos filtros o con otra palabra.';
+}
+
+/** The session: a link when its acta has a PDF, plain text otherwise. */
+export function actaHtml(row) {
+    if (!row.acta) return '—';
+    return row.ligaActa ? `<a href="${esc(row.ligaActa)}" target="_blank" rel="noopener">${esc(row.acta)}</a>` : esc(row.acta);
 }
 
 export function renderResolutionsView(container, catalog = [], { resolution = null, filters = null, onRoute = () => {} } = {}) {
-    const state = { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', start: 0 };
+    const state = { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', acta: '', start: 0 };
     let rows = [];
     let total = 0;
     let request = 0;
     let alive = true;
-    const summaries = () => (typeof catalog === 'function' ? catalog() || [] : catalog);
     const thisYear = new Date().getFullYear();
     const years = Array.from({ length: thisYear - FIRST_YEAR + 1 }, (_, i) => thisYear - i);
+    const options = (list, all) => `<option value="">${all}</option>${list.map(v => `<option>${esc(v)}</option>`).join('')}`;
 
     const root = document.createElement('div');
     root.className = 'pm-panel';
     root.innerHTML = `
         <form class="pm-form pm-form-res" role="search" novalidate>
-            <label><span>Número</span><input name="numero" placeholder="Ej. RES/062/2026" autocomplete="off"></label>
-            <label class="pm-wide"><span>Texto de la resolución</span><input name="texto" placeholder="Titular, número de permiso o tema" autocomplete="off"></label>
-            <label><span>Año</span><select name="fecha"><option value="">Todos</option>${years.map(y => `<option>${y}</option>`).join('')}</select></label>
-            <label><span>Tipo</span><input name="tipo" list="pm-res-types" placeholder="Todos" autocomplete="off"></label>
-            <label><span>Modalidad</span><input name="modalidad" list="pm-res-modes" placeholder="Todas" autocomplete="off"></label>
-            <datalist id="pm-res-types">${TYPES.map(t => `<option value="${esc(t)}">`).join('')}</datalist>
-            <datalist id="pm-res-modes">${MODES.map(t => `<option value="${esc(t)}">`).join('')}</datalist>
+            <label><span>Número</span><input name="numero" placeholder="Ej. CNE/RES/1133/2026" autocomplete="off"></label>
+            <label class="pm-wide"><span>Texto</span><input name="texto" placeholder="Número, tipo, modalidad, acta o mercado" autocomplete="off"></label>
+            <label><span>Año</span><select name="fecha">${options(years, 'Todos')}</select></label>
+            <label><span>Tipo</span><select name="tipo">${options(TYPES, 'Todos')}</select></label>
+            <label><span>Modalidad</span><select name="modalidad">${options(MODES, 'Todas')}</select></label>
             <div class="pm-form-actions">
                 <button type="submit" class="pm-btn pm-btn-primary">Buscar</button>
                 <button type="reset" class="pm-btn">Limpiar</button>
@@ -60,7 +57,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
         </form>
         <p class="pm-status" role="status" aria-live="polite"></p>
         <div class="pm-body"></div>
-        <p class="pm-source">Fuente: <a href="${RESOLUTIONS_URL}" target="_blank" rel="noopener">Resoluciones de la CNE</a>. La información se consulta en vivo; para efectos legales, consulta el documento oficial.</p>`;
+        <p class="pm-source">Fuente: <a href="${RESOLUTIONS_URL}" target="_blank" rel="noopener">Resoluciones de la CNE</a>, en la copia que se actualiza cada semana. Para efectos legales, consulta el documento oficial en PDF.</p>`;
     container.replaceChildren(root);
 
     const form = root.querySelector('form');
@@ -69,13 +66,12 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
 
     function card(row) {
         return `
-            <li><button type="button" class="pm-card pm-res-card" data-resolution="${esc(row.NumeroResolucion)}" data-sector="${sectorOf(row.ModalidadResolucion)}">
-                <span class="pm-card-top"><span class="pm-num">${esc(row.NumeroResolucion)}</span><span class="pm-date">${esc(dateLabel(row.FechaResolucion))}</span></span>
-                <span class="pm-holder pm-res-title">${esc(row.TipoResolucion || 'Resolución')}</span>
-                <span class="pm-alias">${esc(row.Proemio || '')}</span>
-                <span class="pm-meta">${row.ModalidadResolucion ? `<span class="pm-tag">${esc(row.ModalidadResolucion)}</span>` : ''}${row.NumeroActa ? `<span>${esc(row.NumeroActa)}</span>` : ''}</span>
+            <li><button type="button" class="pm-card pm-res-card" data-resolution="${esc(row.numero)}" data-sector="${sectorOf(row.modalidad)}">
+                <span class="pm-card-top"><span class="pm-num">${esc(row.numero)}</span><span class="pm-date">${esc(fechaLabel(row.fecha))}</span></span>
+                <span class="pm-holder pm-res-title">${esc(row.tipo || 'Resolución')}</span>
+                <span class="pm-meta">${row.modalidad ? `<span class="pm-tag">${esc(row.modalidad)}</span>` : ''}${row.acta ? `<span>${esc(row.acta)}</span>` : ''}</span>
             </button>
-            <span class="pm-card-tools"><a class="pm-card-pdf" href="${esc(resolutionPdfUrl(row.ResolucionId))}" target="_blank" rel="noopener" aria-label="Resolución ${esc(row.NumeroResolucion)} en PDF" title="Resolución (PDF)">PDF</a></span></li>`;
+            ${row.ligaResolucion ? `<span class="pm-card-tools"><a class="pm-card-pdf" href="${esc(row.ligaResolucion)}" target="_blank" rel="noopener" aria-label="Resolución ${esc(row.numero)} en PDF" title="Resolución (PDF)">PDF</a></span>` : ''}</li>`;
     }
 
     function drawList() {
@@ -99,7 +95,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
         body.innerHTML = skeleton(6);
         status.textContent = 'Consultando las resoluciones de la CNE…';
         try {
-            const result = await searchResolutions(state, { start: state.start, length: PAGE });
+            const result = await buscarResoluciones(state, { start: state.start, pageSize: PAGE });
             if (!alive || id !== request) return;
             rows = result.rows;
             total = result.total;
@@ -111,87 +107,54 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
         }
     }
 
-    function foundationHtml(text) {
-        const groups = parseFoundation(text);
-        if (!groups.length) return text ? `<p class="pm-note">${esc(text)}</p>` : '<p class="pm-note">La CNE no publica la fundamentación de esta resolución.</p>';
-        return `<ul class="pm-found">${groups.map((group, i) => {
-            const law = lawByCitedName(summaries(), group.law);
-            return `<li data-found="${i}" ${law ? `data-law-id="${esc(law.id)}"` : ''}>
-                <p class="pm-found-law">${law ? `<b>${esc(law.siglas || '')}</b> ` : ''}${esc(group.law)}${law ? '' : ' <small>(no está en el acervo)</small>'}</p>
-                <p class="pm-found-arts">${group.articles.map(n => `<span class="pm-art" data-art="${esc(n)}">Art. ${esc(n)}</span>`).join('')}</p>
-            </li>`;
-        }).join('')}</ul>
-        <details class="pm-found-text"><summary>Texto completo de la fundamentación</summary><p>${esc(text)}</p></details>`;
-    }
-
-    /** Turns the cited articles that exist in the acervo into links. */
-    async function linkFoundation(host, text) {
-        const groups = parseFoundation(text);
-        await Promise.all(groups.map(async (group, i) => {
-            const item = host.querySelector(`[data-found="${i}"][data-law-id]`);
-            if (!item) return;
-            const ids = await getArticleIdsByNumber(item.dataset.lawId, group.articles);
-            if (!alive || !item.isConnected) return;
-            item.querySelectorAll('[data-art]').forEach(span => {
-                const id = ids[span.dataset.art];
-                if (!id) return;
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'pm-art is-linked';
-                button.dataset.article = id;
-                button.textContent = span.textContent;
-                button.title = 'Abrir el artículo';
-                span.replaceWith(button);
-            });
-        }));
-    }
-
     function showResolution(row, { updateRoute = true } = {}) {
-        if (updateRoute) onRoute(row.NumeroResolucion);
-        const permits = permitNumbersIn(row.Proemio);
-        const guide = tramiteForResolution(row);
-        const pdf = resolutionPdfUrl(row.ResolucionId);
+        if (updateRoute) onRoute(row.numero);
+        const guide = tramiteForResolution({ ModalidadResolucion: row.modalidad || '' });
         status.textContent = '';
         body.innerHTML = `
-            <article class="pm-detail" data-sector="${sectorOf(row.ModalidadResolucion)}" aria-labelledby="pm-res-detail-title">
+            <article class="pm-detail" data-sector="${sectorOf(row.modalidad)}" aria-labelledby="pm-res-detail-title">
                 <button type="button" class="pm-back">← Volver a los resultados</button>
                 <div class="pm-detail-head">
-                    <div class="pm-card-top"><span class="pm-num">${esc(row.TipoResolucion || 'Resolución')}${row.ModalidadResolucion ? ` · ${esc(row.ModalidadResolucion)}` : ''}</span><span class="pm-date">${esc(dateLabel(row.FechaResolucion))}</span></div>
-                    <h2 id="pm-res-detail-title">${esc(row.NumeroResolucion)}</h2>
-                    <p class="pm-proemio">${esc(row.Proemio || '')}</p>
+                    <div class="pm-card-top"><span class="pm-num">${esc(row.tipo || 'Resolución')}${row.modalidad ? ` · ${esc(row.modalidad)}` : ''}</span><span class="pm-date">${esc(fechaLabel(row.fecha))}</span></div>
+                    <h2 id="pm-res-detail-title">${esc(row.numero)}</h2>
                     <div class="pm-actions">
-                        ${pdf ? `<a class="pm-btn pm-btn-primary" href="${esc(pdf)}" target="_blank" rel="noopener">${PDF_ICON}Ver resolución (PDF)</a>` : ''}
+                        ${row.ligaResolucion ? `<a class="pm-btn pm-btn-primary" href="${esc(row.ligaResolucion)}" target="_blank" rel="noopener">${PDF_ICON}Ver resolución (PDF)</a>` : ''}
                         <button type="button" class="pm-btn pm-share">Copiar enlace</button>
                     </div>
                 </div>
                 <dl class="pm-facts pm-facts-3">
-                    <div><dt>Fecha</dt><dd>${esc(dateLabel(row.FechaResolucion) || '—')}</dd></div>
-                    <div><dt>Sesión</dt><dd>${esc(row.NumeroActa || '—')}</dd></div>
-                    ${row.Ponente ? `<div><dt>Ponente</dt><dd>${esc(row.Ponente)}</dd></div>` : ''}
+                    <div><dt>Fecha</dt><dd>${esc(fechaLabel(row.fecha) || '—')}</dd></div>
+                    <div><dt>Sesión</dt><dd>${actaHtml(row)}</dd></div>
+                    <div><dt>Mercado</dt><dd>${esc(row.mercado || '—')}</dd></div>
                 </dl>
-                ${resolutionSourceNote(row)}
-                ${permits.length ? `<section class="pm-section" aria-labelledby="pm-res-permits">
-                    <h3 id="pm-res-permits">Permisos que menciona</h3>
-                    <div class="pm-laws">${permits.map(n => `<a class="pm-law" href="${permitsHash({ permit: n })}"><b>Permiso</b><span>${esc(n)}</span></a>`).join('')}</div>
-                </section>` : ''}
-                <section class="pm-section" aria-labelledby="pm-res-found">
-                    <h3 id="pm-res-found">Fundamento legal</h3>
-                    <p class="pm-note">${row.desdeExpediente ? 'Se verá cuando la CNE publique la resolución en su buscador; mientras, consúltalo en el PDF.' : 'Artículos que cita la resolución. Los que están en el acervo se pueden abrir.'}</p>
-                    <div class="pm-found-host">${row.desdeExpediente ? '' : foundationHtml(row.Fundamentacion || '')}</div>
-                    ${guide ? guideLinkHtml(guide, 'Guía de este tipo de trámite') : ''}
+                <p class="pm-note">El proemio y el fundamento legal no están en la base de Azure: consúltalos en el PDF de la resolución.</p>
+                <section class="pm-section" aria-labelledby="pm-res-permits">
+                    <h3 id="pm-res-permits">Permisos de esta resolución</h3>
+                    <div class="pm-res-permits">${row.permisos.length
+                        ? `<div class="pm-laws">${row.permisos.map(p => `<a class="pm-law" href="${permitsHash({ permit: p.numero })}"><b>Permiso</b><span>${esc(p.numero)}</span></a>`).join('')}</div>`
+                        : '<p class="pm-note">Sin permisos asociados en el registro.</p>'}</div>
                 </section>
+                ${guide ? `<section class="pm-section" aria-labelledby="pm-res-guide"><h3 id="pm-res-guide">Guía</h3>${guideLinkHtml(guide, 'Guía de este tipo de trámite')}</section>` : ''}
             </article>`;
         body.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        linkFoundation(body.querySelector('.pm-found-host'), row.Fundamentacion || '').catch(() => {});
 
         body.querySelector('.pm-back').addEventListener('click', () => {
             onRoute(null);
             if (rows.length) drawList(); else load();
         });
         body.querySelector('.pm-share').addEventListener('click', event => {
-            const url = `${location.origin}${location.pathname}${permitsHash({ resolution: row.NumeroResolucion })}`;
+            const url = `${location.origin}${location.pathname}${permitsHash({ resolution: row.numero })}`;
             navigator.clipboard?.writeText(url).then(() => { event.target.textContent = 'Enlace copiado'; }, () => {});
         });
+    }
+
+    /** The card of a list row: asks the full record, which brings the permits. */
+    async function openRow(row) {
+        showResolution(row);
+        try {
+            const full = await resolucionPorNumero(row.numero);
+            if (alive && full && body.querySelector('#pm-res-detail-title')?.textContent === row.numero) showResolution(full, { updateRoute: false });
+        } catch { /* the card keeps the row's data */ }
     }
 
     async function openByNumber(numero) {
@@ -199,7 +162,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
         body.innerHTML = skeleton(2);
         status.textContent = 'Buscando la resolución…';
         try {
-            const row = await fetchResolution(numero);
+            const row = await resolucionPorNumero(numero);
             if (!alive || id !== request) return;
             if (row) { rows = []; showResolution(row, { updateRoute: false }); return; }
             form.numero.value = numero;
@@ -212,26 +175,19 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
         }
     }
 
+    const FIELDS = ['numero', 'texto', 'fecha', 'tipo', 'modalidad'];
     form.addEventListener('submit', event => {
         event.preventDefault();
-        Object.assign(state, {
-            numero: form.numero.value.trim(), texto: form.texto.value.trim(), fecha: form.fecha.value,
-            tipo: form.tipo.value.trim(), modalidad: form.modalidad.value.trim(), start: 0,
-        });
+        Object.assign(state, Object.fromEntries(FIELDS.map(key => [key, form[key].value.trim()])), { acta: '', start: 0 });
         onRoute(null);
         load();
     });
     form.addEventListener('reset', () => {
-        Object.assign(state, { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', start: 0 });
+        Object.assign(state, { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', acta: '', start: 0 });
         onRoute(null);
         setTimeout(load);
     });
     body.addEventListener('click', event => {
-        const article = event.target.closest('[data-article]');
-        if (article) {
-            document.dispatchEvent(new CustomEvent('analisis:openArticle', { detail: { id: article.dataset.article, list: [article.dataset.article] } }));
-            return;
-        }
         const pageButton = event.target.closest('[data-page]');
         if (pageButton) {
             state.start = Math.max(0, state.start + Number(pageButton.dataset.page) * PAGE);
@@ -239,14 +195,19 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
             return;
         }
         const cardButton = event.target.closest('[data-resolution]');
-        const row = cardButton && rows.find(item => item.NumeroResolucion === cardButton.dataset.resolution);
-        if (row) showResolution(row);
+        const row = cardButton && rows.find(item => item.numero === cardButton.dataset.resolution);
+        if (row) openRow(row);
     });
 
     /** Runs a search with the given filters (e.g. from a panorama chart) and shows them in the form. */
     function applyFilters(next = {}) {
-        Object.assign(state, { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', ...next, start: 0 });
-        for (const key of ['numero', 'texto', 'fecha', 'tipo', 'modalidad']) form[key].value = state[key] || '';
+        Object.assign(state, { numero: '', texto: '', fecha: '', tipo: '', modalidad: '', acta: '', ...next, start: 0 });
+        for (const key of FIELDS) {
+            const field = form[key];
+            // A value the select does not list (an older type) still filters: it is added as an option.
+            if (field.tagName === 'SELECT' && state[key] && ![...field.options].some(o => o.value === state[key])) field.add(new Option(state[key], state[key]));
+            field.value = state[key] || '';
+        }
         load();
     }
 
@@ -261,7 +222,7 @@ export function renderResolutionsView(container, catalog = [], { resolution = nu
 
 /** Colour family of a resolution from its modality text. */
 function sectorOf(modalidad = '') {
-    const text = modalidad.toLowerCase();
+    const text = String(modalidad || '').toLowerCase();
     if (/el[eé]ctric/.test(text)) return 'electricidad';
     if (/licuado/.test(text)) return 'gaslp';
     if (/gas natural/.test(text)) return 'gasnatural';

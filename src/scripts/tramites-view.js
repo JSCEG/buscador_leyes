@@ -1,12 +1,14 @@
 /**
  * Trámites tab of the CNE section (#tramites, #tramite=<id>): a guide per kind of permit built only
  * from what the acervo and the CNE publish — the instruments that govern it, its official forms and
- * calls, the articles that mention it (searched live) and recent CNE resolutions of that kind.
+ * calls, the articles that mention it (searched live) and recent resolutions of that kind, from Azure
+ * (src/lib/resoluciones-api.js; the CNE site is never called live).
  */
 import { TRAMITES, tramiteById } from '../data/tramites.js';
-import { searchResolutions, permitsHash } from '../lib/cne-api.js';
+import { permitsHash } from '../lib/cne-api.js';
+import { buscarResoluciones, marcoRegulatorio, fechaLabel } from '../lib/resoluciones-api.js';
 import { searchArticles } from './search-engine.js';
-import { esc, number, dateLabel, lawBySiglas } from './cne-shared.js';
+import { esc, number, lawBySiglas } from './cne-shared.js';
 
 const SECTOR_LABEL = { electricidad: 'Electricidad', petroliferos: 'Petrolíferos', gaslp: 'Gas LP', gasnatural: 'Gas natural', otro: 'Otras energías' };
 const GROUPS = [
@@ -78,7 +80,7 @@ export function renderTramitesView(container, catalog = [], { tramite = null, on
                     <div class="tr-articles"><div class="pm-skel tr-skel"><i></i><i></i><i></i></div></div>
                 </section>
                 ${item.resolutions ? `<section class="pm-section" aria-labelledby="tr-res">
-                    <h3 id="tr-res">Resoluciones recientes de la CNE</h3>
+                    <h3 id="tr-res">Antecedentes recientes</h3>
                     <p class="pm-note">Antecedentes de este tipo de trámite, de lo más reciente a lo más antiguo.</p>
                     <div class="tr-res"><div class="pm-skel tr-skel"><i></i><i></i><i></i></div></div>
                 </section>` : ''}
@@ -114,18 +116,18 @@ export function renderTramitesView(container, catalog = [], { tramite = null, on
 
         const resHost = root.querySelector('.tr-res');
         if (resHost) {
-            searchResolutions(item.resolutions, { length: 6 }).then(({ rows, total }) => {
+            recentResolutions(item.resolutions).then(({ rows, total, note }) => {
                 if (!alive || !resHost.isConnected) return;
                 resHost.innerHTML = rows.length ? `
                     <ol class="pn-latest">${rows.map(row => `
-                        <li><a href="${permitsHash({ resolution: row.NumeroResolucion })}">
-                            <span class="pn-latest-top"><b>${esc(row.NumeroResolucion)}</b><time>${esc(dateLabel(row.FechaResolucion))}</time></span>
-                            <span class="pn-latest-type">${esc(row.TipoResolucion || '')}${row.ModalidadResolucion ? ` · ${esc(row.ModalidadResolucion)}` : ''}</span>
-                            <span class="pn-latest-text">${esc(row.Proemio || '')}</span>
+                        <li><a href="${esc(row.href)}"${row.external ? ' target="_blank" rel="noopener"' : ''}>
+                            <span class="pn-latest-top"><b>${esc(row.numero)}</b><time>${esc(fechaLabel(row.fecha))}</time></span>
+                            ${row.tipo ? `<span class="pn-latest-type">${esc(row.tipo)}</span>` : ''}
+                            ${row.texto ? `<span class="pn-latest-text">${esc(row.texto)}</span>` : ''}
                         </a></li>`).join('')}</ol>
-                    <p class="pm-note tr-res-total">${number(total)} resoluciones de este tipo en el registro de la CNE.</p>`
-                    : '<p class="pm-note">El registro de la CNE no muestra resoluciones de este tipo.</p>';
-            }).catch(() => { if (resHost.isConnected) resHost.innerHTML = '<p class="pm-note">El sitio de la CNE no respondió; intenta de nuevo en un momento.</p>'; });
+                    <p class="pm-note tr-res-total">${esc(note(number(total)))}</p>`
+                    : '<p class="pm-note">El registro no muestra resoluciones de este tipo.</p>';
+            }).catch(() => { if (resHost.isConnected) resHost.innerHTML = '<p class="pm-note">No se pudieron cargar las resoluciones; intenta de nuevo en un momento.</p>'; });
         }
     }
 
@@ -157,4 +159,17 @@ export function renderTramitesView(container, catalog = [], { tramite = null, on
         destroy: () => { alive = false; root.remove(); },
         onRoute,
     };
+}
+
+/**
+ * The newest resolutions of a guide: by text over the proemio of the regulatory framework (it has the text the
+ * CNE resolutions lack in this load) or, with modality and type, the CNE resolutions with those exact values.
+ */
+export async function recentResolutions(filters = {}, { pageSize = 6 } = {}) {
+    if (filters.texto) {
+        const { total, rows } = await marcoRegulatorio({ q: filters.texto }, { pageSize });
+        return { total, note: n => `${n} documentos del marco regulatorio tratan este tema.`, rows: rows.map(r => ({ numero: r.numero, fecha: r.fecha, tipo: r.tipo, texto: r.proemio, href: r.link || permitsHash({ tab: 'resoluciones' }), external: !!r.link })) };
+    }
+    const { total, rows } = await buscarResoluciones({ modalidad: filters.modalidad, tipo: filters.tipo }, { pageSize });
+    return { total, note: n => `${n} resoluciones de este tipo en el registro.`, rows: rows.map(r => ({ numero: r.numero, fecha: r.fecha, tipo: [r.tipo, r.modalidad].filter(Boolean).join(' · '), texto: null, href: permitsHash({ resolution: r.numero }), external: false })) };
 }

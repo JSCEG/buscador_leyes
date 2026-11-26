@@ -138,7 +138,8 @@ export async function ligasPermiso(numero, { signal } = {}) {
 
 /**
  * Ligas de un permiso con /api/permisos/ligas como fuente principal y /api/mapa/ligas de respaldo. Las dos leen
- * Ligas_Permisos_CNE. Las resoluciones llevan su número cuando la tabla lo trae (numerosResolucion, separado por «;»).
+ * Ligas_Permisos_CNE. Las resoluciones llevan su número cuando la tabla lo trae (numerosResolucion, separado por «;»)
+ * y su PDF cuando está publicado (si no, liga null).
  */
 export async function ligasDePermiso(numero, { signal } = {}) {
     try {
@@ -146,9 +147,11 @@ export async function ligasDePermiso(numero, { signal } = {}) {
         const data = res?.data || [];
         const hit = data.find(x => mismoNumero(x.numeroPermiso, numero) || mismoNumero(x.numeroPermisoNorm, numero)) || data[0] || null;
         if (!hit) return { encontrado: false, ligaPermiso: null, ligaResolucion: null, resoluciones: [] };
+        // Number and link go by position; a resolution may be listed by number before its PDF is published (liga null).
         const ligas = String(hit.ligasResoluciones || '').split(';');
         const numeros = String(hit.numerosResolucion || '').split(';');
-        const resoluciones = ligas.map((l, i) => ({ numero: numeros[i]?.trim() || null, liga: https(l) })).filter(r => r.liga);
+        const resoluciones = Array.from({ length: Math.max(ligas.length, numeros.length) }, (_, i) => ({ numero: numeros[i]?.trim() || null, liga: https(ligas[i]) }))
+            .filter(r => r.numero || r.liga);
         return { encontrado: true, ligaPermiso: https(hit.ligaPermiso), ligaResolucion: https(hit.ligaResolucion), resoluciones };
     } catch (e) {
         if (e?.status === 401 || signal?.aborted) throw e;
