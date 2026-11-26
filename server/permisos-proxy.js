@@ -15,6 +15,7 @@ export const MARKETS = ['Petrolíferos', 'Gas natural', 'Gas LP', 'Petróleo cru
 
 const TEXT = /^[\p{L}\p{N} .,;:()/_&'+-]{1,120}$/u;
 const NUMBER = /^[\p{L}\p{N} ./_()-]{1,80}$/u;
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const intIn = (min, max) => value => /^\d{1,6}$/.test(value) && Number(value) >= min && Number(value) <= max;
 
 /** What each query param may hold. */
@@ -32,8 +33,26 @@ const PARAMS = {
     ligero: value => value === 'true',
     page: intIn(1, 100000),
     pageSize: intIn(1, 500),
+    // Resolutions and regulatory framework (dbo.Resoluciones_CNE, dbo.MarcoRegulatorio).
+    modalidad: value => TEXT.test(value),
+    acta: value => NUMBER.test(value),
+    desde: value => ISO_DATE.test(value),
+    hasta: value => ISO_DATE.test(value),
+    orden: value => value === 'fecha_desc' || value === 'fecha_asc',
 };
 const FILTERS = ['tabla', 'autoridad', 'mercado', 'estatus', 'ef', 'mpo', 'tipo', 'numero', 'q', 'page', 'pageSize'];
+const RES_FILTERS = ['q', 'numero', 'tipo', 'modalidad', 'acta', 'desde', 'hasta', 'mercado'];
+// A resolution's market is its own text («Electricidad», «Hidrocarburos»…), not the permits' list.
+const RES_PARAMS = { mercado: value => TEXT.test(value) };
+
+/** A permit or resolution number as path segments (CNE/RES/1133/2026 → CNE/RES/1133/2026), or null. */
+function numberPath(value) {
+    const text = String(value || '').trim();
+    if (!NUMBER.test(text)) return null;
+    const segments = text.split('/');
+    if (segments.some(segment => !segment.trim() || segment === '.' || segment === '..')) return null;
+    return segments.map(encodeURIComponent).join('/');
+}
 
 /** endpoint → { upstream path, allowed params, required params, edge cache seconds } */
 const ENDPOINTS = {
@@ -48,6 +67,12 @@ const ENDPOINTS = {
     'asignaciones-municipios': { path: 'asignaciones/municipios', keys: ['numero', 'estatus', 'mercado', 'tipo', 'ef', 'mpo', 'page', 'pageSize'], seconds: 3600 },
     actualizaciones: { path: 'actualizaciones', keys: ['tabla', 'autoridad', 'page', 'pageSize'], seconds: 600 },
     catalogo: { path: 'catalogo', keys: [], seconds: 86400 },
+    resoluciones: { path: 'resoluciones', keys: [...RES_FILTERS, 'orden', 'page', 'pageSize'], params: RES_PARAMS, seconds: 3600 },
+    'resoluciones-conteo': { path: 'resoluciones/conteo', keys: RES_FILTERS, params: RES_PARAMS, seconds: 3600 },
+    // The number goes in the path: /resoluciones/{numero} and /permisos/{numero}/resoluciones.
+    resolucion: { path: q => `resoluciones/${numberPath(q.get('numero'))}`, pathKey: 'numero', keys: ['numero'], required: ['numero'], seconds: 3600 },
+    'permiso-resoluciones': { path: q => `permisos/${numberPath(q.get('numero'))}/resoluciones`, pathKey: 'numero', keys: ['numero', 'page', 'pageSize'], required: ['numero'], seconds: 3600 },
+    'marco-regulatorio': { path: 'marco-regulatorio', keys: ['q', 'tipo', 'desde', 'hasta', 'orden', 'page', 'pageSize'], seconds: 3600 },
 };
 const TIMEOUT = 30000;
 
@@ -62,13 +87,15 @@ export function upstreamUrl(endpoint, searchParams, base = PERMISOS_API_URL) {
     if (!spec) return null;
     const keys = [...searchParams.keys()];
     if (new Set(keys).size !== keys.length) return null;
-    if (keys.some(key => !spec.keys.includes(key) || !PARAMS[key](searchParams.get(key)))) return null;
+    if (keys.some(key => !spec.keys.includes(key) || !(spec.params?.[key] || PARAMS[key])(searchParams.get(key)))) return null;
     if ((spec.required || []).some(key => !searchParams.get(key))) return null;
     if (searchParams.get('mpo') && !/^\d{2}$/.test(searchParams.get('ef') || '')) return null;
+    if (spec.pathKey && !numberPath(searchParams.get(spec.pathKey))) return null;
+    const path = typeof spec.path === 'function' ? spec.path(searchParams) : spec.path;
     // A stable order, so the same question shares one cache entry.
-    const params = new URLSearchParams(keys.sort().map(key => [key, searchParams.get(key)]));
+    const params = new URLSearchParams(keys.filter(key => key !== spec.pathKey).sort().map(key => [key, searchParams.get(key)]));
     const query = params.toString();
-    return `${base.replace(/\/+$/, '')}/${spec.path}${query ? `?${query}` : ''}`;
+    return `${base.replace(/\/+$/, '')}/${path}${query ? `?${query}` : ''}`;
 }
 
 /**

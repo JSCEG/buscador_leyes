@@ -30,6 +30,26 @@ describe('permits API proxy', () => {
         expect(upstreamUrl('permisos', params('q=<script>'), BASE)).toBeNull();
     });
 
+    it('forwards the resolutions routes, with the number in the path', () => {
+        expect(upstreamUrl('resoluciones', params('orden=fecha_desc&pageSize=20&q=eólica&mercado=Hidrocarburos'), BASE)).toBe(`${BASE}/resoluciones?mercado=Hidrocarburos&orden=fecha_desc&pageSize=20&q=e%C3%B3lica`);
+        expect(upstreamUrl('resoluciones', params('desde=2026-01-01&hasta=2026-12-31&tipo=Otorgamiento de permiso'), BASE)).toContain('desde=2026-01-01&hasta=2026-12-31');
+        expect(upstreamUrl('resolucion', params('numero=CNE/RES/1133/2026'), BASE)).toBe(`${BASE}/resoluciones/CNE/RES/1133/2026`);
+        expect(upstreamUrl('permiso-resoluciones', params('numero=E/73/GEN/2026'), BASE)).toBe(`${BASE}/permisos/E/73/GEN/2026/resoluciones`);
+        expect(upstreamUrl('resoluciones-conteo', params('modalidad=Electricidad'), BASE)).toBe(`${BASE}/resoluciones/conteo?modalidad=Electricidad`);
+        expect(upstreamUrl('marco-regulatorio', params('q=autoconsumo&pageSize=6'), BASE)).toBe(`${BASE}/marco-regulatorio?pageSize=6&q=autoconsumo`);
+    });
+
+    it('rejects bad resolution params and path tricks', () => {
+        expect(upstreamUrl('resolucion', params(''), BASE)).toBeNull();
+        expect(upstreamUrl('resolucion', params('numero=../admin'), BASE)).toBeNull();
+        expect(upstreamUrl('resolucion', params('numero=CNE//RES'), BASE)).toBeNull();
+        expect(upstreamUrl('resolucion', params('numero=a?b'), BASE)).toBeNull();
+        expect(upstreamUrl('resoluciones', params('desde=2026/01/01'), BASE)).toBeNull();
+        expect(upstreamUrl('resoluciones', params('orden=random'), BASE)).toBeNull();
+        expect(upstreamUrl('resoluciones-conteo', params('page=2'), BASE)).toBeNull();
+        expect(upstreamUrl('marco-regulatorio', params('modalidad=x'), BASE)).toBeNull();
+    });
+
     it('sends the key upstream, never to the browser, and caches the answer', async () => {
         const seen = [];
         const fetcher = async (url, init) => { seen.push({ url, key: init.headers['X-Api-Key'] }); return new Response('{"total":1,"data":[]}', { status: 200 }); };
