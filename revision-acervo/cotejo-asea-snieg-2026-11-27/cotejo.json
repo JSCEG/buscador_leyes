@@ -1,0 +1,57 @@
+[
+  {
+    "id": "41b2fa38-fce1-5930-8162-2dcd84145e44",
+    "apartado": "Numeral 4.6",
+    "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/05-10-2026/Matutina/330025",
+    "sha256Pdf": "83c8aaff9f1162268aebcc63cf38106e82c5242d9a9f8dc101575bc5849eec49",
+    "paginas": [
+      16
+    ],
+    "lineas": 4,
+    "sha256Texto": "8565318dbeb7bf4ac9bd011ce3e4ba231cb6d9ffabad7bf3fd7506100745088f"
+  },
+  {
+    "id": "000a3eec-1230-53f6-8c9a-9abc99e81d1f",
+    "apartado": "Numeral 5.1",
+    "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/05-10-2026/Matutina/330025",
+    "sha256Pdf": "83c8aaff9f1162268aebcc63cf38106e82c5242d9a9f8dc101575bc5849eec49",
+    "paginas": [
+      16
+    ],
+    "lineas": 13,
+    "sha256Texto": "ec940b1811b4391b4a5d02d42fa5c101b03186ef26ee5473f0cef2d4d41a0b31"
+  },
+  {
+    "id": "0d632032-ea82-560a-87f8-d34c89e50852",
+    "apartado": "Preámbulo y considerandos",
+    "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601",
+    "sha256Pdf": "fd0f00ae1f140ae00bca0e33184f51904b2522221f7d27e82219a9b952c942e8",
+    "paginas": [
+      146
+    ],
+    "lineas": 59,
+    "sha256Texto": "8f15c53a5b6928b136c39dc07f0b8b1d829f7916d289385b9f61baebc1cc255b"
+  },
+  {
+    "id": "14c4d1b6-207b-5444-adc3-ef804be67395",
+    "apartado": "Resolutivo Primero · Indicadores 19 y 20",
+    "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601",
+    "sha256Pdf": "fd0f00ae1f140ae00bca0e33184f51904b2522221f7d27e82219a9b952c942e8",
+    "paginas": [
+      147
+    ],
+    "lineas": 12,
+    "sha256Texto": "fe57c5eefaf738ac6ed4310d8d2bbdd0cbfa153c552168bf3b164c8c7e165769"
+  },
+  {
+    "id": "c1ad6c39-ed03-51b3-9c16-f3a8c92698b2",
+    "apartado": "Transitorio Único · Vigencia y aprobación",
+    "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/08-04-2024/Matutina/312601",
+    "sha256Pdf": "fd0f00ae1f140ae00bca0e33184f51904b2522221f7d27e82219a9b952c942e8",
+    "paginas": [
+      147
+    ],
+    "lineas": 11,
+    "sha256Texto": "acb37a546fcc2f9d7dc6b65d175091ae173ff5f7ff606930571e740de8ad742b"
+  }
+]

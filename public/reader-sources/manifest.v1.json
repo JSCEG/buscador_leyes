@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 130,
-  "verifiedAt": "2026-11-27T18:04:58.850038Z",
+  "revision": 131,
+  "verifiedAt": "2026-11-27T18:10:58.784021Z",
   "sources": {
     "lcne-7c13fd20564f": {
       "id": "lcne-7c13fd20564f",
@@ -1250560,7 +1250560,7 @@
       "sourceId": "dof-matutina-2024-04-08-fd0f00ae1f14",
       "label": "Preámbulo y considerandos",
       "type": "preambulo",
-      "contentSha256": "6ee77a4a1fee3f8cad8ac85752906f8d5e98baccf1370731c51fda3a593dcaec",
+      "contentSha256": "8f15c53a5b6928b136c39dc07f0b8b1d829f7916d289385b9f61baebc1cc255b",
       "pageNumbers": [
         146
       ],
@@ -1251333,7 +1251333,7 @@
       "sourceId": "dof-matutina-2024-04-08-fd0f00ae1f14",
       "label": "Transitorio Único · Vigencia y aprobación",
       "type": "transitorio",
-      "contentSha256": "ed9ed3a0306efe228b1f326b7479dec73564bcb79ba5e73dabcf4472f4bbd2f6",
+      "contentSha256": "acb37a546fcc2f9d7dc6b65d175091ae173ff5f7ff606930571e740de8ad742b",
       "pageNumbers": [
         147
       ],
@@ -1279945,7 +1279945,7 @@
       "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
       "label": "Numeral 4.6",
       "type": "ordinario",
-      "contentSha256": "aefe0536ada182dfbf6eb191e984ff867634d846c3faa43ca932e7fa7316b55f",
+      "contentSha256": "8565318dbeb7bf4ac9bd011ce3e4ba231cb6d9ffabad7bf3fd7506100745088f",
       "pageNumbers": [
         16
       ],
@@ -1279985,7 +1279985,18 @@
             472.39556884765625,
             91.84205627441406
           ]
-        },
+        }
+      ]
+    },
+    "000a3eec-1230-53f6-8c9a-9abc99e81d1f": {
+      "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
+      "label": "Numeral 5.1",
+      "type": "ordinario",
+      "contentSha256": "ec940b1811b4391b4a5d02d42fa5c101b03186ef26ee5473f0cef2d4d41a0b31",
+      "pageNumbers": [
+        16
+      ],
+      "anchors": [
         {
           "page": 16,
           "bbox": [
@@ -1280003,18 +1280014,7 @@
             394.6193542480469,
             108.46504211425781
           ]
-        }
-      ]
-    },
-    "000a3eec-1230-53f6-8c9a-9abc99e81d1f": {
-      "sourceId": "dof-matutina-2026-10-05-83c8aaff9f11",
-      "label": "Numeral 5.1",
-      "type": "ordinario",
-      "contentSha256": "3ab00b74470ee621e67df0bcaafd9aaad8da506052acfeedcdbf7eb25953d7ad",
-      "pageNumbers": [
-        16
-      ],
-      "anchors": [
+        },
         {
           "page": 16,
           "bbox": [
