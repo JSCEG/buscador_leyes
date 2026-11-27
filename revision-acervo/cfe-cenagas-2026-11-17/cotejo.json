@@ -1,0 +1,46 @@
+{
+  "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/17-11-2026/Matutina/330845",
+  "sha256": "0ab540b3ca7ac1366020051bfe46ea81263040425c1cd88b39fdded07f3d8f55",
+  "avisos": [
+    {
+      "folio": "CFE-0400-CASAT-0003-2026",
+      "sede": "Centro",
+      "registro": "(R.- 582383)",
+      "pagina": 169,
+      "fuente": "https://sidof.segob.gob.mx/notas/5804011",
+      "sha256Html": "4a7a061b8ab53ca68cd38ddb170b7e47d6508a27967ba566f952e564be5558d1",
+      "celdasCotejadas": 16,
+      "lineas": 36
+    },
+    {
+      "folio": "CFE-0001-CASAT-0077-2026",
+      "sede": "Villa Reyes",
+      "registro": "(R.- 582330)",
+      "pagina": 170,
+      "fuente": "https://sidof.segob.gob.mx/notas/5804060",
+      "sha256Html": "3f337ee249520cb70ffcffae71589d80cde2cc772ff7ada4f70c91a8f60b9f73",
+      "celdasCotejadas": 14,
+      "lineas": 33
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0199-2026",
+      "sede": "Dos Bocas",
+      "registro": "(R.- 582436)",
+      "pagina": 172,
+      "fuente": "https://sidof.segob.gob.mx/notas/5804062",
+      "sha256Html": "8f2afe3f45fd3c25bdd6ccb577072ea806fc380ae0fc93e1ff93cf32ffcb74ce",
+      "celdasCotejadas": 15,
+      "lineas": 36
+    },
+    {
+      "folio": "LA-18-TON-018TON999-N-74-2026",
+      "sede": "Matapionche",
+      "registro": "(R.- 582329)",
+      "pagina": 138,
+      "fuente": "https://sidof.segob.gob.mx/notas/5803973",
+      "sha256Html": "1eb10e436b7a5f033854c8a5f2e74763e6f7d7bed9d40d782b13033d97236a32",
+      "celdasCotejadas": 14,
+      "lineas": 58
+    }
+  ]
+}
