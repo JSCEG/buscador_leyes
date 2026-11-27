@@ -10,9 +10,8 @@ afterEach(() => vi.unstubAllGlobals());
 
 it('maps and verifies all official fragments of the original strategic-projects call', async () => {
     vi.stubGlobal('crypto', webcrypto);
-    const excluded = new Set(['Nota editorial · versiones relacionadas', 'Índice de la publicación']);
-    const official = articles.filter(article => !excluded.has(article.identificador));
-    expect(official).toHaveLength(56);
+    const official = articles.filter(article => article.identificador !== 'Nota editorial · versiones relacionadas');
+    expect(official).toHaveLength(57);
     const source = manifest.sources[sourceId];
     expect(source.originalUrl).toBe('https://sidof.segob.gob.mx/notas/getNewsletter/15-05-2026/Vespertina/327345');
     expect(source.instrumentIds).toContain('24110e92-4d4c-5434-b02a-6a1794ee65ff');
@@ -26,5 +25,5 @@ it('maps and verifies all official fragments of the original strategic-projects 
         expect(result.highlights.length, article.identificador).toBeGreaterThan(0);
     }
     expect(manifest.articles[articles.find(article => article.identificador === 'Nota editorial · versiones relacionadas').id]).toBeUndefined();
-    expect(manifest.articles[articles.find(article => article.identificador === 'Índice de la publicación').id]).toBeUndefined();
+    expect(manifest.articles[articles.find(article => article.identificador === 'Índice de la publicación').id].pageNumbers).toEqual([21, 22]);
 });

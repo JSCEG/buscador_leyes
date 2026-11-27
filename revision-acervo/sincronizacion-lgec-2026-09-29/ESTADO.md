@@ -4,7 +4,7 @@ Preparación del 29 de septiembre de 2026. Se cotejaron los **58 fragmentos exis
 
 El manifiesto integra **57 mapas exactos y únicos**: 49 artículos ordinarios, siete transitorios y el bloque complementario de firmas. Los textos se identifican por UUID real y SHA-256 del contenido UTF-8 vigente en Supabase. Cada ubicación usa coordenadas de las líneas del PDF. Se verificaron muestras visuales en las páginas 1, 9 y 20; el mapa recorre las 20 páginas e incluye artículos multipágina.
 
-El **preámbulo del decreto no tiene mapa**. El PDF vigente de Diputados presenta el texto de la Ley y no reproduce íntegro el título y la fórmula de expedición que el acervo guarda en ese fragmento. No se le asignó una página aproximada. El lector conserva el enlace a la publicación oficial del DOF: https://sidof.segob.gob.mx/notas/docFuente/5778439.
+En el cotejo de septiembre quedó pendiente el **preámbulo del decreto**. El PDF vigente de Diputados presenta el texto de la Ley y no reproduce íntegro el título y la fórmula de expedición que el acervo guarda en ese fragmento. No se le asignó una página aproximada. El 27 de noviembre se completó su [mapeo a la página 11 del decreto original](../mapeo-preambulo-indices-2026-11-27/cotejo.json).
 
 La fuente del mapa es el PDF oficial vigente de Diputados: https://www.diputados.gob.mx/LeyesBiblio/pdf/LGEC.pdf. La aplicación consulta esa URL remota por el proxy ya existente; no se guarda el PDF en Git ni se modifican artículos o temas en Supabase. La sincronización verifica versión y contenido, y no determina vigencia jurídica.
 

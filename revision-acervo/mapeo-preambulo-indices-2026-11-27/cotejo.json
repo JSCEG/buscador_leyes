@@ -1,0 +1,71 @@
+{
+  "criterio": "Texto visible completo del fragmento cotejado con las líneas resaltadas del PDF, omitiendo espacios y saltos de línea.",
+  "fragmentos": [
+    {
+      "instrumento": "LGEC",
+      "fragmento": "0d5667b7-1cf4-4901-abdf-b2589ba19283",
+      "nota": "https://dof.gob.mx/nota_detalle.php?codigo=5778439&fecha=19/01/2026",
+      "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/19-01-2026/Matutina/325265",
+      "sha256": "814f5cad780ab0fb9355fd25e214e87391e6b207bfc50d6df23569eb9b17e7c6",
+      "paginas": [
+        {
+          "pagina": 11,
+          "primeraLinea": "DECRETO por el que se expide la Ley General de Economía Circular y, se reforman y adicionan diversas",
+          "ultimaLinea": "LEY GENERAL DE ECONOMÍA CIRCULAR",
+          "lineas": 14
+        }
+      ]
+    },
+    {
+      "instrumento": "CONV-ESTRATEGICOS",
+      "fragmento": "8cd0663b-e736-58c0-8c30-c9f7b29a743d",
+      "nota": "https://sidof.segob.gob.mx/notas/docFuente/5787666",
+      "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/15-05-2026/Vespertina/327345",
+      "sha256": "c06daf5c3f72e1b170cbe01cf1e213f2eab4804a6c1a1db05c7950f2be736ff7",
+      "paginas": [
+        {
+          "pagina": 21,
+          "primeraLinea": "CONTENIDO",
+          "ultimaLinea": "interconexión derivados de los permisos otorgados bajo la Convocatoria de Proyectos Estratégicos.",
+          "lineas": 16
+        },
+        {
+          "pagina": 22,
+          "primeraLinea": "14. Publicación periódica de capacidades y resultados de la Convocatoria de Proyectos Estratégicos.",
+          "ultimaLinea": "19. Anexos.",
+          "lineas": 8
+        }
+      ]
+    },
+    {
+      "instrumento": "CONV-GEN-2",
+      "fragmento": "be579f22-7d68-50f8-8b0b-cf9f8d7e0ce0",
+      "nota": "https://sidof.segob.gob.mx/notas/docFuente/5787117",
+      "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/11-05-2026/Vespertina/327245",
+      "sha256": "f441289bcfc269955d8f63020cb1c25e8cd3bdfa9b65eefd6061a7481bce7a2f",
+      "paginas": [
+        {
+          "pagina": 3,
+          "primeraLinea": "CONTENIDO",
+          "ultimaLinea": "con baterías",
+          "lineas": 26
+        }
+      ]
+    },
+    {
+      "instrumento": "DACG-PERMISOS-GA",
+      "fragmento": "35bac1e8-52b3-50aa-bf28-4209291bfe09",
+      "nota": "https://sidof.segob.gob.mx/notas/docFuente/5770667",
+      "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/23-10-2025/Matutina/323704",
+      "sha256": "0314af26eb12f95ba3de3f838b7bf8821f5a1900f5ad76fd11e42d2e7bc66a7d",
+      "paginas": [
+        {
+          "pagina": 16,
+          "primeraLinea": "ÍNDICE",
+          "ultimaLinea": "Anexo Único. Formatos autorizados",
+          "lineas": 63
+        }
+      ]
+    }
+  ]
+}
