@@ -8,7 +8,29 @@ const manifest = JSON.parse(readFileSync('public/reader-sources/manifest.v1.json
 const packageData = JSON.parse(readFileSync('revision-acervo/incorporacion-nom-em-009-asea-2026-10-05/NOM-EM-009-ASEA-2026-carga.json', 'utf8'));
 const map = JSON.parse(readFileSync('revision-acervo/incorporacion-nom-em-009-asea-2026-10-05/map.json', 'utf8'));
 applyTableCorrections(packageData.articulos,map);
+// La revisión de noviembre se aplica sobre la de tablas de octubre.
+const auditFolder = 'revision-acervo/cotejo-asea-snieg-2026-11-27';
+const reviewedMap = JSON.parse(readFileSync(`${auditFolder}/map.json`, 'utf8')).articles;
+const reviewedTexts = JSON.parse(readFileSync(`${auditFolder}/textos.json`, 'utf8'));
+for (const item of packageData.articulos) {
+    if (Object.hasOwn(reviewedMap, item.id)) {
+        map.articles[item.id] = reviewedMap[item.id];
+        item.contenido = reviewedTexts[item.id];
+    }
+}
 afterEach(() => vi.unstubAllGlobals());
+
+it('keeps the verified text and complete highlight for all five November corrections', async () => {
+    vi.stubGlobal('crypto', webcrypto);
+    expect(Object.keys(reviewedTexts)).toHaveLength(5);
+    expect(Object.keys(reviewedMap).sort()).toEqual(Object.keys(reviewedTexts).sort());
+    for (const [id, articleText] of Object.entries(reviewedTexts)) {
+        expect(manifest.articles[id]).toEqual(reviewedMap[id]);
+        const result = await getReaderSource(id, { articleText, manifest });
+        expect(result.contentVerified).toBe(true);
+        expect(result.highlights).toHaveLength(reviewedMap[id].anchors.length);
+    }
+});
 
 it('verifies each NOM-EM-009 fragment against the October 5 official DOF PDF', async () => {
     vi.stubGlobal('crypto', webcrypto);

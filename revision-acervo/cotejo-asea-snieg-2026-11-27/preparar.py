@@ -38,6 +38,7 @@ def plain(html):
 
 
 entries = {}
+verified_texts = {}
 audit = []
 sql = ["BEGIN;", "DO $repair$", "DECLARE n integer;", "BEGIN"]
 for file, package, group in [
@@ -74,6 +75,7 @@ for file, package, group in [
             digest = sha(expected.encode())
             entry["contentSha256"] = digest
             entries[id] = entry
+            verified_texts[id] = expected
             audit.append(dict(id=id, apartado=entry["label"], pdf=source["originalUrl"], sha256Pdf=source["sha256"],
                               paginas=entry["pageNumbers"], lineas=len(highlighted), sha256Texto=digest))
             if content != expected:
@@ -87,6 +89,6 @@ for file, package, group in [
                 ])
 
 sql.extend(["END;", "$repair$;", "COMMIT;"])
-for name, value in [("map.json", {"articles": entries}), ("cotejo.json", audit)]:
+for name, value in [("map.json", {"articles": entries}), ("cotejo.json", audit), ("textos.json", verified_texts)]:
     (HERE / name).write_bytes((json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode())
 (HERE / "aplicar.sql").write_bytes(("\n".join(sql) + "\n").encode())
