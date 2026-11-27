@@ -1,0 +1,35 @@
+{
+  "nota": "https://sidof.segob.gob.mx/notas/5804408",
+  "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/19-11-2026/Matutina/330927",
+  "sha256": "a44ff18afa678868edfa4d98aa9a6f85139135df190226585635c75671dce395",
+  "apartados": [
+    {
+      "id": "89fe0eb1-e7e0-5ac9-a2c7-53a43cf92391",
+      "apartado": "Convocatoria y fundamento",
+      "pagina": 101,
+      "lineas": 15,
+      "celdas": 0
+    },
+    {
+      "id": "98e2dd5d-3979-5458-ae16-b841f0313806",
+      "apartado": "DEE-CAT-B-GCEE-500-106688-26-1",
+      "pagina": 101,
+      "lineas": 15,
+      "celdas": 11
+    },
+    {
+      "id": "0e7219d4-d223-55f0-9fd7-223f79516c94",
+      "apartado": "DEE-CAT-S-GCEE-500-106680-26-1",
+      "pagina": 102,
+      "lineas": 13,
+      "celdas": 9
+    },
+    {
+      "id": "d021a51d-2413-577a-8d62-c67efe574a73",
+      "apartado": "Condiciones comunes y firma",
+      "pagina": 102,
+      "lineas": 45,
+      "celdas": 0
+    }
+  ]
+}
