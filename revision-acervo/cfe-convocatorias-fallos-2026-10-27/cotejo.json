@@ -1,0 +1,187 @@
+{
+  "pdf": "https://dof.gob.mx/abrirPDF.php?anio=2026&archivo=27102026-MAT.pdf&repo=",
+  "sha256": "5043e1a11443c1b4c12ccc47d4bbc32e5dfe16d16ec1ba89f950e46bac6663ca",
+  "avisos": [
+    {
+      "folio": "CFE-0001-CAAAA-0014-2026",
+      "objeto": "Cables de potencia de las unidades 1 y 3 de Chicoasén",
+      "registro": "(R.- 581603)",
+      "pagina": 145,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802336",
+      "sha256Html": "c3cbf89049089782676644dc29d507afad03f3e9839a7486abf5be32fe7cf8f4",
+      "celdasCotejadas": 14,
+      "lineas": 33
+    },
+    {
+      "folio": "CFE-0004-CACOT-0006-2026",
+      "objeto": "Incremento de capacidad de transformación en la zona Tijuana",
+      "registro": "(R.- 581635)",
+      "pagina": 146,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802255",
+      "sha256Html": "717b896a6f7b2f3a402fc27eda6bf7636041267d332df08c58304360f294aaf7",
+      "celdasCotejadas": 11,
+      "lineas": 42
+    },
+    {
+      "folio": "CFE-0004-CACOT-0007-2026",
+      "objeto": "Modernización de líneas subterráneas en la zona de carga Veracruz",
+      "registro": "(R.- 581631)",
+      "pagina": 147,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802305",
+      "sha256Html": "69f2a16f14dad1f0b49c9aca52681761ac16b8067d4a7ec6168cc8369da31c61",
+      "celdasCotejadas": 11,
+      "lineas": 41
+    },
+    {
+      "folio": "CFE-0004-CACOT-0008-2026",
+      "objeto": "Barras y transformación de la SE Panamericana Pot",
+      "registro": "(R.- 581630)",
+      "pagina": 148,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802242",
+      "sha256Html": "86ae755f18fe21e3c5d903f4885476a4dc5d233bec813c3ed24cc5d99b8525a0",
+      "celdasCotejadas": 11,
+      "lineas": 42
+    },
+    {
+      "folio": "CFE-0004-CACOT-0009-2026",
+      "objeto": "Banco 3 de la SE Francisco Villa",
+      "registro": "(R.- 581629)",
+      "pagina": 149,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802246",
+      "sha256Html": "05a2c5de4242df44c177cf108edeb522b205cbed717cb720d059da343275e685",
+      "celdasCotejadas": 11,
+      "lineas": 41
+    },
+    {
+      "folio": "CFE-0004-CACOA-0010-2026",
+      "objeto": "Banco 2 de la SE Nueva Rosita",
+      "registro": "(R.- 581643)",
+      "pagina": 150,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802328",
+      "sha256Html": "e2173b8a66720488aa9dc391953ca43917c0484a7f7082df353613299d658f18",
+      "celdasCotejadas": 11,
+      "lineas": 42
+    },
+    {
+      "folio": "CFE-0004-CACOA-0011-2026",
+      "objeto": "Modernización de la SE Tijuana I",
+      "registro": "(R.- 581642)",
+      "pagina": 151,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802275",
+      "sha256Html": "5843384ac7ea4ceb8e19e6399d30c17a940e4f3de77f58009e28e87bdea8f9cd",
+      "celdasCotejadas": 11,
+      "lineas": 42
+    },
+    {
+      "folio": "CFE-0004-CACOA-0012-2026",
+      "objeto": "Soporte de tensión en la red de 115 kV de Durango",
+      "registro": "(R.- 581641)",
+      "pagina": 152,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802241",
+      "sha256Html": "bb2575bdb21426eb91c8b9f7480e6eb15b874503c9ca06e00ca85fc90e576b16",
+      "celdasCotejadas": 11,
+      "lineas": 41
+    },
+    {
+      "folio": "CFE-0004-CACOA-0013-2026",
+      "objeto": "Soporte de tensión en la red de 115 kV de La Laguna",
+      "registro": "(R.- 581637)",
+      "pagina": 153,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802252",
+      "sha256Html": "54a74d247a166850a212da13fd070663d5d9116ee2bcda76def70b91359dbb85",
+      "celdasCotejadas": 11,
+      "lineas": 41
+    },
+    {
+      "folio": "CFE-0900-CASAT-0023-2026",
+      "objeto": "Precalentadores de aire de la unidad 6 de la CT Presidente Adolfo López Mateos",
+      "registro": "(R.- 581648)",
+      "pagina": 156,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802262",
+      "sha256Html": "0a92b5f6efefdd5ca7b1f94ad12044ea87dbce8fc45e65feedaa537a32f9f468",
+      "celdasCotejadas": 16,
+      "lineas": 36
+    },
+    {
+      "folio": "CFE-0001-CASAT-0065-2026",
+      "objeto": "Modernización y rehabilitación de grúas de los edificios del reactor",
+      "registro": "(R.- 581568)",
+      "pagina": 157,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802266",
+      "sha256Html": "d1b3a43d0509833cc74a087a15f807c4a89960716e5097c5980b00d14182fbc9",
+      "celdasCotejadas": 14,
+      "lineas": 32
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0177-2026",
+      "objeto": "Compresor y secador de aire de instrumentos para la CT Francisco Villa",
+      "registro": "(R.- 581567)",
+      "pagina": 157,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802329",
+      "sha256Html": "7d56c8ef5b725a448734ee2fbb867d2e6ca0c3f244b1caafcd6d3a6444f8b4d9",
+      "celdasCotejadas": 14,
+      "lineas": 35
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0180-2026",
+      "objeto": "Paredes del generador de vapor y del economizador de la unidad 4 de la CC Valle de México",
+      "registro": "(R.- 581672)",
+      "pagina": 158,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802272",
+      "sha256Html": "dba4447f93859ac86901a865f9115174954d8ae07aa527152477dda2dd1fc133",
+      "celdasCotejadas": 14,
+      "lineas": 33,
+      "observacion": "El aviso imprime 28/20/2026 para aclaraciones y 12/10/2026 para el límite de ofertas y la apertura técnica, anteriores a la publicación en el micrositio (23/10/2026). Las tres celdas se conservan como aparecen en la página 158."
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0182-2026",
+      "objeto": "Interruptores de presión con calificación nuclear RMC-018",
+      "registro": "(R.- 581569)",
+      "pagina": 158,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802318",
+      "sha256Html": "5f770253f507ad4e1aded7b25fad6a9b403f839dd2e759bd36c8df67497b61e1",
+      "celdasCotejadas": 16,
+      "lineas": 35
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0183-2026",
+      "objeto": "Refacciones para sopladores de hollín de la CT Francisco Pérez Ríos",
+      "registro": "(R.- 581608)",
+      "pagina": 159,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802292",
+      "sha256Html": "29141962479dfc3daa67b2c498682afaa734dfdbc720ed50f54572443d97ff8d",
+      "celdasCotejadas": 16,
+      "lineas": 36
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0184-2026",
+      "objeto": "Regulador automático de voltaje para la unidad 7 de la CC Valle de México",
+      "registro": "(R.- 581674)",
+      "pagina": 159,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802254",
+      "sha256Html": "4ff8de11601a8f16fa313dcef4fb3f219e380b80658f32ecfdaae36a724b9440",
+      "celdasCotejadas": 16,
+      "lineas": 50
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0071-2026",
+      "objeto": "Bienes para mantenimiento de la turbina principal y equipos asociados",
+      "registro": "(R.- 581601)",
+      "pagina": 160,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802293",
+      "sha256Html": "15259e3dc3070993173534e47167aa04e13d0a437133104aceeb5e4411ba844a",
+      "celdasCotejadas": 0,
+      "lineas": 18
+    },
+    {
+      "folio": "CFE-0001-CASAT-0031-2026",
+      "objeto": "Pruebas de diagnosis a válvulas nucleares de la CNLV",
+      "registro": "(R.- 581647)",
+      "pagina": 160,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802306",
+      "sha256Html": "7913b58140a9c2e5b67cc391452d2127c05857abe88c11f8ac6288464901bcb1",
+      "celdasCotejadas": 0,
+      "lineas": 17
+    }
+  ]
+}
