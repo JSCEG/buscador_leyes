@@ -1,0 +1,16 @@
+{
+  "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/24-11-2026/Matutina/331066",
+  "sha256": "2551ec92235a932dc8fb31cab81f78d04141219d6566ec4662017b6ecb87d560",
+  "avisos": [
+    {
+      "folio": "CFE-0001-CAAAT-0204-2026",
+      "tema": "Sistemas fotovoltaicos",
+      "registro": "(R.- 582673)",
+      "pagina": 301,
+      "fuente": "https://sidof.segob.gob.mx/notas/5804998",
+      "sha256Html": "8c693e68aee2cc3f82822d78d4e5a067c55865d2a54d1eae69b3448deb414396",
+      "celdasCotejadas": 16,
+      "lineas": 34
+    }
+  ]
+}
