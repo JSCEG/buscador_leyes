@@ -1,0 +1,96 @@
+{
+  "pdf": "https://sidof.segob.gob.mx/notas/getNewsletter/03-11-2026/Matutina/330585",
+  "sha256": "6ac6797686364f04f8fe873754484b18dad23107cced42539dd8a1f351b04af9",
+  "avisos": [
+    {
+      "folio": "CFE-0004-CACOT-0012-2026",
+      "sede": "Tabasco",
+      "registro": "(R.- 581914)",
+      "pagina": 131,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802917",
+      "sha256Html": "7a57a4a1ffb16f07a4a8dc309d7974a24507d0415416ae16906937ea9f00adb6",
+      "celdasCotejadas": 11,
+      "lineas": 41
+    },
+    {
+      "folio": "CFE-0004-CACOT-0013-2026",
+      "sede": "Morelos",
+      "registro": "(R.- 581915)",
+      "pagina": 132,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802921",
+      "sha256Html": "8fb9318b3f65966e13091ab91d33d7177f6e1ba156f9739cd0d63e19552a2928",
+      "celdasCotejadas": 11,
+      "lineas": 42
+    },
+    {
+      "folio": "CFE-0900-CASAT-0024-2026",
+      "sede": "Dos Bocas",
+      "registro": "(R.- 581913)",
+      "pagina": 133,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802929",
+      "sha256Html": "ca4b1f38d54252d83db5b4bc81483ddfc5ca1d945df41c555098ccd5bfca136f",
+      "celdasCotejadas": 16,
+      "lineas": 36
+    },
+    {
+      "folio": "CFE-0700-CAAAT-0030-2026",
+      "sede": "José López Portillo",
+      "registro": "(R.- 581945)",
+      "pagina": 134,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802905",
+      "sha256Html": "6464a23d936170a49293410fa1da20d7799fa2f2976c88d385cc96dc571ab6da",
+      "celdasCotejadas": 12,
+      "lineas": 33
+    },
+    {
+      "folio": "CFE-0001-CASAT-0066-2026",
+      "sede": "Juárez",
+      "registro": "(R.- 581866)",
+      "pagina": 134,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802856",
+      "sha256Html": "71699303f12cf6ed8896c4b014e2e85b8e59bccdf2b4a020f0e2c753c8e2e001",
+      "celdasCotejadas": 16,
+      "lineas": 38
+    },
+    {
+      "folio": "CFE-0001-CASAT-0069-2026",
+      "sede": "Emilio Portes Gil",
+      "registro": "(R.- 581924)",
+      "pagina": 135,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802902",
+      "sha256Html": "86c9060bf69f99d8555a1bb23e08e860112c00716cbc530d79bac7cf053bacc8",
+      "celdasCotejadas": 14,
+      "lineas": 36
+    },
+    {
+      "folio": "CFE-0001-CASAT-0072-2026",
+      "sede": "UME 03 y 04",
+      "registro": "(R.- 581955)",
+      "pagina": 135,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802882",
+      "sha256Html": "7cbcbac0874a6e5f2611be5b0471dfbd83cdc50f6b7641c8ce5c8078ae0c14f9",
+      "celdasCotejadas": 16,
+      "lineas": 36
+    },
+    {
+      "folio": "CFE-0001-CAAAT-0187-2026",
+      "sede": "Emilio Portes Gil",
+      "registro": "(R.- 581838)",
+      "pagina": 136,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802872",
+      "sha256Html": "d75dc9e36e2fce27f93986575420b0006df843d444e9202d5bb4b6d851e8e99d",
+      "celdasCotejadas": 16,
+      "lineas": 46
+    },
+    {
+      "folio": "CFE-0700-CASAN-0049-2026",
+      "sede": "Altamira",
+      "registro": "(R.- 581959)",
+      "pagina": 137,
+      "fuente": "https://sidof.segob.gob.mx/notas/5802887",
+      "sha256Html": "40111403fb906060ee8ce17eaf0faae3cddb343be13e7d28f9dbc3620ebc8c8f",
+      "celdasCotejadas": 14,
+      "lineas": 33
+    }
+  ]
+}
